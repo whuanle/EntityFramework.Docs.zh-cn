@@ -6,11 +6,11 @@ ms.date: 10/27/2016
 ms.assetid: 2533b195-d357-4056-b0e0-8698971bc3b0
 ms.technology: entity-framework-core
 uid: core/saving/disconnected-entities
-ms.openlocfilehash: b9d9662ce277e4f7b3d6f997a5117a0592f59fa3
-ms.sourcegitcommit: c72d85805db0aa95f980514a18381fdc5e17c786
+ms.openlocfilehash: 0ea02876b9594d54c971a7b70fcf7ce591e56ba0
+ms.sourcegitcommit: ced2637bf8cc5964c6daa6c7fcfce501bf9ef6e8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="disconnected-entities"></a>断开连接的实体
 
@@ -19,7 +19,7 @@ DbContext 实例自动将跟踪从数据库中返回的实体。 当调用 SaveC
 但是，有时实体都被查询使用一个上下文实例，然后再保存使用不同的实例。 这通常发生在"已断开连接"的情况下，如 web 应用程序其中实体是查询，发送到客户端、 修改、 发送回在请求中，服务器，然后保存。 在这种情况下，第二个上下文实例要知道实体的新 （应插入） 的需求或现有 （应会更新）。
 
 > [!TIP]  
-> 你可以查看这篇文章[示例](https://github.com/aspnet/EntityFramework.Docs/tree/master/samples/core/Saving/Saving/Disconnected/)GitHub 上。
+> 可在 GitHub 上查看此文章的[示例](https://github.com/aspnet/EntityFramework.Docs/tree/master/samples/core/Saving/Saving/Disconnected/)。
 
 ## <a name="identifying-new-entities"></a>标识新实体
 
@@ -46,7 +46,7 @@ DbContext 实例自动将跟踪从数据库中返回的实体。 当调用 SaveC
 
 ### <a name="with-other-keys"></a>与其他键
 
-标识新实体时不会自动生成密钥的值需要某种其他机制。 有这两种常规方法：
+需要某种其他机制来确定新实体时不会自动生成密钥值。 有这两种常规方法：
  * 实体的查询
  * 一个标志传递从客户端
 
@@ -120,7 +120,7 @@ DbContext 实例自动将跟踪从数据库中返回的实体。 当调用 SaveC
 
 删除可能会很棘手，来处理自实体没有通常意味着应删除。 与此处理的一种方法是使用"软删除"，以便该实体标记为已删除，而不是实际删除。 删除，然后将更新相同。 在使用可实现软删除[查询筛选器](xref:core/querying/filters)。
 
-对于 true 删除一种常见模式是使用扩展的查询模式来执行什么是实质上是关系图差异例如：
+对于 true 删除一种常见模式是使用扩展的查询模式来执行什么是实质上是关系图差异例如:
 
 [!code-csharp[Main](../../../samples/core/Saving/Saving/Disconnected/Sample.cs#InsertUpdateOrDeleteGraphWithFind)]
 

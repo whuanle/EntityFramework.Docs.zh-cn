@@ -6,11 +6,11 @@ ms.date: 8/13/2017
 ms.assetid: 8BD43C8C-63D9-4F3A-B954-7BC518A1B7DB
 ms.technology: entity-framework-core
 uid: core/miscellaneous/1x-2x-upgrade
-ms.openlocfilehash: 0bd1ea2476621f826cca7d4a526a49a1b902acf8
-ms.sourcegitcommit: 860ec5d047342fbc4063a0de881c9861cc1f8813
+ms.openlocfilehash: 380f27c9f00943a2909ec7b876e151572a67dc37
+ms.sourcegitcommit: ced2637bf8cc5964c6daa6c7fcfce501bf9ef6e8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/05/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="upgrading-applications-from-previous-versions-to-ef-core-20"></a>从以前版本的应用程序升级到 EF 核心 2.0
 
@@ -31,9 +31,9 @@ ms.lasthandoff: 11/05/2017
 1. 请参阅尤其[初始化应用程序的服务提供程序的新模式](#new-way-of-getting-application-services)如下所述。
 
 > [!TIP]  
-> 此新模式时更新应用程序迁移到 2.0 强烈建议和 Entity Framework 核心迁移等的产品功能使起作用所需的采用率。 其他常见的替代方法是[实现*IDesignTimeDbContextFactory\<TContext >*](configuring-dbcontext.md#using-idesigntimedbcontextfactorytcontext)。
+> 此新模式时更新应用程序迁移到 2.0 强烈建议和 Entity Framework 核心迁移等的产品功能使起作用所需的采用率。 其他常见的替代方法是[实现*IDesignTimeDbContextFactory\<TContext >*](xref:core/miscellaneous/cli/dbcontext-creation#from-a-design-time-factory)。
 
-2. 面向 ASP.NET 核心 2.0 应用程序可以使用不带除了第三方数据库提供程序的其他依赖项的 EF 核心 2.0。 但是，面向以前版本的 ASP.NET Core 应用程序需要为了使用 EF 核心 2.0 升级到 ASP.NET 核心 2.0。 有关升级到 2.0 的 ASP.NET Core 应用程序的详细信息，请参阅[有关该主题的 ASP.NET 核心文档](https://docs.microsoft.com/aspnet/core/migration/1x-to-2x/)。
+2. 面向 ASP.NET Core 2.0 的应用程序可以使用 EF Core 2.0，而不需要第三方数据库提供程序以外的其他依赖项。 但是，面向以前版本的 ASP.NET Core 应用程序需要为了使用 EF 核心 2.0 升级到 ASP.NET 核心 2.0。 有关升级到 2.0 的 ASP.NET Core 应用程序的详细信息，请参阅[有关该主题的 ASP.NET 核心文档](https://docs.microsoft.com/aspnet/core/migration/1x-to-2x/)。
 
 ## <a name="breaking-changes"></a>重大更改
 
@@ -102,9 +102,9 @@ ASP.NET 核心 2.0 更改也需要使用的工作目录`dotnet ef`为了符合�
 
 注意： 这些更改不应影响大多数应用程序代码。
 
-消息发送到事件 Id [ILogger](https://github.com/aspnet/Logging/blob/dev/src/Microsoft.Extensions.Logging.Abstractions/ILogger.cs) 2.0 中已更改。 事件 Id 是现在唯一的 EF 核心代码。 这些消息现在还可以遵循结构化日志记录由，例如，MVC 的标准模式。
+消息发送到事件 Id [ILogger](https://github.com/aspnet/Logging/blob/dev/src/Microsoft.Extensions.Logging.Abstractions/ILogger.cs) 2.0 中已更改。 现在，事件 ID 在 EF Core 代码内具有唯一性。 这些消息现在还遵循 MVC 等所用的结构化日志记录的标准模式。
 
-记录器类别也已更改。 现在通过访问一组已知的类别有如此多[DbLoggerCategory](https://github.com/aspnet/EntityFramework/blob/dev/src/EFCore/DbLoggerCategory.cs)。
+记录器类别也已更改。 现提供通过 [DbLoggerCategory](https://github.com/aspnet/EntityFramework/blob/dev/src/EFCore/DbLoggerCategory.cs) 访问的熟知类别集。
 
 [DiagnosticSource](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md)事件现在使用相同的事件 ID 名称作为相应`ILogger`消息。 事件负载是派生自的所有名义类型[EventData](https://github.com/aspnet/EntityFramework/blob/dev/src/EFCore/Diagnostics/EventData.cs)。
 
@@ -114,7 +114,7 @@ Id 还从移动 Microsoft.EntityFrameworkCore.Infraestructure 到新 Microsoft.E
 
 ### <a name="ef-core-relational-metadata-api-changes"></a>EF 核心关系元数据 API 更改
 
-EF 核心 2.0 现在将生成不同[IModel](https://github.com/aspnet/EntityFramework/blob/dev/src/EFCore/Metadata/IModel.cs)正在使用的每个不同的提供程序。 这是通常是透明的应用程序。 具有可帮助实现该较低级别的元数据 Api 的简化形式，任何访问到_常见关系的元数据的概念，_始终通过调用建立`.Relational`而不是`.SqlServer`， `.Sqlite`，等等。例如，1.1.x 代码如下：
+EF Core 2.0 现将对所用的每个不同提供程序生成不同的 [IModel](https://github.com/aspnet/EntityFramework/blob/dev/src/EFCore/Metadata/IModel.cs)。 这对应用程序而言通常是透明的。 这有助于简化较低级别的元数据 API，从而始终通过调用 `.Relational`（而不是 `.SqlServer`、`.Sqlite` 等）来访问常见关系元数据概念。例如，1.1.x 代码如下：
 
 ``` csharp
 var tableName = context.Model.FindEntityType(typeof(User)).SqlServer().TableName;
@@ -126,7 +126,7 @@ var tableName = context.Model.FindEntityType(typeof(User)).SqlServer().TableName
 var tableName = context.Model.FindEntityType(typeof(User)).Relational().TableName;
 ```
 
-而不是使用等方法`ForSqlServerToTable`，扩展方法现在都可用于编写基于当前的提供程序中使用的条件代码。 例如：
+而不是使用等方法`ForSqlServerToTable`，扩展方法现在都可用于编写基于当前的提供程序中使用的条件代码。 例如:
 
 ```C#
 modelBuilder.Entity<User>().ToTable(
@@ -143,7 +143,7 @@ EF 核心使用内部`IServiceProvider`（即依赖关系注入容器） 用于�
 
 ### <a name="in-memory-databases-must-be-named"></a>必须命名为内存中数据库
 
-已删除全局未命名的内存中数据库，而是必须命名为内存中的所有数据库。 例如：
+已删除全局未命名的内存中数据库，而是必须命名为内存中的所有数据库。 例如:
 
 ``` csharp
 optionsBuilder.UseInMemoryDatabase("MyDatabase");

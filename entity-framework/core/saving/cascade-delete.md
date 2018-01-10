@@ -16,7 +16,7 @@ ms.lasthandoff: 11/08/2017
 
 级联删除通常在数据库术语用于描述了特性是，它允许自动触发的相关行删除某行的删除。 通过 EF 核心删除行为还介绍密切相关的概念是子实体与父级的关系时自动删除已断开-通常称为"删除孤立文件"此 i。
 
-EF 核心实现几种不同的删除行为，并允许对单个关系的删除行为的配置。 EF 核心还实现自动配置为基于 [requiredness 关系] 每个关系的有用的默认值删除行为的约定 (.../modeling/relationships.md#required-and-optional-relationships)。
+EF 核心实现几种不同的删除行为，并允许对单个关系的删除行为的配置。 EF 核心还实现自动配置为基于 [requiredness 关系](.../modeling/relationships.md#required-and-optional-relationships) 每个关系的有用的默认值删除行为的约定 。
 
 ## <a name="delete-behaviors"></a>删除行为
 删除中定义行为*DeleteBehavior*枚举器类型和可以传递给*OnDelete* fluent API 来控制是否删除主体/父实体或的断开与依赖于/子实体的关系应该对依赖于/子实体具有副作用。

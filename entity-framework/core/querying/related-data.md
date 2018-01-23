@@ -6,11 +6,11 @@ ms.date: 10/27/2016
 ms.assetid: f9fb64e2-6699-4d70-a773-592918c04c19
 ms.technology: entity-framework-core
 uid: core/querying/related-data
-ms.openlocfilehash: cd26bd2e6f85083f73d97b1356d0ba38f53e0b8f
-ms.sourcegitcommit: 01a75cd483c1943ddd6f82af971f07abde20912e
+ms.openlocfilehash: ec69bb128890a1e0b72fe77014f37747585bb5a5
+ms.sourcegitcommit: 3b21a7fdeddc7b3c70d9b7777b72bef61f59216c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="loading-related-data"></a>加载相关的数据
 
@@ -20,7 +20,7 @@ ms.lasthandoff: 10/27/2017
 * **延迟加载**意味着访问导航属性时，相关的数据以透明方式加载从数据库。 延迟加载尚不可能与 EF 核心。
 
 > [!TIP]  
-> 你可以查看这篇文章[示例](https://github.com/aspnet/EntityFramework.Docs/tree/master/samples/core/Querying)GitHub 上。
+> 可在 GitHub 上查看此文章的[示例](https://github.com/aspnet/EntityFramework.Docs/tree/master/samples/core/Querying)。
 
 ## <a name="eager-loading"></a>预先加载
 
@@ -42,6 +42,9 @@ ms.lasthandoff: 10/27/2017
 
 [!code-csharp[Main](../../../samples/core/Querying/Querying/RelatedData/Sample.cs#SingleThenInclude)]
 
+> [!NOTE]  
+> 当前版本的 Visual Studio 提供完成选项的代码不正确，因此会正确的表达式被使用时，标记有语法错误`ThenInclude`方法之后使用的集合导航属性。 这是跟踪在 https://github.com/dotnet/roslyn/issues/8237 IntelliSense bug 的症状。 则可以安全地忽略这些虚假语法错误，只要代码正确无误，并且可以成功编译。 
+
 你可以链接到多个调用`ThenInclude`继续进一步包括的相关数据的级别。
 
 [!code-csharp[Main](../../../samples/core/Querying/Querying/RelatedData/Sample.cs#MultipleThenIncludes)]
@@ -50,7 +53,7 @@ ms.lasthandoff: 10/27/2017
 
 [!code-csharp[Main](../../../samples/core/Querying/Querying/RelatedData/Sample.cs#IncludeTree)]
 
-你可能想要包括一个所包含的实体的多个相关的实体。 例如，当查询`Blog`s，包括`Posts`后想要同时包含这两者`Author`和`Tags`的`Posts`。 若要执行此操作，你需要指定每个包含从根目录开始的路径。 例如， `Blog -> Posts -> Author` 和 `Blog -> Posts -> Tags`。 这并不意味着你将获得冗余联接，在大多数情况下，EF 将合并联接生成 SQL。
+你可能想要包括一个所包含的实体的多个相关的实体。 例如，当查询`Blog`s，包括`Posts`后想要同时包含这两者`Author`和`Tags`的`Posts`。 若要执行此操作，你需要指定每个包含从根目录开始的路径。 例如，`Blog -> Posts -> Author`和`Blog -> Posts -> Tags`。 这并不意味着你将获得冗余联接，在大多数情况下，EF 将合并联接生成 SQL。
 
 [!code-csharp[Main](../../../samples/core/Querying/Querying/RelatedData/Sample.cs#MultipleLeafIncludes)]
 

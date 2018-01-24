@@ -55,7 +55,7 @@
 ##### [序列](core/modeling/relational/sequences.md)
 ##### [默认值](core/modeling/relational/default-values.md)
 ##### [索引](core/modeling/relational/indexes.md)
-##### [Foreign Key Constraints](core/modeling/relational/fk-constraints.md)
+##### [外键约束](core/modeling/relational/fk-constraints.md)
 ##### [备用键（唯一约束）](core/modeling/relational/unique-constraints.md)
 ##### [继承（关系数据库）](core/modeling/relational/inheritance.md)
 
@@ -83,7 +83,7 @@
 
 ### [数据库提供程序](core/providers/index.md)
 #### [Microsoft SQL Server](core/providers/sql-server/index.md)
-##### [Memory-Optimized Tables](core/providers/sql-server/memory-optimized-tables.md)
+##### [内存优化表](core/providers/sql-server/memory-optimized-tables.md)
 #### [SQLite](core/providers/sqlite/index.md)
 ##### [SQLite 限制](core/providers/sqlite/limitations.md)
 #### [PostgreSQL (Npgsql)](core/providers/npgsql/index.md)
@@ -129,11 +129,12 @@
 #### [Microsoft.EntityFrameworkCore.AutoHistory](core/extensions/autohistory.md)
 #### [Microsoft.EntityFrameworkCore.DynamicLinq](core/extensions/dynamiclinq.md)
 #### [Microsoft.EntityFrameworkCore.UnitOfWork](core/extensions/unitofwork.md)
+#### [NeinLinq.EntityFrameworkCore](core/extensions/neinlinq.md)
 
 ### 杂项
 #### [连接字符串](core/miscellaneous/connection-strings.md)
 #### [日志记录](core/miscellaneous/logging.md)
-#### [连接复原](core/miscellaneous/connection-resiliency.md)
+#### [连接弹性](core/miscellaneous/connection-resiliency.md)
 #### [测试](core/miscellaneous/testing/index.md)
 ##### [使用 SQLite 进行测试](core/miscellaneous/testing/sqlite.md)
 ##### [使用 InMemory 进行测试](core/miscellaneous/testing/in-memory.md)

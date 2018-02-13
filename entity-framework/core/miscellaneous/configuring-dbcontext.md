@@ -6,11 +6,11 @@ ms.date: 10/27/2016
 ms.assetid: d7a22b5a-4c5b-4e3b-9897-4d7320fcd13f
 ms.technology: entity-framework-core
 uid: core/miscellaneous/configuring-dbcontext
-ms.openlocfilehash: de26e3b28851d4dc4e50f0490093dd05ad489b31
-ms.sourcegitcommit: ced2637bf8cc5964c6daa6c7fcfce501bf9ef6e8
+ms.openlocfilehash: 6980acd53b0a74055af7a1e04b476f4625c327c9
+ms.sourcegitcommit: d2434edbfa6fbcee7287e33b4915033b796e417e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/12/2018
 ---
 # <a name="configuring-a-dbcontext"></a>配置创建的 DbContext
 
@@ -18,15 +18,15 @@ ms.lasthandoff: 12/22/2017
 
 ## <a name="design-time-dbcontext-configuration"></a>设计时 DbContext 配置
 
-EF 核心设计时工具如[迁移](xref:core/managing-schemas/migrations/index)需要能够发现和创建的工作实例`DbContext`以收集有关应用程序的实体类型以及它们如何映射到数据库架构的详细信息的类型。 此过程可能会自动，只要该工具可以轻松地创建`DbContext`，它将在配置同样到它如何将配置在请运行时的方式。
+EF 核心设计时工具如[迁移](xref:core/managing-schemas/migrations/index)需要能够发现和创建的工作实例`DbContext`以收集有关应用程序的实体类型以及它们如何映射到数据库架构的详细信息的类型。 此过程可能会自动，只要该工具可以轻松地创建`DbContext`，它将在配置同样到它如何将配置在运行时的方式。
 
 尽管提供必要的配置信息到任何模式`DbContext`可在运行时，需要使用的工具`DbContext`在设计时只能处理有限数量的模式。 这些内容中的更详细地介绍[设计时上下文创建](xref:core/miscellaneous/cli/dbcontext-creation)部分。
 
 ## <a name="configuring-dbcontextoptions"></a>配置 DbContextOptions
 
-`DbContext`必须具有的实例`DbContextOptions`才能执行任何工作。 `DbContextOptions`实例传送配置信息，如：
+`DbContext` 必须具有的实例`DbContextOptions`才能执行任何工作。 `DbContextOptions`实例传送配置信息，如：
 
-- 数据库提供程序，若要使用，通常选择通过调用方法，如`UseSqlServer`或`UseSqlite`
+- 数据库提供程序，若要使用，通常选择通过调用方法，如`UseSqlServer`或 `UseSqlite`
 - 任何必要的连接字符串或数据库实例中，标识符通常作为参数传递给上述提供程序选择方法
 - 任何提供程序级别的可选行为的选择器，通常还链接到提供程序选择方法的调用中
 - 任何常规 EF 核心行为选择器，通常链接之后或之前提供程序选择器方法
@@ -108,7 +108,7 @@ using (var context = new BloggingContext())
 
 EF 核心支持使用`DbContext`与依赖关系注入容器。 DbContext 类型可通过使用添加到服务容器`AddDbContext<TContext>`方法。
 
-`AddDbContext<TContext>`将这两种你的 DbContext 类型， `TContext`，和相应`DbContextOptions<TContext>`可用于从服务容器的注入。
+`AddDbContext<TContext>` 将这两种你的 DbContext 类型， `TContext`，和相应`DbContextOptions<TContext>`可用于从服务容器的注入。
 
 请参阅[详细阅读](#more-reading)下面有关依赖关系注入的其他信息。
 

@@ -6,11 +6,11 @@ ms.date: 10/27/2016
 ms.assetid: 9a7c5488-aaf4-4b40-b1ff-f435ff30f6ec
 ms.technology: entity-framework-core
 uid: core/modeling/relational/inheritance
-ms.openlocfilehash: 55286adf08a6a1c3286b7059d747a62e1feffd22
-ms.sourcegitcommit: ced2637bf8cc5964c6daa6c7fcfce501bf9ef6e8
+ms.openlocfilehash: 22eed0002b5903d3cfd18a7e4af0fcd2d46a5c4c
+ms.sourcegitcommit: d2434edbfa6fbcee7287e33b4915033b796e417e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/12/2018
 ---
 # <a name="inheritance-relational-database"></a>继承 （关系数据库）
 
@@ -85,4 +85,52 @@ public class RssBlog : Blog
 {
     public string RssUrl { get; set; }
 }
+```
+
+## <a name="configuring-the-discriminator-property"></a>配置鉴别器属性
+
+在上面的示例中，鉴别器创建作为[隐藏属性](xref:core/modeling/shadow-properties)的基实体的层次结构。 由于这是在模型中的属性，可以将它配置其他属性一样。 例如，若要在使用默认值，通过约定鉴别器时设置的最大长度：
+
+```C#
+modelBuilder.Entity<Blog>()
+    .Property("Discriminator")
+    .HasMaxLength(200);
+```
+
+鉴别器还可以映射到你的实体中的实际 CLR 属性中。 例如:
+```C#
+class MyContext : DbContext
+{
+    public DbSet<Blog> Blogs { get; set; }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<Blog>()
+            .HasDiscriminator<string>("BlogType");
+    }
+}
+
+public class Blog
+{
+    public int BlogId { get; set; }
+    public string Url { get; set; }
+    public string BlogType { get; set; }
+}
+
+public class RssBlog : Blog
+{
+    public string RssUrl { get; set; }
+}
+```
+
+组合这两项操作就可以同时将鉴别器映射到某个实际属性并将其配置：
+```C#
+modelBuilder.Entity<Blog>(b =>
+{
+    b.HasDiscriminator<string>("BlogType");
+
+    b.Property(e => e.BlogType)
+        .HasMaxLength(200)
+        .HasColumnName("blog_type");
+});
 ```

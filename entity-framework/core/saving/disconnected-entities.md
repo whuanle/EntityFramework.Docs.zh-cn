@@ -6,11 +6,11 @@ ms.date: 10/27/2016
 ms.assetid: 2533b195-d357-4056-b0e0-8698971bc3b0
 ms.technology: entity-framework-core
 uid: core/saving/disconnected-entities
-ms.openlocfilehash: 0ea02876b9594d54c971a7b70fcf7ce591e56ba0
-ms.sourcegitcommit: ced2637bf8cc5964c6daa6c7fcfce501bf9ef6e8
+ms.openlocfilehash: 0b145217d40027c4b8e4746e9c5651652a28c9eb
+ms.sourcegitcommit: d2434edbfa6fbcee7287e33b4915033b796e417e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/12/2018
 ---
 # <a name="disconnected-entities"></a>断开连接的实体
 
@@ -20,6 +20,9 @@ DbContext 实例自动将跟踪从数据库中返回的实体。 当调用 SaveC
 
 > [!TIP]  
 > 可在 GitHub 上查看此文章的[示例](https://github.com/aspnet/EntityFramework.Docs/tree/master/samples/core/Saving/Saving/Disconnected/)。
+
+> [!TIP]
+> EF 核心仅可以跟踪任何实体具有给定主键值的一个的实例。 最佳的方法，以避免此问题是让每个工作单元使用的生存期较短的上下文，以便上下文最初为空，具有附加到它，保存这些实体，然后上下文已释放或丢弃的实体。
 
 ## <a name="identifying-new-entities"></a>标识新实体
 
@@ -85,6 +88,10 @@ DbContext 实例自动将跟踪从数据库中返回的实体。 当调用 SaveC
 > SetValues 仅将标记为已修改具有不同的值中的被跟踪实体的属性。 这意味着当发送更新，将更新已实际更改的那些列。 （并且未进行任何更改，如果没有更新将发送根本。）
 
 ## <a name="working-with-graphs"></a>使用关系图
+
+### <a name="identity-resolution"></a>标识解析
+
+如上所述，EF 核心可以仅跟踪任何实体具有给定主键值的一个的实例。 当处理，这样会保留此固定的并且应为仅一个工作单元使用的上下文，理想情况下应创建关系图的关系图。 如果关系图中包含重复项，然后它将需要发送到 EF 合并为一个多个实例之前处理关系图。 这可能不是普通其中实例具有冲突的值和关系，因此应该在你的应用程序管道，以避免冲突解决尽可能快地完成整合重复项。
 
 ### <a name="all-newall-existing-entities"></a>所有新的或所有现有实体
 

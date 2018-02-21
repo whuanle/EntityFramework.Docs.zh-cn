@@ -16,7 +16,7 @@ EF Core 包管理器控制台 (PMC) 工具使用 NuGet 的[包管理器控制台
 这些工具处理的.NET Framework 和.NET 核心项目。
 
 > [!TIP]
-> 未使用 Visual Studio？[EF Core 命令行工具][ 1]是跨平台的工具，可在命令提示符下运行。
+> 未使用 Visual Studio？ [EF Core 命令行工具][1]是跨平台的工具，可在命令提示符下运行。
 
 <a name="installing-the-tools"></a>安装工具
 --------------------
@@ -50,9 +50,9 @@ Get-Help about_EntityFrameworkCore
 
 |                           |                             |
 | ------------------------- | --------------------------- |
-| -Context \<String>        | 要使用的 DbContext。|
-| -Project \<String>        | 要使用的项目。|
-| -StartupProject \<String> | 要使用的启动项目。|
+| -Context \<String>        | 要使用的 DbContext。       |
+| -Project \<String>        | 要使用的项目。         |
+| -StartupProject \<String> | 要使用的启动项目。 |
 | -Verbose                  | 显示详细输出。        |
 
 若要显示有关命令的帮助信息，请使用 PowerShell 的`Get-Help`命令。
@@ -74,11 +74,11 @@ Get-Help about_EntityFrameworkCore
 
 |                                    |                                                                                 |
 | ---------------------------------- | ------------------------------------------------------------------------------- |
-| ***-Name*** \<String>              | 迁移的名称。|
-| <nobr>-OutputDir \<String></nobr>  | 要使用的目录 （及其子命名空间）。路径是相对于项目目录的路径。默认值为“Migrations”。|
+| ***-Name***\<String>              | 迁移的名称。                                                      |
+| <nobr>-OutputDir\<String></nobr>  | 要使用的目录 （及其子命名空间）。 路径是相对于项目目录的路径。 默认值为“Migrations”。 |
 
 > [!NOTE]
->  **粗体**参数是必需的，**斜体参数取决于位置。
+> **粗体**参数是必需的，斜体参数取决于位置。
 
 ### <a name="drop-database"></a>Drop-Database
 
@@ -112,12 +112,12 @@ Get-Help about_EntityFrameworkCore
 
 |                                          |                                                                           |
 | ---------------------------------------- | ------------------------------------------------------------------------- |
-| <nobr>***-Connection*** \<String></nobr> | 数据库的连接字符串。|
-| ***-Provider*** \<String>                | 要使用的提供程序。（例如， Microsoft.EntityFrameworkCore.SqlServer)|
-| -OutputDir \<String>                     | 要将文件放入到其中的目录。路径是相对于项目目录。|
-| -Context \<String>                       | 要生成的 DbContext 的名称。
-| -Schemas \<String[]>                     | 要为其生成实体类型的表的架构。|
-| -Tables \<String[]>                      | 要为其生成实体类型的表。|
+| <nobr>***-Connection***\<String></nobr> | 数据库的连接字符串。                                    |
+| ***-Provider***\<String>                | 要使用的提供程序。 （例如， Microsoft.EntityFrameworkCore.SqlServer)       |
+| -OutputDir\<String>                     | 要将文件放入到其中的目录。 路径是相对于项目目录的路径。 |
+| -Context \<String>                       | 要生成的 DbContext 的名称。                                    |
+| -Schemas\<String [] >                     | 要为其生成实体类型的表的架构。                       |
+| -Tables\<String [] >                      | 要为其生成实体类型的表。                                  |
 | -DataAnnotations                         | 使用属性来配置该模型 （如果可能）。 如果省略，则使用仅 fluent API。 |
 | -UseDatabaseNames                        | 使用直接从数据库表和列名称。                    |
 | -Force                                   | 覆盖现有文件。                                                 |
@@ -130,10 +130,10 @@ Get-Help about_EntityFrameworkCore
 
 |                   |                                                                    |
 | ----------------- | ------------------------------------------------------------------ |
-| *-From* \<String> | 初始迁移。默认值为 0（初始数据库）。|
-| *-To* \<String>   | 结束迁移。默认为最后一次迁移。|
-| -Idempotent       | 生成在进行任何迁移时都可以在数据库上使用的脚本。|
-| -Output \<String> | 要将结果写入到其中的文件。|
+| *-From*\<String> | 初始迁移。 默认值为 0（初始数据库）。      |
+| *-To*\<String>   | 结束迁移。 默认为最后一次迁移。              |
+| -Idempotent       | 生成在进行任何迁移时都可以在数据库上使用的脚本。 |
+| -Output\<String> | 要将结果写入到其中的文件。                                   |
 
 > [!TIP]
 > To、From 和 Output 参数支持选项卡扩展。
@@ -142,7 +142,7 @@ Get-Help about_EntityFrameworkCore
 
 |                                     |                                                                                |
 | ----------------------------------- | ------------------------------------------------------------------------------ |
-| <nobr>*-Migration* \<String></nobr> | 目标迁移。如果为 "0"，将恢复所有迁移。默认为最后一次迁移。|
+| <nobr>*-Migration*\<String></nobr> | 目标迁移。 如果为 "0"，将恢复所有迁移。 默认为最后一次迁移。 |
 
 > [!TIP]
 > Migration 参数支持选项卡扩展。

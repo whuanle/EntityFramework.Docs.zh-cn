@@ -9,11 +9,11 @@ ms.date: 04/05/2017
 ms.assetid: 099d179e-dd7b-4755-8f3c-fcde914bf50b
 ms.technology: entity-framework-core
 uid: core/get-started/netcore/new-db-sqlite
-ms.openlocfilehash: 22fc0446dee71dd0d2402b47d76cc8b7307fbe5f
-ms.sourcegitcommit: 5e2d97e731f975cf3405ff3deab2a3c75ad1b969
+ms.openlocfilehash: 3becf75e7a513a3aa18c3c2daf628b65327365b0
+ms.sourcegitcommit: 0858f157b806f4a881b94ddbeecf1ece1d53e1e0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="getting-started-with-ef-core-on-net-core-console-app-with-a-new-database"></a>使用新数据库在 NET Core 控制台应用程序上开始使用 EF Core
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 11/15/2017
 > [!TIP]  
 > 可在 GitHub 上查看此文章的[示例](https://github.com/aspnet/EntityFramework.Docs/tree/master/samples/core/GetStarted/NetCore/ConsoleApp.SQLite)。
 
-## <a name="prerequisites"></a>先决条件
+## <a name="prerequisites"></a>系统必备
 
 完成本演练需要以下先决条件：
 * 支持 .NET Core 的操作系统。
@@ -59,8 +59,6 @@ dotnet add package Microsoft.EntityFrameworkCore.Design
     <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.0.0" />
   </ItemGroup>
   ```
-
- 注意：未来版本的 `dotnet` 将通过 `dotnet add tool` 支持 DotNetCliToolReferences
 
 `ConsoleApp.SQLite.csproj` 现在应包含以下代码：
 

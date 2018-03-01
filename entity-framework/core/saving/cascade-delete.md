@@ -6,11 +6,11 @@ ms.date: 10/27/2016
 ms.assetid: ee8e14ec-2158-4c9c-96b5-118715e2ed9e
 ms.technology: entity-framework-core
 uid: core/saving/cascade-delete
-ms.openlocfilehash: e1cb194d7c7472af59eb44fe2a084fa16c40c186
-ms.sourcegitcommit: 3b21a7fdeddc7b3c70d9b7777b72bef61f59216c
+ms.openlocfilehash: 1ab9d114e27aac0bec972df631a426c8ce87a518
+ms.sourcegitcommit: b2d94cebdc32edad4fecb07e53fece66437d1b04
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="cascade-delete"></a>级联删除
 
@@ -33,21 +33,21 @@ EF 核心实现几种不同的删除行为，并允许对单个关系的删除�
 
 有四个删除行为，如下面的表中列出。 可选关系 （可以为 null 的外键） 它_是_可以保存 null 外键值，这会导致以下影响：
 
-| 行为名称 | 对内存中的相关/子的影响 | 对依赖于/子数据库中的影响
-|-|-|-
-| **Cascade** | 在删除实体 | 在删除实体
-| **ClientSetNull** （默认） | 外键属性设置为 null | 无
-| **SetNull** | 外键属性设置为 null | 外键属性设置为 null
-| **Restrict** | 无 | 无
+| 行为名称               | 对内存中的相关/子的影响    | 对依赖于/子数据库中的影响  |
+|:----------------------------|:---------------------------------------|:---------------------------------------|
+| **Cascade**                 | 在删除实体                   | 在删除实体                   |
+| **ClientSetNull** （默认） | 外键属性设置为 null | 无                                   |
+| **SetNull**                 | 外键属性设置为 null | 外键属性设置为 null |
+| **Restrict**                | 无                                   | 无                                   |
 
 对于需要关系 （不可为 null 的外键），它是_不_可以保存 null 外键值，这会导致以下影响：
 
-| 行为名称 | 对内存中的相关/子的影响 | 对依赖于/子数据库中的影响
-|-|-|-
-| **级联**（默认） | 在删除实体 | 在删除实体
-| **ClientSetNull** | SaveChanges 引发 | 无
-| **SetNull** | SaveChanges 引发 | SaveChanges 引发
-| **Restrict** | 无 | 无
+| 行为名称         | 对内存中的相关/子的影响 | 对依赖于/子数据库中的影响 |
+|:----------------------|:------------------------------------|:--------------------------------------|
+| **级联**（默认） | 在删除实体                | 在删除实体                  |
+| **ClientSetNull**     | SaveChanges 引发                  | 无                                  |
+| **SetNull**           | SaveChanges 引发                  | SaveChanges 引发                    |
+| **Restrict**          | 无                                | 无                                  |
 
 在上表中，*无*可能会导致违反了约束。 例如，如果主体/子实体已删除，但不执行任何操作，若要更改依赖于/子的外键，则数据库将可能引发上 SaveChanges 由于外约束冲突。
 

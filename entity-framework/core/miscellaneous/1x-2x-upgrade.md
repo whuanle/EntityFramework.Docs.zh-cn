@@ -6,11 +6,11 @@ ms.date: 8/13/2017
 ms.assetid: 8BD43C8C-63D9-4F3A-B954-7BC518A1B7DB
 ms.technology: entity-framework-core
 uid: core/miscellaneous/1x-2x-upgrade
-ms.openlocfilehash: 380f27c9f00943a2909ec7b876e151572a67dc37
-ms.sourcegitcommit: ced2637bf8cc5964c6daa6c7fcfce501bf9ef6e8
+ms.openlocfilehash: 30f4de794d42b1385145286e77c2e7c67987fea6
+ms.sourcegitcommit: b2d94cebdc32edad4fecb07e53fece66437d1b04
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="upgrading-applications-from-previous-versions-to-ef-core-20"></a>从以前版本的应用程序升级到 EF 核心 2.0
 
@@ -68,7 +68,7 @@ namespace AspNetCoreDotNetCore2._0App
 }
 ```
 
-### <a name="idbcontextfactory-renamed"></a>重命名的 IDbContextFactory
+### <a name="idbcontextfactory-renamed"></a>IDbContextFactory renamed
 
 为了支持不同的应用程序模式，并为用户提供更好地控制如何其`DbContext`使用在设计时，我们，在过去，提供了`IDbContextFactory<TContext>`接口。 EF 核心工具将在设计时发现你的项目中的此接口的实现并使用它来创建`DbContext`对象。
 
@@ -78,15 +78,15 @@ namespace AspNetCoreDotNetCore2._0App
 
 为 2.0 版本`IDbContextFactory<TContext>`仍存在，但标记为过时。
 
-### <a name="dbcontextfactoryoptions-removed"></a>DbContextFactoryOptions 删除
+### <a name="dbcontextfactoryoptions-removed"></a>DbContextFactoryOptions removed
 
 由于上面所述的 ASP.NET 核心 2.0 更改，我们发现，`DbContextFactoryOptions`已不再需要在新`IDesignTimeDbContextFactory<TContext>`接口。 以下是应改为使用你选择的选项。
 
-DbContextFactoryOptions | 替代项
---- | ---
-ApplicationBasePath | AppContext.BaseDirectory
-ContentRootPath | Directory.GetCurrentDirectory()
-EnvironmentName | Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT")
+| DbContextFactoryOptions | 替代项                                                  |
+|:------------------------|:-------------------------------------------------------------|
+| ApplicationBasePath     | AppContext.BaseDirectory                                     |
+| ContentRootPath         | Directory.GetCurrentDirectory()                              |
+| EnvironmentName         | Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") |
 
 ### <a name="design-time-working-directory-changed"></a>设计时更改的工作目录
 
@@ -159,7 +159,7 @@ optionsBuilder.UseInMemoryDatabase("MyDatabase");
 
 ### <a name="new-clientsetnull-delete-behavior"></a>新 ClientSetNull 删除行为
 
-在以前版本中， [DeleteBehavior.Restrict](https://github.com/aspnet/EntityFramework/blob/dev/src/EFCore/Metadata/DeleteBehavior.cs)具有的实体的行为由上下文跟踪的详细信息关闭匹配`SetNull`语义。 在 EF 核心 2.0 中，新`ClientSetNull`作为的默认值为可选关系引入了行为。 此行为具有`SetNull`语义跟踪的实体和`Restrict`创建使用 EF 核心的数据库的行为。 在我们的经验，它们是跟踪的实体和数据库最预期/有用的行为。 `DeleteBehavior.Restrict`现在会遵循的跟踪时设置的可选关系的实体。
+在以前版本中， [DeleteBehavior.Restrict](https://github.com/aspnet/EntityFramework/blob/dev/src/EFCore/Metadata/DeleteBehavior.cs)具有的实体的行为由上下文跟踪的详细信息关闭匹配`SetNull`语义。 在 EF 核心 2.0 中，新`ClientSetNull`作为的默认值为可选关系引入了行为。 此行为具有`SetNull`语义跟踪的实体和`Restrict`创建使用 EF 核心的数据库的行为。 在我们的经验，它们是跟踪的实体和数据库最预期/有用的行为。 `DeleteBehavior.Restrict` 现在会遵循的跟踪时设置的可选关系的实体。
 
 ### <a name="provider-design-time-packages-removed"></a>删除的提供程序设计时包
 

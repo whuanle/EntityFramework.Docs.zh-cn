@@ -6,18 +6,18 @@ ms.date: 10/27/2016
 ms.assetid: d3e6515b-8181-482c-a790-c4a6778748c1
 ms.technology: entity-framework-core
 uid: core/saving/transactions
-ms.openlocfilehash: a2f890c0af1e83cbcc1d40d68540ff7132a9bafd
-ms.sourcegitcommit: 01a75cd483c1943ddd6f82af971f07abde20912e
+ms.openlocfilehash: 2dda7b7d58ae058fc2aa89fe16fbf46adc8c6bdc
+ms.sourcegitcommit: b2d94cebdc32edad4fecb07e53fece66437d1b04
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="using-transactions"></a>使用事务
 
 事务允许多个数据库操作以原子方式处理。 如果将提交事务，则表示的所有操作已成功应用于数据库。 如果事务回滚后，所有操作将应用到数据库。
 
 > [!TIP]  
-> 你可以查看这篇文章[示例](https://github.com/aspnet/EntityFramework.Docs/tree/master/samples/core/Saving/Saving/Transactions/)GitHub 上。
+> 可在 GitHub 上查看此文章的[示例](https://github.com/aspnet/EntityFramework.Docs/tree/master/samples/core/Saving/Saving/Transactions/)。
 
 ## <a name="default-transaction-behavior"></a>默认事务行为
 
@@ -74,19 +74,9 @@ ms.lasthandoff: 10/27/2017
 允许的最简单办法`DbConnection`外部提供，即将停止使用`DbContext.OnConfiguring`方法来配置上下文和外部创建`DbContextOptions`并将它们传递给上下文构造函数。
 
 > [!TIP]  
-> `DbContextOptionsBuilder`是你在中使用的 API`DbContext.OnConfiguring`若要配置的上下文，现在想要从外部使用它来创建`DbContextOptions`。
+> `DbContextOptionsBuilder` 是你在中使用的 API`DbContext.OnConfiguring`若要配置的上下文，现在想要从外部使用它来创建`DbContextOptions`。
 
-<!-- [!code-csharp[Main](samples/core/Saving/Saving/Transactions/SharingTransaction/Sample.cs?highlight=3,4,5)] -->
-``` csharp
-    public class BloggingContext : DbContext
-    {
-        public BloggingContext(DbContextOptions<BloggingContext> options)
-            : base(options)
-        { }
-
-        public DbSet<Blog> Blogs { get; set; }
-    }
-```
+[!code-csharp[Main](../../../samples/core/Saving/Saving/Transactions/SharingTransaction/Sample.cs?name=Context&highlight=3,4,5)]
 
 替代方法是继续使用`DbContext.OnConfiguring`，但接受`DbConnection`，保存并随后将用于`DbContext.OnConfiguring`。
 
@@ -113,41 +103,7 @@ public class BloggingContext : DbContext
 
 你现在可以创建多个共享相同的连接的上下文实例。 然后使用`DbContext.Database.UseTransaction(DbTransaction)`API 以同一事务中的两个上下文中登记。
 
-<!-- [!code-csharp[Main](samples/core/Saving/Saving/Transactions/SharingTransaction/Sample.cs?highlight=1,2,3,7,16,23,24,25)] -->
-``` csharp
-        var options = new DbContextOptionsBuilder<BloggingContext>()
-            .UseSqlServer(new SqlConnection(connectionString))
-            .Options;
-
-        using (var context1 = new BloggingContext(options))
-        {
-            using (var transaction = context1.Database.BeginTransaction())
-            {
-                try
-                {
-                    context1.Blogs.Add(new Blog { Url = "http://blogs.msdn.com/dotnet" });
-                    context1.SaveChanges();
-
-                    using (var context2 = new BloggingContext(options))
-                    {
-                        context2.Database.UseTransaction(transaction.GetDbTransaction());
-
-                        var blogs = context2.Blogs
-                            .OrderBy(b => b.Url)
-                            .ToList();
-                    }
-
-                    // Commit transaction if all commands succeed, transaction will auto-rollback
-                    // when disposed if either commands fails
-                    transaction.Commit();
-                }
-                catch (Exception)
-                {
-                    // TODO: Handle failure
-                }
-            }
-        }
-```
+[!code-csharp[Main](../../../samples/core/Saving/Saving/Transactions/SharingTransaction/Sample.cs?name=Transaction&highlight=1,2,3,7,16,23,24,25)]
 
 ## <a name="using-external-dbtransactions-relational-databases-only"></a>使用外部 DbTransactions （仅限关系数据库）
 
@@ -155,39 +111,26 @@ public class BloggingContext : DbContext
 
 下面的示例，演示如何在同一事务中执行运算 ADO.NET SqlClient 和 Entity Framework 核心操作。
 
-<!-- [!code-csharp[Main](samples/core/Saving/Saving/Transactions/ExternalDbTransaction/Sample.cs?highlight=4,10,21,26,27,28)] -->
-``` csharp
-        var connection = new SqlConnection(connectionString);
-        connection.Open();
+[!code-csharp[Main](../../../samples/core/Saving/Saving/Transactions/ExternalDbTransaction/Sample.cs?name=Transaction&highlight=4,10,21,26,27,28)]
 
-        using (var transaction = connection.BeginTransaction())
-        {
-            try
-            {
-                // Run raw ADO.NET command in the transaction
-                var command = connection.CreateCommand();
-                command.Transaction = transaction;
-                command.CommandText = "DELETE FROM dbo.Blogs";
-                command.ExecuteNonQuery();
+## <a name="using-systemtransactions"></a>使用 System.Transactions
 
-                // Run an EF Core command in the transaction
-                var options = new DbContextOptionsBuilder<BloggingContext>()
-                    .UseSqlServer(connection)
-                    .Options;
+> [!NOTE]  
+> 此功能是在 EF 核心 2.1 的新增功能。
 
-                using (var context = new BloggingContext(options))
-                {
-                    context.Database.UseTransaction(transaction);
-                    context.Blogs.Add(new Blog { Url = "http://blogs.msdn.com/dotnet" });
-                    context.SaveChanges();
-                }
+可使用环境事务，如果你需要进行协调跨较大作用域。
 
-                // Commit transaction if all commands succeed, transaction will auto-rollback
-                // when disposed if either commands fails
-                transaction.Commit();
-            }
-            catch (System.Exception)
-            {
-                // TODO: Handle failure
-            }
-```
+[!code-csharp[Main](../../../samples/core/Saving/Saving/Transactions/AmbientTransaction/Sample.cs?name=Transaction&highlight=1,24,25,26)]
+
+还有可能在显式事务中登记。
+
+[!code-csharp[Main](../../../samples/core/Saving/Saving/Transactions/CommitableTransaction/Sample.cs?name=Transaction&highlight=1,13,26,27,28)]
+
+### <a name="limitations-of-systemtransactions"></a>System.Transactions 的限制  
+
+1. EF 核心依赖于的数据库提供程序以实现对 System.Transactions 支持。 尽管对于.NET Framework，API 仅已最近添加到.NET 核心并因此支持，支持是十分常见 ADO.NET 提供程序之间是不可为大范围。 如果提供程序未实现对 System.Transactions 的支持，则可能对这些 Api 的调用将被完全忽略。 用于.NET 核心的 SqlClient 支持它从 2.1 及以上版本。 用于.NET 核心 2.0 的 SqlClient 将引发异常的尝试使用该功能。 
+
+   > [!IMPORTANT]  
+   > 建议你测试，API 的行为与正确与你的提供程序之前用于管理事务依赖于该功能。 建议如果它不联系数据库提供程序 maintainer 的。 
+
+2. 从版本 2.1，开始在.NET 核心的 System.Transactions 实现不包括对分布式事务的支持，因此不能使用`TransactionScope`或`CommitableTransaction`来协调跨多个资源管理器的事务。 

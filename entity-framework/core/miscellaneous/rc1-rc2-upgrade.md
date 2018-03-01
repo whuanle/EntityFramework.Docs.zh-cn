@@ -6,11 +6,11 @@ ms.date: 10/27/2016
 ms.assetid: 6d75b229-cc79-4d08-88cd-3a1c1b24d88f
 ms.technology: entity-framework-core
 uid: core/miscellaneous/rc1-rc2-upgrade
-ms.openlocfilehash: ae5077c30642e3f40f51adee429821978f194460
-ms.sourcegitcommit: 5e2d97e731f975cf3405ff3deab2a3c75ad1b969
+ms.openlocfilehash: e76886729248101ccac024568cf9abcd945fca33
+ms.sourcegitcommit: b2d94cebdc32edad4fecb07e53fece66437d1b04
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="upgrading-from-ef-core-10-rc1-to-10-rc2"></a>从 EF 核心 1.0 RC1 升级到 1.0 RC2
 
@@ -23,16 +23,16 @@ RC1，RC2，我们从更改"实体框架 7"为"实体框架 Core"。 你可以�
 **你将需要完全删除 RC1 包，然后安装 RC2 的。** 下面是一些常见的包的映射。
 
 | RC1 包                                               | RC2 等效项                                                       |
-| --------------------------------------------------------- | -------------------------------------------------------------------- |
-| EntityFramework.MicrosoftSqlServer 7.0.0-rc1-final | Microsoft.EntityFrameworkCore.SqlServer 1.0.0-rc2-final      |
-| EntityFramework.SQLite 7.0.0-rc1-final | Microsoft.EntityFrameworkCore.Sqlite 1.0.0-rc2-final      |
-| EntityFramework7.Npgsql 3.1.0-rc1-3     | NpgSql.EntityFrameworkCore.Postgres<to be advised>      |
-| EntityFramework.SqlServerCompact35 7.0.0-rc1-final | EntityFrameworkCore.SqlServerCompact35 1.0.0-rc2-final      |
-| EntityFramework.SqlServerCompact40 7.0.0-rc1-final | EntityFrameworkCore.SqlServerCompact40 1.0.0-rc2-final      |
-| EntityFramework.InMemory 7.0.0-rc1-final | Microsoft.EntityFrameworkCore.InMemory 1.0.0-rc2-final      |
-| EntityFramework.IBMDataServer 7.0.0-beta1     | Rc2 尚不可用                                            |
-| EntityFramework.Commands 7.0.0-rc1-final | Microsoft.EntityFrameworkCore.Tools 1.0.0-preview1-final |
-| EntityFramework.MicrosoftSqlServer.Design 7.0.0-rc1-final | Microsoft.EntityFrameworkCore.SqlServer.Design 1.0.0-rc2-final      |
+|:----------------------------------------------------------|:---------------------------------------------------------------------|
+| EntityFramework.MicrosoftSqlServer        7.0.0-rc1-final | Microsoft.EntityFrameworkCore.SqlServer         1.0.0-rc2-final      |
+| EntityFramework.SQLite                    7.0.0-rc1-final | Microsoft.EntityFrameworkCore.Sqlite            1.0.0-rc2-final      |
+| EntityFramework7.Npgsql                   3.1.0-rc1-3     | NpgSql.EntityFrameworkCore.Postgres             <to be advised>      |
+| EntityFramework.SqlServerCompact35        7.0.0-rc1-final | EntityFrameworkCore.SqlServerCompact35          1.0.0-rc2-final      |
+| EntityFramework.SqlServerCompact40        7.0.0-rc1-final | EntityFrameworkCore.SqlServerCompact40          1.0.0-rc2-final      |
+| EntityFramework.InMemory                  7.0.0-rc1-final | Microsoft.EntityFrameworkCore.InMemory          1.0.0-rc2-final      |
+| EntityFramework.IBMDataServer             7.0.0-beta1     | Rc2 尚不可用                                            |
+| EntityFramework.Commands                  7.0.0-rc1-final | Microsoft.EntityFrameworkCore.Tools             1.0.0-preview1-final |
+| EntityFramework.MicrosoftSqlServer.Design 7.0.0-rc1-final | Microsoft.EntityFrameworkCore.SqlServer.Design  1.0.0-rc2-final      |
 
 ## <a name="namespaces"></a>命名空间
 
@@ -84,7 +84,7 @@ public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
 
 如果必须通过的 RC1 代码`IServiceProvider`到上下文，这现在已移到`DbContextOptions`，而不是单独的构造函数参数。 使用`DbContextOptionsBuilder.UseInternalServiceProvider(...)`设置服务提供程序。
 
-### <a name="testing"></a>测试
+### <a name="testing"></a>正在测试
 
 执行此操作的最常见方案是在测试时控制 InMemory 数据库的范围。 请参阅更新[测试](testing/index.md)文，以执行此操作使用 RC2 的示例。
 

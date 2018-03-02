@@ -6,18 +6,18 @@ ms.date: 10/27/2016
 ms.assetid: f9fb64e2-6699-4d70-a773-592918c04c19
 ms.technology: entity-framework-core
 uid: core/querying/related-data
-ms.openlocfilehash: ec69bb128890a1e0b72fe77014f37747585bb5a5
-ms.sourcegitcommit: 3b21a7fdeddc7b3c70d9b7777b72bef61f59216c
+ms.openlocfilehash: dadc6235c3879ae27ad5c99988a5e594872045df
+ms.sourcegitcommit: 4b7d3d3e258b0d9cb778bb45a9f4a33c0792e38e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="loading-related-data"></a>加载相关的数据
 
 实体框架核心，可在模型中使用的导航属性，来加载相关的实体。 有三种常见 O/RM 模式，用于加载相关的数据。
 * **预先加载**意味着相关的数据从数据库加载作为初始查询的一部分。
 * **显式加载**意味着相关的数据在更高版本时显式加载从数据库。
-* **延迟加载**意味着访问导航属性时，相关的数据以透明方式加载从数据库。 延迟加载尚不可能与 EF 核心。
+* **延迟加载**意味着访问导航属性时，相关的数据以透明方式加载从数据库。
 
 > [!TIP]  
 > 可在 GitHub 上查看此文章的[示例](https://github.com/aspnet/EntityFramework.Docs/tree/master/samples/core/Querying)。
@@ -57,6 +57,61 @@ ms.lasthandoff: 01/22/2018
 
 [!code-csharp[Main](../../../samples/core/Querying/Querying/RelatedData/Sample.cs#MultipleLeafIncludes)]
 
+### <a name="include-on-derived-types"></a>包含派生类型上
+
+您可以包含相关的数据从仅在使用的派生的类型上定义的导航`Include`和`ThenInclude`。 
+
+给定以下模型：
+
+```Csharp
+    public class SchoolContext : DbContext
+    {
+        public DbSet<Person> People { get; set; }
+        public DbSet<School> Schools { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<School>().HasMany(s => s.Students).WithOne(s => s.School);
+        }
+    }
+
+    public class Person
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+    }
+
+    public class Student : Person
+    {
+        public School School { get; set; }
+    }
+
+    public class School
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+
+        public List<Student> Students { get; set; }
+    }
+```
+
+内容`School`导航所有人士提供学生可以积极加载使用大量的模式：
+
+- 使用强制转换
+```Csharp
+context.People.Include(person => ((Student)person).School).ToList()
+```
+
+- 使用`as`运算符
+```Csharp
+context.People.Include(person => (person as Student).School).ToList()
+```
+
+- 使用重载的`Include`它采用的类型参数 `string`
+```Csharp
+context.People.Include("Student").ToList()
+```
+
 ### <a name="ignored-includes"></a>忽略包括
 
 如果您更改查询，从而使其不再返回查询开始与实体类型的实例，则会忽略 include 运算符。
@@ -94,13 +149,174 @@ ms.lasthandoff: 01/22/2018
 
 ## <a name="lazy-loading"></a>延迟加载
 
-EF 核心尚不支持延迟加载。 你可以查看[积压工作上的延迟加载项](https://github.com/aspnet/EntityFramework/issues/3797)以跟踪此功能。
+> [!NOTE]  
+> EF 核心 2.1 中引入了此功能。
+
+使用延迟加载的最简单方法是通过安装[Microsoft.EntityFramworkCore.Proxies](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Proxies/)包，并使其通过调用`UseLazyLoadingProxies`。 例如:
+```Csharp
+protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    => optionsBuilder
+        .UseLazyLoadingProxies()
+        .UseSqlServer(myConnectionString);
+```
+或者，使用 AddDbContext 时：
+```Csharp
+    .AddDbContext<BloggingContext>(
+        b => b.UseLazyLoadingProxies()
+              .UseSqlServer(myConnectionString));
+```
+EF 核心然后启用延迟加载的任何导航属性，可以重写-即，它必须是`virtual`和可以从继承的类上。 例如，在以下实体，`Post.Blog`和`Blog.Posts`导航属性将延迟加载。
+```Csharp
+public class Blog
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+
+    public virtual ICollection<Post> Posts { get; set; }
+}
+
+public class Post
+{
+    public int Id { get; set; }
+    public string Title { get; set; }
+    public string Content { get; set; }
+
+    public virtual Blog Blog { get; set; }
+}
+```
+### <a name="lazy-loading-without-proxies"></a>Lazy 加载没有代理
+
+Lazy 加载代理工作通过将注入`ILazyLoader`中所述，服务实体，到[实体类型构造函数](../modeling/constructors.md)。 例如:
+```Csharp
+public class Blog
+{
+    private ICollection<Post> _posts;
+
+    public Blog()
+    {
+    }
+
+    private Blog(ILazyLoader lazyLoader)
+    {
+        LazyLoader = lazyLoader;
+    }
+
+    private ILazyLoader LazyLoader { get; set; }
+
+    public int Id { get; set; }
+    public string Name { get; set; }
+
+    public ICollection<Post> Posts
+    {
+        get => LazyLoader?.Load(this, ref _posts);
+        set => _posts = value;
+    }
+}
+
+public class Post
+{
+    private Blog _blog;
+
+    public Post()
+    {
+    }
+
+    private Post(ILazyLoader lazyLoader)
+    {
+        LazyLoader = lazyLoader;
+    }
+
+    private ILazyLoader LazyLoader { get; set; }
+
+    public int Id { get; set; }
+    public string Title { get; set; }
+    public string Content { get; set; }
+
+    public Blog Blog
+    {
+        get => LazyLoader?.Load(this, ref _blog);
+        set => _blog = value;
+    }
+}
+```
+这不需要从中继承的实体类型或导航属性以是虚拟机，并允许使用创建的实体实例`new`若要延迟加载一次附加到上下文。 但是，它需要对引用`ILazyLoader`服务，其标为 EF 核心程序集的实体类型。 为了避免这种 EF 核心才允许`ILazyLoader.Load`方法来插入视为的委托。 例如:
+```Csharp
+public class Blog
+{
+    private ICollection<Post> _posts;
+
+    public Blog()
+    {
+    }
+
+    private Blog(Action<object, string> lazyLoader)
+    {
+        LazyLoader = lazyLoader;
+    }
+
+    private Action<object, string> LazyLoader { get; set; }
+
+    public int Id { get; set; }
+    public string Name { get; set; }
+
+    public ICollection<Post> Posts
+    {
+        get => LazyLoader?.Load(this, ref _posts);
+        set => _posts = value;
+    }
+}
+
+public class Post
+{
+    private Blog _blog;
+
+    public Post()
+    {
+    }
+
+    private Post(Action<object, string> lazyLoader)
+    {
+        LazyLoader = lazyLoader;
+    }
+
+    private Action<object, string> LazyLoader { get; set; }
+
+    public int Id { get; set; }
+    public string Title { get; set; }
+    public string Content { get; set; }
+
+    public Blog Blog
+    {
+        get => LazyLoader?.Load(this, ref _blog);
+        set => _blog = value;
+    }
+}
+```
+使用上面的代码`Load`扩展方法来执行有点清除器使用委托：
+```Csharp
+public static class PocoLoadingExtensions
+{
+    public static TRelated Load<TRelated>(
+        this Action<object, string> loader,
+        object entity,
+        ref TRelated navigationField,
+        [CallerMemberName] string navigationName = null)
+        where TRelated : class
+    {
+        loader?.Invoke(entity, navigationName);
+
+        return navigationField;
+    }
+}
+```
+> [!NOTE]  
+> 延迟加载委托构造函数参数必须调用"lazyLoader"。 要为未来版本中使用计划这一功能的不同名称的配置。
 
 ## <a name="related-data-and-serialization"></a>相关的数据和序列化
 
 因为 EF 核心将自动修复向上导航属性，你可以得到周期对象关系图中。 例如，正在加载博客和它被相关文章将导致博客对象，它引用的文章的集合。 每个这些文章将具有返回到博客的引用。
 
-某些序列化框架不允许此类周期。 例如，如果循环是遇到 Json.NET 将引发以下异常。
+某些序列化框架不允许此类周期。 例如，如果遇到循环 Json.NET 将引发以下异常。
 
 > Newtonsoft.Json.JsonSerializationException： 自助引用与类型 MyApplication.Models.Blog 属性博客检测到循环。
 

@@ -6,11 +6,11 @@ ms.date: 10/27/2016
 ms.assetid: eb082011-11a1-41b4-a108-15daafa03e80
 ms.technology: entity-framework-core
 uid: core/modeling/generated-properties
-ms.openlocfilehash: 2d79bf1339ebe522c39fe8971d908c30e1f4dca0
-ms.sourcegitcommit: 01a75cd483c1943ddd6f82af971f07abde20912e
+ms.openlocfilehash: 892494461bcf49ee10d05c972da0ba19ca003c35
+ms.sourcegitcommit: 4b7d3d3e258b0d9cb778bb45a9f4a33c0792e38e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="generated-values"></a>生成的值
 
@@ -50,7 +50,7 @@ ms.lasthandoff: 10/27/2017
 
 ## <a name="conventions"></a>约定
 
-按照约定，主键的整数或 GUID 数据类型将安装程序能够生成上添加的值。 所有其他属性将与不值生成的安装程序。
+按照约定，非复合主键的类型 short、 int、 long、 或 Guid 将安装程序能够生成上添加的值。 所有其他属性将与不值生成的安装程序。
 
 ## <a name="data-annotations"></a>数据注释
 
@@ -85,7 +85,7 @@ Fluent API 可用于更改给定属性的值生成模式。
 [!code-csharp[Main](../../../samples/core/Modeling/FluentAPI/Samples/ValueGeneratedOnAdd.cs#Sample)]
 
 > [!WARNING]  
-> `ValueGeneratedOnAdd()`只是让 EF 知道为添加的实体生成值，它不保证 EF 将设置生成值的实际机制。  请参阅[上生成的值添加](#value-generated-on-add)有关详细信息部分。
+> `ValueGeneratedOnAdd()` 只是让 EF 知道为添加的实体生成值，它不保证 EF 将设置生成值的实际机制。  请参阅[上生成的值添加](#value-generated-on-add)有关详细信息部分。
 
 ### <a name="value-generated-on-add-or-update-fluent-api"></a>在生成的值将添加或更新 (Fluent API)
 

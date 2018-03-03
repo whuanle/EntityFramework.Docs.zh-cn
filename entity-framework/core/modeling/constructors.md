@@ -6,11 +6,11 @@ ms.date: 02/23/2018
 ms.assetid: 420AFFE7-B709-4A68-9149-F06F8746FB33
 ms.technology: entity-framework-core
 uid: core/modeling/constructors
-ms.openlocfilehash: 2632488569c538a11c7a31a9a866d2fadb29eeb5
-ms.sourcegitcommit: b2d94cebdc32edad4fecb07e53fece66437d1b04
+ms.openlocfilehash: 38ab0c1c3cd8c490875abf30b8478c99bc58630f
+ms.sourcegitcommit: 60b831318c4f5ec99061e8af6a7c9e7c03b3469c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="entity-types-with-constructors"></a>使用构造函数的实体类型
 
@@ -96,7 +96,7 @@ public class Post
 ### <a name="read-only-properties"></a>只读属性
 
 通过构造函数中设置属性之后它很有意义，以使其中一些只读的。 EF 核心支持此功能，但有一些需要注意的事项：
-* 按照约定未映射而无需 getter 的属性。 （这样倾向于映射不应将映射，如计算属性的属性。）
+* 按照约定未映射而无需 setter 的属性。 （这样倾向于映射不应将映射，如计算属性的属性。）
 * 使用自动生成的密钥值需要是可读写，因为密钥的值需要插入新实体时，密钥生成器进行设置的密钥属性。
 
 若要避免这些内容的简单方法是使用专用 setter。 例如:

@@ -1,33 +1,61 @@
 ---
-title: "处理并发的 EF 核心"
+title: "处理并发冲突的 EF 核心"
 author: rowanmiller
 ms.author: divega
-ms.date: 10/27/2016
-ms.assetid: bce0539d-b0cd-457d-be71-f7ca16f3baea
+ms.date: 03/03/2018
 ms.technology: entity-framework-core
 uid: core/saving/concurrency
-ms.openlocfilehash: bbd3e154c1b27b16c7d8f8fbf9ed51df0849795c
-ms.sourcegitcommit: 01a75cd483c1943ddd6f82af971f07abde20912e
+ms.openlocfilehash: 288d9c6fced5ebbaa2c366248c68547502c3698e
+ms.sourcegitcommit: 8f3be0a2a394253efb653388ec66bda964e5ee1b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 03/05/2018
 ---
-# <a name="handling-concurrency"></a>处理并发
+# <a name="handling-concurrency-conflicts"></a>处理并发冲突
 
-如果属性配置为并发标记 EF 将检查与该记录中保存更改时，没有其他用户已修改数据库中的该值。
+> [!NOTE]
+> 此页文档在 EF 核心中的并发工作原理以及如何处理应用程序中的并发冲突。 请参阅[并发标记](xref:core/modeling/concurrency)有关如何在您的模型中配置并发标记的详细信息。
 
-> [!TIP]  
-> 你可以查看这篇文章[示例](https://github.com/aspnet/EntityFramework.Docs/tree/master/samples/core/Saving/Saving/Concurrency/)GitHub 上。
+> [!TIP]
+> 可在 GitHub 上查看此文章的[示例](https://github.com/aspnet/EntityFramework.Docs/tree/master/samples/core/Saving/Saving/Concurrency/)。
 
-## <a name="how-concurrency-handling-works-in-ef-core"></a>在 EF 核心中的并发处理工作原理
+_数据库并发_指在其中多个进程或用户访问或在同一时间更改数据库中的相同数据的情况下。 _并发控制_引用特定的机制用于在场的并发更改的情况下确保数据一致性。
 
-在实体框架核心中并发处理的工作原理的详细说明，请参阅[并发标记](../modeling/concurrency.md)。
+EF 核心实现_乐观并发控制_，这意味着它将允许多个进程或用户进行独立而无需同步开销的更改或锁定。 在理想情况下，这些更改将不会相互影响，因此能够成功。 在最差的情况下，两个或多个进程将尝试进行更改之间发生冲突，其中只有一应成功。
+
+## <a name="how-concurrency-control-works-in-ef-core"></a>在 EF 核心中的并发控制工作原理
+
+配置为并发标记用于实现乐观并发控制的属性： 每当期间执行 update 或 delete 操作`SaveChanges`，与原始数据库上的并发标记的值进行比较通过 EF 核心读取的值。
+
+- 如果值匹配，则可以完成该操作。
+- 如果值不匹配，EF 核心假设另一个用户已执行冲突的操作，并中止当前事务。
+
+另一个用户已执行与当前操作冲突的操作时这种情况称为_并发冲突_。
+
+数据库提供程序负责实现的并发标记值进行比较。
+
+在关系数据库上 EF 核心包括中的并发标记的值的检查`WHERE`子句任何`UPDATE`或`DELETE`语句。 执行语句后, EF 核心读取受影响的行数。
+
+如果未影响任何行，将检测并发冲突，并且 EF 核心`DbUpdateConcurrencyException`。
+
+例如，我们可能想要配置`LastName`上`Person`是并发标记。 则针对用户的任何更新操作会包含在并发检查`WHERE`子句：
+
+``` sql
+UPDATE [Person] SET [FirstName] = @p1
+WHERE [PersonId] = @p0 AND [LastName] = @p2;
+```
 
 ## <a name="resolving-concurrency-conflicts"></a>解决并发冲突
 
-解决并发冲突的方法包括使用算法挂起的更改，可从当前用户与数据库中所做的更改合并。 确切的方法取决于你的应用程序，但常见方法是向用户显示的值并将它们决定要存储在数据库的正确值。
+继续前面的示例中，如果一个用户尝试保存对某些更改`Person`，但另一个用户已更改`LastName`将引发异常。
 
-**有三个组的值可用于帮助解决并发冲突。**
+此时，应用程序可能只需通知用户更新未成功由于更改之间发生冲突，并移动上。 但它可能需要提示用户以确保此记录仍表示同一实际个人并重试该操作。
+
+此过程是一种_解决并发冲突_。
+
+解决并发冲突的方法包括合并从当前挂起的更改`DbContext`数据库中的值。 合并值取决于应用程序，并且可能将引导用户输入。
+
+**有三个组可用于帮助解决并发冲突的值：**
 
 * **当前值**是应用程序尝试写入数据库的值。
 
@@ -35,106 +63,13 @@ ms.lasthandoff: 10/27/2017
 
 * **数据库值**是当前数据库中存储的值。
 
-若要处理并发冲突，捕获`DbUpdateConcurrencyException`期间`SaveChanges()`，使用`DbUpdateConcurrencyException.Entries`对于受影响的实体，准备一组新的更改，然后重试`SaveChanges()`操作。
+处理并发冲突的常规方法是：
 
-在下面的示例中，`Person.FirstName`和`Person.LastName`是并发标记作为安装程序。 没有`// TODO:`其中应包括应用程序特定逻辑，以选择要保存到数据库的值的位置中的注释。
+1. 捕获`DbUpdateConcurrencyException`期间`SaveChanges`。
+2. 使用`DbUpdateConcurrencyException.Entries`准备一组新的更改受影响的实体。
+3. 刷新并发标记，以反映数据库中的当前值的原始值。
+4. 重试过程，直到不发生任何冲突。
 
-<!-- [!code-csharp[Main](samples/core/Saving/Saving/Concurrency/Sample.cs?highlight=53,54)] -->
-``` csharp
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
+在下面的示例中，`Person.FirstName`和`Person.LastName`并发令牌的形式安装程序。 没有`// TODO:`其中包括应用程序特定逻辑，以选择要保存的值的位置中的注释。
 
-namespace EFSaving.Concurrency
-{
-    public class Sample
-    {
-        public static void Run()
-        {
-            // Ensure database is created and has a person in it
-            using (var context = new PersonContext())
-            {
-                context.Database.EnsureDeleted();
-                context.Database.EnsureCreated();
-
-                context.People.Add(new Person { FirstName = "John", LastName = "Doe" });
-                context.SaveChanges();
-            }
-
-            using (var context = new PersonContext())
-            {
-                // Fetch a person from database and change phone number
-                var person = context.People.Single(p => p.PersonId == 1);
-                person.PhoneNumber = "555-555-5555";
-
-                // Change the persons name in the database (will cause a concurrency conflict)
-                context.Database.ExecuteSqlCommand("UPDATE dbo.People SET FirstName = 'Jane' WHERE PersonId = 1");
-
-                try
-                {
-                    // Attempt to save changes to the database
-                    context.SaveChanges();
-                }
-                catch (DbUpdateConcurrencyException ex)
-                {
-                    foreach (var entry in ex.Entries)
-                    {
-                        if (entry.Entity is Person)
-                        {
-                            // Using a NoTracking query means we get the entity but it is not tracked by the context
-                            // and will not be merged with existing entities in the context.
-                            var databaseEntity = context.People.AsNoTracking().Single(p => p.PersonId == ((Person)entry.Entity).PersonId);
-                            var databaseEntry = context.Entry(databaseEntity);
-
-                            foreach (var property in entry.Metadata.GetProperties())
-                            {
-                                var proposedValue = entry.Property(property.Name).CurrentValue;
-                                var originalValue = entry.Property(property.Name).OriginalValue;
-                                var databaseValue = databaseEntry.Property(property.Name).CurrentValue;
-
-                                // TODO: Logic to decide which value should be written to database
-                                // entry.Property(property.Name).CurrentValue = <value to be saved>;
-
-                                // Update original values to
-                                entry.Property(property.Name).OriginalValue = databaseEntry.Property(property.Name).CurrentValue;
-                            }
-                        }
-                        else
-                        {
-                            throw new NotSupportedException("Don't know how to handle concurrency conflicts for " + entry.Metadata.Name);
-                        }
-                    }
-
-                    // Retry the save operation
-                    context.SaveChanges();
-                }
-            }
-        }
-
-        public class PersonContext : DbContext
-        {
-            public DbSet<Person> People { get; set; }
-
-            protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-            {
-                optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=EFSaving.Concurrency;Trusted_Connection=True;");
-            }
-        }
-
-        public class Person
-        {
-            public int PersonId { get; set; }
-
-            [ConcurrencyCheck]
-            public string FirstName { get; set; }
-
-            [ConcurrencyCheck]
-            public string LastName { get; set; }
-
-            public string PhoneNumber { get; set; }
-        }
-
-    }
-}
-```
+[!code-csharp[Main](../../../samples/core/Saving/Saving/Concurrency/Sample.cs?name=ConcurrencyHandlingCode&highlight=34-35)]

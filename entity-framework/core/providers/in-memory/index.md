@@ -6,15 +6,15 @@ ms.date: 10/27/2016
 ms.assetid: 9af0cba7-7605-4f8f-9cfa-dd616fcb880c
 ms.technology: entity-framework-core
 uid: core/providers/in-memory/index
-ms.openlocfilehash: a8e05f50837f3da554b338475d24215706dfa2ec
-ms.sourcegitcommit: 5e2d97e731f975cf3405ff3deab2a3c75ad1b969
+ms.openlocfilehash: 356af9390a8aafa5afe35f333cd1e6ac1988390d
+ms.sourcegitcommit: b2d94cebdc32edad4fecb07e53fece66437d1b04
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="ef-core-in-memory-database-provider"></a>EF Core In-Memory 数据库提供程序
 
-此数据库提供程序允许将 Entity Framework Core 和内存数据库一起使用。 测试使用 Entity Framework Core 的代码时，这非常有用。 此提供程序作为 [EntityFramework GitHub 项目](https://github.com/aspnet/EntityFramework)的组成部分进行维护。
+此数据库提供程序允许将 Entity Framework Core 和内存数据库一起使用。 这对测试非常有用，尽管内存中模式下的 SQLite 提供程序可能是针对关系数据库的更合适的测试替代。 该提供程序作为 [Entity Framework Core 项目](https://github.com/aspnet/EntityFrameworkCore)的组成部分进行维护。
 
 ## <a name="install"></a>安装
 

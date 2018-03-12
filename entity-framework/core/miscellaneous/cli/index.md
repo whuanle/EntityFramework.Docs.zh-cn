@@ -4,11 +4,11 @@ author: bricelam
 ms.author: bricelam
 ms.date: 11/6/2017
 ms.technology: entity-framework-core
-ms.openlocfilehash: 076e9251850ba10df323cd25922aa8b95b3a5491
-ms.sourcegitcommit: 5e2d97e731f975cf3405ff3deab2a3c75ad1b969
+ms.openlocfilehash: db25ed55e3724ee71743e563f39a6e4b16c17589
+ms.sourcegitcommit: fc68321c211aca38f7b9dc3a75677c6ca1b2524b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 03/08/2018
 ---
 <a name="entity-framework-core-tools"></a>Entity Framework Core 工具
 ===========================
@@ -24,15 +24,9 @@ Entity Framework Core 工具有助于 EF Core 应用的开发。 它们主要用
 ----------
 这些工具支持面向 .NET Framework 或 .NET Core 的项目。
 
-如果项目面向另一框架（例如通用 Windows 或 Xamarin），我们建议创建一个单独的 .NET Standard 项目并交叉定向其中一个受支持框架。
+如果想要使用类库，如有可能，请考虑使用 .NET Core 或 .NET Framework 类库。 这样，使用 .NET 工具的问题最少。 而如果想要使用 .NET Standard 类库，则需要使用面向 .NET Framework 或 .NET Core 的启动项目，使该工具具有可在其中加载类库的具体目标平台。 此启动项目可以是不包含实际代码的虚拟项目 - 需要它的唯一理由是为工具提供一个目标。
 
-例如，要交叉定向 .NET Core，请右键单击项目，然后选择“编辑 \*.csproj”。 按照如下所示更新 `TargetFramework` 属性。 （请注意，属性名称将变为复数形式。）
-
-``` xml
-<TargetFrameworks>netcoreapp2.0;netstandard2.0</TargetFrameworks>
-```
-
-使用 .NET Standard 类库时，如果启动项目面向 .NET Framework 或 .NET Core，则无需进行交叉定向。
+如果项目面向其他框架（例如，通用 Windows 或 Xamarin），则需要创建一个单独的 .NET Standard 类库。 在这种情况下，请按照上述指南，也创建一个工具可使用的启动项目。
 
 <a name="startup-and-target-projects"></a>启动项目和目标项目
 ---------------------------

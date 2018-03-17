@@ -6,11 +6,11 @@ ms.date: 2/26/2018
 ms.assetid: 9F4450C5-1A3F-4BB6-AC19-9FAC64292AAD
 ms.technology: entity-framework-core
 uid: core/modeling/query-types
-ms.openlocfilehash: 19a371c65da33e8209cc1ab3423a67c34ddae61e
-ms.sourcegitcommit: fc68321c211aca38f7b9dc3a75677c6ca1b2524b
+ms.openlocfilehash: dfd08cd1c30debddc79740bbf05c39c22e973855
+ms.sourcegitcommit: 01b5cf3b7c983bcced91e7cc4c78391ced2d2caa
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="query-types"></a>查询类型
 > [!NOTE]
@@ -20,7 +20,7 @@ ms.lasthandoff: 03/08/2018
 
 从概念上讲类似于实体类型中，它们是：
 
-- 它们是 POCO C# 类型添加到模型，在```OnModelCreating```使用```ModelBuilder.Query```方法，或通过 DbContext"集"属性 (对于查询的类型这样的属性被类型化为```DbQuery<T>```而应假定```DbSet<T>```)。
+- 它们是 POCO C# 类型添加到模型，在```OnModelCreating```使用```ModelBuilder.Query```方法，或通过 DbContext"集"属性 (对于查询的类型这样的属性被类型化为```DbQuery<T>```而非```DbSet<T>```)。
 - 它们支持很多与常规实体类型相同的映射功能。 示例、 继承映射、 导航 （请参阅下面的限制），然后在关系存储，能够配置目标数据库架构对象通过```ToTable```， ```HasColumn``` fluent api 方法 （或数据注释）。
 
 查询类型都不同于实体类型中，它们：

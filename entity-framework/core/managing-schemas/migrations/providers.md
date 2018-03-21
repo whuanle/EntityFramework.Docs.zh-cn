@@ -4,11 +4,11 @@ author: bricelam
 ms.author: bricelam
 ms.date: 11/8/2017
 ms.technology: entity-framework-core
-ms.openlocfilehash: 6b278a5ae270b6a84269dffd72eeca609b168cdd
-ms.sourcegitcommit: 3b6159db8a6c0653f13c7b528367b4e69ac3d51e
+ms.openlocfilehash: d950e74ed4cef7d4274aabcf3eda7b0b735574c6
+ms.sourcegitcommit: 2ef0a4a90b01edd22b9206f8729b8de459ef8cab
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 03/20/2018
 ---
 <a name="migrations-with-multiple-providers"></a>多个提供程序的迁移
 ==================================
@@ -20,7 +20,7 @@ ms.lasthandoff: 11/28/2017
 
 一种办法这是将每个迁移集[中单独的程序集][ 2]和手动添加两个迁移之间进行切换的活动提供程序 （和迁移程序集）。
 
-可使更容易使用工具是创建新类型的另一种方法是从 DbContext 派生，并重写活动提供程序。 此类型用于在设计时添加或将应用迁移的时间。
+轻松使用这些工具的另一种方法是创建从 DbContext 派生，并重写活动提供程序的新类型。 此类型用于在设计时添加或将应用迁移的时间。
 
 ``` csharp
 class MySqliteDbContext : MyDbContext

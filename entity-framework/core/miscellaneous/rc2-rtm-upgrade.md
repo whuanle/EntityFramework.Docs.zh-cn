@@ -1,16 +1,16 @@
 ---
-title: "从 EF 升级核心到 RTM-1.0 RC2 EF 核心"
+title: 从 EF 升级核心到 RTM-1.0 RC2 EF 核心
 author: rowanmiller
 ms.author: divega
 ms.date: 10/27/2016
 ms.assetid: c3c1940b-136d-45d8-aa4f-cb5040f8980a
 ms.technology: entity-framework-core
 uid: core/miscellaneous/rc2-rtm-upgrade
-ms.openlocfilehash: 7a1d85949a5f9e1ad7efdbf585a608d815e8ce63
-ms.sourcegitcommit: 01a75cd483c1943ddd6f82af971f07abde20912e
+ms.openlocfilehash: 4bb4c5736708413f6581cad250b089b7bc22a559
+ms.sourcegitcommit: 90139dbd6f485473afda0788a5a314c9aa601ea0
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="upgrading-from-ef-core-10-rc2-to-rtm"></a>从 EF 核心 1.0 RC2 升级到 RTM
 
@@ -69,6 +69,9 @@ ms.lasthandoff: 10/27/2017
   }
 }
 ```
+
+> [!NOTE]  
+> 截至版本 1.0 RTM， [.NET 核心 SDK](https://www.microsoft.com/net/download/core)不再支持`project.json`或开发.NET 核心应用程序使用 Visual Studio 2015。 我们建议你[从 project.json 迁移到 csproj](https://docs.microsoft.com/dotnet/articles/core/migration/)。 如果使用 Visual Studio，我们建议你升级到[Visual Studio 2017](https://www.visualstudio.com/downloads/)。
 
 ## <a name="uwp-add-binding-redirects"></a>UWP： 添加绑定重定向
 

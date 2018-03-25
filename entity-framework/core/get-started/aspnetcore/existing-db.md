@@ -1,28 +1,25 @@
 ---
-title: "ASP.NET Core 入门 - 现有数据库 - EF Core"
+title: ASP.NET Core 入门 - 现有数据库 - EF Core
 author: rowanmiller
 ms.author: divega
 ms.date: 10/27/2016
 ms.assetid: 2bc68bea-ff77-4860-bf0b-cf00db6712a0
 ms.technology: entity-framework-core
 uid: core/get-started/aspnetcore/existing-db
-ms.openlocfilehash: afd99d68d2ba25ce58a21dc48d2c7ce27f208807
-ms.sourcegitcommit: 5e2d97e731f975cf3405ff3deab2a3c75ad1b969
+ms.openlocfilehash: db2469d0badd428734425c1f568667f00bef2f4f
+ms.sourcegitcommit: 90139dbd6f485473afda0788a5a314c9aa601ea0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="getting-started-with-ef-core-on-aspnet-core-with-an-existing-database"></a>通过现有数据库在 ASP.NET Core 上开始使用 EF Core
-
-> [!IMPORTANT]  
-> [.NET Core SDK](https://www.microsoft.com/net/download/core) 不再支持 `project.json` 或 Visual Studio 2015。 我们鼓励每位 .NET Core 开发人员都[从 project.json 迁移到 csproj](https://docs.microsoft.com/dotnet/articles/core/migration/) 和 [Visual Studio 2017](https://www.visualstudio.com/downloads/)。
 
 在本演练中，你将使用 Entity Framework 构建执行基本数据访问的 ASP.NET Core MVC 应用程序。 你将使用反向工程基于现有数据库创建 Entity Framework 模型。
 
 > [!TIP]  
 > 可在 GitHub 上查看此文章的[示例](https://github.com/aspnet/EntityFramework.Docs/tree/master/samples/core/GetStarted/AspNetCore/EFGetStarted.AspNetCore.ExistingDb)。
 
-## <a name="prerequisites"></a>先决条件
+## <a name="prerequisites"></a>系统必备
 
 完成本演练需要以下先决条件：
 
@@ -93,7 +90,7 @@ Scaffold-DbContext "Server=(localdb)\mssqllocaldb;Database=Blogging;Trusted_Conn
 如果收到错误，指出 `The term 'Scaffold-DbContext' is not recognized as the name of a cmdlet`，请关闭并重新打开 Visual Studio。
 
 > [!TIP]  
-> 可以通过将 `-Tables` 参数添加到上述命令来指定要为哪些表生成实体。 例如 `-Tables Blog,Post`。
+> 可以通过将 `-Tables` 参数添加到上述命令来指定要为哪些表生成实体。 例如， `-Tables Blog,Post`。
 
 反向工程过程基于现有数据库的架构创建实体类 (`Blog.cs` & `Post.cs`) 和派生上下文 (`BloggingContext.cs`)。
 

@@ -1,26 +1,23 @@
 ---
-title: "NET Core 入门 - 新数据库 - EF Core"
+title: NET Core 入门 - 新数据库 - EF Core
 author: rick-anderson
 ms.author: riande
 ms.author2: tdykstra
-description: "通过 Entity Framework Core 开始使用 .NET Core"
+description: 通过 Entity Framework Core 开始使用 .NET Core
 keywords: .NET Core, Entity Framework Core, VS Code, Visual Studio Code, Mac, Linux
 ms.date: 04/05/2017
 ms.assetid: 099d179e-dd7b-4755-8f3c-fcde914bf50b
 ms.technology: entity-framework-core
 uid: core/get-started/netcore/new-db-sqlite
-ms.openlocfilehash: 3becf75e7a513a3aa18c3c2daf628b65327365b0
-ms.sourcegitcommit: 0858f157b806f4a881b94ddbeecf1ece1d53e1e0
+ms.openlocfilehash: 2511dfa3f3262bb12c2058dc1c402b7dcc4c670d
+ms.sourcegitcommit: 90139dbd6f485473afda0788a5a314c9aa601ea0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="getting-started-with-ef-core-on-net-core-console-app-with-a-new-database"></a>使用新数据库在 NET Core 控制台应用程序上开始使用 EF Core
 
 在本演练中，你将创建一个 .NET Core 控制台应用程序，该程序使用 Entity Framework Core 对 SQLite 数据库执行基本数据访问。 你将使用迁移功能从模型创建数据库。 有关使用 ASP.NET Core MVC 的 Visual Studio 版本，请参阅 [ASP.NET Core - 新数据库](xref:core/get-started/aspnetcore/new-db)。
-
-> [!NOTE]  
-> [.NET Core SDK](https://www.microsoft.com/net/download/core) 不再支持 `project.json` 或 Visual Studio 2015。 我们建议你[从 project.json 迁移到 csproj](https://docs.microsoft.com/dotnet/articles/core/migration/)。 如果你使用的是 Visual Studio，我们建议迁移到 [Visual Studio 2017](https://www.visualstudio.com/downloads/)。
 
 > [!TIP]  
 > 可在 GitHub 上查看此文章的[示例](https://github.com/aspnet/EntityFramework.Docs/tree/master/samples/core/GetStarted/NetCore/ConsoleApp.SQLite)。

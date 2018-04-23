@@ -1,23 +1,23 @@
 ---
-title: "保存相关数据的 EF 核心"
+title: 保存相关数据的 EF 核心
 author: rowanmiller
 ms.author: divega
 ms.date: 10/27/2016
 ms.assetid: 07b6680f-ffcf-412c-9857-f997486b386c
 ms.technology: entity-framework-core
 uid: core/saving/related-data
-ms.openlocfilehash: 078879163002cb66e0f0f439415789963181ec15
-ms.sourcegitcommit: 01a75cd483c1943ddd6f82af971f07abde20912e
+ms.openlocfilehash: b0ed25267c85e82db18d8a89693b6040db7e4b34
+ms.sourcegitcommit: 4997314356118d0d97b04ad82e433e49bb9420a2
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="saving-related-data"></a>保存相关的数据
 
 除了独立的实体，你还可以使用您的模型中定义的关系。
 
 > [!TIP]  
-> 你可以查看这篇文章[示例](https://github.com/aspnet/EntityFramework.Docs/tree/master/samples/core/Saving/Saving/RelatedData/)GitHub 上。
+> 可在 GitHub 上查看此文章的[示例](https://github.com/aspnet/EntityFramework.Docs/tree/master/samples/core/Saving/Saving/RelatedData/)。
 
 ## <a name="adding-a-graph-of-new-entities"></a>添加新的实体的关系图
 
@@ -26,6 +26,9 @@ ms.lasthandoff: 10/27/2017
 在下面的示例中，博客和三个相关的文章被所有插入到数据库。 文章的发现和添加，因为它们是可以通过访问`Blog.Posts`导航属性。
 
 [!code-csharp[Main](../../../samples/core/Saving/Saving/RelatedData/Sample.cs#AddingGraphOfEntities)]
+
+> [!TIP]  
+> 使用 EntityEntry.State 属性设置的单个实体的状态。 例如 `context.Entry(blog).State = EntityState.Modified`。
 
 ## <a name="adding-a-related-entity"></a>添加相关的实体
 

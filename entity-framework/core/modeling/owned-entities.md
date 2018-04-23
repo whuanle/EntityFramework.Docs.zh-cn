@@ -1,16 +1,16 @@
 ---
-title: "拥有 EF 核心的实体类型-"
+title: 拥有 EF 核心的实体类型-
 author: julielerman
 ms.author: divega
 ms.date: 2/26/2018
 ms.assetid: 2B0BADCE-E23E-4B28-B8EE-537883E16DF3
 ms.technology: entity-framework-core
 uid: core/modeling/owned-entities
-ms.openlocfilehash: a6823377eb626ca92263c31351e1aef61db5a787
-ms.sourcegitcommit: 4b7d3d3e258b0d9cb778bb45a9f4a33c0792e38e
+ms.openlocfilehash: f2f05499a3e3494f420d916df2db19667a6f1e29
+ms.sourcegitcommit: 26f33758c47399ae933f22fec8e1d19fa7d2c0b7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="owned-entity-types"></a>拥有的实体类型
 
@@ -21,7 +21,7 @@ EF 核心让你可以只显示对其他实体类型的导航属性的模型实�
 
 ## <a name="explicit-configuration"></a>显式配置
 
-拥有永远不会包含类型由 EF 核心模型中按照约定的实体。 你可以使用`OwnsOne`中的方法`OnModelCreating`或批注与类型`OwnedAttrbibute`（新在 EF 核心 2.1） 配置为拥有类型的类型。
+拥有永远不会包含类型由 EF 核心模型中按照约定的实体。 你可以使用`OwnsOne`中的方法`OnModelCreating`或批注与类型`OwnedAttribute`（新在 EF 核心 2.1） 配置为拥有类型的类型。
 
 在此示例中，StreetAddress 是没有标识属性的类型。 它用作 Order 类型的属性来指定特定订单的发货地址。 在`OnModelCreating`，我们使用`OwnsOne`方法，以指定 ShippingAddress 属性是拥有顺序类型的实体。
 

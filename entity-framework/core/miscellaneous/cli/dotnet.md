@@ -1,14 +1,14 @@
 ---
-title: ".NET 核心 CLI-EF 核心"
+title: .NET 核心 CLI-EF 核心
 author: bricelam
 ms.author: bricelam
 ms.date: 11/6/2017
 ms.technology: entity-framework-core
-ms.openlocfilehash: 8a52cb8259bb381729a33a8161aec4b73f69f45d
-ms.sourcegitcommit: b2d94cebdc32edad4fecb07e53fece66437d1b04
+ms.openlocfilehash: 396d31c9d0c0f47d299f49e82e557ed29b8420e7
+ms.sourcegitcommit: 4997314356118d0d97b04ad82e433e49bb9420a2
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 <a name="ef-core-net-command-line-tools"></a>EF 核心.NET 命令行工具
 ===============================
@@ -65,19 +65,22 @@ dotnet ef
 
 启动项目是执行项目代码时由工具模拟的项目。 它也默认为当前目录中的项目，但可以使用更改**-启动项目**选项。
 
+> [!NOTE]
+> 例如，更新的 web 应用程序具有不同的项目中安装的 EF 核心数据库将如下所示： `dotnet ef database update --project {project-path}` （从您的 web 应用程序目录）
+
 常用的选项：
 
 |    |                                  |                             |
 |:---|:---------------------------------|:----------------------------|
 |    | --json                           | 显示 JSON 输出。           |
-| -c | --context \<DBCONTEXT>           | 若要使用 DbContext。       |
+| -c | -上下文\<DBCONTEXT >           | 若要使用 DbContext。       |
 | -p | -项目\<项目 >             | 要使用的项目。         |
 | -s | -启动项目\<项目 >     | 要使用的启动项目。 |
-|    | --framework \<FRAMEWORK>         | 目标框架中。       |
+|    | -framework \<FRAMEWORK >         | 目标框架中。       |
 |    | -配置\<配置 > | 要使用的配置。   |
 |    | -运行时\<标识符 >          | 若要使用运行时。         |
-| -h | --help                           | 显示帮助信息。      |
-| -v | --verbose                        | 显示详细输出。        |
+| -h | -帮助                           | 显示帮助信息。      |
+| -v | -verbose                        | 显示详细输出。        |
 |    | --no-color                       | 不为着色输出。      |
 |    | --prefix-output                  | 输出与级别的前缀。   |
 
@@ -107,7 +110,7 @@ dotnet ef
 
 |              |                                                                                              |
 |:-------------|:---------------------------------------------------------------------------------------------|
-| \<迁移 > | 目标迁移。 如果为 0，将恢复所有迁移。 默认到最后一个迁移。 |
+| \<迁移 &GT; | 目标迁移。 如果为 0，将恢复所有迁移。 默认到最后一个迁移。 |
 
 ### <a name="dotnet-ef-dbcontext-info"></a>dotnet ef dbcontext 信息
 
@@ -125,20 +128,21 @@ dotnet ef
 
 |               |                                                                     |
 |:--------------|:--------------------------------------------------------------------|
-| \<连接 > | 数据库的连接字符串。                              |
-| \<PROVIDER>   | 要使用的提供程序。 （例如 Microsoft.EntityFrameworkCore.SqlServer) |
+| \<连接 &GT; | 数据库的连接字符串。                              |
+| \<提供程序 &GT;   | 要使用的提供程序。 （例如， Microsoft.EntityFrameworkCore.SqlServer) |
 
 选项:
 
 |                 |                                         |                                                                                                  |
 |:----------------|:----------------------------------------|:-------------------------------------------------------------------------------------------------|
-| <nobr>-d</nobr> | --data-annotations                      | 使用属性来配置该模型 （如果可能）。 如果省略，则使用仅 fluent API。 |
+| <nobr>-d</nobr> | -数据批注                      | 使用属性来配置该模型 （如果可能）。 如果省略，则使用仅 fluent API。 |
 | -c              | -上下文\<名称 >                       | Dbcontext 名称。                                                                       |
+|                 | -上下文 dir\<路径 >                   | 要将 DbContext 文件放入的目录。 路径是相对于项目目录。             |
 | -f              | --force                                 | 覆盖现有文件。                                                                        |
 | -o              | -输出 dir\<路径 >                    | 要将文件放入的目录。 路径是相对于项目目录。                      |
 |                 | <nobr>-架构\<SCHEMA_NAME >...</nobr> | 要生成实体类型的表架构。                                              |
 | -t              | -表\<TABLE_NAME >...                | 要生成实体类型的表。                                                         |
-|                 | --use-database-names                    | 使用直接从数据库表和列名称。                                           |
+|                 | -使用数据库名称                    | 使用直接从数据库表和列名称。                                           |
 
 ### <a name="dotnet-ef-migrations-add"></a>dotnet ef 迁移添加
 
@@ -148,7 +152,7 @@ dotnet ef
 
 |         |                            |
 |:--------|:---------------------------|
-| \<NAME> | 迁移的名称。 |
+| \<名称 &GT; | 迁移的名称。 |
 
 选项:
 
@@ -168,7 +172,7 @@ dotnet ef
 
 |    |         |                                                                       |
 |:---|:--------|:----------------------------------------------------------------------|
-| -f | --force | 不检查以查看迁移是否已应用到数据库。 |
+| -f | --force | 如果它已应用到数据库，请还原迁移。 |
 
 ### <a name="dotnet-ef-migrations-script"></a>dotnet ef 迁移脚本
 
@@ -179,7 +183,7 @@ dotnet ef
 |         |                                                               |
 |:--------|:--------------------------------------------------------------|
 | \<FROM> | 开始迁移。 默认值为 0 （初始数据库）。 |
-| \<TO>   | 结束的迁移。 默认到最后一个迁移。         |
+| \<到 &GT;   | 结束的迁移。 默认到最后一个迁移。         |
 
 选项:
 

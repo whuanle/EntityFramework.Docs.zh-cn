@@ -1,16 +1,16 @@
 ---
-title: "值的转换的 EF 核心"
+title: 值的转换的 EF 核心
 author: ajcvickers
 ms.author: divega
 ms.date: 02/19/2018
 ms.assetid: 3154BF3C-1749-4C60-8D51-AE86773AA116
 ms.technology: entity-framework-core
 uid: core/modeling/value-conversions
-ms.openlocfilehash: 50acba39cdec16caa9300fcaf47ab6242a4f69fb
-ms.sourcegitcommit: b2d94cebdc32edad4fecb07e53fece66437d1b04
+ms.openlocfilehash: 329d2757059462468ca30772d37789343c03ba7b
+ms.sourcegitcommit: 4997314356118d0d97b04ad82e433e49bb9420a2
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="value-conversions"></a>值的转换
 
@@ -60,7 +60,7 @@ protected override void OnModelCreating(ModelBuilder modelBuilder)
 
 ## <a name="the-valueconverter-class"></a>ValueConverter 类
 
-调用`HasConversion`如上所示将创建`ValueConverter`实例并将其设置的属性上。 `ValueConverter`改为显式创建。 例如:
+调用`HasConversion`如上所示将创建`ValueConverter`实例并将其设置的属性上。 `ValueConverter`改为显式创建。 例如：
 ```Csharp
 var converter = new ValueConverter<EquineBeast, string>(
     v => v.ToString(),
@@ -137,6 +137,6 @@ public class Rider
 
 有几个已知的当前限制的值转换系统：
 * 如上所述，`null`无法转换。
-* 目前没有办法分布的一个属性向 multuple 列或进行相反的转换的转换。
+* 目前没有办法分布到多个列或进行相反的转换的转换的一个属性。
 * 使用的值转换可能会影响 EF 核心能够把表达式转换到 SQL。 为这种情况下，将记录警告。
 正在为未来版本考虑删除这些限制。

@@ -1,29 +1,32 @@
 ---
-title: "基本保存的 EF 核心"
+title: 基本保存的 EF 核心
 author: rowanmiller
 ms.author: divega
 ms.date: 10/27/2016
 ms.assetid: 850d842e-3fad-4ef2-be17-053768e97b9e
 ms.technology: entity-framework-core
 uid: core/saving/basic
-ms.openlocfilehash: e99d755b8f7c42b15a73cfdb6a2f8999a405a739
-ms.sourcegitcommit: 01a75cd483c1943ddd6f82af971f07abde20912e
+ms.openlocfilehash: deead323301dc4a0ee0748b4536ddff4596b99e6
+ms.sourcegitcommit: 4997314356118d0d97b04ad82e433e49bb9420a2
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="basic-save"></a>基本保存
 
 了解如何添加、 修改和删除数据使用上下文和实体类。
 
 > [!TIP]  
-> 你可以查看这篇文章[示例](https://github.com/aspnet/EntityFramework.Docs/tree/master/samples/core/Saving/Saving/Basics/)GitHub 上。
+> 可在 GitHub 上查看此文章的[示例](https://github.com/aspnet/EntityFramework.Docs/tree/master/samples/core/Saving/Saving/Basics/)。
 
 ## <a name="adding-data"></a>添加数据
 
 使用*DbSet.Add*方法将添加的实体类的新实例。 在调用时，将在数据库中插入数据*SaveChanges*。
 
 [!code-csharp[Main](../../../samples/core/Saving/Saving/Basics/Sample.cs#Add)]
+
+> [!TIP]  
+> 中所述的实体的完整图的所有工作的添加、 附加和更新方法传递给它们，[相关数据](related-data.md)部分。 或者，EntityEntry.State 属性可用来设置单个实体的状态。 例如 `context.Entry(blog).State = EntityState.Modified`。
 
 ## <a name="updating-data"></a>更新数据
 

@@ -1,16 +1,16 @@
 ---
-title: "使用构造函数的 EF 核心的实体类型"
+title: 使用构造函数的 EF 核心的实体类型
 author: ajcvickers
 ms.author: divega
 ms.date: 02/23/2018
 ms.assetid: 420AFFE7-B709-4A68-9149-F06F8746FB33
 ms.technology: entity-framework-core
 uid: core/modeling/constructors
-ms.openlocfilehash: 38ab0c1c3cd8c490875abf30b8478c99bc58630f
-ms.sourcegitcommit: 60b831318c4f5ec99061e8af6a7c9e7c03b3469c
+ms.openlocfilehash: 3f861d54c5bff637ae28f38b08da7aff7d0ea5c0
+ms.sourcegitcommit: 4997314356118d0d97b04ad82e433e49bb9420a2
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="entity-types-with-constructors"></a>使用构造函数的实体类型
 
@@ -49,7 +49,7 @@ public class Post
 }
 ```
 
-当 EF 核心创建这些类型的实例时，如的结果的查询，它将首先调用默认的无参数构造函数，然后设置每个属性的值从数据库。 但是，如果 EF 核心查找的参数化构造函数参数名称和类型相匹配的映射属性，则它将改为调用这些属性具有值的参数化构造函数，然后将未显式设置每个属性。 例如:
+当 EF 核心创建这些类型的实例时，如的结果的查询，它将首先调用默认的无参数构造函数，然后设置每个属性的值从数据库。 但是，如果 EF 核心查找的参数化构造函数参数名称和类型相匹配的映射属性，则它将改为调用这些属性具有值的参数化构造函数，然后将未显式设置每个属性。 例如：
 
 ```Csharp
 public class Blog
@@ -99,7 +99,7 @@ public class Post
 * 按照约定未映射而无需 setter 的属性。 （这样倾向于映射不应将映射，如计算属性的属性。）
 * 使用自动生成的密钥值需要是可读写，因为密钥的值需要插入新实体时，密钥生成器进行设置的密钥属性。
 
-若要避免这些内容的简单方法是使用专用 setter。 例如:
+若要避免这些内容的简单方法是使用专用 setter。 例如：
 ```Csharp
 public class Blog
 {
@@ -254,7 +254,7 @@ public class Post
 }
 ```
 有关此请注意以下内容：
-* 构造函数是专用容器，因为它仅为曾经调用由 EF 核心，并且没有用于常规用途的另一个公共构造函数。
+* 构造函数是专用容器，因为它只能由 EF 核心，并且没有用于常规用途的另一个公共构造函数。
 * 使用插入的服务的代码 （即上下文） 是对其防御性正在`null`以便处理在 EF 核心不创建实例的情况。
 * 由于服务存储在读/写属性，则将重置时该实体附加到新的上下文实例。
 

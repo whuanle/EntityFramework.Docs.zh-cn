@@ -1,14 +1,14 @@
 ---
-title: "程序包管理器控制台 (Visual Studio)-EF 核心"
+title: 程序包管理器控制台 (Visual Studio)-EF 核心
 author: bricelam
 ms.author: bricelam
 ms.date: 11/6/2017
 ms.technology: entity-framework-core
-ms.openlocfilehash: aacf8c8564a3966db6202c9ff1c1c02a19a10814
-ms.sourcegitcommit: b2d94cebdc32edad4fecb07e53fece66437d1b04
+ms.openlocfilehash: a53455a78db4bc504c45abafdacf9a15381f608e
+ms.sourcegitcommit: 4997314356118d0d97b04ad82e433e49bb9420a2
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 <a name="ef-core-package-manager-console-tools"></a>EF 核心程序包管理器控制台工具
 =====================================
@@ -51,8 +51,8 @@ Get-Help about_EntityFrameworkCore
 |                           |                             |
 |:--------------------------|:----------------------------|
 | -上下文\<字符串 >        | 若要使用 DbContext。       |
-| -Project \<String>        | 要使用的项目。         |
-| -StartupProject \<String> | 要使用的启动项目。 |
+| -项目\<字符串 >        | 要使用的项目。         |
+| -StartupProject\<字符串 > | 要使用的启动项目。 |
 | -Verbose                  | 显示详细输出。        |
 
 若要显示有关命令的帮助信息，请使用 PowerShell 的`Get-Help`命令。
@@ -74,13 +74,13 @@ Get-Help about_EntityFrameworkCore
 
 |                                   |                                                                                                                  |
 |:----------------------------------|:-----------------------------------------------------------------------------------------------------------------|
-| ***-Name*** \<String>             | 迁移的名称。                                                                                       |
+| ***-名称***\<字符串 >             | 迁移的名称。                                                                                       |
 | <nobr>-OutputDir\<字符串 ></nobr> | 目录 （及其子命名空间） 使用。 路径是相对于项目目录。 默认值为"迁移"。 |
 
 > [!NOTE]
 > 中的参数**粗体**是必需的以及在发生*斜体*是位置。
 
-### <a name="drop-database"></a>Drop-Database
+### <a name="drop-database"></a>删除数据库
 
 删除数据库。
 
@@ -94,17 +94,17 @@ Get-Help about_EntityFrameworkCore
 
 获取有关 DbContext 类型的信息。
 
-### <a name="remove-migration"></a>Remove-Migration
+### <a name="remove-migration"></a>删除迁移
 
 删除上次的迁移。
 
 参数：
 
-|        |                                                                       |
-|:-------|:----------------------------------------------------------------------|
-| -Force | 不检查以查看迁移是否已应用到数据库。 |
+|        |                                                              |
+|:-------|:-------------------------------------------------------------|
+| -Force | 如果它已应用到数据库，请还原迁移。 |
 
-### <a name="scaffold-dbcontext"></a>Scaffold-DbContext
+### <a name="scaffold-dbcontext"></a>基架 DbContext
 
 基架数据库类型 DbContext 和实体的类型。
 
@@ -112,12 +112,13 @@ Get-Help about_EntityFrameworkCore
 
 |                                          |                                                                                                  |
 |:-----------------------------------------|:-------------------------------------------------------------------------------------------------|
-| <nobr>***-Connection*** \<String></nobr> | 数据库的连接字符串。                                                           |
-| ***-Provider*** \<String>                | 要使用的提供程序。 （例如 Microsoft.EntityFrameworkCore.SqlServer)                              |
+| <nobr>***连接***\<字符串 ></nobr> | 数据库的连接字符串。                                                           |
+| ***-Provider*** \<String>                | 要使用的提供程序。 （例如， Microsoft.EntityFrameworkCore.SqlServer)                              |
 | -OutputDir\<字符串 >                     | 要将文件放入的目录。 路径是相对于项目目录。                      |
+| -ContextDir\<字符串 >                    | 要将 DbContext 文件放入的目录。 路径是相对于项目目录。             |
 | -上下文\<字符串 >                       | 若要生成的 dbcontext 名称。                                                           |
-| -Schemas \<String[]>                     | 要生成实体类型的表架构。                                              |
-| -Tables \<String[]>                      | 要生成实体类型的表。                                                         |
+| -架构\<String [] >                     | 要生成实体类型的表架构。                                              |
+| -表\<String [] >                      | 要生成实体类型的表。                                                         |
 | -DataAnnotations                         | 使用属性来配置该模型 （如果可能）。 如果省略，则使用仅 fluent API。 |
 | -UseDatabaseNames                        | 使用直接从数据库表和列名称。                                           |
 | -Force                                   | 覆盖现有文件。                                                                        |
@@ -130,19 +131,19 @@ Get-Help about_EntityFrameworkCore
 
 |                   |                                                                    |
 |:------------------|:-------------------------------------------------------------------|
-| *-From* \<String> | 开始迁移。 默认值为 0 （初始数据库）。      |
-| *-To* \<String>   | 结束的迁移。 默认到最后一个迁移。              |
+| *-从*\<字符串 > | 开始迁移。 默认值为 0 （初始数据库）。      |
+| *到*\<字符串 >   | 结束的迁移。 默认到最后一个迁移。              |
 | 幂等性       | 生成可以在任何迁移的数据库使用的脚本。 |
 | -输出\<字符串 > | 要将结果写入的文件。                                   |
 
 > [!TIP]
 > 收件人、 从，和输出参数支持选项卡扩展。
 
-### <a name="update-database"></a>Update-Database
+### <a name="update-database"></a>更新数据库
 
 |                                     |                                                                                                |
 |:------------------------------------|:-----------------------------------------------------------------------------------------------|
-| <nobr>*-Migration* \<String></nobr> | 目标迁移。 如果为"0"，将恢复所有迁移。 默认到最后一个迁移。 |
+| <nobr>*迁移*\<字符串 ></nobr> | 目标迁移。 如果为"0"，将恢复所有迁移。 默认到最后一个迁移。 |
 
 > [!TIP]
 > 迁移参数支持选项卡扩展。

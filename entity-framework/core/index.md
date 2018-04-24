@@ -1,54 +1,56 @@
 ---
-title: "简要概述 - EF Core"
+title: 简要概述 - EF Core
 author: rowanmiller
 ms.author: divega
 ms.date: 10/27/2016
 ms.assetid: bc2a2676-bc46-493f-bf49-e3cc97994d57
 ms.technology: entity-framework-core
 uid: core/index
-ms.openlocfilehash: c76b4cd318151b502c549fa0a82800f9987ed94c
-ms.sourcegitcommit: b2d94cebdc32edad4fecb07e53fece66437d1b04
+ms.openlocfilehash: f9aac91545b97e56686e3a8d2eb9e83c849587d9
+ms.sourcegitcommit: 4997314356118d0d97b04ad82e433e49bb9420a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="entity-framework-core-quick-overview"></a><span data-ttu-id="1a0a4-102">Entity Framework Core 简要概述</span><span class="sxs-lookup"><span data-stu-id="1a0a4-102">Entity Framework Core Quick Overview</span></span>
+# <a name="entity-framework-core-quick-overview"></a><span data-ttu-id="694b0-102">Entity Framework Core 简要概述</span><span class="sxs-lookup"><span data-stu-id="694b0-102">Entity Framework Core Quick Overview</span></span>
 
-<span data-ttu-id="1a0a4-103">Entity Framework (EF) Core 是轻量化、可扩展和跨平台版的常用 Entity Framework 数据访问技术。</span><span class="sxs-lookup"><span data-stu-id="1a0a4-103">Entity Framework (EF) Core is a lightweight, extensible, and cross-platform version of the popular Entity Framework data access technology.</span></span>
+<span data-ttu-id="694b0-103">Entity Framework (EF) Core 是轻量化、可扩展和跨平台版的常用 Entity Framework 数据访问技术。</span><span class="sxs-lookup"><span data-stu-id="694b0-103">Entity Framework (EF) Core is a lightweight, extensible, and cross-platform version of the popular Entity Framework data access technology.</span></span>
 
-<span data-ttu-id="1a0a4-104">EF Core 是一种支持 .NET 开发人员使用 .NET 对象处理数据库的对象关系映射程序 (O/RM)。</span><span class="sxs-lookup"><span data-stu-id="1a0a4-104">EF Core is an object-relational mapper (O/RM) that enables .NET developers to work with a database using .NET objects.</span></span> <span data-ttu-id="1a0a4-105">它不要求提供开发人员通常需要编写的大部分数据访问代码。</span><span class="sxs-lookup"><span data-stu-id="1a0a4-105">It eliminates the need for most of the data-access code that developers usually need to write.</span></span> <span data-ttu-id="1a0a4-106">EF Core 支持多个数据库引擎，请参阅[数据库提供程序](providers/index.md)了解详细信息。</span><span class="sxs-lookup"><span data-stu-id="1a0a4-106">EF Core supports many database engines, see [Database Providers](providers/index.md) for details.</span></span>
+<span data-ttu-id="694b0-104">EF Core 可用作对象关系映射程序 (O/RM)，以便于 .NET 开发人员能够使用 .NET 对象来处理数据库，这样就不必经常编写大部分数据访问代码了。</span><span class="sxs-lookup"><span data-stu-id="694b0-104">EF Core can serve as an object-relational mapper (O/RM), enabling .NET developers to work with a database using .NET objects, and eliminating the need for most of the data-access code they usually need to write.</span></span> 
 
-<span data-ttu-id="1a0a4-107">如果希望通过编写代码进行了解，建议你阅读其中一篇[入门](get-started/index.md)指南以开始使用 EF Core。</span><span class="sxs-lookup"><span data-stu-id="1a0a4-107">If you like to learn by writing code, we'd recommend one of our [Getting Started](get-started/index.md) guides to get you started with EF Core.</span></span>
+<span data-ttu-id="694b0-105">EF Core 支持多个数据库引擎，请参阅[数据库提供程序](providers/index.md)了解详细信息。</span><span class="sxs-lookup"><span data-stu-id="694b0-105">EF Core supports many database engines, see [Database Providers](providers/index.md) for details.</span></span>
 
-## <a name="what-is-new-in-ef-core"></a><span data-ttu-id="1a0a4-108">EF Core 中的新增功能</span><span class="sxs-lookup"><span data-stu-id="1a0a4-108">What is new in EF Core</span></span>
+<span data-ttu-id="694b0-106">如果希望通过编写代码进行了解，建议你阅读其中一篇[入门](get-started/index.md)指南以开始使用 EF Core。</span><span class="sxs-lookup"><span data-stu-id="694b0-106">If you like to learn by writing code, we'd recommend one of our [Getting Started](get-started/index.md) guides to get you started with EF Core.</span></span>
 
-<span data-ttu-id="1a0a4-109">如果已熟悉 EF Core 并希望直接了解新版本的详细信息，请参阅：</span><span class="sxs-lookup"><span data-stu-id="1a0a4-109">If you are familiar with EF Core and want to jump straight into the details of the latest releases:</span></span>
+## <a name="what-is-new-in-ef-core"></a><span data-ttu-id="694b0-107">EF Core 中的新增功能</span><span class="sxs-lookup"><span data-stu-id="694b0-107">What is new in EF Core</span></span>
 
-- <span data-ttu-id="1a0a4-110">**[EF Core 2.1（目前为预览版）中的新增功能](xref:core/what-is-new/ef-core-2.1)**</span><span class="sxs-lookup"><span data-stu-id="1a0a4-110">**[What is new in EF Core 2.1 (currently in preview)](xref:core/what-is-new/ef-core-2.1)**</span></span>
-- <span data-ttu-id="1a0a4-111">**[EF Core 2.0（最新发布的版本）中的新增功能](xref:core/what-is-new/ef-core-2.0)**</span><span class="sxs-lookup"><span data-stu-id="1a0a4-111">**[What is new in EF Core 2.0 (the latest released version)](xref:core/what-is-new/ef-core-2.0)**</span></span>
-- <span data-ttu-id="1a0a4-112">**[将现有应用程序升级至 EF Core 2.0](xref:core/miscellaneous/1x-2x-upgrade)**</span><span class="sxs-lookup"><span data-stu-id="1a0a4-112">**[Upgrading existing applications to EF Core 2.0](xref:core/miscellaneous/1x-2x-upgrade)**</span></span>
+<span data-ttu-id="694b0-108">如果已熟悉 EF Core 并希望直接了解新版本的详细信息，请参阅：</span><span class="sxs-lookup"><span data-stu-id="694b0-108">If you are familiar with EF Core and want to jump straight into the details of the latest releases:</span></span>
+
+- <span data-ttu-id="694b0-109">**[EF Core 2.1（目前为预览版）中的新增功能](xref:core/what-is-new/ef-core-2.1)**</span><span class="sxs-lookup"><span data-stu-id="694b0-109">**[What is new in EF Core 2.1 (currently in preview)](xref:core/what-is-new/ef-core-2.1)**</span></span>
+- <span data-ttu-id="694b0-110">**[EF Core 2.0（最新发布的版本）中的新增功能](xref:core/what-is-new/ef-core-2.0)**</span><span class="sxs-lookup"><span data-stu-id="694b0-110">**[What is new in EF Core 2.0 (the latest released version)](xref:core/what-is-new/ef-core-2.0)**</span></span>
+- <span data-ttu-id="694b0-111">**[将现有应用程序升级至 EF Core 2.0](xref:core/miscellaneous/1x-2x-upgrade)**</span><span class="sxs-lookup"><span data-stu-id="694b0-111">**[Upgrading existing applications to EF Core 2.0](xref:core/miscellaneous/1x-2x-upgrade)**</span></span>
 
 
-## <a name="get-entity-framework-core"></a><span data-ttu-id="1a0a4-113">获取 Entity Framework Core</span><span class="sxs-lookup"><span data-stu-id="1a0a4-113">Get Entity Framework Core</span></span>
+## <a name="get-entity-framework-core"></a><span data-ttu-id="694b0-112">获取 Entity Framework Core</span><span class="sxs-lookup"><span data-stu-id="694b0-112">Get Entity Framework Core</span></span>
 
-<span data-ttu-id="1a0a4-114">针对要使用的数据库提供程序，[安装 NuGet 包](https://docs.nuget.org/ndocs/quickstart/use-a-package)。</span><span class="sxs-lookup"><span data-stu-id="1a0a4-114">[Install the NuGet package](https://docs.nuget.org/ndocs/quickstart/use-a-package) for the database provider you want to use.</span></span> <span data-ttu-id="1a0a4-115">例如，</span><span class="sxs-lookup"><span data-stu-id="1a0a4-115">E.g.</span></span> <span data-ttu-id="1a0a4-116">要在跨平台开发中安装 SQL Server 提供程序，请在命令行中使用 `dotnet` 工具：</span><span class="sxs-lookup"><span data-stu-id="1a0a4-116">to install the SQL Server provider in cross-platform development using `dotnet` tool in the command line:</span></span>
+<span data-ttu-id="694b0-113">针对要使用的数据库提供程序，[安装 NuGet 包](https://docs.nuget.org/ndocs/quickstart/use-a-package)。</span><span class="sxs-lookup"><span data-stu-id="694b0-113">[Install the NuGet package](https://docs.nuget.org/ndocs/quickstart/use-a-package) for the database provider you want to use.</span></span> <span data-ttu-id="694b0-114">例如，</span><span class="sxs-lookup"><span data-stu-id="694b0-114">E.g.</span></span> <span data-ttu-id="694b0-115">要在跨平台开发中安装 SQL Server 提供程序，请在命令行中使用 `dotnet` 工具：</span><span class="sxs-lookup"><span data-stu-id="694b0-115">to install the SQL Server provider in cross-platform development using `dotnet` tool in the command line:</span></span>
 
 ``` Console
 dotnet add package Microsoft.EntityFrameworkCore.SqlServer
 ```
 
-<span data-ttu-id="1a0a4-117">或者在 Visual Studio 中，使用包管理器控制台：</span><span class="sxs-lookup"><span data-stu-id="1a0a4-117">Or in Visual Studio, using the Package Manager Console:</span></span>
+<span data-ttu-id="694b0-116">或者在 Visual Studio 中，使用包管理器控制台：</span><span class="sxs-lookup"><span data-stu-id="694b0-116">Or in Visual Studio, using the Package Manager Console:</span></span>
 
 ``` PowerShell
 Install-Package Microsoft.EntityFrameworkCore.SqlServer
 ```
-<span data-ttu-id="1a0a4-118">有关可用提供程序的信息，请参阅[数据库提供程序](providers/index.md)；有关更多详细的安装步骤，请参阅[安装 EF Core](get-started/install/index.md)。</span><span class="sxs-lookup"><span data-stu-id="1a0a4-118">See [Database Providers](providers/index.md) for information on available providers and [Installing EF Core](get-started/install/index.md) for more detailed installation steps.</span></span>
+<span data-ttu-id="694b0-117">有关可用提供程序的信息，请参阅[数据库提供程序](providers/index.md)；有关更多详细的安装步骤，请参阅[安装 EF Core](get-started/install/index.md)。</span><span class="sxs-lookup"><span data-stu-id="694b0-117">See [Database Providers](providers/index.md) for information on available providers and [Installing EF Core](get-started/install/index.md) for more detailed installation steps.</span></span>
 
-## <a name="the-model"></a><span data-ttu-id="1a0a4-119">模型</span><span class="sxs-lookup"><span data-stu-id="1a0a4-119">The Model</span></span>
+## <a name="the-model"></a><span data-ttu-id="694b0-118">模型</span><span class="sxs-lookup"><span data-stu-id="694b0-118">The Model</span></span>
 
-<span data-ttu-id="1a0a4-120">对于 EF Core，使用模型执行数据访问。</span><span class="sxs-lookup"><span data-stu-id="1a0a4-120">With EF Core, data access is performed using a model.</span></span> <span data-ttu-id="1a0a4-121">模型由实体类和表示数据库会话的派生上下文构成，用于查询和保存数据。</span><span class="sxs-lookup"><span data-stu-id="1a0a4-121">A model is made up of entity classes and a derived context that represents a session with the database, allowing you to query and save data.</span></span> <span data-ttu-id="1a0a4-122">有关详细信息，请参阅[创建模型](modeling/index.md)。</span><span class="sxs-lookup"><span data-stu-id="1a0a4-122">See [Creating a Model](modeling/index.md) to learn more.</span></span>
+<span data-ttu-id="694b0-119">对于 EF Core，使用模型执行数据访问。</span><span class="sxs-lookup"><span data-stu-id="694b0-119">With EF Core, data access is performed using a model.</span></span> <span data-ttu-id="694b0-120">模型由实体类和表示数据库会话的派生上下文构成，用于查询和保存数据。</span><span class="sxs-lookup"><span data-stu-id="694b0-120">A model is made up of entity classes and a derived context that represents a session with the database, allowing you to query and save data.</span></span> <span data-ttu-id="694b0-121">有关详细信息，请参阅[创建模型](modeling/index.md)。</span><span class="sxs-lookup"><span data-stu-id="694b0-121">See [Creating a Model](modeling/index.md) to learn more.</span></span>
 
-<span data-ttu-id="1a0a4-123">可从现有数据库生成模型，手动编码模型使之与数据库相匹配，或使用 EF 迁移基于模型创建数据库（并在模型随时间推移发生更改后进行相应改进）。</span><span class="sxs-lookup"><span data-stu-id="1a0a4-123">You can generate a model from an existing database, hand code a model to match your database, or use EF Migrations to create a database from your model (and evolve it as your model changes over time).</span></span>
+<span data-ttu-id="694b0-122">可从现有数据库生成模型，手动编码模型使之与数据库相匹配，或使用 EF 迁移基于模型创建数据库（并在模型随时间推移发生更改后进行相应改进）。</span><span class="sxs-lookup"><span data-stu-id="694b0-122">You can generate a model from an existing database, hand code a model to match your database, or use EF Migrations to create a database from your model (and evolve it as your model changes over time).</span></span>
 
 ``` csharp
 using Microsoft.EntityFrameworkCore;
@@ -87,9 +89,9 @@ namespace Intro
 }
 ```
 
-## <a name="querying"></a><span data-ttu-id="1a0a4-124">查询</span><span class="sxs-lookup"><span data-stu-id="1a0a4-124">Querying</span></span>
+## <a name="querying"></a><span data-ttu-id="694b0-123">查询</span><span class="sxs-lookup"><span data-stu-id="694b0-123">Querying</span></span>
 
-<span data-ttu-id="1a0a4-125">使用语言集成查询 (LINQ) 从数据库检索实体类的实例。</span><span class="sxs-lookup"><span data-stu-id="1a0a4-125">Instances of your entity classes are retrieved from the database using Language Integrated Query (LINQ).</span></span> <span data-ttu-id="1a0a4-126">有关详细信息，请参阅[查询数据](querying/index.md)。</span><span class="sxs-lookup"><span data-stu-id="1a0a4-126">See [Querying Data](querying/index.md) to learn more.</span></span>
+<span data-ttu-id="694b0-124">使用语言集成查询 (LINQ) 从数据库检索实体类的实例。</span><span class="sxs-lookup"><span data-stu-id="694b0-124">Instances of your entity classes are retrieved from the database using Language Integrated Query (LINQ).</span></span> <span data-ttu-id="694b0-125">有关详细信息，请参阅[查询数据](querying/index.md)。</span><span class="sxs-lookup"><span data-stu-id="694b0-125">See [Querying Data](querying/index.md) to learn more.</span></span>
 
 ``` csharp
 using (var db = new BloggingContext())
@@ -101,9 +103,9 @@ using (var db = new BloggingContext())
 }
 ```
 
-## <a name="saving-data"></a><span data-ttu-id="1a0a4-127">保存数据</span><span class="sxs-lookup"><span data-stu-id="1a0a4-127">Saving Data</span></span>
+## <a name="saving-data"></a><span data-ttu-id="694b0-126">保存数据</span><span class="sxs-lookup"><span data-stu-id="694b0-126">Saving Data</span></span>
 
-<span data-ttu-id="1a0a4-128">使用实体类的实例在数据库中创建、删除和修改数据。</span><span class="sxs-lookup"><span data-stu-id="1a0a4-128">Data is created, deleted, and modified in the database using instances of your entity classes.</span></span> <span data-ttu-id="1a0a4-129">有关详细信息，请参阅[保存数据](saving/index.md)。</span><span class="sxs-lookup"><span data-stu-id="1a0a4-129">See [Saving Data](saving/index.md) to learn more.</span></span>
+<span data-ttu-id="694b0-127">使用实体类的实例在数据库中创建、删除和修改数据。</span><span class="sxs-lookup"><span data-stu-id="694b0-127">Data is created, deleted, and modified in the database using instances of your entity classes.</span></span> <span data-ttu-id="694b0-128">有关详细信息，请参阅[保存数据](saving/index.md)。</span><span class="sxs-lookup"><span data-stu-id="694b0-128">See [Saving Data](saving/index.md) to learn more.</span></span>
 
 ``` csharp
 using (var db = new BloggingContext())

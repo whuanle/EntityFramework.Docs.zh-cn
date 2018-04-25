@@ -6,18 +6,18 @@ ms.date: 02/20/2018
 ms.assetid: 834C9729-7F6E-4355-917D-DE3EE9FE149E
 ms.technology: entity-framework-core
 uid: core/what-is-new/roadmap
-ms.openlocfilehash: 5aef679df2ecdfe7f59458c8994d0d17b4a889ff
-ms.sourcegitcommit: 2ef0a4a90b01edd22b9206f8729b8de459ef8cab
+ms.openlocfilehash: 6c10e64a4fa3bf26dc0da64bb9e102c8b76d3a6e
+ms.sourcegitcommit: 4997314356118d0d97b04ad82e433e49bb9420a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/20/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="entity-framework-core-roadmap"></a>Entity Framework Core 路线图
 
 > [!IMPORTANT]
 > 请注意，将来版本的功能集和计划会发生更改，尽管我们会尽力使此页面保持最新状态，但它可能不会始终反映我们的最新计划。
 
-EF Core 2.1 的首个预览版发布于 2018 年 2 月。 现在可在 [EF Core 2.1 中的新增功能](xref:core/what-is-new/ef-core-2.1)中查找有关此版本的详细信息。
+EF Core 2.1 的第二个预览版发布于 2018 年 4 月。 现在可在 [EF Core 2.1 中的新增功能](xref:core/what-is-new/ef-core-2.1)中查找有关此版本的详细信息。
 
 我们计划每月发布 EF Core 2.1 的其他预览版，并于 2018 年的第二个日历季度发布最终版。
 

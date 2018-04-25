@@ -1,22 +1,22 @@
 ---
-title: "EF Core 2.1 中的新增功能 - EF Core"
+title: EF Core 2.1 中的新增功能 - EF Core
 author: divega
 ms.author: divega
 ms.date: 2/20/2018
 ms.assetid: 585F90A3-4D5A-4DD1-92D8-5243B14E0FEC
 ms.technology: entity-framework-core
 uid: core/what-is-new/ef-core-2.1
-ms.openlocfilehash: bb1e691e0f22bd36467d58c02bde22c63067207e
-ms.sourcegitcommit: fcaeaf085171dfb5c080ec42df1d1df8dfe204fb
+ms.openlocfilehash: db1648095aa4d612af53f4e10a30be36edc40da5
+ms.sourcegitcommit: 4997314356118d0d97b04ad82e433e49bb9420a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="new-features-in-ef-core-21"></a>EF Core 2.1 中的新增功能
 > [!NOTE]  
 > 此版本仍处于预览版。
 
-除了做了许多小改进，修复了超过 100 个产品 bug 外，EF Core 2.1 还包含几项新功能：
+除了大量缺陷修复以及小规模功能增强和性能增强之外，EF Core 2.1 还新增了一些有吸引力的功能：
 
 ## <a name="lazy-loading"></a>延迟加载
 EF Core 现包含创作可按需加载导航属性的实体类所必需的构建基块。 我们还创建了一个新包 - Microsoft.EntityFrameworkCore.Proxies，它可利用这些构建基块基于最小修改实体类（例如具有虚拟导航属性的类）来生成延迟加载代理类。
@@ -71,7 +71,7 @@ GROUP BY [o].[CustomerId], [o].[EmployeeId];
 如示例所示，可使用它在 `OnModelCreating` 中为 Post 配置种子数据：
 
 ``` csharp
-modelBuilder.Entity<Post>().SeedData(new Post{ Id = 1, Text = "Hello World!" });
+modelBuilder.Entity<Post>().HasData(new Post{ Id = 1, Text = "Hello World!" });
 ```
 
 阅读[有关数据种子设定的部分](xref:core/modeling/data-seeding)详细了解本主题。  
@@ -143,9 +143,29 @@ public class Order
 }
 ```
 
+## <a name="new-dotnet-ef-global-tool"></a>全新 dotnet-ef 全局工具
+
+dotnet-ef 命令已改为 .NET CLI 全局工具，因此无须在项目中使用 DotNetCliToolReference，也可以使用各项迁移，或通过现有数据库搭建 DbContext 基架。
+
+## <a name="microsoftentityframeworkcoreabstractions-package"></a>Microsoft.EntityFrameworkCore.Abstractions 包
+可以在项目中使用新包内的一些属性和接口，从而启用 EF Core 功能，而无需依赖 EF Core 整体。 例如， 预览 1 中引入的 [Owned] 属性已移到此包中。
+
+## <a name="state-change-events"></a>状态更改事件
+
+`ChangeTracker` 中新增的 `Tracked` 和 `StateChanged` 事件可用于编写逻辑，以响应进入 DbContext 或状态更改的实体。
+
+## <a name="raw-sql-parameter-analyzer"></a>原始 SQL 参数分析器
+
+EF Core 随附新增一个代码分析器，用于检测原始 SQL API（如 `FromSql` 或 `ExecuteSqlCommand`）的潜在不安全用法。 例如， 对于下面的查询，将会看到一条警告，因为 minAge 未参数化：
+
+``` csharp
+var sql = $"SELECT * FROM People WHERE Age > {minAge}";
+var query = context.People.FromSql(sql);
+```
+
 ## <a name="database-provider-compatibility"></a>数据库提供程序兼容性
 
-设计 EF Core 2.1 的目的是为了与为 EF Core 2.0 创建的数据库提供提供程序兼容。 虽然需要最新提供程序方可使用上述某些功能（如值转换），但现有提供程序可使用其他一些功能（例如延迟加载）。
+EF Core 2.1 旨在与针对 EF Core 2.0 创建的数据库提供程序兼容，或至少要求改动最少。 虽然需要最新提供程序方可使用上述某些功能（如值转换），但现有提供程序可使用其他一些功能（例如延迟加载）。
 
 > [!TIP]
 > 如果新功能出现任何意外的不兼容或问题，或你有任何相关反馈，请使用[我们的问题跟踪器](https://github.com/aspnet/EntityFrameworkCore/issues/new)进行报告。

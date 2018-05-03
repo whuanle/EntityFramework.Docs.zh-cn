@@ -1,22 +1,22 @@
 ---
-title: "级联 Delete-EF 核心"
+title: 级联 Delete-EF 核心
 author: rowanmiller
 ms.author: divega
 ms.date: 10/27/2016
 ms.assetid: ee8e14ec-2158-4c9c-96b5-118715e2ed9e
 ms.technology: entity-framework-core
 uid: core/saving/cascade-delete
-ms.openlocfilehash: 1ab9d114e27aac0bec972df631a426c8ce87a518
-ms.sourcegitcommit: b2d94cebdc32edad4fecb07e53fece66437d1b04
+ms.openlocfilehash: 0fc8929c56d4c657b7fb1e3c8e4b1a71659220c9
+ms.sourcegitcommit: 507a40ed050fee957bcf8cf05f6e0ec8a3b1a363
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="cascade-delete"></a>级联删除
 
-级联删除通常在数据库术语用于描述了特性是，它允许自动触发的相关行删除某行的删除。 通过 EF 核心删除行为还介绍密切相关的概念是子实体与父级的关系时自动删除已断开-通常称为"删除孤立文件"此 i。
+级联删除通常在数据库术语用于描述了特性是，它允许自动触发的相关行删除某行的删除。 通过 EF 核心删除行为还介绍一个密切相关的概念是子实体的自动删除时已断开与父-这通常称为"删除孤立文件"。
 
-EF 核心实现几种不同的删除行为，并允许对单个关系的删除行为的配置。 EF 核心还实现自动配置为基于 [requiredness 关系] 每个关系的有用的默认值删除行为的约定 (../modeling/relationships.md#required-and-optional-relationships)。
+EF 核心实现几种不同的删除行为，并允许对单个关系的删除行为的配置。 EF 核心还实现自动配置基于每个关系的有用的默认删除行为的约定[关系 requiredness](../modeling/relationships.md#required-and-optional-relationships)。
 
 ## <a name="delete-behaviors"></a>删除行为
 删除中定义行为*DeleteBehavior*枚举器类型和可以传递给*OnDelete* fluent API 来控制是否删除主体/父实体或的断开与依赖于/子实体的关系应该对依赖于/子实体具有副作用。
@@ -35,10 +35,10 @@ EF 核心实现几种不同的删除行为，并允许对单个关系的删除�
 
 | 行为名称               | 对内存中的相关/子的影响    | 对依赖于/子数据库中的影响  |
 |:----------------------------|:---------------------------------------|:---------------------------------------|
-| **Cascade**                 | 在删除实体                   | 在删除实体                   |
+| **级联**                 | 在删除实体                   | 在删除实体                   |
 | **ClientSetNull** （默认） | 外键属性设置为 null | 无                                   |
-| **SetNull**                 | 外键属性设置为 null | 外键属性设置为 null |
-| **Restrict**                | 无                                   | 无                                   |
+| **setNull**                 | 外键属性设置为 null | 外键属性设置为 null |
+| **限制**                | 无                                   | 无                                   |
 
 对于需要关系 （不可为 null 的外键），它是_不_可以保存 null 外键值，这会导致以下影响：
 
@@ -46,8 +46,8 @@ EF 核心实现几种不同的删除行为，并允许对单个关系的删除�
 |:----------------------|:------------------------------------|:--------------------------------------|
 | **级联**（默认） | 在删除实体                | 在删除实体                  |
 | **ClientSetNull**     | SaveChanges 引发                  | 无                                  |
-| **SetNull**           | SaveChanges 引发                  | SaveChanges 引发                    |
-| **Restrict**          | 无                                | 无                                  |
+| **setNull**           | SaveChanges 引发                  | SaveChanges 引发                    |
+| **限制**          | 无                                | 无                                  |
 
 在上表中，*无*可能会导致违反了约束。 例如，如果主体/子实体已删除，但不执行任何操作，若要更改依赖于/子的外键，则数据库将可能引发上 SaveChanges 由于外约束冲突。
 

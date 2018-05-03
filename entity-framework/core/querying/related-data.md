@@ -1,16 +1,16 @@
 ---
-title: "正在加载相关数据的 EF 核心"
+title: 正在加载相关数据的 EF 核心
 author: rowanmiller
 ms.author: divega
 ms.date: 10/27/2016
 ms.assetid: f9fb64e2-6699-4d70-a773-592918c04c19
 ms.technology: entity-framework-core
 uid: core/querying/related-data
-ms.openlocfilehash: 0d7705e0e5368435536e98d319c853ea8c732643
-ms.sourcegitcommit: 8f3be0a2a394253efb653388ec66bda964e5ee1b
+ms.openlocfilehash: 5f1fb9376300739ab0e306d9d60e7ec71aa2d2e7
+ms.sourcegitcommit: 507a40ed050fee957bcf8cf05f6e0ec8a3b1a363
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="loading-related-data"></a>加载相关的数据
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 03/05/2018
 [!code-csharp[Main](../../../samples/core/Querying/Querying/RelatedData/Sample.cs#SingleThenInclude)]
 
 > [!NOTE]  
-> 当前版本的 Visual Studio 提供完成选项的代码不正确，因此会正确的表达式被使用时，标记有语法错误`ThenInclude`方法之后使用的集合导航属性。 这是跟踪在 https://github.com/dotnet/roslyn/issues/8237 IntelliSense bug 的症状。 则可以安全地忽略这些虚假语法错误，只要代码正确无误，并且可以成功编译。 
+> 当前版本的 Visual Studio 提供完成选项的代码不正确，因此会正确的表达式被使用时，标记有语法错误`ThenInclude`方法之后使用的集合导航属性。 这是在跟踪 IntelliSense bug 的症状https://github.com/dotnet/roslyn/issues/8237。 则可以安全地忽略这些虚假语法错误，只要代码正确无误，并且可以成功编译。 
 
 你可以链接到多个调用`ThenInclude`继续进一步包括的相关数据的级别。
 
@@ -98,19 +98,19 @@ ms.lasthandoff: 03/05/2018
 内容`School`导航所有人士提供学生可以积极加载使用大量的模式：
 
 - 使用强制转换
-```Csharp
-context.People.Include(person => ((Student)person).School).ToList()
-```
+  ```Csharp
+  context.People.Include(person => ((Student)person).School).ToList()
+  ```
 
 - 使用`as`运算符
-```Csharp
-context.People.Include(person => (person as Student).School).ToList()
-```
+  ```Csharp
+  context.People.Include(person => (person as Student).School).ToList()
+  ```
 
 - 使用重载的`Include`它采用的类型参数 `string`
-```Csharp
-context.People.Include("Student").ToList()
-```
+  ```Csharp
+  context.People.Include("Student").ToList()
+  ```
 
 ### <a name="ignored-includes"></a>忽略包括
 
@@ -152,7 +152,7 @@ context.People.Include("Student").ToList()
 > [!NOTE]  
 > EF 核心 2.1 中引入了此功能。
 
-使用延迟加载的最简单方法是通过安装[Microsoft.EntityFrameworkCore.Proxies](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Proxies/)包，并使其通过调用`UseLazyLoadingProxies`。 例如:
+使用延迟加载的最简单方法是通过安装[Microsoft.EntityFrameworkCore.Proxies](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Proxies/)包，并使其通过调用`UseLazyLoadingProxies`。 例如：
 ```Csharp
 protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     => optionsBuilder
@@ -186,7 +186,7 @@ public class Post
 ```
 ### <a name="lazy-loading-without-proxies"></a>Lazy 加载没有代理
 
-Lazy 加载代理工作通过将注入`ILazyLoader`中所述，服务实体，到[实体类型构造函数](../modeling/constructors.md)。 例如:
+Lazy 加载代理工作通过将注入`ILazyLoader`中所述，服务实体，到[实体类型构造函数](../modeling/constructors.md)。 例如：
 ```Csharp
 public class Blog
 {
@@ -239,7 +239,7 @@ public class Post
     }
 }
 ```
-这不需要从中继承的实体类型或导航属性以是虚拟机，并允许使用创建的实体实例`new`若要延迟加载一次附加到上下文。 但是，它需要对引用`ILazyLoader`服务，其标为 EF 核心程序集的实体类型。 为了避免这种 EF 核心才允许`ILazyLoader.Load`方法来插入视为的委托。 例如:
+这不需要从中继承的实体类型或导航属性以是虚拟机，并允许使用创建的实体实例`new`若要延迟加载一次附加到上下文。 但是，它需要对引用`ILazyLoader`服务，其标为 EF 核心程序集的实体类型。 为了避免这种 EF 核心才允许`ILazyLoader.Load`方法来插入视为的委托。 例如：
 ```Csharp
 public class Blog
 {

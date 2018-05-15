@@ -6,11 +6,11 @@ ms.date: 2/26/2018
 ms.assetid: 9F4450C5-1A3F-4BB6-AC19-9FAC64292AAD
 ms.technology: entity-framework-core
 uid: core/modeling/query-types
-ms.openlocfilehash: 4e02f106e086d243b23a60c02838f32555be210e
-ms.sourcegitcommit: 26f33758c47399ae933f22fec8e1d19fa7d2c0b7
+ms.openlocfilehash: f16e3a130f3a4f92b2bf6014f2df0ca4eec56a25
+ms.sourcegitcommit: 038acd91ce2f5a28d76dcd2eab72eeba225e366d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="query-types"></a>查询类型
 > [!NOTE]
@@ -28,7 +28,10 @@ EF 核心模型可以包含实体类型，除了_查询类型_，这可以用于
 - 不需要一个密钥，以定义。
 - 永远不会跟踪的更改上_DbContext_并因此永远不会插入、 更新或删除数据库上。
 - 永远不会发现的约定。
-- 仅支持一部分导航映射功能-具体而言，它们可能永远不会充当一种关系的主体端。
+- 仅支持一部分导航映射功能-具体而言：
+  - 它们可能永远不会充当一种关系的主体端。
+  - 它们只能包含指向实体的引用导航属性。
+  - 实体不能包含为查询类型的导航属性。
 - 得到解决_ModelBuilder_使用`Query`方法而不是`Entity`方法。
 - 在映射_DbContext_类型的属性通过`DbQuery<T>`而不是 `DbSet<T>`
 - 映射到使用的数据库对象`ToView`方法，而不是`ToTable`。

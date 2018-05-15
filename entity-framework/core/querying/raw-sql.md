@@ -1,18 +1,18 @@
 ---
-title: "原始的 SQL 查询的 EF 核心"
+title: 原始的 SQL 查询的 EF 核心
 author: rowanmiller
 ms.author: divega
 ms.date: 10/27/2016
 ms.assetid: 70aae9b5-8743-4557-9c5d-239f688bf418
 ms.technology: entity-framework-core
 uid: core/querying/raw-sql
-ms.openlocfilehash: 79894c7b9fd9e40cdf14460abf5d872ee2f4b9f0
-ms.sourcegitcommit: ced2637bf8cc5964c6daa6c7fcfce501bf9ef6e8
+ms.openlocfilehash: 29b7e20e875bf791a88a92636c1df4bc4e31656b
+ms.sourcegitcommit: 038acd91ce2f5a28d76dcd2eab72eeba225e366d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 05/14/2018
 ---
-# <a name="raw-sql-queries"></a>原始的 SQL 查询
+# <a name="raw-sql-queries"></a>原生 SQL 查询
 
 实体框架核心，可使用关系数据库时到原始的 SQL 查询下拉列表。 如果你想要执行的查询无法表示使用 LINQ，或如果使用 LINQ 查询导致效率低下发送到数据库的 SQL，这可能很有用。
 
@@ -21,18 +21,18 @@ ms.lasthandoff: 12/22/2017
 
 ## <a name="limitations"></a>限制
 
-有一些限制需要注意的时使用原始的 SQL 查询：
+有几个限制时应注意的使用原始的 SQL 查询：
 * 仅可以使用 SQL 查询返回属于您的模型的实体类型。 没有到积压工作上的增强功能[启用从原始的 SQL 查询返回临时类型](https://github.com/aspnet/EntityFramework/issues/1862)。
 
-* SQL 查询必须返回的所有属性的实体类型的数据。
+* SQL 查询必须返回的所有属性的实体或查询类型的数据。
 
 * 在结果集中的列名必须与属性映射到的列名称匹配。 请注意这不同于从 EF6 其中属性/列映射被忽略的原始 SQL 查询和结果集名称必须匹配的属性名称的列。
 
 * SQL 查询不能包含相关的数据。 但是，在许多情况下您可以通过在查询使用之上`Include`运算符可返回相关的数据 (请参阅[包括相关的数据](#including-related-data))。
 
-* `SELECT`语句传递给此方法通常应为可组合： 如果 EF 核心需要评估在服务器上的其他查询运算符 (例如转换后应用的 LINQ 运算符`FromSql`)，提供的 SQL 将被视为子查询。 这意味着 SQL 传递不应包含任何字符或选项不适用于在子查询，如：
+* `SELECT` 语句传递给此方法通常应为可组合： 如果 EF 核心需要评估在服务器上的其他查询运算符 (例如转换后应用的 LINQ 运算符`FromSql`)，提供的 SQL 将被视为子查询。 这意味着 SQL 传递不应包含任何字符或选项不适用于在子查询，如：
   * 尾随的分号
-  * SQL Server 上尾随查询级别提示例如`OPTION (HASH JOIN)`
+  * SQL Server 上尾随查询级别提示例如 `OPTION (HASH JOIN)`
   * SQL Server 上`ORDER BY`子句不附带的`TOP 100 PERCENT`中`SELECT`子句
 
 * 以外的其他 SQL 语句`SELECT`自动识别为不可编写。 因此，存储过程的完整结果将始终返回到客户端和任何 LINQ 运算符后应用`FromSql`是内存计算中。 

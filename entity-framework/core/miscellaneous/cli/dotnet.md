@@ -4,11 +4,11 @@ author: bricelam
 ms.author: bricelam
 ms.date: 11/6/2017
 ms.technology: entity-framework-core
-ms.openlocfilehash: 396d31c9d0c0f47d299f49e82e557ed29b8420e7
-ms.sourcegitcommit: 4997314356118d0d97b04ad82e433e49bb9420a2
+ms.openlocfilehash: d053d53bd50d2e7d16223c5b4e4009c9bb2298bb
+ms.sourcegitcommit: 038acd91ce2f5a28d76dcd2eab72eeba225e366d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/14/2018
 ---
 <a name="ef-core-net-command-line-tools"></a>EF 核心.NET 命令行工具
 ===============================
@@ -19,14 +19,18 @@ ms.lasthandoff: 04/16/2018
 
 <a name="installing-the-tools"></a>安装工具
 --------------------
-安装使用这些步骤的 EF 核心.NET 命令行工具：
+> [!NOTE]
+> .NET 核心 SDK 版本 2.1.300 和更高版本包括**dotnet ef**与 EF 核心 2.0 和更高版本兼容的命令。 因此如果你使用的最新版本的.NET 核心 SDK 和 EF 核心运行时，需要进行任何安装，你可以忽略本部分的其余部分。
+>
+> 另一方面， **dotnet ef**工具包含在.NET 核心 SDK 版本 2.1.300 和更高版本不兼容与 EF Core 版本 1.0 和 1.1。 你可以使用.NET 核心 sdk 2.1.300 的计算机使用 EF 核心这些早期版本的项目或更高版本安装之前，你还必须安装版本 2.1.200 或更低版本的 sdk 和配置应用程序通过修改使用该旧版本其 [global.json](https://docs.microsoft.com/en-us/dotnet/core/tools/global-json)文件。 此文件通常包含在解决方案目录 （一个上面项目）。 然后，您可以继续下面 installlation 指令。
+
+对于.NET 核心 sdk 的早期版本，你可以安装使用这些步骤的 EF 核心.NET 命令行工具：
 
 1. 编辑项目文件并将 Microsoft.EntityFrameworkCore.Tools.DotNet 添加为 DotNetCliToolReference 项 （见下文）
 2. 运行以下命令：
 
        dotnet add package Microsoft.EntityFrameworkCore.Design
        dotnet restore
-
 
 生成的项目应如下所示：
 
@@ -63,7 +67,7 @@ dotnet ef
 
 目标项目是在其中添加任何文件（或在某些情况下删除文件）的项目。 目标项目默认为当前目录中的项目，但可以使用更改<nobr> **-项目**</nobr>选项。
 
-启动项目是执行项目代码时由工具模拟的项目。 它也默认为当前目录中的项目，但可以使用更改**-启动项目**选项。
+启动项目是执行项目代码时由工具模拟的项目。 它也默认为当前目录中的项目，但可以使用更改 **-启动项目**选项。
 
 > [!NOTE]
 > 例如，更新的 web 应用程序具有不同的项目中安装的 EF 核心数据库将如下所示： `dotnet ef database update --project {project-path}` （从您的 web 应用程序目录）

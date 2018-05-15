@@ -1,5 +1,5 @@
 ---
-title: "ASP.NET Core入门 - 新数据库 - EF Core"
+title: ASP.NET Core入门 - 新数据库 - EF Core
 author: rick-anderson
 ms.author: riande
 ms.author2: tdykstra
@@ -8,11 +8,11 @@ ms.topic: get-started-article
 ms.assetid: e153627f-f132-4c11-b13c-6c9a607addce
 ms.technology: entity-framework-core
 uid: core/get-started/aspnetcore/new-db
-ms.openlocfilehash: f6ed19d3c5d2ae8d1f5756558e50c1f0dddd2f07
-ms.sourcegitcommit: d2434edbfa6fbcee7287e33b4915033b796e417e
+ms.openlocfilehash: 80477ca57b8b3df6de8ba3595c9056c6b8412040
+ms.sourcegitcommit: 507a40ed050fee957bcf8cf05f6e0ec8a3b1a363
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="getting-started-with-ef-core-on-aspnet-core-with-a-new-database"></a>使用新数据库在 ASP.NET Core 上开始使用 EF Core
 
@@ -65,7 +65,7 @@ ms.lasthandoff: 02/12/2018
 * 输入“Model.cs”作为名称，然后单击“确定”。
 * 将此文件的内容替换为以下代码：
 
- [!code-csharp[Main](../../../../samples/core/GetStarted/AspNetCore/EFGetStarted.AspNetCore.NewDb/Models/Model.cs)]
+  [!code-csharp[Main](../../../../samples/core/GetStarted/AspNetCore/EFGetStarted.AspNetCore.NewDb/Models/Model.cs)]
 
 注意：在真正的应用程序中，通常会将模型中的每个类放在单独的文件中。 为简单起见，我们在本教程中将所有类放在一个文件中。
 
@@ -78,13 +78,13 @@ ms.lasthandoff: 02/12/2018
 * 打开 Startup.cs
 * 添加以下 `using` 语句：
 
- [!code-csharp[Main](../../../../samples/core/GetStarted/AspNetCore/EFGetStarted.AspNetCore.NewDb/Startup.cs#AddedUsings)]
+  [!code-csharp[Main](../../../../samples/core/GetStarted/AspNetCore/EFGetStarted.AspNetCore.NewDb/Startup.cs#AddedUsings)]
 
 添加 `AddDbContext` 方法将其注册为服务：
 
 * 将以下代码添加到 `ConfigureServices` 方法：
 
- [!code-csharp[Main](../../../../samples/core/GetStarted/AspNetCore/EFGetStarted.AspNetCore.NewDb/Startup.cs?name=ConfigureServices&highlight=7-8)]
+  [!code-csharp[Main](../../../../samples/core/GetStarted/AspNetCore/EFGetStarted.AspNetCore.NewDb/Startup.cs?name=ConfigureServices&highlight=7-8)]
 
 注意：真正的应用程序通常会将连接字符串放在配置文件中。 为了简单起见，我们在代码中对它进行定义。 有关详细信息，请参阅[连接字符串 ](../../miscellaneous/connection-strings.md)。
 
@@ -111,7 +111,7 @@ ms.lasthandoff: 02/12/2018
 * 在“解决方案资源管理器”中，右键单击“控制器”文件夹，然后选择“添加”>“控制器”。
 * 选择“视图使用 Entity Framework 的 MVC 控制器”，然后单击“确定”。
 * 将“模型类”设置为“Blog”，将“数据上下文类”设置为“BloggingContext”。
-* 单击 **“添加”**。
+* 单击 **添加**。
 
 
 ## <a name="run-the-application"></a>运行此应用程序

@@ -1,5 +1,5 @@
 ---
-title: "在 .NET Core 上开始使用 - EF Core"
+title: 在 .NET Core 上开始使用 - EF Core
 author: rowanmiller
 ms.author: divega
 ms.date: 10/27/2016
@@ -12,7 +12,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/27/2017
 ---
-# <a name="getting-started-with-ef-core-on-net-core"></a>在 .NET Core 上开始使用 EF Core
+# <a name="getting-started-with-ef-core-on-net-core"></a>基于 .NET Core 的 EF Core 入门
 
 无需具备 Entity Framework Core 或 Visual Studio 背景知识即可学习这 101 个教程。 这些教程会逐步演示如何创建简单的 .NET Core 控制台应用程序，以便查询和保存数据库中的数据。 可在 .NET Core 支持的任何平台（Windows、OSX、Linux 等）上完成这些教程。
 

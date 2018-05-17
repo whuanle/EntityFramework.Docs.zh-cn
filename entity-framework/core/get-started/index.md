@@ -1,5 +1,5 @@
 ---
-title: "入门 - EF Core"
+title: 入门 - EF Core
 author: rowanmiller
 ms.author: divega
 ms.date: 10/27/2016
@@ -12,13 +12,13 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 02/12/2018
 ---
-# <a name="getting-started-with-entity-framework-core"></a>开始使用 Entity Framework Core
+# <a name="getting-started-with-entity-framework-core"></a>Entity Framework Core 入门
 
 ## <a name="installing-ef-coreinstallindexmd"></a>[安装 EF Core](install/index.md)
 
 将 EF Core 添加到不同平台和常用 IDE 中的应用程序的所需步骤汇总。
 
-## <a name="step-by-step-tutorials"></a>分步教程
+## <a name="step-by-step-tutorials"></a>分步入门教程
 
 无需具备 Entity Framework Core 或特定 IDE 背景知识即可学习这些入门教程。 这些教程会逐步演示如何创建简单的应用程序，以便查询和保存数据库中的数据。 我们已提供许多教程，指导你开始使用各种操作系统和应用程序类型。
 

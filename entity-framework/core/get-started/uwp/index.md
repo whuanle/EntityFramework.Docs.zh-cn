@@ -1,5 +1,5 @@
 ---
-title: "在 UWP 上开始使用 - EF Core"
+title: 在 UWP 上开始使用 - EF Core
 author: rowanmiller
 ms.author: divega
 ms.date: 10/27/2016
@@ -12,7 +12,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/01/2017
 ---
-# <a name="getting-started-with-ef-core-on-universal-windows-platform-uwp"></a>在通用 Windows 平台 (UWP) 上开始使用 EF Core
+# <a name="getting-started-with-ef-core-on-universal-windows-platform-uwp"></a>基于通用 Windows 平台 (UWP) 的 EF Core 入门
 
 无需具备 Entity Framework Core 或 Visual Studio 背景知识即可学习这 101 个教程。 这些教程会逐步演示如何创建简单的通用 Windows 平台 (UWP) 应用程序，以便查询和保存数据库中的数据。
 

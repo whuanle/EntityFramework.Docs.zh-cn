@@ -12,7 +12,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/16/2018
 ---
-# <a name="entity-framework-core-quick-overview"></a>Entity Framework Core 简要概述
+# <a name="entity-framework-core-quick-overview"></a>Entity Framework Core 快速概览
 
 Entity Framework (EF) Core 是轻量化、可扩展和跨平台版的常用 Entity Framework 数据访问技术。
 

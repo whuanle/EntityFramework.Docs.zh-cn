@@ -18,7 +18,7 @@ ms.lasthandoff: 11/15/2017
 
 为了开发 .NET Core 2.0 应用程序（包括面向 .NET Core 的 ASP.NET Core 2.0 应用程序），需要下载并安装适合所用平台的 [.NET Core 2.0 SDK](https://www.microsoft.com/net/download/core) 版本。 即使已安装 Visual Studio 2017 版本 15.3，也是如此。
 
-为了将 EF Core 2.0 或任何其他 .NET Standard 2.0 库用于非 .NET Core 2.0 版本的 .NET 平台（例如 NET Framework 4.6.1 或更高版本），需要可识别 .NET Standard 2.0 及其兼容框架的 NuGet 版本。 可通过几种方法获取此版本：
+为了将 EF Core 2.0 或任何其他 .NET Standard 2.0 库用于非 .NET Core 2.0 版本的 .NET 平台（例如 .NET Framework 4.6.1 或更高版本），需要可识别 .NET Standard 2.0 及其兼容框架的 NuGet 版本。 可通过几种方法获取此版本：
 
 * 安装 Visual Studio 2017 版本 15.3
 * 如果使用 Visual Studio 2015，请[下载 NuGet 客户端并升级至 3.6.0 版](https://www.nuget.org/downloads)
@@ -120,4 +120,4 @@ Visual Studio 中还有 PowerShell 版本的[在 PMC 内运行的 EF Core 命令
 > * 命令完成后，它们会自动在 Visual Studio 中打开命令所生成的文件。
 
 > [!IMPORTANT]  
-> **EF Core 2.0 中的弃用包：**如果将现有应用程序升级至 EF Core 2.0，可能需要手动删除一些对旧版 EF Core 包的引用。 具体而言，EF Core 2.0 不再需要或支持 `Microsoft.EntityFrameworkCore.SqlServer.Design` 等数据库提供程序设计时包，但在升级其他包后，它们不会被自动删除。
+> **EF Core 2.0 中的弃用包**：如果将现有应用程序升级至 EF Core 2.0，可能需要手动删除一些对旧版 EF Core 包的引用。 具体而言，EF Core 2.0 不再需要或支持 `Microsoft.EntityFrameworkCore.SqlServer.Design` 等数据库提供程序设计时包，但在升级其他包后，它们不会被自动删除。

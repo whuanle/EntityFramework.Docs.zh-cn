@@ -1,5 +1,5 @@
 ---
-title: "安装 EF Core"
+title: 安装 EF Core
 author: divega
 ms.author: divega
 ms.date: 08/06/2017

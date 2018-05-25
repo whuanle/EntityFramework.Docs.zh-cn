@@ -1,5 +1,5 @@
 ---
-title: "保存数据 - EF Core"
+title: 保存数据 - EF Core
 author: rowanmiller
 ms.author: divega
 ms.date: 10/27/2016

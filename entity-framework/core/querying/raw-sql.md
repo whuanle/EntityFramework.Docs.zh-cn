@@ -1,5 +1,5 @@
 ---
-title: 原始的 SQL 查询的 EF 核心
+title: 原生 SQL 查询 - EF Core
 author: rowanmiller
 ms.author: divega
 ms.date: 10/27/2016
@@ -8,38 +8,39 @@ ms.technology: entity-framework-core
 uid: core/querying/raw-sql
 ms.openlocfilehash: 29b7e20e875bf791a88a92636c1df4bc4e31656b
 ms.sourcegitcommit: 038acd91ce2f5a28d76dcd2eab72eeba225e366d
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34163208"
 ---
 # <a name="raw-sql-queries"></a>原生 SQL 查询
 
-实体框架核心，可使用关系数据库时到原始的 SQL 查询下拉列表。 如果你想要执行的查询无法表示使用 LINQ，或如果使用 LINQ 查询导致效率低下发送到数据库的 SQL，这可能很有用。
+通过 Entity Framework Core 可以在使用关系数据库时下拉到原生 SQL 查询。 这在无法使用 LINQ 表示要执行的查询或在使用 LINQ 查询导致 SQL 发送到数据库的效率低时非常有用。
 
 > [!TIP]  
 > 可在 GitHub 上查看此文章的[示例](https://github.com/aspnet/EntityFramework.Docs/tree/master/samples/core/Querying)。
 
 ## <a name="limitations"></a>限制
 
-有几个限制时应注意的使用原始的 SQL 查询：
-* 仅可以使用 SQL 查询返回属于您的模型的实体类型。 没有到积压工作上的增强功能[启用从原始的 SQL 查询返回临时类型](https://github.com/aspnet/EntityFramework/issues/1862)。
+使用原生 SQL 查询时需注意以下几个限制：
+* SQL 查询只能用于返回属于你的模型的实体类型。 积压工作有一个增强功能，即[可从原生 SQL 查询中返回临时类型](https://github.com/aspnet/EntityFramework/issues/1862)。
 
-* SQL 查询必须返回的所有属性的实体或查询类型的数据。
+* SQL 查询必须返回实体或查询类型的所有属性的数据。
 
-* 在结果集中的列名必须与属性映射到的列名称匹配。 请注意这不同于从 EF6 其中属性/列映射被忽略的原始 SQL 查询和结果集名称必须匹配的属性名称的列。
+* 结果集中的列名必须与属性映射到的列名称匹配。 请注意，这与 EF6 不同，其中已忽略原生 SQL 查询的属性/列映射，且结果集列名称必须与属性名称匹配。
 
-* SQL 查询不能包含相关的数据。 但是，在许多情况下您可以通过在查询使用之上`Include`运算符可返回相关的数据 (请参阅[包括相关的数据](#including-related-data))。
+* SQL 查询不能包含相关数据。 但是，在许多情况下可以使用 `Include` 运算符在查询顶部进行编写以返回相关数据（请参阅[包括相关数据](#including-related-data)）。
 
-* `SELECT` 语句传递给此方法通常应为可组合： 如果 EF 核心需要评估在服务器上的其他查询运算符 (例如转换后应用的 LINQ 运算符`FromSql`)，提供的 SQL 将被视为子查询。 这意味着 SQL 传递不应包含任何字符或选项不适用于在子查询，如：
-  * 尾随的分号
-  * SQL Server 上尾随查询级别提示例如 `OPTION (HASH JOIN)`
-  * SQL Server 上`ORDER BY`子句不附带的`TOP 100 PERCENT`中`SELECT`子句
+* 传递到此方法的 `SELECT` 语句通常应该可以进行编写：如果 EF Core 需要计算服务器上的其他查询运算符（例如，转换 `FromSql` 后应用的 LINQ 运算符），则提供的 SQL 将被视为子查询。 这意味着传递的 SQL 不应包含子查询上无效的任何字符或选项，如：
+  * 尾随分号
+  * 在 SQL Server 上，尾随的查询级提示，如 `OPTION (HASH JOIN)`
+  * 在 SQL Server 上，不附带 `SELECT` 子句中的 `TOP 100 PERCENT` 的 `ORDER BY` 子句
 
-* 以外的其他 SQL 语句`SELECT`自动识别为不可编写。 因此，存储过程的完整结果将始终返回到客户端和任何 LINQ 运算符后应用`FromSql`是内存计算中。 
+* 除 `SELECT` 以外的其他 SQL 语句自动识别为不可编写。 因此，存储过程的完整结果将始终返回到客户端，且在内存中计算 `FromSql` 后应用的任何 LINQ 运算符。 
 
-## <a name="basic-raw-sql-queries"></a>基本原始的 SQL 查询
+## <a name="basic-raw-sql-queries"></a>基本原生 SQL 查询
 
-你可以使用*FromSql*扩展方法，以开始基于原始的 SQL 查询的 LINQ 查询。
+可以使用 *FromSql* 扩展方法基于原生 SQL 查询开始 LINQ 查询。
 
 <!-- [!code-csharp[Main](samples/core/Querying/Querying/RawSQL/Sample.cs)] -->
 ``` csharp
@@ -48,7 +49,7 @@ var blogs = context.Blogs
     .ToList();
 ```
 
-可以使用原始的 SQL 查询来执行存储的过程。
+原生 SQL 查询可用于执行存储过程。
 
 <!-- [!code-csharp[Main](samples/core/Querying/Querying/RawSQL/Sample.cs)] -->
 ``` csharp
@@ -59,9 +60,9 @@ var blogs = context.Blogs
 
 ## <a name="passing-parameters"></a>传递参数
 
-与任何接受 SQL 的 API，务必参数化任何用户输入以防止受到 SQL 注入攻击。 你可以在 SQL 查询字符串中包含参数占位符，然后提供其他参数作为参数值。 你提供任何参数值将自动转换为`DbParameter`。
+正如接受 SQL 的任何 API 一样，务必参数化任何用户输入以抵御 SQL 注入攻击。 可以将参数占位符包含在 SQL 查询字符串中，然后提供参数值作为其他参数。 提供的任何参数值将自动转换为 `DbParameter`。
 
-下面的示例将一个参数传递给存储过程。 尽管这看上去可能如`String.Format`语法，提供的值包装在插入的位置参数和生成的参数名`{0}`指定占位符。
+下面的示例将一个参数传递到存储过程。 尽管这看上去可能像 `String.Format` 语法，但提供的值包装在参数中，且生成的参数名称插入在指定 `{0}` 占位符的位置。
 
 <!-- [!code-csharp[Main](samples/core/Querying/Querying/RawSQL/Sample.cs)] -->
 ``` csharp
@@ -72,7 +73,7 @@ var blogs = context.Blogs
     .ToList();
 ```
 
-这是相同的查询，不过，使用字符串内插语法，在 EF 核心 2.0 及以上版本支持：
+这是相同的查询，但使用 EF Core 2.0 及更高版本支持的字符串内插语法：
 
 <!-- [!code-csharp[Main](samples/core/Querying/Querying/RawSQL/Sample.cs)] -->
 ``` csharp
@@ -83,7 +84,7 @@ var blogs = context.Blogs
     .ToList();
 ```
 
-你还可以构造 dbparameter 时并将其提供作为参数值。 此选项，可以在 SQL 查询字符串中使用命名的参数
+还可以构造 DbParameter 并将其作为参数值提供。 这样可以在 SQL 查询字符串中使用命名参数
 
 <!-- [!code-csharp[Main](samples/core/Querying/Querying/RawSQL/Sample.cs)] -->
 ``` csharp
@@ -94,11 +95,11 @@ var blogs = context.Blogs
     .ToList();
 ```
 
-## <a name="composing-with-linq"></a>编写 LINQ
+## <a name="composing-with-linq"></a>使用 LINQ 编写
 
-如果在数据库中，会在编写 SQL 查询，然后您可以通过使用 LINQ 运算符初始原始 SQL 查询前面。 可以组合正在使用的 SQL 查询`SELECT`关键字。
+如果在数据库中可以在 SQL 查询上进行编写，则可以使用 LINQ 运算符在初始原生 SQL 查询顶部进行编写。 可以使用 `SELECT` 关键字在其上进行编写的 SQL 查询。
 
-下面的示例使用原始的 SQL 查询，以选择从表值函数 (TVF)，然后组合了对其使用 LINQ 进行筛选和排序。
+下面的示例使用可从表值函数 (TVF) 中选择的原生 SQL 查询，然后使用 LINQ 在其上进行编写以执行筛选和排序。
 
 <!-- [!code-csharp[Main](samples/core/Querying/Querying/RawSQL/Sample.cs)] -->
 ``` csharp
@@ -111,9 +112,9 @@ var blogs = context.Blogs
     .ToList();
 ```
 
-### <a name="including-related-data"></a>包括相关的数据
+### <a name="including-related-data"></a>包括相关数据
 
-编写 LINQ 运算符可以用于在查询中包含相关的数据。
+使用 LINQ 运算符编写可用于将相关数据包含在查询中。
 
 <!-- [!code-csharp[Main](samples/core/Querying/Querying/RawSQL/Sample.cs)] -->
 ``` csharp
@@ -126,4 +127,4 @@ var blogs = context.Blogs
 ```
 
 > [!WARNING]  
-> **始终的原始 SQL 查询中使用参数化：** Api 接受原始 SQL 字符串如`FromSql`和`ExecuteSqlCommand`允许轻松作为参数传递的值。 除了验证用户输入，始终为原始 SQL 查询/命令中使用的所有值使用参数化。 如果使用字符串串联来动态生成的查询字符串的任何部分，则你将负责验证任何输入，以防止受到 SQL 注入式攻击。
+> **始终为原生 SQL 查询使用参数化：** 接受原生 SQL 字符串（如 `FromSql` 和 `ExecuteSqlCommand`）的 API 允许将值作为参数轻松传递。 除了验证用户输入以外，始终为原生 SQL 查询/命令中使用的所有值使用参数化。 如果使用字符串串联来动态生成查询字符串的任何部分，则你将负责验证所有输入以抵御 SQL 注入攻击。

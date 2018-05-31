@@ -1,5 +1,5 @@
 ---
-title: 事务的 EF 核心
+title: 事务 - EF Core
 author: rowanmiller
 ms.author: divega
 ms.date: 10/27/2016
@@ -8,28 +8,29 @@ ms.technology: entity-framework-core
 uid: core/saving/transactions
 ms.openlocfilehash: fe4c0d6ad7ccb2e97dc94fbf2eb26a41e7fbcb19
 ms.sourcegitcommit: 7113e8675f26cbb546200824512078bf360225df
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30202492"
 ---
 # <a name="using-transactions"></a>使用事务
 
-事务允许多个数据库操作以原子方式处理。 如果将提交事务，则表示的所有操作已成功应用于数据库。 如果事务回滚后，所有操作将应用到数据库。
+事务允许以原子方式处理多个数据库操作。 如果已提交事务，则所有操作都会成功应用到数据库。 如果已回滚事务，则所有操作都不会应用到数据库。
 
 > [!TIP]  
 > 可在 GitHub 上查看此文章的[示例](https://github.com/aspnet/EntityFramework.Docs/tree/master/samples/core/Saving/Saving/Transactions/)。
 
 ## <a name="default-transaction-behavior"></a>默认事务行为
 
-默认情况下，如果数据库提供程序支持事务，所有更改对单个调用中`SaveChanges()`应用在事务中。 如果任何所做的更改失败，然后回滚事务，并没有更改应用到数据库。 这意味着，`SaveChanges()`保证完全成功，还是保持数据库不做任何修改如果发生错误。
+默认情况下，如果数据库提供程序支持事务，则会在事务中应用对 `SaveChanges()` 的单一调用中的所有更改。 如果所有更改均失败，则会回滚事务且所有更改都不会应用到数据库。 这意味着，`SaveChanges()` 可保证完全成功，或在出现错误时不修改数据库。
 
-对于大多数应用程序，此默认行为已足够。 如果应用程序的要求，则认为有必要，您应仅手动控制事务。
+对于大多数应用程序，此默认行为已足够。 如果应用程序要求被视为有必要，则应该仅手动控制事务。
 
 ## <a name="controlling-transactions"></a>控制事务
 
-你可以使用`DbContext.Database`API 来开始、 提交和回滚事务。 下面的示例显示了两个`SaveChanges()`操作和 LINQ 查询在单个事务中执行。
+可以使用 `DbContext.Database` API 开始、提交和回滚事务。 以下示例显示了两个 `SaveChanges()` 操作以及正在单个事务中执行的 LINQ 查询。
 
-并非所有的数据库提供程序支持事务。 某些访问接口可能会引发或无操作事务调用 Api 时。
+并非所有数据库提供程序都支持事务。 调用事务 API 时，某些提供程序可能会引发异常或不执行任何操作。
 
 <!-- [!code-csharp[Main](samples/core/Saving/Saving/Transactions/ControllingTransaction/Sample.cs?highlight=3,17,18,19)] -->
 ``` csharp
@@ -61,24 +62,24 @@ ms.lasthandoff: 03/28/2018
         }
 ```
 
-## <a name="cross-context-transaction-relational-databases-only"></a>跨上下文事务 （仅限关系数据库）
+## <a name="cross-context-transaction-relational-databases-only"></a>跨上下文事务（仅限关系数据库）
 
-你还可以跨多个上下文实例共享一个事务。 当使用关系数据库提供程序，因为它需要使用时，此功能才可用`DbTransaction`和`DbConnection`，哪些是特定于关系数据库。
+还可以跨多个上下文实例共享一个事务。 此功能仅在使用关系数据库提供程序时才可用，因为该提供程序需要使用特定于关系数据库的 `DbTransaction` 和 `DbConnection`。
 
-若要共享一个事务，该上下文必须共享同时`DbConnection`和`DbTransaction`。
+若要共享事务，上下文必须共享 `DbConnection` 和 `DbTransaction`。
 
-### <a name="allow-connection-to-be-externally-provided"></a>允许连接到外部提供
+### <a name="allow-connection-to-be-externally-provided"></a>允许在外部提供连接
 
-共享`DbConnection`需要构造它时，将连接传递到上下文的能力。
+共享 `DbConnection` 需要在构造上下文时向其中传入连接的功能。
 
-允许的最简单办法`DbConnection`外部提供，即将停止使用`DbContext.OnConfiguring`方法来配置上下文和外部创建`DbContextOptions`并将它们传递给上下文构造函数。
+允许在外部提供 `DbConnection` 的最简单方式是，停止使用 `DbContext.OnConfiguring` 方法来配置上下文并在外部创建 `DbContextOptions`，然后将其传递到上下文构造函数。
 
 > [!TIP]  
-> `DbContextOptionsBuilder` 是你在中使用的 API`DbContext.OnConfiguring`若要配置的上下文，现在想要从外部使用它来创建`DbContextOptions`。
+> `DbContextOptionsBuilder` 是在 `DbContext.OnConfiguring` 中用于配置上下文的 API，现在即将在外部使用它来创建 `DbContextOptions`。
 
 [!code-csharp[Main](../../../samples/core/Saving/Saving/Transactions/SharingTransaction/Sample.cs?name=Context&highlight=3,4,5)]
 
-替代方法是继续使用`DbContext.OnConfiguring`，但接受`DbConnection`，保存并随后将用于`DbContext.OnConfiguring`。
+替代方法是继续使用 `DbContext.OnConfiguring`，但接受已保存并随后在 `DbContext.OnConfiguring` 中使用的 `DbConnection`。
 
 ``` csharp
 public class BloggingContext : DbContext
@@ -101,36 +102,36 @@ public class BloggingContext : DbContext
 
 ### <a name="share-connection-and-transaction"></a>共享连接和事务
 
-你现在可以创建多个共享相同的连接的上下文实例。 然后使用`DbContext.Database.UseTransaction(DbTransaction)`API 以同一事务中的两个上下文中登记。
+现在可以创建共享同一连接的多个上下文实例。 然后使用 `DbContext.Database.UseTransaction(DbTransaction)` API 在同一事务中登记两个上下文。
 
 [!code-csharp[Main](../../../samples/core/Saving/Saving/Transactions/SharingTransaction/Sample.cs?name=Transaction&highlight=1,2,3,7,16,23,24,25)]
 
-## <a name="using-external-dbtransactions-relational-databases-only"></a>使用外部 DbTransactions （仅限关系数据库）
+## <a name="using-external-dbtransactions-relational-databases-only"></a>使用外部 DbTransactions（仅限关系数据库）
 
-如果使用多个数据访问技术来访问关系数据库，你可能想要共享这些不同技术所执行的操作之间的事务。
+如果使用多个数据访问技术来访问关系数据库，则可能希望在这些不同技术所执行的操作之间共享事务。
 
-下面的示例，演示如何在同一事务中执行运算 ADO.NET SqlClient 和 Entity Framework 核心操作。
+以下示例显示了如何在同一事务中执行 ADO.NET SqlClient 操作和 Entity Framework Core 操作。
 
 [!code-csharp[Main](../../../samples/core/Saving/Saving/Transactions/ExternalDbTransaction/Sample.cs?name=Transaction&highlight=4,10,21,26,27,28)]
 
 ## <a name="using-systemtransactions"></a>使用 System.Transactions
 
 > [!NOTE]  
-> 此功能是在 EF 核心 2.1 的新增功能。
+> 此功能是 EF Core 2.1 中的新增功能。
 
-可使用环境事务，如果你需要进行协调跨较大作用域。
+如果需要跨较大作用域进行协调，则可以使用环境事务。
 
 [!code-csharp[Main](../../../samples/core/Saving/Saving/Transactions/AmbientTransaction/Sample.cs?name=Transaction&highlight=1,24,25,26)]
 
-还有可能在显式事务中登记。
+还可以在显式事务中登记。
 
 [!code-csharp[Main](../../../samples/core/Saving/Saving/Transactions/CommitableTransaction/Sample.cs?name=Transaction&highlight=1,13,26,27,28)]
 
 ### <a name="limitations-of-systemtransactions"></a>System.Transactions 的限制  
 
-1. EF 核心依赖于的数据库提供程序以实现对 System.Transactions 支持。 尽管对于.NET Framework，API 仅已最近添加到.NET 核心并因此支持，支持是十分常见 ADO.NET 提供程序之间是不可为大范围。 如果提供程序未实现对 System.Transactions 的支持，则可能对这些 Api 的调用将被完全忽略。 用于.NET 核心的 SqlClient 支持它从 2.1 及以上版本。 用于.NET 核心 2.0 的 SqlClient 将引发异常的尝试使用该功能。 
+1. EF Core 依赖数据库提供程序以实现对 System.Transactions 的支持。 虽然支持在 .NET Framework 的 ADO.NET 提供程序之间十分常见，但最近才将 API 添加到 .NET Core，因此支持并未得到广泛应用。 如果提供程序未实现对 System.Transactions 的支持，则可能会完全忽略对这些 API 的调用。 SqlClient for .NET Core 从 2.1 及以上版本开始支持 System.Transactions。 尝试使用该功能时，SqlClient for .NET Core 2.0 将引发异常。 
 
    > [!IMPORTANT]  
-   > 建议你测试，API 的行为与正确与你的提供程序之前用于管理事务依赖于该功能。 建议如果它不联系数据库提供程序 maintainer 的。 
+   > 建议你测试在依赖提供程序以管理事务之前 API 与该提供程序的行为是否正确。 如果不正确，则建议你与数据库提供程序的维护人员联系。 
 
-2. 从版本 2.1，开始在.NET 核心的 System.Transactions 实现不包括对分布式事务的支持，因此不能使用`TransactionScope`或`CommitableTransaction`来协调跨多个资源管理器的事务。 
+2. 自版本 2.1 起，.NET Core 中的 System.Transactions 实现不包括对分布式事务的支持，因此不能使用 `TransactionScope` 或 `CommitableTransaction` 来跨多个资源管理器协调事务。 

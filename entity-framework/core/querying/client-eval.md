@@ -1,5 +1,5 @@
 ---
-title: "客户端 vs。Server 评估版的 EF 核心"
+title: 客户端与服务器评估 - EF Core
 author: rowanmiller
 ms.author: divega
 ms.date: 10/27/2016
@@ -8,20 +8,21 @@ ms.technology: entity-framework-core
 uid: core/querying/client-eval
 ms.openlocfilehash: e1852b780041e9e92fb4d25129175346e3a601a3
 ms.sourcegitcommit: 01a75cd483c1943ddd6f82af971f07abde20912e
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/27/2017
+ms.locfileid: "26052647"
 ---
-# <a name="client-vs-server-evaluation"></a>客户端 vs。Server 评估版
+# <a name="client-vs-server-evaluation"></a>客户端与服务器评估
 
-实体框架核心支持正在评估客户端和推送到数据库的某些部分上的查询部分。 负责要确定查询的哪些部分将计算在数据库中的数据库提供程序。
+Entity Framework Core 支持在客户端上评估查询的各个部分，并将查询的各个部分推送到数据库。 由数据库提供程序确定将在数据库中评估查询的哪些部分。
 
 > [!TIP]  
-> 你可以查看这篇文章[示例](https://github.com/aspnet/EntityFramework.Docs/tree/master/samples/core/Querying)GitHub 上。
+> 可在 GitHub 上查看此文章的[示例](https://github.com/aspnet/EntityFramework.Docs/tree/master/samples/core/Querying)。
 
 ## <a name="client-evaluation"></a>客户端评估
 
-下面的示例在一个帮助器方法用于对 Url 进行标准化适用于 SQL Server 数据库中返回的博客。 因为 SQL Server 提供程序没有深入了解如何实现此方法，则不可以将其转换为 SQL。 所有其他方面的查询将计算在数据库中，但传递返回`URL`通过这种方法在客户端上执行。
+在下面的示例中，Helper 方法用于标准化从 SQL Server 数据库中返回的博客的 URL。 由于 SQL Server 提供程序对此方法的实现方式没有任何见解，因此不可以将其转换为 SQL。 在数据库中评估查询的所有其他方面，但会在客户端上通过此方法传递返回的 `URL`。
 
 <!-- [!code-csharp[Main](samples/core/Querying/Querying/ClientEval/Sample.cs?highlight=6)] -->
 ``` csharp
@@ -52,7 +53,7 @@ public static string StandardizeUrl(string url)
 
 ## <a name="disabling-client-evaluation"></a>禁用客户端评估
 
-虽然客户端评估可非常有用，在某些情况下可能导致性能不佳。 请考虑以下查询中，现在筛选器中使用的帮助器方法的位置。 因为这不能在数据库中执行，则将所有数据拉入内存，然后选择筛选器应用于客户端。 根据的数据，以及多少该数据会被筛选掉量，这可能导致性能不佳。
+虽然客户端评估非常有用，但在某些情况下可能会导致性能不佳。 请考虑以下查询，其中 Helper 方法现已在筛选器中使用。 由于无法在数据库中执行此操作，因此所有数据将被拉入内存中，然后会在客户端上应用筛选器。 根据数据量以及筛选出的数据量，这可能会导致性能不佳。
 
 <!-- [!code-csharp[Main](samples/core/Querying/Querying/ClientEval/Sample.cs)] -->
 ``` csharp
@@ -61,7 +62,7 @@ var blogs = context.Blogs
     .ToList();
 ```
 
-默认情况下，EF 核心执行客户端评估时将记录一个警告。 请参阅[日志记录](../miscellaneous/logging.md)有关查看日志记录输出的详细信息。 客户端评估发生引发或不执行任何操作时，你可以更改的行为。 这是通常在设置您的上下文中的选项时`DbContext.OnConfiguring`，或在`Startup.cs`如果正在使用 ASP.NET Core。
+默认情况下，当执行客户端评估时，EF Core 将记录警告。 有关查看日志记录输出的详细信息，请参阅[日志记录](../miscellaneous/logging.md)。 当客户端评估引发异常或不执行任何操作时，可以更改行为。 这是在为上下文（如果使用的是 ASP.NET Core，则通常在 `DbContext.OnConfiguring` 或 `Startup.cs` 中）设置选项时完成的。
 
 <!-- [!code-csharp[Main](samples/core/Querying/Querying/ClientEval/ThrowOnClientEval/BloggingContext.cs?highlight=5)] -->
 ``` csharp

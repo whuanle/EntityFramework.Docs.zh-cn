@@ -6,11 +6,12 @@ ms.date: 10/27/2016
 ms.assetid: bc2a2676-bc46-493f-bf49-e3cc97994d57
 ms.technology: entity-framework-core
 uid: core/index
-ms.openlocfilehash: f9aac91545b97e56686e3a8d2eb9e83c849587d9
-ms.sourcegitcommit: 4997314356118d0d97b04ad82e433e49bb9420a2
+ms.openlocfilehash: 3befcbd3ff3da5dd159e6e6cb5fe7140c81317c2
+ms.sourcegitcommit: a2b38dedc88ca3ccbfe7b1db9602ca02da8294cd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/31/2018
+ms.locfileid: "34686657"
 ---
 # <a name="entity-framework-core-quick-overview"></a>Entity Framework Core 快速概览
 
@@ -26,9 +27,8 @@ EF Core 支持多个数据库引擎，请参阅[数据库提供程序](providers
 
 如果已熟悉 EF Core 并希望直接了解新版本的详细信息，请参阅：
 
-- **[EF Core 2.1（目前为预览版）中的新增功能](xref:core/what-is-new/ef-core-2.1)**
-- **[EF Core 2.0（最新发布的版本）中的新增功能](xref:core/what-is-new/ef-core-2.0)**
-- **[将现有应用程序升级至 EF Core 2.0](xref:core/miscellaneous/1x-2x-upgrade)**
+- **[EF Core 2.1中的新增功能](xref:core/what-is-new/ef-core-2.1)**
+- **[将现有应用程序升级至 EF Core 2.x](xref:core/miscellaneous/1x-2x-upgrade)**
 
 
 ## <a name="get-entity-framework-core"></a>获取 Entity Framework Core

@@ -1,25 +1,26 @@
 ---
-title: "日志记录-EF 核心"
+title: 日志记录-EF 核心
 author: rowanmiller
 ms.author: divega
 ms.date: 10/27/2016
 ms.assetid: f6e35c6d-45b7-4258-be1d-87c1bb67438d
 ms.technology: entity-framework-core
 uid: core/miscellaneous/logging
-ms.openlocfilehash: 807560e563eddfb72d4286353b1403a0d2e2a441
-ms.sourcegitcommit: 5367516f063cb42804ec92c31cdf76322554f2b5
+ms.openlocfilehash: 60d76bf3360eb47cdd9836494c1f135d1005a215
+ms.sourcegitcommit: 3adf1267be92effc3c9daa893906a7f36834204f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35232131"
 ---
 # <a name="logging"></a>日志记录
 
 > [!TIP]  
-> 你可以查看这篇文章[示例](https://github.com/aspnet/EntityFramework.Docs/tree/master/samples/core/Miscellaneous/Logging)GitHub 上。
+> 可在 GitHub 上查看此文章的[示例](https://github.com/aspnet/EntityFramework.Docs/tree/master/samples/core/Miscellaneous/Logging)。
 
 ## <a name="aspnet-core-applications"></a>ASP.NET 核心应用程序
 
-与 ASP.NET Core 日志记录机制自动集成的 EF 核心每当`AddDbContext`或`AddDbContextPool`使用。 因此，在使用 ASP.NET Core，日志记录应配置中所述[ASP.NET 核心文档](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/logging?tabs=aspnetcore2x)。
+与 ASP.NET Core 的日志记录机制自动集成，EF 核心每当`AddDbContext`或`AddDbContextPool`使用。 因此，在使用 ASP.NET Core，日志记录应配置中所述[ASP.NET 核心文档](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/logging?tabs=aspnetcore2x)。
 
 ## <a name="other-applications"></a>其他应用程序
 

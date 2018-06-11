@@ -1,15 +1,16 @@
 ---
-title: "迁移 - EF Core"
+title: 迁移 - EF Core
 author: bricelam
 ms.author: bricelam
 ms.date: 10/30/2017
 ms.technology: entity-framework-core
 uid: core/managing-schemas/migrations/index
-ms.openlocfilehash: 24fbe344eba9b99929d905ac2b9e49c68a1a4323
-ms.sourcegitcommit: ced2637bf8cc5964c6daa6c7fcfce501bf9ef6e8
+ms.openlocfilehash: dd164125c053497af94773011127853ad10d27a6
+ms.sourcegitcommit: 72e59e6af86b568653e1b29727529dfd7f65d312
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34754504"
 ---
 <a name="migrations"></a>迁移
 ==========
@@ -177,7 +178,7 @@ myDbContext.Database.Migrate();
 ```
 
 > [!WARNING]
-> 请勿在 `Migrate()` 前调用 `EnsureCreated()`。 `EnsureCreated()` 会绕过迁移创建架构并导致 `Migrate()` 失败。
+> 请勿在 `Migrate()` 前调用 `EnsureCreated()`。 `EnsureCreated()` 会绕过迁移创建架构，这会导致 `Migrate()` 失败。
 
 > [!NOTE]
 > 此方法构建于 `IMigrator` 服务之上，该服务可用于更多高级方案。 请使用 `DbContext.GetService<IMigrator>()` 进行访问。

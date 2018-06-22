@@ -11,6 +11,7 @@ ms.sourcegitcommit: 01a75cd483c1943ddd6f82af971f07abde20912e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/27/2017
+ms.locfileid: "26048829"
 ---
 # <a name="getting-started-with-ef-core-on-net-core"></a><span data-ttu-id="84538-102">基于 .NET Core 的 EF Core 入门</span><span class="sxs-lookup"><span data-stu-id="84538-102">Getting Started with EF Core on .NET Core</span></span>
 

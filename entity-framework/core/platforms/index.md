@@ -1,5 +1,5 @@
 ---
-title: "支持的 .NET 实现 - EF Core"
+title: 支持的 .NET 实现 - EF Core
 author: rowanmiller
 ms.author: divega
 ms.date: 08/30/2017
@@ -10,6 +10,7 @@ ms.sourcegitcommit: b2d94cebdc32edad4fecb07e53fece66437d1b04
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29678671"
 ---
 # <a name="net-implementations-supported-by-ef-core"></a><span data-ttu-id="b8d8e-102">EF Core 支持的 .NET 实现</span><span class="sxs-lookup"><span data-stu-id="b8d8e-102">.NET implementations supported by EF Core</span></span>
 

@@ -1,5 +1,5 @@
 ---
-title: "从 EF 核心 1.0 RC1 升级到 RC2-EF 核心"
+title: 从 EF 核心 1.0 RC1 升级到 RC2-EF 核心
 author: rowanmiller
 ms.author: divega
 ms.date: 10/27/2016
@@ -11,6 +11,7 @@ ms.sourcegitcommit: b2d94cebdc32edad4fecb07e53fece66437d1b04
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29678622"
 ---
 # <a name="upgrading-from-ef-core-10-rc1-to-10-rc2"></a><span data-ttu-id="b25c8-102">从 EF 核心 1.0 RC1 升级到 1.0 RC2</span><span class="sxs-lookup"><span data-stu-id="b25c8-102">Upgrading from EF Core 1.0 RC1 to 1.0 RC2</span></span>
 

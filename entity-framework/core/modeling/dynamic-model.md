@@ -1,5 +1,5 @@
 ---
-title: "使用相同的 DbContext 类型的 EF 核心的多个模型之间交替"
+title: 使用相同的 DbContext 类型的 EF 核心的多个模型之间交替
 author: AndriySvyryd
 ms.author: divega
 ms.date: 12/10/2017
@@ -11,6 +11,7 @@ ms.sourcegitcommit: b2d94cebdc32edad4fecb07e53fece66437d1b04
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29678717"
 ---
 # <a name="alternating-between-multiple-models-with-the-same-dbcontext-type"></a><span data-ttu-id="06f5f-102">使用相同的 DbContext 类型的多个模型之间交替</span><span class="sxs-lookup"><span data-stu-id="06f5f-102">Alternating between multiple models with the same DbContext type</span></span>
 

@@ -1,5 +1,5 @@
 ---
-title: "使用 SQLite 的 EF 核心测试"
+title: 使用 SQLite 的 EF 核心测试
 author: rowanmiller
 ms.author: divega
 ms.date: 10/27/2016
@@ -11,6 +11,7 @@ ms.sourcegitcommit: 01a75cd483c1943ddd6f82af971f07abde20912e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/27/2017
+ms.locfileid: "26052697"
 ---
 # <a name="testing-with-sqlite"></a><span data-ttu-id="03409-102">使用 SQLite 测试</span><span class="sxs-lookup"><span data-stu-id="03409-102">Testing with SQLite</span></span>
 

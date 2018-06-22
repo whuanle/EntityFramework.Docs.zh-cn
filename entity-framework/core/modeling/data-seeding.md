@@ -11,6 +11,7 @@ ms.sourcegitcommit: 038acd91ce2f5a28d76dcd2eab72eeba225e366d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34163195"
 ---
 # <a name="data-seeding"></a><span data-ttu-id="b867e-102">数据种子设定</span><span class="sxs-lookup"><span data-stu-id="b867e-102">Data Seeding</span></span>
 

@@ -1,5 +1,5 @@
 ---
-title: "默认架构的 EF 核心"
+title: 默认架构的 EF 核心
 author: rowanmiller
 ms.author: divega
 ms.date: 10/27/2016
@@ -11,6 +11,7 @@ ms.sourcegitcommit: 01a75cd483c1943ddd6f82af971f07abde20912e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/27/2017
+ms.locfileid: "26052747"
 ---
 # <a name="default-schema"></a><span data-ttu-id="c016a-102">默认架构</span><span class="sxs-lookup"><span data-stu-id="c016a-102">Default Schema</span></span>
 

@@ -11,6 +11,7 @@ ms.sourcegitcommit: 01a75cd483c1943ddd6f82af971f07abde20912e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/27/2017
+ms.locfileid: "26048869"
 ---
 # <a name="saving-data"></a><span data-ttu-id="42306-102">保存数据</span><span class="sxs-lookup"><span data-stu-id="42306-102">Saving Data</span></span>
 

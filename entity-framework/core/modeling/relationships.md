@@ -1,5 +1,5 @@
 ---
-title: "关系的 EF 核心"
+title: 关系的 EF 核心
 author: rowanmiller
 ms.author: divega
 ms.date: 10/27/2016
@@ -11,6 +11,7 @@ ms.sourcegitcommit: 01a75cd483c1943ddd6f82af971f07abde20912e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/27/2017
+ms.locfileid: "26053027"
 ---
 # <a name="relationships"></a><span data-ttu-id="814ca-102">关系</span><span class="sxs-lookup"><span data-stu-id="814ca-102">Relationships</span></span>
 
@@ -23,21 +24,21 @@ ms.lasthandoff: 10/27/2017
 
 <span data-ttu-id="814ca-108">有大量用于描述关系的术语</span><span class="sxs-lookup"><span data-stu-id="814ca-108">There are a number of terms used to describe relationships</span></span>
 
-* <span data-ttu-id="814ca-109">**依赖的实体：**这是包含外键属性的实体。</span><span class="sxs-lookup"><span data-stu-id="814ca-109">**Dependent entity:** This is the entity that contains the foreign key property(s).</span></span> <span data-ttu-id="814ca-110">有时称为 child 的关系。</span><span class="sxs-lookup"><span data-stu-id="814ca-110">Sometimes referred to as the 'child' of the relationship.</span></span>
+* <span data-ttu-id="814ca-109">**依赖的实体：** 这是包含外键属性的实体。</span><span class="sxs-lookup"><span data-stu-id="814ca-109">**Dependent entity:** This is the entity that contains the foreign key property(s).</span></span> <span data-ttu-id="814ca-110">有时称为 child 的关系。</span><span class="sxs-lookup"><span data-stu-id="814ca-110">Sometimes referred to as the 'child' of the relationship.</span></span>
 
-* <span data-ttu-id="814ca-111">**主体实体：**这是包含主/备用键属性的实体。</span><span class="sxs-lookup"><span data-stu-id="814ca-111">**Principal entity:** This is the entity that contains the primary/alternate key property(s).</span></span> <span data-ttu-id="814ca-112">有时称为 'parent' 的关系。</span><span class="sxs-lookup"><span data-stu-id="814ca-112">Sometimes referred to as the 'parent' of the relationship.</span></span>
+* <span data-ttu-id="814ca-111">**主体实体：** 这是包含主/备用键属性的实体。</span><span class="sxs-lookup"><span data-stu-id="814ca-111">**Principal entity:** This is the entity that contains the primary/alternate key property(s).</span></span> <span data-ttu-id="814ca-112">有时称为 'parent' 的关系。</span><span class="sxs-lookup"><span data-stu-id="814ca-112">Sometimes referred to as the 'parent' of the relationship.</span></span>
 
-* <span data-ttu-id="814ca-113">**外键：**中用于存储与相关实体的主体键属性的值的依赖实体属性。</span><span class="sxs-lookup"><span data-stu-id="814ca-113">**Foreign key:** The property(s) in the dependent entity that is used to store the values of the principal key property that the entity is related to.</span></span>
+* <span data-ttu-id="814ca-113">**外键：** 中用于存储与相关实体的主体键属性的值的依赖实体属性。</span><span class="sxs-lookup"><span data-stu-id="814ca-113">**Foreign key:** The property(s) in the dependent entity that is used to store the values of the principal key property that the entity is related to.</span></span>
 
-* <span data-ttu-id="814ca-114">**主体的密钥：**唯一标识的主体实体属性。</span><span class="sxs-lookup"><span data-stu-id="814ca-114">**Principal key:** The property(s) that uniquely identifies the principal entity.</span></span> <span data-ttu-id="814ca-115">这可能是 primary key 或备用密钥。</span><span class="sxs-lookup"><span data-stu-id="814ca-115">This may be the primary key or an alternate key.</span></span>
+* <span data-ttu-id="814ca-114">**主体的密钥：** 唯一标识的主体实体属性。</span><span class="sxs-lookup"><span data-stu-id="814ca-114">**Principal key:** The property(s) that uniquely identifies the principal entity.</span></span> <span data-ttu-id="814ca-115">这可能是 primary key 或备用密钥。</span><span class="sxs-lookup"><span data-stu-id="814ca-115">This may be the primary key or an alternate key.</span></span>
 
-* <span data-ttu-id="814ca-116">**导航属性：**包含对相关实体引用的主体和/或依赖实体上定义的属性。</span><span class="sxs-lookup"><span data-stu-id="814ca-116">**Navigation property:** A property defined on the principal and/or dependent entity that contains a reference(s) to the related entity(s).</span></span>
+* <span data-ttu-id="814ca-116">**导航属性：** 包含对相关实体引用的主体和/或依赖实体上定义的属性。</span><span class="sxs-lookup"><span data-stu-id="814ca-116">**Navigation property:** A property defined on the principal and/or dependent entity that contains a reference(s) to the related entity(s).</span></span>
 
-  * <span data-ttu-id="814ca-117">**集合导航属性：**一个导航属性，包含对多个相关实体的引用。</span><span class="sxs-lookup"><span data-stu-id="814ca-117">**Collection navigation property:** A navigation property that contains references to many related entities.</span></span>
+  * <span data-ttu-id="814ca-117">**集合导航属性：** 一个导航属性，包含对多个相关实体的引用。</span><span class="sxs-lookup"><span data-stu-id="814ca-117">**Collection navigation property:** A navigation property that contains references to many related entities.</span></span>
 
-  * <span data-ttu-id="814ca-118">**引用导航属性：**一个导航属性，保存对单个相关实体的引用。</span><span class="sxs-lookup"><span data-stu-id="814ca-118">**Reference navigation property:** A navigation property that holds a reference to a single related entity.</span></span>
+  * <span data-ttu-id="814ca-118">**引用导航属性：** 一个导航属性，保存对单个相关实体的引用。</span><span class="sxs-lookup"><span data-stu-id="814ca-118">**Reference navigation property:** A navigation property that holds a reference to a single related entity.</span></span>
 
-  * <span data-ttu-id="814ca-119">**反向导航属性：**在讨论特定导航属性时，此术语是指关系另一端的导航属性。</span><span class="sxs-lookup"><span data-stu-id="814ca-119">**Inverse navigation property:** When discussing a particular navigation property, this term refers to the navigation property on the other end of the relationship.</span></span>
+  * <span data-ttu-id="814ca-119">**反向导航属性：** 在讨论特定导航属性时，此术语是指关系另一端的导航属性。</span><span class="sxs-lookup"><span data-stu-id="814ca-119">**Inverse navigation property:** When discussing a particular navigation property, this term refers to the navigation property on the other end of the relationship.</span></span>
 
 <span data-ttu-id="814ca-120">下面的代码清单显示之间的一个对多关系`Blog`和`Post`</span><span class="sxs-lookup"><span data-stu-id="814ca-120">The following code listing shows a one-to-many relationship between `Blog` and `Post`</span></span>
 

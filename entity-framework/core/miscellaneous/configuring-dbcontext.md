@@ -1,5 +1,5 @@
 ---
-title: "配置 DbContext 的 EF 核心"
+title: 配置 DbContext 的 EF 核心
 author: rowanmiller
 ms.author: divega
 ms.date: 10/27/2016
@@ -11,6 +11,7 @@ ms.sourcegitcommit: d2434edbfa6fbcee7287e33b4915033b796e417e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 02/12/2018
+ms.locfileid: "29152385"
 ---
 # <a name="configuring-a-dbcontext"></a><span data-ttu-id="f64e6-102">配置创建的 DbContext</span><span class="sxs-lookup"><span data-stu-id="f64e6-102">Configuring a DbContext</span></span>
 

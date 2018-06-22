@@ -1,5 +1,5 @@
 ---
-title: "管理数据库架构 - EF Core"
+title: 管理数据库架构 - EF Core
 author: bricelam
 ms.author: divega
 ms.date: 10/30/2017
@@ -9,6 +9,7 @@ ms.sourcegitcommit: b467368cc350e6059fdc0949e042a41cb11e61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/15/2017
+ms.locfileid: "26049379"
 ---
 # <a name="managing-database-schemas"></a><span data-ttu-id="16c6b-102">管理数据库架构</span><span class="sxs-lookup"><span data-stu-id="16c6b-102">Managing Database Schemas</span></span>
 <span data-ttu-id="16c6b-103">EF Core 提供两种主要方法来保持 EF Core 模型和数据库架构同步。若要二者择一，请确定真实源是 EF Core 模型还是数据库架构。</span><span class="sxs-lookup"><span data-stu-id="16c6b-103">EF Core provides two primary ways of keeping your EF Core model and database schema in sync. To choose between the two, decide whether your EF Core model or the database schema is the source of truth.</span></span>

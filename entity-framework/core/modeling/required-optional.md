@@ -1,5 +1,5 @@
 ---
-title: "必需/可选属性-EF 核心"
+title: 必需/可选属性-EF 核心
 author: rowanmiller
 ms.author: divega
 ms.date: 10/27/2016
@@ -11,6 +11,7 @@ ms.sourcegitcommit: 01a75cd483c1943ddd6f82af971f07abde20912e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/27/2017
+ms.locfileid: "26052847"
 ---
 # <a name="required-and-optional-properties"></a><span data-ttu-id="04f4c-102">必选和可选属性</span><span class="sxs-lookup"><span data-stu-id="04f4c-102">Required and Optional Properties</span></span>
 

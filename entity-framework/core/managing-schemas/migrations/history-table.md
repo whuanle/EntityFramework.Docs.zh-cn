@@ -1,5 +1,5 @@
 ---
-title: "自定义迁移历史记录表的 EF 核心"
+title: 自定义迁移历史记录表的 EF 核心
 author: bricelam
 ms.author: bricelam
 ms.date: 11/7/2017
@@ -9,6 +9,7 @@ ms.sourcegitcommit: b467368cc350e6059fdc0949e042a41cb11e61d9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/15/2017
+ms.locfileid: "26053807"
 ---
 <a name="custom-migrations-history-table"></a><span data-ttu-id="8b709-102">自定义迁移历史记录表</span><span class="sxs-lookup"><span data-stu-id="8b709-102">Custom Migrations History Table</span></span>
 ===============================

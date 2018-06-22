@@ -11,6 +11,7 @@ ms.sourcegitcommit: 038acd91ce2f5a28d76dcd2eab72eeba225e366d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34163169"
 ---
 # <a name="query-types"></a><span data-ttu-id="b8d2a-102">查询类型</span><span class="sxs-lookup"><span data-stu-id="b8d2a-102">Query Types</span></span>
 > [!NOTE]

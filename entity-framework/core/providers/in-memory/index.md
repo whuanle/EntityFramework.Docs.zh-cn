@@ -1,5 +1,5 @@
 ---
-title: "InMemory 数据库提供程序 - EF Core"
+title: InMemory 数据库提供程序 - EF Core
 author: rowanmiller
 ms.author: divega
 ms.date: 10/27/2016
@@ -11,6 +11,7 @@ ms.sourcegitcommit: b2d94cebdc32edad4fecb07e53fece66437d1b04
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29678981"
 ---
 # <a name="ef-core-in-memory-database-provider"></a><span data-ttu-id="0bd63-102">EF Core In-Memory 数据库提供程序</span><span class="sxs-lookup"><span data-stu-id="0bd63-102">EF Core In-Memory Database Provider</span></span>
 

@@ -1,5 +1,5 @@
 ---
-title: "创建和删除 Api-EF 核心"
+title: "\U0001F527创建和删除 Api-EF 核心"
 author: bricelam
 ms.author: bricelam
 ms.date: 11/10/2017
@@ -9,6 +9,7 @@ ms.sourcegitcommit: b467368cc350e6059fdc0949e042a41cb11e61d9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/15/2017
+ms.locfileid: "26053817"
 ---
 # <a name="-create-and-drop-apis"></a><span data-ttu-id="1c063-102">🔧创建和删除 Api</span><span class="sxs-lookup"><span data-stu-id="1c063-102">🔧 Create and Drop APIs</span></span>
 

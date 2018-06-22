@@ -1,5 +1,5 @@
 ---
-title: "外键约束的 EF 核心"
+title: 外键约束的 EF 核心
 author: rowanmiller
 ms.author: divega
 ms.date: 10/27/2016
@@ -11,6 +11,7 @@ ms.sourcegitcommit: 01a75cd483c1943ddd6f82af971f07abde20912e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/27/2017
+ms.locfileid: "26052737"
 ---
 # <a name="foreign-key-constraints"></a>外键约束
 

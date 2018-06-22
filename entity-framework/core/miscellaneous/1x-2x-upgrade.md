@@ -1,5 +1,5 @@
 ---
-title: "从以前的版本升级到 EF 核心 2-EF 核心"
+title: 从以前的版本升级到 EF 核心 2-EF 核心
 author: divega
 ms.author: divega
 ms.date: 8/13/2017
@@ -11,6 +11,7 @@ ms.sourcegitcommit: b2d94cebdc32edad4fecb07e53fece66437d1b04
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29678609"
 ---
 # <a name="upgrading-applications-from-previous-versions-to-ef-core-20"></a>从以前版本的应用程序升级到 EF 核心 2.0
 

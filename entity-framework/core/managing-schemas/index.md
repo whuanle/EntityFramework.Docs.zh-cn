@@ -1,5 +1,5 @@
 ---
-title: "管理数据库架构 - EF Core"
+title: 管理数据库架构 - EF Core
 author: bricelam
 ms.author: divega
 ms.date: 10/30/2017
@@ -9,6 +9,7 @@ ms.sourcegitcommit: b467368cc350e6059fdc0949e042a41cb11e61d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/15/2017
+ms.locfileid: "26049379"
 ---
 # <a name="managing-database-schemas"></a>管理数据库架构
 EF Core 提供两种主要方法来保持 EF Core 模型和数据库架构同步。若要二者择一，请确定真实源是 EF Core 模型还是数据库架构。

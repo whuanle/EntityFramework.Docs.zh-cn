@@ -1,5 +1,5 @@
 ---
-title: "在 .NET Framework 上开始使用 - EF Core"
+title: 在 .NET Framework 上开始使用 - EF Core
 author: rowanmiller
 ms.author: divega
 ms.date: 10/27/2016
@@ -11,6 +11,7 @@ ms.sourcegitcommit: d2434edbfa6fbcee7287e33b4915033b796e417e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 02/12/2018
+ms.locfileid: "29152350"
 ---
 # <a name="getting-started-with-ef-core-on-net-framework"></a>在 .NET Framework 上开始使用 EF Core
 

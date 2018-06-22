@@ -11,6 +11,7 @@ ms.sourcegitcommit: c72d85805db0aa95f980514a18381fdc5e17c786
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/01/2017
+ms.locfileid: "26049429"
 ---
 # <a name="getting-started-with-ef-core-on-universal-windows-platform-uwp"></a>基于通用 Windows 平台 (UWP) 的 EF Core 入门
 

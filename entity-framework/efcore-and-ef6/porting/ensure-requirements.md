@@ -1,5 +1,5 @@
 ---
-title: "从 EF6 移植到 EF 核心-验证要求"
+title: 从 EF6 移植到 EF 核心-验证要求
 author: rowanmiller
 ms.author: divega
 ms.date: 10/27/2016
@@ -10,6 +10,7 @@ ms.sourcegitcommit: 01a75cd483c1943ddd6f82af971f07abde20912e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/27/2017
+ms.locfileid: "26052857"
 ---
 # <a name="before-porting-from-ef6-to-ef-core-validate-your-applications-requirements"></a>之前从 EF6 到 EF 核心的迁移： 验证应用程序的要求
 

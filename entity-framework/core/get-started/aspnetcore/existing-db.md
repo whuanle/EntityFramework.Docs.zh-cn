@@ -11,6 +11,7 @@ ms.sourcegitcommit: 90139dbd6f485473afda0788a5a314c9aa601ea0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30151009"
 ---
 # <a name="getting-started-with-ef-core-on-aspnet-core-with-an-existing-database"></a>通过现有数据库在 ASP.NET Core 上开始使用 EF Core
 

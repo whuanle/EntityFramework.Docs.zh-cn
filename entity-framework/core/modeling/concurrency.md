@@ -1,5 +1,5 @@
 ---
-title: "并发标记的 EF 核心"
+title: 并发标记的 EF 核心
 author: rowanmiller
 ms.author: divega
 ms.date: 03/03/2018
@@ -11,6 +11,7 @@ ms.sourcegitcommit: 8f3be0a2a394253efb653388ec66bda964e5ee1b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/05/2018
+ms.locfileid: "29745470"
 ---
 # <a name="concurrency-tokens"></a>并发标记
 
@@ -39,7 +40,7 @@ Fluent API 可用于将属性配置为并发标记。
 
 时间戳是每次插入或更新行时，由数据库生成一个新值是其中一个属性。 属性也将被视为并发标记。 这可确保如果其他人进行了修改你尝试更新由于数据查询的行，则将收到异常。
 
-这如何实现由正在使用的数据库提供程序。 对于 SQL Server，时间戳通常使用上*byte []*属性，用于将设置为*ROWVERSION*数据库中的列。
+这如何实现由正在使用的数据库提供程序。 对于 SQL Server，时间戳通常使用上*byte []* 属性，用于将设置为*ROWVERSION*数据库中的列。
 
 ### <a name="conventions"></a>约定
 

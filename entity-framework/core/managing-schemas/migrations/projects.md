@@ -1,5 +1,5 @@
 ---
-title: "多个项目的 EF 核心的迁移"
+title: 多个项目的 EF 核心的迁移
 author: bricelam
 ms.author: bricelam
 ms.date: 10/30/2017
@@ -9,6 +9,7 @@ ms.sourcegitcommit: ced2637bf8cc5964c6daa6c7fcfce501bf9ef6e8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/22/2017
+ms.locfileid: "27161222"
 ---
 <a name="using-a-separate-project"></a>使用一个单独的项目
 ========================

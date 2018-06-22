@@ -1,5 +1,5 @@
 ---
-title: "SQLite 数据库提供程序的限制的 EF 核心"
+title: SQLite 数据库提供程序的限制的 EF 核心
 author: rowanmiller
 ms.author: divega
 ms.date: 04/09/2017
@@ -11,6 +11,7 @@ ms.sourcegitcommit: 60b831318c4f5ec99061e8af6a7c9e7c03b3469c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29719480"
 ---
 # <a name="sqlite-ef-core-database-provider-limitations"></a>SQLite EF 核心数据库提供程序限制
 

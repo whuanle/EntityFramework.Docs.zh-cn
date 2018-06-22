@@ -1,5 +1,5 @@
 ---
-title: "多个提供程序的 EF 核心的迁移"
+title: 多个提供程序的 EF 核心的迁移
 author: bricelam
 ms.author: bricelam
 ms.date: 11/8/2017
@@ -9,6 +9,7 @@ ms.sourcegitcommit: 2ef0a4a90b01edd22b9206f8729b8de459ef8cab
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/20/2018
+ms.locfileid: "30002800"
 ---
 <a name="migrations-with-multiple-providers"></a>多个提供程序的迁移
 ==================================

@@ -11,6 +11,7 @@ ms.sourcegitcommit: 5e2d97e731f975cf3405ff3deab2a3c75ad1b969
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/15/2017
+ms.locfileid: "26049239"
 ---
 # <a name="installing-ef-core"></a>安装 EF Core
 

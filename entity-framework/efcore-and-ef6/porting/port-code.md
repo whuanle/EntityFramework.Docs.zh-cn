@@ -1,5 +1,5 @@
 ---
-title: "从 EF6 移植到 EF 核心技术-移植基于代码的模型"
+title: 从 EF6 移植到 EF 核心技术-移植基于代码的模型
 author: rowanmiller
 ms.author: divega
 ms.date: 10/27/2016
@@ -10,6 +10,7 @@ ms.sourcegitcommit: 01a75cd483c1943ddd6f82af971f07abde20912e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/27/2017
+ms.locfileid: "26052947"
 ---
 # <a name="porting-an-ef6-code-based-model-to-ef-core"></a>移植到 EF 核心 EF6 基于代码的模型
 

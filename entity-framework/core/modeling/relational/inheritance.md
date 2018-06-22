@@ -1,5 +1,5 @@
 ---
-title: "继承 （关系数据库） 的 EF 核心"
+title: 继承 （关系数据库） 的 EF 核心
 author: rowanmiller
 ms.author: divega
 ms.date: 10/27/2016
@@ -11,6 +11,7 @@ ms.sourcegitcommit: d2434edbfa6fbcee7287e33b4915033b796e417e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 02/12/2018
+ms.locfileid: "29152348"
 ---
 # <a name="inheritance-relational-database"></a>继承 （关系数据库）
 

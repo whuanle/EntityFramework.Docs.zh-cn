@@ -1,5 +1,5 @@
 ---
-title: "数据类型的 EF 核心"
+title: 数据类型的 EF 核心
 author: rowanmiller
 ms.author: divega
 ms.date: 10/27/2016
@@ -11,6 +11,7 @@ ms.sourcegitcommit: 860ec5d047342fbc4063a0de881c9861cc1f8813
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/05/2017
+ms.locfileid: "26053497"
 ---
 # <a name="data-types"></a>数据类型
 

@@ -1,5 +1,5 @@
 ---
-title: "使用 Entity Framework 测试组件 - EF Core"
+title: 使用 Entity Framework 测试组件 - EF Core
 author: rowanmiller
 ms.author: divega
 ms.date: 10/27/2016
@@ -11,6 +11,7 @@ ms.sourcegitcommit: 01a75cd483c1943ddd6f82af971f07abde20912e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/27/2017
+ms.locfileid: "26048859"
 ---
 # <a name="testing"></a>测试
 

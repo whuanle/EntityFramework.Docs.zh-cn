@@ -6,15 +6,14 @@ ms.date: 2/20/2018
 ms.assetid: 585F90A3-4D5A-4DD1-92D8-5243B14E0FEC
 ms.technology: entity-framework-core
 uid: core/what-is-new/ef-core-2.1
-ms.openlocfilehash: db1648095aa4d612af53f4e10a30be36edc40da5
-ms.sourcegitcommit: 4997314356118d0d97b04ad82e433e49bb9420a2
+ms.openlocfilehash: 2372a6b2e3f3b7b1d9214a6ea321fe28cea45fff
+ms.sourcegitcommit: 72e59e6af86b568653e1b29727529dfd7f65d312
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34754420"
 ---
 # <a name="new-features-in-ef-core-21"></a>EF Core 2.1 中的新增功能
-> [!NOTE]  
-> 此版本仍处于预览版。
 
 除了大量缺陷修复以及小规模功能增强和性能增强之外，EF Core 2.1 还新增了一些有吸引力的功能：
 
@@ -38,7 +37,7 @@ EF Core 现包含创作可按需加载导航属性的实体类所必需的构建
 阅读[有关值转换的部分](xref:core/modeling/value-conversions)详细了解本主题。  
 
 ## <a name="linq-groupby-translation"></a>LINQ GroupBy 转换
-在 2.1 版之前，EF Core 中的 GroupBy LINQ 运算符始终是在内存中进行计算。 在大多数情况下，我们现在支持将其转换为 SQL GROUP BY 子句。
+在 2.1 版之前，EF Core 中的 GroupBy LINQ 运算符将始终在内存中进行计算。 在大多数情况下，我们现在支持将其转换为 SQL GROUP BY 子句。
 
 此示例显示了一个用 GroupBy 来计算各种聚合函数的查询：
 
@@ -124,7 +123,7 @@ var query = context.Customers.Select(
 
 请注意，此查询只会被转换为两个 SQL 查询：一个“客户”查询，一个“订单”查询。
 
-## <a name="ownedattribute"></a>OwnedAttribute
+## <a name="owned-attribute"></a>[Owned] 属性
 
 现只需使用 `[Owned]` 注释类型，并确保所有者实体添加到了模型中，即可配置[固有实体类型](xref:core/modeling/owned-entities)：
 
@@ -143,12 +142,14 @@ public class Order
 }
 ```
 
-## <a name="new-dotnet-ef-global-tool"></a>全新 dotnet-ef 全局工具
+## <a name="command-line-tool-dotnet-ef-included-in-net-core-sdk"></a>.NET Core SDK 中包含的命令行工具 dotnet-ef
 
-dotnet-ef 命令已改为 .NET CLI 全局工具，因此无须在项目中使用 DotNetCliToolReference，也可以使用各项迁移，或通过现有数据库搭建 DbContext 基架。
+dotnet-ef 命令现在是 .NET Core SDK 的一部分，因此无须在项目中使用 DotNetCliToolReference 即可使用各项迁移，或通过现有数据库搭建 DbContext 基架。
+
+有关如何为不同版本的 .NET Core SDK 和 EF Core 启用命令行工具的详细信息，请参阅[安装工具](xref:core/miscellaneous/cli/dotnet#installing-the-tools)的相关部分。
 
 ## <a name="microsoftentityframeworkcoreabstractions-package"></a>Microsoft.EntityFrameworkCore.Abstractions 包
-可以在项目中使用新包内的一些属性和接口，从而启用 EF Core 功能，而无需依赖 EF Core 整体。 例如， 预览 1 中引入的 [Owned] 属性已移到此包中。
+可以在项目中使用新包内的一些属性和接口，从而启用 EF Core 功能，而无需依赖 EF Core 整体。 例如，[Owned] 属性和 ILazyLoader 接口位于此处。
 
 ## <a name="state-change-events"></a>状态更改事件
 
@@ -165,7 +166,7 @@ var query = context.People.FromSql(sql);
 
 ## <a name="database-provider-compatibility"></a>数据库提供程序兼容性
 
-EF Core 2.1 旨在与针对 EF Core 2.0 创建的数据库提供程序兼容，或至少要求改动最少。 虽然需要最新提供程序方可使用上述某些功能（如值转换），但现有提供程序可使用其他一些功能（例如延迟加载）。
+建议配合使用 EF Core 2.1 以及已更新或至少已经过测试可用于 EF Core 2.1 的提供程序。
 
 > [!TIP]
 > 如果新功能出现任何意外的不兼容或问题，或你有任何相关反馈，请使用[我们的问题跟踪器](https://github.com/aspnet/EntityFrameworkCore/issues/new)进行报告。

@@ -1,5 +1,5 @@
 ---
-title: 测试以及 InMemory 的 EF 核心
+title: 测试以及 InMemory 的 EF Core
 author: rowanmiller
 ms.author: divega
 ms.date: 10/27/2016
@@ -22,7 +22,7 @@ ms.locfileid: "27995582"
 
 ## <a name="inmemory-is-not-a-relational-database"></a>InMemory 不是一个关系数据库
 
-EF 核心数据库提供程序不需要是关系数据库。 InMemory 旨在作为一般用途数据库进行测试，而不是要模拟关系数据库。
+EF Core 数据库提供程序不需要是关系数据库。 InMemory 旨在作为一般用途数据库进行测试，而不是要模拟关系数据库。
 
 包括一些示例：
 * InMemory 将允许你保存将违反引用完整性约束关系数据库中的数据。

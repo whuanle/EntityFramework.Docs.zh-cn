@@ -1,5 +1,5 @@
 ---
-title: 设计时 DbContext 创建-EF 核心
+title: 设计时 DbContext 创建-EF Core
 author: bricelam
 ms.author: bricelam
 ms.date: 10/27/2017
@@ -14,7 +14,7 @@ ms.locfileid: "30202479"
 ---
 <a name="design-time-dbcontext-creation"></a>设计时 DbContext 创建
 ==============================
-某些 EF 核心工具命令 (例如，[迁移][ 1]命令) 需要派生`DbContext`实例以收集有关应用程序的详细信息在设计时创建实体类型和它们如何映射到数据库架构。 在大多数情况下，最好的`DbContext`从而创建配置如何将以类似方式[在运行时配置][2]。
+某些 EF Core 工具命令 (例如，[迁移][ 1]命令) 需要派生`DbContext`实例以收集有关应用程序的详细信息在设计时创建实体类型和它们如何映射到数据库架构。 在大多数情况下，最好的`DbContext`从而创建配置如何将以类似方式[在运行时配置][2]。
 
 有多种方法工具尝试创建`DbContext`:
 

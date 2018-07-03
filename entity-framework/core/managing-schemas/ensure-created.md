@@ -1,5 +1,5 @@
 ---
-title: "\U0001F527创建和删除 Api-EF 核心"
+title: "\U0001F527创建和删除 Api-EF Core"
 author: bricelam
 ms.author: bricelam
 ms.date: 11/10/2017

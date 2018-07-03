@@ -1,5 +1,5 @@
 ---
-title: 数据类型的 EF 核心
+title: 数据类型的 EF Core
 author: rowanmiller
 ms.author: divega
 ms.date: 10/27/2016

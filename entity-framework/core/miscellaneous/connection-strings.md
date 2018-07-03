@@ -1,5 +1,5 @@
 ---
-title: 连接字符串的 EF 核心
+title: 连接字符串的 EF Core
 author: rowanmiller
 ms.author: divega
 ms.date: 10/27/2016
@@ -33,7 +33,7 @@ ms.locfileid: "26052527"
 ```
 
 > [!TIP]  
-> `providerName`上 EF 核心连接字符串存储在 App.config，因为通过代码配置了数据库提供程序不需要设置。
+> `providerName`上 EF Core 连接字符串存储在 App.config，因为通过代码配置了数据库提供程序不需要设置。
 
 然后可以读取连接字符串使用`ConfigurationManager`中上下文的 API`OnConfiguring`方法。 你可能需要添加对的引用`System.Configuration`framework 程序集要能够使用此 API。
 

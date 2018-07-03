@@ -1,5 +1,5 @@
 ---
-title: 使用 SQLite 的 EF 核心测试
+title: 使用 SQLite 的 EF Core 测试
 author: rowanmiller
 ms.author: divega
 ms.date: 10/27/2016

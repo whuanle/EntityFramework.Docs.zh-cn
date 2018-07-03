@@ -1,5 +1,5 @@
 ---
-title: 备份 EF 核心的字段-
+title: 备份 EF Core 的字段-
 author: rowanmiller
 ms.author: divega
 ms.date: 10/27/2016
@@ -16,7 +16,7 @@ ms.locfileid: "26053457"
 # <a name="backing-fields"></a>支持字段
 
 > [!NOTE]  
-> 此功能是 EF 核心 1.1 中的新增功能。
+> 此功能是 EF Core 1.1 中的新增功能。
 
 支持字段允许 EF 读取和/或写入一个字段，而不是一个属性。 这一点可能很有用，当在类中的封装用于限制的使用和/或增强围绕访问数据的语义由应用程序代码，但值应进行读取和/或写入到数据库而不使用这些限制时 /增强功能。
 

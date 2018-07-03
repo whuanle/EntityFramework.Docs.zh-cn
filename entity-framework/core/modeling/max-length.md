@@ -1,5 +1,5 @@
 ---
-title: 最大长度-EF 核心
+title: 最大长度-EF Core
 author: rowanmiller
 ms.author: divega
 ms.date: 10/27/2016

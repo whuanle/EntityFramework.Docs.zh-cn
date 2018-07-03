@@ -1,5 +1,5 @@
 ---
-title: 从 EF 升级核心到 RTM-1.0 RC2 EF 核心
+title: 从 EF 升级核心到 RTM-1.0 RC2 EF Core
 author: rowanmiller
 ms.author: divega
 ms.date: 10/27/2016
@@ -13,7 +13,7 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 03/23/2018
 ms.locfileid: "30151035"
 ---
-# <a name="upgrading-from-ef-core-10-rc2-to-rtm"></a>从 EF 核心 1.0 RC2 升级到 RTM
+# <a name="upgrading-from-ef-core-10-rc2-to-rtm"></a>从 EF Core 1.0 RC2 升级到 RTM
 
 本文提供了将用到 1.0.0 RC2 包生成应用程序迁移指南 RTM。
 
@@ -59,7 +59,7 @@ ms.locfileid: "30151035"
 
 ## <a name="net-core-remove-imports-in-projectjson"></a>.NET Core： project.json 中删除"导入"
 
-如果你已面向.NET Core 与 RC2，需要添加`imports`到临时的解决方法不支持.NET 标准的 EF 核心依赖关系的某些 project.json。 现在即可移除这些。
+如果你已面向.NET Core 与 RC2，需要添加`imports`到临时的解决方法不支持.NET 标准的 EF Core 依赖关系的某些 project.json。 现在即可移除这些。
 
 ``` json
 {

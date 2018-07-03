@@ -1,5 +1,5 @@
 ---
-title: 继承的 EF 核心
+title: 继承的 EF Core
 author: rowanmiller
 ms.author: divega
 ms.date: 10/27/2016

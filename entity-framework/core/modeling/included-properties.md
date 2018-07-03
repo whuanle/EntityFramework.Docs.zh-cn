@@ -1,5 +1,5 @@
 ---
-title: 包括和排除属性-EF 核心
+title: 包括和排除属性-EF Core
 author: rowanmiller
 ms.author: divega
 ms.date: 10/27/2016

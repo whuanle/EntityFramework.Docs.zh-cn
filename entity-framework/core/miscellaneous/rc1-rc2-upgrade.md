@@ -1,5 +1,5 @@
 ---
-title: 从 EF 核心 1.0 RC1 升级到 RC2-EF 核心
+title: 从 EF Core 1.0 RC1 升级到 RC2-EF Core
 author: rowanmiller
 ms.author: divega
 ms.date: 10/27/2016
@@ -13,7 +13,7 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 02/28/2018
 ms.locfileid: "29678622"
 ---
-# <a name="upgrading-from-ef-core-10-rc1-to-10-rc2"></a>从 EF 核心 1.0 RC1 升级到 1.0 RC2
+# <a name="upgrading-from-ef-core-10-rc1-to-10-rc2"></a>从 EF Core 1.0 RC1 升级到 1.0 RC2
 
 本文提供了将用到 RC2 RC1 包生成应用程序迁移指南。
 
@@ -122,7 +122,7 @@ services.AddEntityFrameworkSqlServer()
 ```
 
 > [!TIP]  
-> 如果你使用 Visual Studio，你现在可以使用程序包管理器控制台运行 ASP.NET 核心项目 （这不支持在 RC1 中） 的 EF 命令。 你仍需要注册中的命令`tools`部分`project.json`要这样做。
+> 如果你使用 Visual Studio，你现在可以使用程序包管理器控制台运行 ASP.NET Core 项目 （这不支持在 RC1 中） 的 EF 命令。 你仍需要注册中的命令`tools`部分`project.json`要这样做。
 
 ## <a name="package-manager-commands-require-powershell-5"></a>包管理器命令需要 PowerShell 5
 
@@ -130,7 +130,7 @@ services.AddEntityFrameworkSqlServer()
 
 ## <a name="using-imports-in-projectjson"></a>Project.json 中使用"导入"
 
-一些 EF 核心依赖关系不支持.NET 标准尚未。 标准.NET 和.NET 核心项目中的 EF 核心可能会要求添加"导入"到 project.json 临时的解决方法。
+一些 EF Core 依赖关系不支持.NET 标准尚未。 标准.NET 和.NET Core 项目中的 EF Core 可能会要求添加"导入"到 project.json 临时的解决方法。
 
 在添加 EF，NuGet 还原将显示此错误消息：
 

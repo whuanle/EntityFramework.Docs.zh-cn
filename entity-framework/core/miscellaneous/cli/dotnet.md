@@ -1,5 +1,5 @@
 ---
-title: .NET 核心 CLI-EF 核心
+title: .NET Core CLI-EF Core
 author: bricelam
 ms.author: bricelam
 ms.date: 11/6/2017
@@ -12,9 +12,9 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 06/04/2018
 ms.locfileid: "34754491"
 ---
-<a name="ef-core-net-command-line-tools"></a>EF 核心.NET 命令行工具
+<a name="ef-core-net-command-line-tools"></a>EF Core.NET 命令行工具
 ===============================
-实体框架核心.NET 命令行工具是一种扩展到跨平台**dotnet**命令，是一部分的[.NET 核心 SDK][2]。
+实体框架核心.NET 命令行工具是一种扩展到跨平台**dotnet**命令，是一部分的[.NET Core SDK][2]。
 
 > [!TIP]
 > 如果你使用 Visual Studio，我们建议[PMC 工具][ 1]相反因为它们提供了更多集成的体验。
@@ -22,11 +22,11 @@ ms.locfileid: "34754491"
 <a name="installing-the-tools"></a>安装工具
 --------------------
 > [!NOTE]
-> .NET 核心 SDK 版本 2.1.300 和更高版本包括**dotnet ef**与 EF 核心 2.0 和更高版本兼容的命令。 因此如果你使用的最新版本的.NET 核心 SDK 和 EF 核心运行时，需要进行任何安装，你可以忽略本部分的其余部分。
+> .NET Core SDK 版本 2.1.300 和更高版本包括**dotnet ef**与 EF Core 2.0 和更高版本兼容的命令。 因此如果你使用的最新版本的.NET Core SDK 和 EF Core 运行时，需要进行任何安装，你可以忽略本部分的其余部分。
 >
-> 另一方面， **dotnet ef**工具包含在.NET 核心 SDK 版本 2.1.300 和更高版本不兼容与 EF Core 版本 1.0 和 1.1。 你可以使用.NET 核心 sdk 2.1.300 的计算机使用 EF 核心这些早期版本的项目或更高版本安装之前，你还必须安装版本 2.1.200 或更低版本的 sdk 和配置应用程序通过修改使用该旧版本其 [global.json](https://docs.microsoft.com/en-us/dotnet/core/tools/global-json)文件。 此文件通常包含在解决方案目录 （一个上面项目）。 然后，您可以继续下面 installlation 指令。
+> 另一方面， **dotnet ef**工具包含在.NET Core SDK 版本 2.1.300 和更高版本不兼容与 EF Core 版本 1.0 和 1.1。 你可以使用.NET Core sdk 2.1.300 的计算机使用 EF Core 这些早期版本的项目或更高版本安装之前，你还必须安装版本 2.1.200 或更低版本的 sdk 和配置应用程序通过修改使用该旧版本其 [global.json](https://docs.microsoft.com/en-us/dotnet/core/tools/global-json)文件。 此文件通常包含在解决方案目录 （一个上面项目）。 然后，您可以继续下面 installlation 指令。
 
-对于.NET 核心 sdk 的早期版本，你可以安装使用这些步骤的 EF 核心.NET 命令行工具：
+对于.NET Core sdk 的早期版本，你可以安装使用这些步骤的 EF Core.NET 命令行工具：
 
 1. 编辑项目文件并将 Microsoft.EntityFrameworkCore.Tools.DotNet 添加为 DotNetCliToolReference 项 （见下文）
 2. 运行以下命令：
@@ -72,7 +72,7 @@ dotnet ef
 启动项目是执行项目代码时由工具模拟的项目。 它也默认为当前目录中的项目，但可以使用更改 **-启动项目**选项。
 
 > [!NOTE]
-> 例如，更新的 web 应用程序具有不同的项目中安装的 EF 核心数据库将如下所示： `dotnet ef database update --project {project-path}` （从您的 web 应用程序目录）
+> 例如，更新的 web 应用程序具有不同的项目中安装的 EF Core 数据库将如下所示： `dotnet ef database update --project {project-path}` （从您的 web 应用程序目录）
 
 常用的选项：
 

@@ -1,5 +1,5 @@
 ---
-title: 连接复原的 EF 核心
+title: 连接复原的 EF Core
 author: rowanmiller
 ms.author: divega
 ms.date: 11/15/2016
@@ -15,7 +15,7 @@ ms.locfileid: "26053527"
 ---
 # <a name="connection-resiliency"></a>连接复原
 
-连接复原自动重试失败的数据库命令。 功能可以提供的"执行策略，"封装检测故障，然后重试命令所需的逻辑与任何数据库一起使用。 EF 核心提供程序可以提供定制为其特定数据库失败条件和最佳的重试策略的执行策略。
+连接复原自动重试失败的数据库命令。 功能可以提供的"执行策略，"封装检测故障，然后重试命令所需的逻辑与任何数据库一起使用。 EF Core 提供程序可以提供定制为其特定数据库失败条件和最佳的重试策略的执行策略。
 
 例如，SQL Server 提供程序包括专门定制到 SQL Server （包括 SQL Azure） 的执行策略。 它是感知的可以重试异常类型，并且具有最大重试，重试等之间的延迟合理的默认值。
 
@@ -39,7 +39,7 @@ protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 
 ## <a name="execution-strategies-and-transactions"></a>执行策略和事务
 
-需要能够播放失败重试块中的每个操作失败将自动重试执行策略。 启用重试后，通过 EF 核心执行每个操作将成为其自己的可重试操作，即每个查询和每次调用`SaveChanges()`将重试作为一个单元如果发生暂时性故障。
+需要能够播放失败重试块中的每个操作失败将自动重试执行策略。 启用重试后，通过 EF Core 执行每个操作将成为其自己的可重试操作，即每个查询和每次调用`SaveChanges()`将重试作为一个单元如果发生暂时性故障。
 
 但是，如果你的代码启动了事务使用`BeginTransaction()`要定义你自己的一组操作需要被视为一个单元，即在事务内的所有内容都将需要播放应发生故障时。 如果你尝试执行此操作使用的执行策略时，将收到如下所示的异常。
 

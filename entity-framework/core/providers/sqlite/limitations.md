@@ -1,5 +1,5 @@
 ---
-title: SQLite 数据库提供程序的限制的 EF 核心
+title: SQLite 数据库提供程序的限制的 EF Core
 author: rowanmiller
 ms.author: divega
 ms.date: 04/09/2017
@@ -13,7 +13,7 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 03/02/2018
 ms.locfileid: "29719480"
 ---
-# <a name="sqlite-ef-core-database-provider-limitations"></a>SQLite EF 核心数据库提供程序限制
+# <a name="sqlite-ef-core-database-provider-limitations"></a>SQLite EF Core 数据库提供程序限制
 
 SQLite 提供程序具有许多的迁移限制。 这些限制的大多数是基础的 SQLite 数据库引擎中的限制的结果，并不特定于 EF。
 

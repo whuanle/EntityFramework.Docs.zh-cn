@@ -1,5 +1,5 @@
 ---
-title: 程序包管理器控制台 (Visual Studio)-EF 核心
+title: 程序包管理器控制台 (Visual Studio)-EF Core
 author: bricelam
 ms.author: bricelam
 ms.date: 11/6/2017
@@ -11,17 +11,17 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 04/26/2018
 ms.locfileid: "31812555"
 ---
-<a name="ef-core-package-manager-console-tools"></a>EF 核心程序包管理器控制台工具
+<a name="ef-core-package-manager-console-tools"></a>EF Core 程序包管理器控制台工具
 =====================================
-EF 核心程序包管理器控制台 (PMC) 工具使用的 NuGet 在 Visual Studio 内运行[程序包管理器控制台][2]。
+EF Core 程序包管理器控制台 (PMC) 工具使用的 NuGet 在 Visual Studio 内运行[程序包管理器控制台][2]。
 这些工具同时适用于 .NET Framework 和 .NET Core 项目。
 
 > [!TIP]
-> 未使用 Visual Studio？ [EF 核心命令行工具][ 1]是跨平台，且在命令提示符下运行。
+> 未使用 Visual Studio？ [EF Core 命令行工具][ 1]是跨平台，且在命令提示符下运行。
 
 <a name="installing-the-tools"></a>安装工具
 --------------------
-通过安装 Microsoft.EntityFrameworkCore.Tools NuGet 包安装 EF 核心程序包管理器控制台 Tools。
+通过安装 Microsoft.EntityFrameworkCore.Tools NuGet 包安装 EF Core 程序包管理器控制台 Tools。
 可以通过执行以下命令内的安装[程序包管理器控制台][2]。
 
 ``` powershell

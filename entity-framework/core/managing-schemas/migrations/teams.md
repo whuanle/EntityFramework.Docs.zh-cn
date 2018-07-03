@@ -1,5 +1,5 @@
 ---
-title: 在团队环境的 EF 核心中迁移
+title: 在团队环境的 EF Core 中迁移
 author: bricelam
 ms.author: bricelam
 ms.date: 10/30/2017

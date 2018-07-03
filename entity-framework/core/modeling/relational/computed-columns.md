@@ -1,5 +1,5 @@
 ---
-title: 计算的列的 EF 核心
+title: 计算的列的 EF Core
 author: rowanmiller
 ms.author: divega
 ms.date: 10/27/2016

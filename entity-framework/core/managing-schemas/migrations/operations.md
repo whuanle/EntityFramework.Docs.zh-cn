@@ -1,5 +1,5 @@
 ---
-title: 自定义迁移操作-EF 核心
+title: 自定义迁移操作-EF Core
 author: bricelam
 ms.author: bricelam
 ms.date: 11/7/2017

@@ -1,5 +1,5 @@
 ---
-title: 连接字符串的 EF 核心
+title: 连接字符串的 EF Core
 author: rowanmiller
 ms.author: divega
 ms.date: 10/27/2016
@@ -33,7 +33,7 @@ ms.locfileid: "26052527"
 ```
 
 > [!TIP]  
-> `providerName`上 EF 核心连接字符串存储在 App.config，因为通过代码配置了数据库提供程序不需要设置。
+> `providerName`上 EF Core 连接字符串存储在 App.config，因为通过代码配置了数据库提供程序不需要设置。
 
 然后可以读取连接字符串使用`ConfigurationManager`中上下文的 API`OnConfiguring`方法。 你可能需要添加对的引用`System.Configuration`framework 程序集要能够使用此 API。
 
@@ -69,7 +69,7 @@ public class BloggingContext : DbContext
 
 ## <a name="aspnet-core"></a>ASP.NET Core
 
-在 ASP.NET 核心中配置系统非常灵活，并且连接字符串可存储在`appsettings.json`，环境变量、 用户机密存储中或另一个配置源。 请参阅[的 ASP.NET 核心文档中的配置节](https://docs.asp.net/en/latest/fundamentals/configuration.html)有关详细信息。 下面的示例演示中存储的连接字符串`appsettings.json`。
+在 ASP.NET Core 中配置系统非常灵活，并且连接字符串可存储在`appsettings.json`，环境变量、 用户机密存储中或另一个配置源。 请参阅[的 ASP.NET Core 文档中的配置节](https://docs.asp.net/en/latest/fundamentals/configuration.html)有关详细信息。 下面的示例演示中存储的连接字符串`appsettings.json`。
 
 ``` json
 {

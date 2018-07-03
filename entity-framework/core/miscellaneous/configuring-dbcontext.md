@@ -1,5 +1,5 @@
 ---
-title: 配置 DbContext 的 EF 核心
+title: 配置 DbContext 的 EF Core
 author: rowanmiller
 ms.author: divega
 ms.date: 10/27/2016
@@ -15,11 +15,11 @@ ms.locfileid: "29152385"
 ---
 # <a name="configuring-a-dbcontext"></a>配置创建的 DbContext
 
-这篇文章演示用于配置基本模式`DbContext`通过`DbContextOptions`连接到使用特定的 EF 核心提供程序和可选行为的数据库。
+这篇文章演示用于配置基本模式`DbContext`通过`DbContextOptions`连接到使用特定的 EF Core 提供程序和可选行为的数据库。
 
 ## <a name="design-time-dbcontext-configuration"></a>设计时 DbContext 配置
 
-EF 核心设计时工具如[迁移](xref:core/managing-schemas/migrations/index)需要能够发现和创建的工作实例`DbContext`以收集有关应用程序的实体类型以及它们如何映射到数据库架构的详细信息的类型。 此过程可能会自动，只要该工具可以轻松地创建`DbContext`，它将在配置同样到它如何将配置在运行时的方式。
+EF Core 设计时工具如[迁移](xref:core/managing-schemas/migrations/index)需要能够发现和创建的工作实例`DbContext`以收集有关应用程序的实体类型以及它们如何映射到数据库架构的详细信息的类型。 此过程可能会自动，只要该工具可以轻松地创建`DbContext`，它将在配置同样到它如何将配置在运行时的方式。
 
 尽管提供必要的配置信息到任何模式`DbContext`可在运行时，需要使用的工具`DbContext`在设计时只能处理有限数量的模式。 这些内容中的更详细地介绍[设计时上下文创建](xref:core/miscellaneous/cli/dbcontext-creation)部分。
 
@@ -30,9 +30,9 @@ EF 核心设计时工具如[迁移](xref:core/managing-schemas/migrations/index)
 - 数据库提供程序，若要使用，通常选择通过调用方法，如`UseSqlServer`或 `UseSqlite`
 - 任何必要的连接字符串或数据库实例中，标识符通常作为参数传递给上述提供程序选择方法
 - 任何提供程序级别的可选行为的选择器，通常还链接到提供程序选择方法的调用中
-- 任何常规 EF 核心行为选择器，通常链接之后或之前提供程序选择器方法
+- 任何常规 EF Core 行为选择器，通常链接之后或之前提供程序选择器方法
 
-下面的示例将配置`DbContextOptions`若要使用 SQL Server 提供程序，在连接包含`connectionString`变量、 提供程序级别的命令超时，以及可使在中执行的所有查询 EF 核心行为选择器`DbContext`[否跟踪](xref:core/querying/tracking#no-tracking-queries)默认情况下：
+下面的示例将配置`DbContextOptions`若要使用 SQL Server 提供程序，在连接包含`connectionString`变量、 提供程序级别的命令超时，以及可使在中执行的所有查询 EF Core 行为选择器`DbContext`[否跟踪](xref:core/querying/tracking#no-tracking-queries)默认情况下：
 
 ``` csharp
 optionsBuilder
@@ -107,7 +107,7 @@ using (var context = new BloggingContext())
 
 ### <a name="using-dbcontext-with-dependency-injection"></a>使用依赖关系注入 DbContext
 
-EF 核心支持使用`DbContext`与依赖关系注入容器。 DbContext 类型可通过使用添加到服务容器`AddDbContext<TContext>`方法。
+EF Core 支持使用`DbContext`与依赖关系注入容器。 DbContext 类型可通过使用添加到服务容器`AddDbContext<TContext>`方法。
 
 `AddDbContext<TContext>` 将这两种你的 DbContext 类型， `TContext`，和相应`DbContextOptions<TContext>`可用于从服务容器的注入。
 
@@ -166,6 +166,6 @@ var options = serviceProvider.GetService<DbContextOptions<BloggingContext>>();
 
 ## <a name="more-reading"></a>详细阅读
 
-* 读取[首先使用 ASP.NET Core](../get-started/aspnetcore/index.md)有关 ASP.NET 核心中使用 EF 的详细信息。
+* 读取[首先使用 ASP.NET Core](../get-started/aspnetcore/index.md)有关 ASP.NET Core 中使用 EF 的详细信息。
 * 读取[依赖关系注入](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection)若要了解有关使用 DI 详细信息。
 * 读取[测试](testing/index.md)有关详细信息。

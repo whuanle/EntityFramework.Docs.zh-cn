@@ -1,5 +1,5 @@
 ---
-title: 必需/可选属性-EF 核心
+title: 必需/可选属性-EF Core
 author: rowanmiller
 ms.author: divega
 ms.date: 10/27/2016

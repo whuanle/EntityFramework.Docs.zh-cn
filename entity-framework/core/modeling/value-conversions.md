@@ -1,5 +1,5 @@
 ---
-title: 值的转换的 EF 核心
+title: 值的转换的 EF Core
 author: ajcvickers
 ms.author: divega
 ms.date: 02/19/2018
@@ -16,7 +16,7 @@ ms.locfileid: "34191111"
 # <a name="value-conversions"></a>值的转换
 
 > [!NOTE]  
-> 此功能是在 EF 核心 2.1 的新增功能。
+> 此功能是在 EF Core 2.1 的新增功能。
 
 值转换器允许读取或写入数据库时要转换的属性值。 此转换可以是从某个值与另一个相同类型 （例如，加密字符串） 或从一种类型的值的另一种类型 （例如，转换枚举值到和从数据库中的字符串。） 的值
 
@@ -79,7 +79,7 @@ modelBuilder
 
 ## <a name="built-in-converters"></a>内置的转换器
 
-EF 核心附带了一组预定义`ValueConverter`类，在中找到`Microsoft.EntityFrameworkCore.Storage.ValueConversion`命名空间。 这些是：
+EF Core 附带了一组预定义`ValueConverter`类，在中找到`Microsoft.EntityFrameworkCore.Storage.ValueConversion`命名空间。 这些是：
 * `BoolToZeroOneConverter` -Bool 到零，另一个
 * `BoolToStringConverter` -Bool 为字符串，如"Y"和"N"
 * `BoolToTwoValuesConverter` -Bool 到任何两个值
@@ -139,5 +139,5 @@ public class Rider
 有几个已知的当前限制的值转换系统：
 * 如上所述，`null`无法转换。
 * 目前没有办法分布到多个列或进行相反的转换的转换的一个属性。
-* 使用的值转换可能会影响 EF 核心能够把表达式转换到 SQL。 为这种情况下，将记录警告。
+* 使用的值转换可能会影响 EF Core 能够把表达式转换到 SQL。 为这种情况下，将记录警告。
 正在为未来版本考虑删除这些限制。

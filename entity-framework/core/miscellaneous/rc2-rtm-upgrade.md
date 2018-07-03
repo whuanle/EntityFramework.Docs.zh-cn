@@ -1,5 +1,5 @@
 ---
-title: 从 EF 升级核心到 RTM-1.0 RC2 EF 核心
+title: 从 EF 升级核心到 RTM-1.0 RC2 EF Core
 author: rowanmiller
 ms.author: divega
 ms.date: 10/27/2016
@@ -13,7 +13,7 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 03/23/2018
 ms.locfileid: "30151035"
 ---
-# <a name="upgrading-from-ef-core-10-rc2-to-rtm"></a>从 EF 核心 1.0 RC2 升级到 RTM
+# <a name="upgrading-from-ef-core-10-rc2-to-rtm"></a>从 EF Core 1.0 RC2 升级到 RTM
 
 本文提供了将用到 1.0.0 RC2 包生成应用程序迁移指南 RTM。
 
@@ -57,9 +57,9 @@ ms.locfileid: "30151035"
 
     System.Data.SqlClient.SqlException (0x80131904): Column 'NormalizedName' in table 'AspNetRoles' is of a type that is invalid for use as a key column in an index.
 
-## <a name="net-core-remove-imports-in-projectjson"></a>.NET 核心： project.json 中删除"导入"
+## <a name="net-core-remove-imports-in-projectjson"></a>.NET Core： project.json 中删除"导入"
 
-如果你已面向.NET 核心与 RC2，需要添加`imports`到临时的解决方法不支持.NET 标准的 EF 核心依赖关系的某些 project.json。 现在即可移除这些。
+如果你已面向.NET Core 与 RC2，需要添加`imports`到临时的解决方法不支持.NET 标准的 EF Core 依赖关系的某些 project.json。 现在即可移除这些。
 
 ``` json
 {
@@ -72,7 +72,7 @@ ms.locfileid: "30151035"
 ```
 
 > [!NOTE]  
-> 截至版本 1.0 RTM， [.NET 核心 SDK](https://www.microsoft.com/net/download/core)不再支持`project.json`或开发.NET 核心应用程序使用 Visual Studio 2015。 我们建议你[从 project.json 迁移到 csproj](https://docs.microsoft.com/dotnet/articles/core/migration/)。 如果使用 Visual Studio，我们建议你升级到[Visual Studio 2017](https://www.visualstudio.com/downloads/)。
+> 截至版本 1.0 RTM， [.NET Core SDK](https://www.microsoft.com/net/download/core)不再支持`project.json`或开发.NET Core 应用程序使用 Visual Studio 2015。 我们建议你[从 project.json 迁移到 csproj](https://docs.microsoft.com/dotnet/articles/core/migration/)。 如果使用 Visual Studio，我们建议你升级到[Visual Studio 2017](https://www.visualstudio.com/downloads/)。
 
 ## <a name="uwp-add-binding-redirects"></a>UWP： 添加绑定重定向
 

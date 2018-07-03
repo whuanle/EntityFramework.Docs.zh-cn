@@ -25,7 +25,7 @@ ms.locfileid: "30202479"
 该工具第一次尝试通过调用获取服务提供商`Program.BuildWebHost()`和访问`IWebHost.Services`属性。
 
 > [!NOTE]
-> 在创建新的 ASP.NET 核心 2.0 应用程序时，默认情况下包含此挂钩。 在以前版本的 EF Core 和 ASP.NET Core，工具尝试调用`Startup.ConfigureServices`直接以获取应用程序的服务提供商，但此模式不能再正常 ASP.NET 核心 2.0 应用程序中。 如果您正在升级到 2.0 ASP.NET Core 1.x 应用程序，则可以[修改你`Program`类遵循新模式][3]。
+> 在创建新的 ASP.NET Core 2.0 应用程序时，默认情况下包含此挂钩。 在以前版本的 EF Core 和 ASP.NET Core，工具尝试调用`Startup.ConfigureServices`直接以获取应用程序的服务提供商，但此模式不能再正常 ASP.NET Core 2.0 应用程序中。 如果您正在升级到 2.0 ASP.NET Core 1.x 应用程序，则可以[修改你`Program`类遵循新模式][3]。
 
 `DbContext`本身以及任何依赖项在其构造函数中的需要注册为在应用程序的服务提供程序的服务。 这可以轻松实现通过让[上的构造函数`DbContext`采用的实例`DbContextOptions<TContext>`作为自变量][ 4]和使用[`AddDbContext<TContext>`方法][5].
 

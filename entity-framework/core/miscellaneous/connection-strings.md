@@ -69,7 +69,7 @@ public class BloggingContext : DbContext
 
 ## <a name="aspnet-core"></a>ASP.NET Core
 
-在 ASP.NET 核心中配置系统非常灵活，并且连接字符串可存储在`appsettings.json`，环境变量、 用户机密存储中或另一个配置源。 请参阅[的 ASP.NET 核心文档中的配置节](https://docs.asp.net/en/latest/fundamentals/configuration.html)有关详细信息。 下面的示例演示中存储的连接字符串`appsettings.json`。
+在 ASP.NET Core 中配置系统非常灵活，并且连接字符串可存储在`appsettings.json`，环境变量、 用户机密存储中或另一个配置源。 请参阅[的 ASP.NET Core 文档中的配置节](https://docs.asp.net/en/latest/fundamentals/configuration.html)有关详细信息。 下面的示例演示中存储的连接字符串`appsettings.json`。
 
 ``` json
 {

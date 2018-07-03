@@ -166,6 +166,6 @@ var options = serviceProvider.GetService<DbContextOptions<BloggingContext>>();
 
 ## <a name="more-reading"></a>详细阅读
 
-* 读取[首先使用 ASP.NET Core](../get-started/aspnetcore/index.md)有关 ASP.NET 核心中使用 EF 的详细信息。
+* 读取[首先使用 ASP.NET Core](../get-started/aspnetcore/index.md)有关 ASP.NET Core 中使用 EF 的详细信息。
 * 读取[依赖关系注入](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection)若要了解有关使用 DI 详细信息。
 * 读取[测试](testing/index.md)有关详细信息。

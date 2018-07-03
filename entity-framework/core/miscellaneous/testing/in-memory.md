@@ -47,7 +47,7 @@ EF 核心数据库提供程序不需要是关系数据库。 InMemory 旨在作�
 [!code-csharp[Main](../../../../samples/core/Miscellaneous/Testing/BusinessLogic/BloggingContext.cs#OnConfiguring)]
 
 > [!TIP]  
-> 如果你使用的 ASP.NET 核心，则应不需要此代码由于外部 （会在 Startup.cs) 的上下文已配置数据库提供程序。
+> 如果你使用的 ASP.NET Core，则应不需要此代码由于外部 （会在 Startup.cs) 的上下文已配置数据库提供程序。
 
 ### <a name="add-a-constructor-for-testing"></a>添加用于测试的构造函数
 

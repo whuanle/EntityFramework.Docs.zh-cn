@@ -51,4 +51,4 @@ Scaffold-DbContext "Server=(localdb)\mssqllocaldb;Database=Blogging;Trusted_Conn
 只是因为你的应用程序将编译，并不意味着它成功移植到 EF 核心。 你将需要测试应用程序，以确保任何行为更改产生负面影响你的应用程序的所有区域。
 
 > [!TIP]
-> 请参阅[Getting Started with ASP.NET 核心使用现有的数据库上的 EF 核心](xref:core/get-started/aspnetcore/existing-db)有关现有数据库，使用方式的其他参考 
+> 请参阅[Getting Started with ASP.NET Core 使用现有的数据库上的 EF 核心](xref:core/get-started/aspnetcore/existing-db)有关现有数据库，使用方式的其他参考 

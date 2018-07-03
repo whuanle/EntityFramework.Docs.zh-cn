@@ -27,14 +27,14 @@ ms.locfileid: "29678609"
 
 4. 进行任何必要的代码更改，以弥补的重大更改。 请参阅[的重大更改](#breaking-changes)下面部分以了解更多详细信息。
 
-## <a name="aspnet-core-applications"></a>ASP.NET 核心应用程序
+## <a name="aspnet-core-applications"></a>ASP.NET Core 应用程序
 
 1. 请参阅尤其[初始化应用程序的服务提供程序的新模式](#new-way-of-getting-application-services)如下所述。
 
 > [!TIP]  
 > 此新模式时更新应用程序迁移到 2.0 强烈建议和 Entity Framework 核心迁移等的产品功能使起作用所需的采用率。 其他常见的替代方法是[实现*IDesignTimeDbContextFactory\<TContext >*](xref:core/miscellaneous/cli/dbcontext-creation#from-a-design-time-factory)。
 
-2. 面向 ASP.NET Core 2.0 的应用程序可以使用 EF Core 2.0，而不需要第三方数据库提供程序以外的其他依赖项。 但是，面向以前版本的 ASP.NET Core 应用程序需要为了使用 EF 核心 2.0 升级到 ASP.NET 核心 2.0。 有关升级到 2.0 的 ASP.NET Core 应用程序的详细信息，请参阅[有关该主题的 ASP.NET 核心文档](https://docs.microsoft.com/aspnet/core/migration/1x-to-2x/)。
+2. 面向 ASP.NET Core 2.0 的应用程序可以使用 EF Core 2.0，而不需要第三方数据库提供程序以外的其他依赖项。 但是，面向以前版本的 ASP.NET Core 应用程序需要为了使用 EF 核心 2.0 升级到 ASP.NET Core 2.0。 有关升级到 2.0 的 ASP.NET Core 应用程序的详细信息，请参阅[有关该主题的 ASP.NET Core 文档](https://docs.microsoft.com/aspnet/core/migration/1x-to-2x/)。
 
 ## <a name="breaking-changes"></a>重大更改
 
@@ -42,11 +42,11 @@ ms.locfileid: "29678609"
 
 ### <a name="new-way-of-getting-application-services"></a>获取应用程序服务的新方法
 
-已为 2.0 中断 1.x 中使用的 EF 核心的设计时逻辑的方式更新的建议的模式为 ASP.NET 核心 web 应用程序。 以前在设计时，EF 核心会尝试调用`Startup.ConfigureServices`直接才能访问应用程序的服务提供程序。 在 ASP.NET 核心 2.0 中，配置初始化外部`Startup`类。 通常使用 EF 核心应用程序配置中，从访问其连接字符串因此`Startup`本身已不再够用。 如果升级 ASP.NET Core 1.x 应用程序，你可能会收到以下错误，使用 EF 核心工具时。
+已为 2.0 中断 1.x 中使用的 EF 核心的设计时逻辑的方式更新的建议的模式为 ASP.NET Core web 应用程序。 以前在设计时，EF 核心会尝试调用`Startup.ConfigureServices`直接才能访问应用程序的服务提供程序。 在 ASP.NET Core 2.0 中，配置初始化外部`Startup`类。 通常使用 EF 核心应用程序配置中，从访问其连接字符串因此`Startup`本身已不再够用。 如果升级 ASP.NET Core 1.x 应用程序，你可能会收到以下错误，使用 EF 核心工具时。
 
 > ApplicationContext 上发现了没有无参数构造函数。 将无参数构造函数添加到 ApplicationContext 或添加的实现 IDesignTimeDbContextFactory&lt;ApplicationContext&gt;中 ApplicationContext 相同的程序集中
 
-ASP.NET 核心 2.0 的默认模板中已添加新的设计时挂钩。 静态`Program.BuildWebHost`方法使 EF 核心以在设计时访问应用程序的服务提供程序。 如果你正在升级 ASP.NET Core 1.x 应用程序，你将需要更新你`Program`类如下所示。
+ASP.NET Core 2.0 的默认模板中已添加新的设计时挂钩。 静态`Program.BuildWebHost`方法使 EF 核心以在设计时访问应用程序的服务提供程序。 如果你正在升级 ASP.NET Core 1.x 应用程序，你将需要更新你`Program`类如下所示。
 
 ``` csharp
 using Microsoft.AspNetCore;
@@ -81,7 +81,7 @@ namespace AspNetCoreDotNetCore2._0App
 
 ### <a name="dbcontextfactoryoptions-removed"></a>DbContextFactoryOptions removed
 
-由于上面所述的 ASP.NET 核心 2.0 更改，我们发现，`DbContextFactoryOptions`已不再需要在新`IDesignTimeDbContextFactory<TContext>`接口。 以下是应改为使用你选择的选项。
+由于上面所述的 ASP.NET Core 2.0 更改，我们发现，`DbContextFactoryOptions`已不再需要在新`IDesignTimeDbContextFactory<TContext>`接口。 以下是应改为使用你选择的选项。
 
 | DbContextFactoryOptions | 替代项                                                  |
 |:------------------------|:-------------------------------------------------------------|
@@ -91,7 +91,7 @@ namespace AspNetCoreDotNetCore2._0App
 
 ### <a name="design-time-working-directory-changed"></a>设计时更改的工作目录
 
-ASP.NET 核心 2.0 更改也需要使用的工作目录`dotnet ef`为了符合运行你的应用程序时，由 Visual Studio 使用的工作目录。 这样的一个明显的副作用是该 SQLite 像以前一样，文件名现相对于项目目录而不是输出目录。
+ASP.NET Core 2.0 更改也需要使用的工作目录`dotnet ef`为了符合运行你的应用程序时，由 Visual Studio 使用的工作目录。 这样的一个明显的副作用是该 SQLite 像以前一样，文件名现相对于项目目录而不是输出目录。
 
 ### <a name="ef-core-20-requires-a-20-database-provider"></a>EF 核心 2.0 需要 2.0 版数据库提供程序
 

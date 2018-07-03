@@ -1,5 +1,5 @@
 ---
-title: NET Core 入门 - 新数据库 - EF Core
+title: .NET Core 入门 - 新数据库 - EF Core
 author: rick-anderson
 ms.author: riande
 ms.author2: tdykstra
@@ -16,7 +16,7 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 04/26/2018
 ms.locfileid: "31812529"
 ---
-# <a name="getting-started-with-ef-core-on-net-core-console-app-with-a-new-database"></a>使用新数据库在 NET Core 控制台应用程序上开始使用 EF Core
+# <a name="getting-started-with-ef-core-on-net-core-console-app-with-a-new-database"></a>使用新数据库在 .NET Core 控制台应用程序上开始使用 EF Core
 
 在本演练中，你将创建一个 .NET Core 控制台应用程序，该程序使用 Entity Framework Core 对 SQLite 数据库执行基本数据访问。 你将使用迁移功能从模型创建数据库。 有关使用 ASP.NET Core MVC 的 Visual Studio 版本，请参阅 [ASP.NET Core - 新数据库](xref:core/get-started/aspnetcore/new-db)。
 

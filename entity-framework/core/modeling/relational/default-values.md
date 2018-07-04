@@ -1,5 +1,5 @@
 ---
-title: 默认值的 EF 核心
+title: 默认值的 EF Core
 author: rowanmiller
 ms.author: divega
 ms.date: 10/27/2016
@@ -13,24 +13,24 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 10/27/2017
 ms.locfileid: "26052757"
 ---
-# <a name="default-values"></a><span data-ttu-id="a5623-102">默认值</span><span class="sxs-lookup"><span data-stu-id="a5623-102">Default Values</span></span>
+# <a name="default-values"></a><span data-ttu-id="e2a5a-102">默认值</span><span class="sxs-lookup"><span data-stu-id="e2a5a-102">Default Values</span></span>
 
 > [!NOTE]  
-> <span data-ttu-id="a5623-103">一般情况下，此部分中的配置是适用于关系数据库。</span><span class="sxs-lookup"><span data-stu-id="a5623-103">The configuration in this section is applicable to relational databases in general.</span></span> <span data-ttu-id="a5623-104">此处所示的扩展方法将变为可用时安装关系数据库提供程序 (由于共享*Microsoft.EntityFrameworkCore.Relational*包)。</span><span class="sxs-lookup"><span data-stu-id="a5623-104">The extension methods shown here will become available when you install a relational database provider (due to the shared *Microsoft.EntityFrameworkCore.Relational* package).</span></span>
+> <span data-ttu-id="e2a5a-103">一般情况下，此部分中的配置是适用于关系数据库。</span><span class="sxs-lookup"><span data-stu-id="e2a5a-103">The configuration in this section is applicable to relational databases in general.</span></span> <span data-ttu-id="e2a5a-104">此处所示的扩展方法将变为可用时安装关系数据库提供程序 (由于共享*Microsoft.EntityFrameworkCore.Relational*包)。</span><span class="sxs-lookup"><span data-stu-id="e2a5a-104">The extension methods shown here will become available when you install a relational database provider (due to the shared *Microsoft.EntityFrameworkCore.Relational* package).</span></span>
 
-<span data-ttu-id="a5623-105">列的默认值是如果插入新行，但未指定值的列将插入的值。</span><span class="sxs-lookup"><span data-stu-id="a5623-105">The default value of a column is the value that will be inserted if a new row is inserted but no value is specified for the column.</span></span>
+<span data-ttu-id="e2a5a-105">列的默认值是如果插入新行，但未指定值的列将插入的值。</span><span class="sxs-lookup"><span data-stu-id="e2a5a-105">The default value of a column is the value that will be inserted if a new row is inserted but no value is specified for the column.</span></span>
 
-## <a name="conventions"></a><span data-ttu-id="a5623-106">约定</span><span class="sxs-lookup"><span data-stu-id="a5623-106">Conventions</span></span>
+## <a name="conventions"></a><span data-ttu-id="e2a5a-106">约定</span><span class="sxs-lookup"><span data-stu-id="e2a5a-106">Conventions</span></span>
 
-<span data-ttu-id="a5623-107">按照约定，未配置默认值。</span><span class="sxs-lookup"><span data-stu-id="a5623-107">By convention, a default value is not configured.</span></span>
+<span data-ttu-id="e2a5a-107">按照约定，未配置默认值。</span><span class="sxs-lookup"><span data-stu-id="e2a5a-107">By convention, a default value is not configured.</span></span>
 
-## <a name="data-annotations"></a><span data-ttu-id="a5623-108">数据注释</span><span class="sxs-lookup"><span data-stu-id="a5623-108">Data Annotations</span></span>
+## <a name="data-annotations"></a><span data-ttu-id="e2a5a-108">数据注释</span><span class="sxs-lookup"><span data-stu-id="e2a5a-108">Data Annotations</span></span>
 
-<span data-ttu-id="a5623-109">不可以设置使用数据注释的默认值。</span><span class="sxs-lookup"><span data-stu-id="a5623-109">You can not set a default value using Data Annotations.</span></span>
+<span data-ttu-id="e2a5a-109">不可以设置使用数据注释的默认值。</span><span class="sxs-lookup"><span data-stu-id="e2a5a-109">You can not set a default value using Data Annotations.</span></span>
 
-## <a name="fluent-api"></a><span data-ttu-id="a5623-110">Fluent API</span><span class="sxs-lookup"><span data-stu-id="a5623-110">Fluent API</span></span>
+## <a name="fluent-api"></a><span data-ttu-id="e2a5a-110">Fluent API</span><span class="sxs-lookup"><span data-stu-id="e2a5a-110">Fluent API</span></span>
 
-<span data-ttu-id="a5623-111">可以使用 Fluent API 指定属性的默认值。</span><span class="sxs-lookup"><span data-stu-id="a5623-111">You can use the Fluent API to specify the default value for a property.</span></span>
+<span data-ttu-id="e2a5a-111">可以使用 Fluent API 指定属性的默认值。</span><span class="sxs-lookup"><span data-stu-id="e2a5a-111">You can use the Fluent API to specify the default value for a property.</span></span>
 
 <!-- [!code-csharp[Main](samples/core/relational/Modeling/FluentAPI/Samples/Relational/DefaultValue.cs?highlight=9)] -->
 ``` csharp
@@ -54,7 +54,7 @@ public class Blog
 }
 ```
 
-<span data-ttu-id="a5623-112">你还可以指定用于计算默认值的 SQL 片段。</span><span class="sxs-lookup"><span data-stu-id="a5623-112">You can also specify a SQL fragment that is used to calculate the default value.</span></span>
+<span data-ttu-id="e2a5a-112">你还可以指定用于计算默认值的 SQL 片段。</span><span class="sxs-lookup"><span data-stu-id="e2a5a-112">You can also specify a SQL fragment that is used to calculate the default value.</span></span>
 
 <!-- [!code-csharp[Main](samples/core/relational/Modeling/FluentAPI/Samples/Relational/DefaultValueSql.cs?highlight=9)] -->
 ``` csharp

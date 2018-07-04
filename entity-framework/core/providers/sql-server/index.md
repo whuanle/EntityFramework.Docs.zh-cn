@@ -13,37 +13,37 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 02/28/2018
 ms.locfileid: "29678645"
 ---
-# <a name="microsoft-sql-server-ef-core-database-provider"></a><span data-ttu-id="c130b-102">Microsoft SQL Server EF Core 数据库提供程序</span><span class="sxs-lookup"><span data-stu-id="c130b-102">Microsoft SQL Server EF Core Database Provider</span></span>
+# <a name="microsoft-sql-server-ef-core-database-provider"></a><span data-ttu-id="d988a-102">Microsoft SQL Server EF Core 数据库提供程序</span><span class="sxs-lookup"><span data-stu-id="d988a-102">Microsoft SQL Server EF Core Database Provider</span></span>
 
-<span data-ttu-id="c130b-103">此数据库提供程序允许将 Entity Framework Core 与 Microsoft SQL Server（包括 SQL Azure）一起使用。</span><span class="sxs-lookup"><span data-stu-id="c130b-103">This database provider allows Entity Framework Core to be used with Microsoft SQL Server (including SQL Azure).</span></span> <span data-ttu-id="c130b-104">该提供程序作为 [Entity Framework Core 项目](https://github.com/aspnet/EntityFrameworkCore)的组成部分进行维护。</span><span class="sxs-lookup"><span data-stu-id="c130b-104">The provider is maintained as part of the [Entity Framework Core Project](https://github.com/aspnet/EntityFrameworkCore).</span></span>
+<span data-ttu-id="d988a-103">此数据库提供程序允许将 Entity Framework Core 与 Microsoft SQL Server（包括 SQL Azure）一起使用。</span><span class="sxs-lookup"><span data-stu-id="d988a-103">This database provider allows Entity Framework Core to be used with Microsoft SQL Server (including SQL Azure).</span></span> <span data-ttu-id="d988a-104">该提供程序作为 [Entity Framework Core 项目](https://github.com/aspnet/EntityFrameworkCore)的组成部分进行维护。</span><span class="sxs-lookup"><span data-stu-id="d988a-104">The provider is maintained as part of the [Entity Framework Core Project](https://github.com/aspnet/EntityFrameworkCore).</span></span>
 
-## <a name="install"></a><span data-ttu-id="c130b-105">安装</span><span class="sxs-lookup"><span data-stu-id="c130b-105">Install</span></span>
+## <a name="install"></a><span data-ttu-id="d988a-105">安装</span><span class="sxs-lookup"><span data-stu-id="d988a-105">Install</span></span>
 
-<span data-ttu-id="c130b-106">安装 [Microsoft.EntityFrameworkCore.SqlServer NuGet 包](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.SqlServer/)。</span><span class="sxs-lookup"><span data-stu-id="c130b-106">Install the [Microsoft.EntityFrameworkCore.SqlServer NuGet package](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.SqlServer/).</span></span>
+<span data-ttu-id="d988a-106">安装 [Microsoft.EntityFrameworkCore.SqlServer NuGet 包](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.SqlServer/)。</span><span class="sxs-lookup"><span data-stu-id="d988a-106">Install the [Microsoft.EntityFrameworkCore.SqlServer NuGet package](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.SqlServer/).</span></span>
 
 ``` powershell
 Install-Package Microsoft.EntityFrameworkCore.SqlServer
 ```
 
-## <a name="get-started"></a><span data-ttu-id="c130b-107">开始操作</span><span class="sxs-lookup"><span data-stu-id="c130b-107">Get Started</span></span>
+## <a name="get-started"></a><span data-ttu-id="d988a-107">开始操作</span><span class="sxs-lookup"><span data-stu-id="d988a-107">Get Started</span></span>
 
-<span data-ttu-id="c130b-108">下列资源可帮助你开始使用此提供程序。</span><span class="sxs-lookup"><span data-stu-id="c130b-108">The following resources will help you get started with this provider.</span></span>
-* [<span data-ttu-id="c130b-109">在 .NET Framework（控制台、WinForms、WPF 等）上开始使用</span><span class="sxs-lookup"><span data-stu-id="c130b-109">Getting Started on .NET Framework (Console, WinForms, WPF, etc.)</span></span>](../../get-started/full-dotnet/index.md)
+<span data-ttu-id="d988a-108">下列资源可帮助你开始使用此提供程序。</span><span class="sxs-lookup"><span data-stu-id="d988a-108">The following resources will help you get started with this provider.</span></span>
+* [<span data-ttu-id="d988a-109">在 .NET Framework（控制台、WinForms、WPF 等）上开始使用</span><span class="sxs-lookup"><span data-stu-id="d988a-109">Getting Started on .NET Framework (Console, WinForms, WPF, etc.)</span></span>](../../get-started/full-dotnet/index.md)
 
-* [<span data-ttu-id="c130b-110">在 ASP.NET Core 上开始使用</span><span class="sxs-lookup"><span data-stu-id="c130b-110">Getting Started on ASP.NET Core</span></span>](../../get-started/aspnetcore/index.md)
+* [<span data-ttu-id="d988a-110">在 ASP.NET Core 上开始使用</span><span class="sxs-lookup"><span data-stu-id="d988a-110">Getting Started on ASP.NET Core</span></span>](../../get-started/aspnetcore/index.md)
 
-* [<span data-ttu-id="c130b-111">UnicornStore 示例应用程序</span><span class="sxs-lookup"><span data-stu-id="c130b-111">UnicornStore Sample Application</span></span>](https://github.com/rowanmiller/UnicornStore/tree/master/UnicornStore)
+* [<span data-ttu-id="d988a-111">UnicornStore 示例应用程序</span><span class="sxs-lookup"><span data-stu-id="d988a-111">UnicornStore Sample Application</span></span>](https://github.com/rowanmiller/UnicornStore/tree/master/UnicornStore)
 
-## <a name="supported-database-engines"></a><span data-ttu-id="c130b-112">支持的数据库引擎</span><span class="sxs-lookup"><span data-stu-id="c130b-112">Supported Database Engines</span></span>
+## <a name="supported-database-engines"></a><span data-ttu-id="d988a-112">支持的数据库引擎</span><span class="sxs-lookup"><span data-stu-id="d988a-112">Supported Database Engines</span></span>
 
-* <span data-ttu-id="c130b-113">Microsoft SQL Server（2008 及以上版本）</span><span class="sxs-lookup"><span data-stu-id="c130b-113">Microsoft SQL Server (2008 onwards)</span></span>
+* <span data-ttu-id="d988a-113">Microsoft SQL Server（2008 及以上版本）</span><span class="sxs-lookup"><span data-stu-id="d988a-113">Microsoft SQL Server (2008 onwards)</span></span>
 
-## <a name="supported-platforms"></a><span data-ttu-id="c130b-114">支持的平台</span><span class="sxs-lookup"><span data-stu-id="c130b-114">Supported Platforms</span></span>
+## <a name="supported-platforms"></a><span data-ttu-id="d988a-114">支持的平台</span><span class="sxs-lookup"><span data-stu-id="d988a-114">Supported Platforms</span></span>
 
-* <span data-ttu-id="c130b-115">.NET Framework（4.5.1 及以上版本）</span><span class="sxs-lookup"><span data-stu-id="c130b-115">.NET Framework (4.5.1 onwards)</span></span>
+* <span data-ttu-id="d988a-115">.NET Framework（4.5.1 及以上版本）</span><span class="sxs-lookup"><span data-stu-id="d988a-115">.NET Framework (4.5.1 onwards)</span></span>
 
-* <span data-ttu-id="c130b-116">.NET 核心</span><span class="sxs-lookup"><span data-stu-id="c130b-116">.NET Core</span></span>
+* <span data-ttu-id="d988a-116">.NET Core</span><span class="sxs-lookup"><span data-stu-id="d988a-116">.NET Core</span></span>
 
-* <span data-ttu-id="c130b-117">Mono（4.2.0 及以上版本）</span><span class="sxs-lookup"><span data-stu-id="c130b-117">Mono (4.2.0 onwards)</span></span>
+* <span data-ttu-id="d988a-117">Mono（4.2.0 及以上版本）</span><span class="sxs-lookup"><span data-stu-id="d988a-117">Mono (4.2.0 onwards)</span></span>
 
       Caution: Using this provider on Mono will make use of the Mono SQL Client implementation, which has a number of known issues. For example, it does not support secure connections (SSL).

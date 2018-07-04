@@ -23,18 +23,18 @@ ms.locfileid: "29678609"
 
 2. 标识的提供程序与 EF Core 2.0 兼容的目标数据库。 请参阅[EF Core 2.0 需要 2.0 版数据库提供程序](#ef-core-20-requires-a-20-database-provider)下面。
 
-3. 升级到 2.0 所有 EF Core 包 （运行时和工具）。 请参阅[安装 EF Core](../get-started/install/index.md)有关详细信息。
+3. 升级到 2.0 所有 EF Core包 （运行时和工具）。 请参阅[安装 EF Core](../get-started/install/index.md)有关详细信息。
 
 4. 进行任何必要的代码更改，以弥补的重大更改。 请参阅[的重大更改](#breaking-changes)下面部分以了解更多详细信息。
 
-## <a name="aspnet-core-applications"></a>ASP.NET Core 应用程序
+## <a name="aspnet-core-applications"></a>ASP.NET Core应用程序
 
 1. 请参阅尤其[初始化应用程序的服务提供程序的新模式](#new-way-of-getting-application-services)如下所述。
 
 > [!TIP]  
 > 此新模式时更新应用程序迁移到 2.0 强烈建议和 Entity Framework 核心迁移等的产品功能使起作用所需的采用率。 其他常见的替代方法是[实现*IDesignTimeDbContextFactory\<TContext >*](xref:core/miscellaneous/cli/dbcontext-creation#from-a-design-time-factory)。
 
-2. 面向 ASP.NET Core 2.0 的应用程序可以使用 EF Core 2.0，而不需要第三方数据库提供程序以外的其他依赖项。 但是，面向以前版本的 ASP.NET Core 应用程序需要为了使用 EF Core 2.0 升级到 ASP.NET Core 2.0。 有关升级到 2.0 的 ASP.NET Core 应用程序的详细信息，请参阅[有关该主题的 ASP.NET Core 文档](https://docs.microsoft.com/aspnet/core/migration/1x-to-2x/)。
+2. 面向 ASP.NET Core 2.0 的应用程序可以使用 EF Core 2.0，而不需要第三方数据库提供程序以外的其他依赖项。 但是，面向以前版本的 ASP.NET Core 应用程序需要为了使用 EF Core 2.0 升级到 ASP.NET Core 2.0。 有关升级到 2.0 的 ASP.NET Core 应用程序的详细信息，请参阅[有关该主题的 ASP.NET Core文档](https://docs.microsoft.com/aspnet/core/migration/1x-to-2x/)。
 
 ## <a name="breaking-changes"></a>重大更改
 
@@ -42,11 +42,11 @@ ms.locfileid: "29678609"
 
 ### <a name="new-way-of-getting-application-services"></a>获取应用程序服务的新方法
 
-已为 2.0 中断 1.x 中使用的 EF Core 的设计时逻辑的方式更新的建议的模式为 ASP.NET Core web 应用程序。 以前在设计时，EF Core 会尝试调用`Startup.ConfigureServices`直接才能访问应用程序的服务提供程序。 在 ASP.NET Core 2.0 中，配置初始化外部`Startup`类。 通常使用 EF Core 应用程序配置中，从访问其连接字符串因此`Startup`本身已不再够用。 如果升级 ASP.NET Core 1.x 应用程序，你可能会收到以下错误，使用 EF Core 工具时。
+已为 2.0 中断 1.x 中使用的 EF Core的设计时逻辑的方式更新的建议的模式为 ASP.NET Core web 应用程序。 以前在设计时，EF Core会尝试调用`Startup.ConfigureServices`直接才能访问应用程序的服务提供程序。 在 ASP.NET Core 2.0 中，配置初始化外部`Startup`类。 通常使用 EF Core应用程序配置中，从访问其连接字符串因此`Startup`本身已不再够用。 如果升级 ASP.NET Core 1.x 应用程序，你可能会收到以下错误，使用 EF Core工具时。
 
 > ApplicationContext 上发现了没有无参数构造函数。 将无参数构造函数添加到 ApplicationContext 或添加的实现 IDesignTimeDbContextFactory&lt;ApplicationContext&gt;中 ApplicationContext 相同的程序集中
 
-ASP.NET Core 2.0 的默认模板中已添加新的设计时挂钩。 静态`Program.BuildWebHost`方法使 EF Core 以在设计时访问应用程序的服务提供程序。 如果你正在升级 ASP.NET Core 1.x 应用程序，你将需要更新你`Program`类如下所示。
+ASP.NET Core 2.0 的默认模板中已添加新的设计时挂钩。 静态`Program.BuildWebHost`方法使 EF Core以在设计时访问应用程序的服务提供程序。 如果你正在升级 ASP.NET Core 1.x 应用程序，你将需要更新你`Program`类如下所示。
 
 ``` csharp
 using Microsoft.AspNetCore;
@@ -71,7 +71,7 @@ namespace AspNetCoreDotNetCore2._0App
 
 ### <a name="idbcontextfactory-renamed"></a>IDbContextFactory renamed
 
-为了支持不同的应用程序模式，并为用户提供更好地控制如何其`DbContext`使用在设计时，我们，在过去，提供了`IDbContextFactory<TContext>`接口。 EF Core 工具将在设计时发现你的项目中的此接口的实现并使用它来创建`DbContext`对象。
+为了支持不同的应用程序模式，并为用户提供更好地控制如何其`DbContext`使用在设计时，我们，在过去，提供了`IDbContextFactory<TContext>`接口。 EF Core工具将在设计时发现你的项目中的此接口的实现并使用它来创建`DbContext`对象。
 
 此接口具有一个非常一般名，它会误导某些用户尝试重新将其用于其他`DbContext`-创建方案。 它们时 EF 工具然后尝试在设计时使用其实现感到措手不及和导致等命令`Update-Database`或`dotnet ef database update`失败。
 
@@ -113,7 +113,7 @@ ASP.NET Core 2.0 更改也需要使用的工作目录`dotnet ef`为了符合运�
 
 Id 还从移动 Microsoft.EntityFrameworkCore.Infraestructure 到新 Microsoft.EntityFrameworkCore.Diagnostics 命名空间。
 
-### <a name="ef-core-relational-metadata-api-changes"></a>EF Core 关系元数据 API 更改
+### <a name="ef-core-relational-metadata-api-changes"></a>EF Core关系元数据 API 更改
 
 EF Core 2.0 现将对所用的每个不同提供程序生成不同的 [IModel](https://github.com/aspnet/EntityFramework/blob/dev/src/EFCore/Metadata/IModel.cs)。 这对应用程序而言通常是透明的。 这有助于简化较低级别的元数据 API，从而始终通过调用 `.Relational`（而不是 `.SqlServer`、`.Sqlite` 等）来访问常见关系元数据概念。例如，1.1.x 代码如下：
 
@@ -138,7 +138,7 @@ modelBuilder.Entity<User>().ToTable(
 
 ### <a name="dont-take-control-of-the-ef-service-provider"></a>不能控制 EF 服务提供程序
 
-EF Core 使用内部`IServiceProvider`（即依赖关系注入容器） 用于内部实现。 应用程序应允许 EF Core 以创建和管理在特殊情况下此提供程序除外。 强烈建议考虑删除对任何调用`UseInternalServiceProvider`。 如果应用程序需要调用`UseInternalServiceProvider`，请考虑[填写问题](https://github.com/aspnet/EntityFramework/Issues)以便我们可以调查其他方法来处理你的方案。
+EF Core使用内部`IServiceProvider`（即依赖关系注入容器） 用于内部实现。 应用程序应允许 EF Core以创建和管理在特殊情况下此提供程序除外。 强烈建议考虑删除对任何调用`UseInternalServiceProvider`。 如果应用程序需要调用`UseInternalServiceProvider`，请考虑[填写问题](https://github.com/aspnet/EntityFramework/Issues)以便我们可以调查其他方法来处理你的方案。
 
 调用`AddEntityFramework`， `AddEntityFrameworkSqlServer`，等不需要的应用程序代码，除非`UseInternalServiceProvider`也被称为。 删除任何现有调用`AddEntityFramework`或`AddEntityFrameworkSqlServer`等`AddDbContext`仍应使用相同的方式和前面一样。
 
@@ -160,7 +160,7 @@ optionsBuilder.UseInMemoryDatabase("MyDatabase");
 
 ### <a name="new-clientsetnull-delete-behavior"></a>新 ClientSetNull 删除行为
 
-在以前版本中， [DeleteBehavior.Restrict](https://github.com/aspnet/EntityFramework/blob/dev/src/EFCore/Metadata/DeleteBehavior.cs)具有的实体的行为由上下文跟踪的详细信息关闭匹配`SetNull`语义。 在 EF Core 2.0 中，新`ClientSetNull`作为的默认值为可选关系引入了行为。 此行为具有`SetNull`语义跟踪的实体和`Restrict`创建使用 EF Core 的数据库的行为。 在我们的经验，它们是跟踪的实体和数据库最预期/有用的行为。 `DeleteBehavior.Restrict` 现在会遵循的跟踪时设置的可选关系的实体。
+在以前版本中， [DeleteBehavior.Restrict](https://github.com/aspnet/EntityFramework/blob/dev/src/EFCore/Metadata/DeleteBehavior.cs)具有的实体的行为由上下文跟踪的详细信息关闭匹配`SetNull`语义。 在 EF Core 2.0 中，新`ClientSetNull`作为的默认值为可选关系引入了行为。 此行为具有`SetNull`语义跟踪的实体和`Restrict`创建使用 EF Core的数据库的行为。 在我们的经验，它们是跟踪的实体和数据库最预期/有用的行为。 `DeleteBehavior.Restrict` 现在会遵循的跟踪时设置的可选关系的实体。
 
 ### <a name="provider-design-time-packages-removed"></a>删除的提供程序设计时包
 

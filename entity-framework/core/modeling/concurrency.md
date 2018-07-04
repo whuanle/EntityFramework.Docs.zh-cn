@@ -16,7 +16,7 @@ ms.locfileid: "29745470"
 # <a name="concurrency-tokens"></a>并发标记
 
 > [!NOTE]
-> 本页介绍如何配置并发标记。 请参阅[处理并发冲突](../saving/concurrency.md)并发控制 EF Core 以及如何处理应用程序中的并发冲突的示例中的工作原理的详细说明。
+> 本页介绍如何配置并发标记。 请参阅[处理并发冲突](../saving/concurrency.md)并发控制 EF Core以及如何处理应用程序中的并发冲突的示例中的工作原理的详细说明。
 
 属性配置为并发标记用于实现乐观并发控制。
 

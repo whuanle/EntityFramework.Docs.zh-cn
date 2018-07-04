@@ -59,7 +59,7 @@ ms.locfileid: "30151035"
 
 ## <a name="net-core-remove-imports-in-projectjson"></a>.NET Core： project.json 中删除"导入"
 
-如果你已面向.NET Core 与 RC2，需要添加`imports`到临时的解决方法不支持.NET 标准的 EF Core 依赖关系的某些 project.json。 现在即可移除这些。
+如果你已面向.NET Core与 RC2，需要添加`imports`到临时的解决方法不支持.NET 标准的 EF Core依赖关系的某些 project.json。 现在即可移除这些。
 
 ``` json
 {
@@ -72,7 +72,7 @@ ms.locfileid: "30151035"
 ```
 
 > [!NOTE]  
-> 截至版本 1.0 RTM， [.NET Core SDK](https://www.microsoft.com/net/download/core)不再支持`project.json`或开发.NET Core 应用程序使用 Visual Studio 2015。 我们建议你[从 project.json 迁移到 csproj](https://docs.microsoft.com/dotnet/articles/core/migration/)。 如果使用 Visual Studio，我们建议你升级到[Visual Studio 2017](https://www.visualstudio.com/downloads/)。
+> 截至版本 1.0 RTM， [.NET Core SDK](https://www.microsoft.com/net/download/core)不再支持`project.json`或开发.NET Core应用程序使用 Visual Studio 2015。 我们建议你[从 project.json 迁移到 csproj](https://docs.microsoft.com/dotnet/articles/core/migration/)。 如果使用 Visual Studio，我们建议你升级到[Visual Studio 2017](https://www.visualstudio.com/downloads/)。
 
 ## <a name="uwp-add-binding-redirects"></a>UWP： 添加绑定重定向
 

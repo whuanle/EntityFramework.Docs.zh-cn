@@ -15,9 +15,9 @@ ms.locfileid: "29678955"
 ---
 # <a name="writing-a-database-provider"></a>编写数据库提供程序
 
-有关编写实体框架核心数据库提供程序的信息，请参阅[因此你想要编写 EF Core 提供程序](https://blog.oneunicorn.com/2016/11/11/so-you-want-to-write-an-ef-core-provider/)通过[Arthur Vickers](https://github.com/ajcvickers)。
+有关编写实体框架核心数据库提供程序的信息，请参阅[因此你想要编写 EF Core提供程序](https://blog.oneunicorn.com/2016/11/11/so-you-want-to-write-an-ef-core-provider/)通过[Arthur Vickers](https://github.com/ajcvickers)。
 
-基本 EF Core 代码属于开放源代码，包含多个数据库提供程序可以使用作为参考。 你可以在 https://github.com/aspnet/EntityFrameworkCore 找到源代码。
+基本 EF Core代码属于开放源代码，包含多个数据库提供程序可以使用作为参考。 你可以在 https://github.com/aspnet/EntityFrameworkCore 找到源代码。
 
 ## <a name="the-providers-beware-label"></a>提供程序注意标签
 
@@ -25,7 +25,7 @@ ms.locfileid: "29678955"
 
 ## <a name="suggested-naming-of-third-party-providers"></a>建议的第三方提供程序命名
 
-我们建议使用 NuGet 包的以下命名。 这是与 EF Core 小组所传递的包名称一致。
+我们建议使用 NuGet 包的以下命名。 这是与 EF Core小组所传递的包名称一致。
 
 `<Optional project/company name>.EntityFrameworkCore.<Database engine name>`
 

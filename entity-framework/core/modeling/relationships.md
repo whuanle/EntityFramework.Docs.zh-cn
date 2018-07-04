@@ -92,7 +92,7 @@ ms.locfileid: "26053027"
 
 ### <a name="cascade-delete"></a>级联删除
 
-按照约定，级联删除将设置为*Cascade*的所需的关系和*ClientSetNull*可选关系。 *级联*意味着依赖实体也会被删除。 *ClientSetNull*意味着不会加载到内存的依赖实体仍保持不变并且必须是手动将其删除，或更新以指向有效的主体实体。 对于加载到内存的实体，EF Core 将尝试将外键属性设置为 null。
+按照约定，级联删除将设置为*Cascade*的所需的关系和*ClientSetNull*可选关系。 *级联*意味着依赖实体也会被删除。 *ClientSetNull*意味着不会加载到内存的依赖实体仍保持不变并且必须是手动将其删除，或更新以指向有效的主体实体。 对于加载到内存的实体，EF Core将尝试将外键属性设置为 null。
 
 请参阅[必选和可选关系](#required-and-optional-relationships)部分以了解必需和可选关系之间的差异。
 

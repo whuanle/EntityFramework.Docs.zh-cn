@@ -1,5 +1,5 @@
 ---
-title: 多个项目的 EF Core 的迁移
+title: 多个项目的 EF Core的迁移
 author: bricelam
 ms.author: bricelam
 ms.date: 10/30/2017

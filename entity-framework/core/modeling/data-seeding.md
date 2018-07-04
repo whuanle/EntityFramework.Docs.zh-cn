@@ -18,7 +18,7 @@ ms.locfileid: "34163195"
 > [!NOTE]  
 > 此功能是在 EF Core 2.1 的新增功能。
 
-数据种子设定允许若要提供初始数据填充数据库。 与不同在 ef6 更高版本，在 EF Core 中设定数据种子都与关联模型配置的一部分作为实体类型。 然后 EF Core[迁移](xref:core/managing-schemas/migrations/index)什么插入、 更新或删除操作需要时将数据库升级到新版本的模型的应用可以自动计算。
+数据种子设定允许若要提供初始数据填充数据库。 与不同在 ef6 更高版本，在 EF Core中设定数据种子都与关联模型配置的一部分作为实体类型。 然后 EF Core[迁移](xref:core/managing-schemas/migrations/index)什么插入、 更新或删除操作需要时将数据库升级到新版本的模型的应用可以自动计算。
 
 例如，可用于此配置的种子数据`Blog`中`OnModelCreating`:
 

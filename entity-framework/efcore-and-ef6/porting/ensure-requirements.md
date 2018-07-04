@@ -12,23 +12,23 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 10/27/2017
 ms.locfileid: "26052857"
 ---
-# <a name="before-porting-from-ef6-to-ef-core-validate-your-applications-requirements"></a>之前从 EF6 到 EF Core 的迁移： 验证应用程序的要求
+# <a name="before-porting-from-ef6-to-ef-core-validate-your-applications-requirements"></a>之前从 EF6 到 EF Core的迁移： 验证应用程序的要求
 
-在开始迁移过程之前很重要，以验证 EF Core 满足你的应用程序的数据访问要求。
+在开始迁移过程之前很重要，以验证 EF Core满足你的应用程序的数据访问要求。
 
 ## <a name="missing-features"></a>缺少的功能
 
-请确保 EF Core 具有所需应用程序中使用的所有功能。 请参阅[功能比较](../features.md)有关如何在 EF Core 中设置的功能比较到 ef6 更高版本的详细比较。 如果缺少任何所需的功能，请确保，你可以补偿缺少这些功能移植到 EF Core 之前。
+请确保 EF Core具有所需应用程序中使用的所有功能。 请参阅[功能比较](../features.md)有关如何在 EF Core中设置的功能比较到 ef6 更高版本的详细比较。 如果缺少任何所需的功能，请确保，你可以补偿缺少这些功能移植到 EF Core之前。
 
 ## <a name="behavior-changes"></a>行为更改
 
-这是从 EF6 和 EF Core 之间的行为中的某些更改非详尽列表。 请务必记住这几点你端口作为你的应用程序因为它们可能更改你的应用程序的行为，但将不显示为编译错误后交换到 EF Core 的方式。
+这是从 EF6 和 EF Core之间的行为中的某些更改非详尽列表。 请务必记住这几点你端口作为你的应用程序因为它们可能更改你的应用程序的行为，但将不显示为编译错误后交换到 EF Core的方式。
 
 ### <a name="dbsetaddattach-and-graph-behavior"></a>DbSet.Add/Attach 和 graph 行为
 
 在从 EF6，调用`DbSet.Add()`对实体的所有实体在其导航属性中引用的递归搜索。 发现了，并且不由上下文中，已跟踪的任何实体也是标记为添加。 `DbSet.Attach()`行为相同，但所有实体都标记为不变。
 
-**EF Core 执行类似的递归搜索，但使用一些略有不同的规则。**
+**EF Core执行类似的递归搜索，但使用一些略有不同的规则。**
 
 *  根实体始终处于请求的状态 (为添加`DbSet.Add`和不变`DbSet.Attach`)。
 
@@ -56,7 +56,7 @@ ms.locfileid: "26052857"
 
 * 如果数据库存在并从 EF6 以前已创建了架构，然后针对与当前模型的兼容性检查架构。 如果自创建架构时，该模型已更改，将引发异常。
 
-**EF Core 不执行任何此幻数。**
+**EF Core不执行任何此幻数。**
 
 * 必须在代码中显式配置数据库连接。
 
@@ -66,4 +66,4 @@ ms.locfileid: "26052857"
 
 从 EF6 通过计算该实体映射到的默认表名称的复数形式服务运行的实体类名。
 
-EF Core 使用的名称的`DbSet`派生上下文公开了实体的属性。 如果该实体没有`DbSet`使用属性，则类名称。
+EF Core使用的名称的`DbSet`派生上下文公开了实体的属性。 如果该实体没有`DbSet`使用属性，则类名称。

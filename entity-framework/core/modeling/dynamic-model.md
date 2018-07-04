@@ -1,5 +1,5 @@
 ---
-title: 使用相同的 DbContext 类型的 EF Core 的多个模型之间交替
+title: 使用相同的 DbContext 类型的 EF Core的多个模型之间交替
 author: AndriySvyryd
 ms.author: divega
 ms.date: 12/10/2017

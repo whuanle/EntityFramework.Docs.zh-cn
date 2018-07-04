@@ -13,14 +13,14 @@ ms.locfileid: "26053807"
 ---
 <a name="custom-migrations-history-table"></a>自定义迁移历史记录表
 ===============================
-默认情况下，EF Core 将跟踪的哪些迁移已应用于数据库中名为的表记录`__EFMigrationsHistory`。 由于各种原因，你可能想要自定义此表来更好地满足您的需要。
+默认情况下，EF Core将跟踪的哪些迁移已应用于数据库中名为的表记录`__EFMigrationsHistory`。 由于各种原因，你可能想要自定义此表来更好地满足您的需要。
 
 > [!IMPORTANT]
 > 如果你自定义迁移历史记录表*后*应用迁移，你将负责更新数据库中的现有表。
 
 <a name="schema-and-table-name"></a>架构和表名称
 ----------------------
-你可以更改架构和表名称使用`MigrationsHistoryTable()`中的方法`OnConfiguring()`(或`ConfigureServices()`ASP.NET Core 上)。 此处是一个示例使用 SQL Server EF Core 提供程序。
+你可以更改架构和表名称使用`MigrationsHistoryTable()`中的方法`OnConfiguring()`(或`ConfigureServices()`ASP.NET Core 上)。 此处是一个示例使用 SQL Server EF Core提供程序。
 
 ``` csharp
 protected override void OnConfiguring(DbContextOptionsBuilder options)

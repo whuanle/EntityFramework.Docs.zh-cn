@@ -13,7 +13,7 @@ ms.locfileid: "26053687"
 ---
 <a name="design-time-services"></a>设计时服务
 ====================
-在设计时仅使用由工具使用某些服务。 这些服务 EF Core 运行时服务，以阻止它们不会与你的应用部署分开管理。 若要覆盖这些服务 （例如服务来生成迁移文件） 之一，添加的实现`IDesignTimeServices`到你的启动项目。
+在设计时仅使用由工具使用某些服务。 这些服务 EF Core运行时服务，以阻止它们不会与你的应用部署分开管理。 若要覆盖这些服务 （例如服务来生成迁移文件） 之一，添加的实现`IDesignTimeServices`到你的启动项目。
 
 ``` csharp
 class MyDesignTimeServices : IDesignTimeServices

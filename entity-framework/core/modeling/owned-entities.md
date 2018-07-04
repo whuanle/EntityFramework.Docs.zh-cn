@@ -1,5 +1,5 @@
 ---
-title: 拥有 EF Core 的实体类型-
+title: 拥有 EF Core的实体类型-
 author: julielerman
 ms.author: divega
 ms.date: 2/26/2018
@@ -8,20 +8,21 @@ ms.technology: entity-framework-core
 uid: core/modeling/owned-entities
 ms.openlocfilehash: f2f05499a3e3494f420d916df2db19667a6f1e29
 ms.sourcegitcommit: 26f33758c47399ae933f22fec8e1d19fa7d2c0b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31533877"
 ---
 # <a name="owned-entity-types"></a>拥有的实体类型
 
 >[!NOTE]
 > 此功能是在 EF Core 2.0 中的新增功能。
 
-EF Core 让你可以只显示对其他实体类型的导航属性的模型实体类型。 这些应用程序称为_拥有实体类型_。 包含拥有的实体类型的实体是其_所有者_。
+EF Core让你可以只显示对其他实体类型的导航属性的模型实体类型。 这些应用程序称为_拥有实体类型_。 包含拥有的实体类型的实体是其_所有者_。
 
 ## <a name="explicit-configuration"></a>显式配置
 
-拥有永远不会包含类型由 EF Core 模型中按照约定的实体。 你可以使用`OwnsOne`中的方法`OnModelCreating`或批注与类型`OwnedAttribute`（新在 EF Core 2.1） 配置为拥有类型的类型。
+拥有永远不会包含类型由 EF Core模型中按照约定的实体。 你可以使用`OwnsOne`中的方法`OnModelCreating`或批注与类型`OwnedAttribute`（新在 EF Core 2.1） 配置为拥有类型的类型。
 
 在此示例中，StreetAddress 是没有标识属性的类型。 它用作 Order 类型的属性来指定特定订单的发货地址。 在`OnModelCreating`，我们使用`OwnsOne`方法，以指定 ShippingAddress 属性是拥有顺序类型的实体。
 
@@ -69,7 +70,7 @@ public class Order
 
 在 EF Core 2.0 和 2.1 中，仅引用导航属性可以指向拥有的类型。 不支持拥有类型的集合。 这些引用拥有类型始终与所有者具有一对一的关系，因此它们不需要其自己的密钥值。 在前面的示例中，不需要定义键属性 StreetAddress 类型。  
 
-在了解如何 EF Core 跟踪这些对象的顺序，有必要考虑主密钥被创建为[隐藏属性](xref:core/modeling/shadow-properties)拥有的类型。 拥有类型的实例键的值将作为所有者实例的密钥的值相同。      
+在了解如何 EF Core跟踪这些对象的顺序，有必要考虑主密钥被创建为[隐藏属性](xref:core/modeling/shadow-properties)拥有的类型。 拥有类型的实例键的值将作为所有者实例的密钥的值相同。      
 
 ## <a name="mapping-owned-types-with-table-splitting"></a>映射拥有与表拆分的类型
 
@@ -78,7 +79,7 @@ public class Order
 > [!TIP]
 > 拥有表拆分与存储的类型可以是使用非常类似于复杂类型中使用 ef6 更高版本。
 
-按照约定，EF Core 将遵循模式在拥有的实体类型的属性的名称的数据库列_EntityProperty_OwnedEntityProperty_。 因此 StreetAddress 属性将显示在具有名 ShippingAddress_Street 和 ShippingAddress_City Orders 表中。
+按照约定，EF Core将遵循模式在拥有的实体类型的属性的名称的数据库列_EntityProperty_OwnedEntityProperty_。 因此 StreetAddress 属性将显示在具有名 ShippingAddress_Street 和 ShippingAddress_City Orders 表中。
 
 你可以将附加`HasColumnName`方法来重命名这些列。 在其中 StreetAddress 是公共属性的情况下，映射将是
 
@@ -96,7 +97,7 @@ modelBuilder.Entity<Order>().OwnsOne(
 
 拥有的实体类型可以是相同的.NET 类型作为另一个拥有的实体类型，因此.NET 类型可能不够来标识拥有的类型。
 
-在这些情况下，从所有者指向拥有的实体的属性将成为_定义导航_拥有的实体类型。 从 EF Core 的角度来看，定义导航是标识的旁边的.NET 类型的类型的一部分。   
+在这些情况下，从所有者指向拥有的实体的属性将成为_定义导航_拥有的实体类型。 从 EF Core的角度来看，定义导航是标识的旁边的.NET 类型的类型的一部分。   
 
 例如，在以下类中，ShippingAddress 和 BillingAddress 都相同的.NET 类型，StreetAddress:
 
@@ -109,7 +110,7 @@ public class Order
 }
 ```
 
-若要了解如何 EF Core 将区分跟踪这些对象的实例，可能会有用考虑定义导航已旁边的值的键的所有者的实例键的一部分，拥有类型的.NET 类型。
+若要了解如何 EF Core将区分跟踪这些对象的实例，可能会有用考虑定义导航已旁边的值的键的所有者的实例键的一部分，拥有类型的.NET 类型。
 
 ## <a name="nested-owned-types"></a>嵌套拥有的类型
 

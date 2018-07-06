@@ -18,13 +18,13 @@ ms.locfileid: "35232131"
 > [!TIP]  
 > 可在 GitHub 上查看此文章的[示例](https://github.com/aspnet/EntityFramework.Docs/tree/master/samples/core/Miscellaneous/Logging)。
 
-## <a name="aspnet-core-applications"></a>ASP.NET Core应用程序
+## <a name="aspnet-core-applications"></a>ASP.NET Core 应用程序
 
-与 ASP.NET Core 的日志记录机制自动集成，EF Core每当`AddDbContext`或`AddDbContextPool`使用。 因此，在使用 ASP.NET Core，日志记录应配置中所述[ASP.NET Core文档](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/logging?tabs=aspnetcore2x)。
+与 ASP.NET Core 的日志记录机制自动集成，EF Core 每当`AddDbContext`或`AddDbContextPool`使用。 因此，在使用 ASP.NET Core，日志记录应配置中所述[ASP.NET Core 文档](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/logging?tabs=aspnetcore2x)。
 
 ## <a name="other-applications"></a>其他应用程序
 
-当前日志记录的 EF Core要求 ILoggerFactory 这是配置了一个或多个 ILoggerProvider 本身。 常见的提供程序随附于下列包：
+当前日志记录的 EF Core 要求 ILoggerFactory 这是配置了一个或多个 ILoggerProvider 本身。 常见的提供程序随附于下列包：
 
 * [Microsoft.Extensions.Logging.Console](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Console/)： 简单的控制台记录器。
 * [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices/)： 支持 Azure 应用程序服务诊断日志和日志流功能。
@@ -37,7 +37,7 @@ ms.locfileid: "35232131"
 
 [!code-csharp[Main](../../../samples/core/Miscellaneous/Logging/Logging/BloggingContext.cs#DefineLoggerFactory)]
 
-此 singleton/全局实例应然后注册与 EF Core上`DbContextOptionsBuilder`。 例如：
+此 singleton/全局实例应然后注册与 EF Core 上`DbContextOptionsBuilder`。 例如：
 
 [!code-csharp[Main](../../../samples/core/Miscellaneous/Logging/Logging/BloggingContext.cs#RegisterLoggerFactory)]
 
@@ -54,6 +54,6 @@ ms.locfileid: "35232131"
  * Microsoft.EntityFrameworkCore.Database.Command 类别中
  * 在信息级别
 
-对于 EF Core记录器类别在中定义`DbLoggerCategory`类，以便可以方便地查找类别，但这些解析为简单的字符串。
+对于 EF Core 记录器类别在中定义`DbLoggerCategory`类，以便可以方便地查找类别，但这些解析为简单的字符串。
 
-在基础的日志记录基础结构上的更多详细信息可在[ASP.NET Core日志记录文档](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/logging?tabs=aspnetcore2x)。
+在基础的日志记录基础结构上的更多详细信息可在[ASP.NET Core 日志记录文档](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/logging?tabs=aspnetcore2x)。

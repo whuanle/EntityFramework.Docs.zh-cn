@@ -79,7 +79,7 @@ modelBuilder
 
 ## <a name="built-in-converters"></a>内置的转换器
 
-EF Core附带了一组预定义`ValueConverter`类，在中找到`Microsoft.EntityFrameworkCore.Storage.ValueConversion`命名空间。 这些是：
+EF Core 附带了一组预定义`ValueConverter`类，在中找到`Microsoft.EntityFrameworkCore.Storage.ValueConversion`命名空间。 这些是：
 * `BoolToZeroOneConverter` -Bool 到零，另一个
 * `BoolToStringConverter` -Bool 为字符串，如"Y"和"N"
 * `BoolToTwoValuesConverter` -Bool 到任何两个值
@@ -139,5 +139,5 @@ public class Rider
 有几个已知的当前限制的值转换系统：
 * 如上所述，`null`无法转换。
 * 目前没有办法分布到多个列或进行相反的转换的转换的一个属性。
-* 使用的值转换可能会影响 EF Core能够把表达式转换到 SQL。 为这种情况下，将记录警告。
+* 使用的值转换可能会影响 EF Core 能够把表达式转换到 SQL。 为这种情况下，将记录警告。
 正在为未来版本考虑删除这些限制。

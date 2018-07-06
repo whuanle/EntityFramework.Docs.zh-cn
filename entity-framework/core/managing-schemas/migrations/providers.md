@@ -1,5 +1,5 @@
 ---
-title: 多个提供程序的 EF Core的迁移
+title: 多个提供程序的 EF Core 的迁移
 author: bricelam
 ms.author: bricelam
 ms.date: 11/8/2017
@@ -13,7 +13,7 @@ ms.locfileid: "30002800"
 ---
 <a name="migrations-with-multiple-providers"></a>多个提供程序的迁移
 ==================================
-[EF Core工具][ 1]仅创建为活动提供程序的迁移的基架。 有时，但是，你可能想要用于多个提供程序 （例如 Microsoft SQL Server 和 SQLite） 你 DbContext。 有两种方法来处理这与迁移。 你可以维护两组迁移-的情况下，为每个提供程序--或合并到单个设置的其中一个可以工作。
+[EF Core 工具][ 1]仅创建为活动提供程序的迁移的基架。 有时，但是，你可能想要用于多个提供程序 （例如 Microsoft SQL Server 和 SQLite） 你 DbContext。 有两种方法来处理这与迁移。 你可以维护两组迁移-的情况下，为每个提供程序--或合并到单个设置的其中一个可以工作。
 
 <a name="two-migration-sets"></a>两个迁移集
 ------------------

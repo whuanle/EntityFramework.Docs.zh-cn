@@ -1,5 +1,5 @@
 ---
-title: 备份 EF Core的字段-
+title: 备份 EF Core 的字段-
 author: rowanmiller
 ms.author: divega
 ms.date: 10/27/2016

@@ -13,7 +13,7 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 10/27/2017
 ms.locfileid: "26052637"
 ---
-# <a name="memory-optimized-tables-support-in-sql-server-ef-core-database-provider"></a>内存优化表支持在 SQL Server EF Core数据库提供程序
+# <a name="memory-optimized-tables-support-in-sql-server-ef-core-database-provider"></a>内存优化表支持在 SQL Server EF Core 数据库提供程序
 
 > [!NOTE]  
 >
@@ -23,7 +23,7 @@ ms.locfileid: "26052637"
 
 ## <a name="configuring-a-memory-optimized-table"></a>配置的内存优化表
 
-你可以指定一个实体映射到表是内存优化。 当使用 EF Core创建和维护的数据库基于你的模型 (通过迁移或`Database.EnsureCreated()`)，将为这些实体创建内存优化表。
+你可以指定一个实体映射到表是内存优化。 当使用 EF Core 创建和维护的数据库基于你的模型 (通过迁移或`Database.EnsureCreated()`)，将为这些实体创建内存优化表。
 
 ``` csharp
 protected override void OnModelCreating(ModelBuilder modelBuilder)

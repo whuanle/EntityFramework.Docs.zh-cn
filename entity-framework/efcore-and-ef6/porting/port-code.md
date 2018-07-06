@@ -1,5 +1,5 @@
 ---
-title: 从 EF6 移植到 EF Core技术-移植基于代码的模型
+title: 从 EF6 移植到 EF Core 技术-移植基于代码的模型
 author: rowanmiller
 ms.author: divega
 ms.date: 10/27/2016
@@ -22,7 +22,7 @@ ms.locfileid: "26052947"
 
 如果你打算使用迁移，则还应安装`Microsoft.EntityFrameworkCore.Tools`包。
 
-最好将从 EF6 NuGet 包 (EntityFramework) 安装，因为 EF Core和 ef6 更高版本可以是在同一应用程序并行使用。 但是，如果你不想要在你的应用程序的任何区域中使用 ef6 更高版本，然后卸载程序包将有助于为提供上的代码片段，需要注意的编译错误。
+最好将从 EF6 NuGet 包 (EntityFramework) 安装，因为 EF Core 和 ef6 更高版本可以是在同一应用程序并行使用。 但是，如果你不想要在你的应用程序的任何区域中使用 ef6 更高版本，然后卸载程序包将有助于为提供上的代码片段，需要注意的编译错误。
 
 ## <a name="swap-namespaces"></a>交换命名空间
 
@@ -30,7 +30,7 @@ ms.locfileid: "26052947"
 
 ## <a name="context-configuration-connection-etc"></a>上下文配置 （连接等。）
 
-中所述[确保 EF Core将工作为应用程序](ensure-requirements.md)，EF Core具有较少幻解决检测要连接到的数据库。 你将需要重写`OnConfiguring`派生的上下文和使用的数据库提供程序特定的 API 来设置连接到数据库上的方法。
+中所述[确保 EF Core 将工作为应用程序](ensure-requirements.md)，EF Core 具有较少幻解决检测要连接到的数据库。 你将需要重写`OnConfiguring`派生的上下文和使用的数据库提供程序特定的 API 来设置连接到数据库上的方法。
 
 大多数 ef6 更高版本应用程序将连接字符串存储在应用程序`App/Web.config`文件。 在 EF 核，读取此连接字符串使用`ConfigurationManager`API。 你可能需要添加对的引用`System.Configuration`framework 程序集要能够使用此 API。
 
@@ -53,7 +53,7 @@ public class BloggingContext : DbContext
 
 ## <a name="existing-migrations"></a>现有的迁移
 
-实际上，没有端口现有 ef6 更高版本迁移到 EF Core的可行方法。
+实际上，没有端口现有 ef6 更高版本迁移到 EF Core 的可行方法。
 
 如果可能，最好假定从 ef6 更高版本的所有以前迁移已应用到数据库，然后从，迁移架构的开始点使用 EF Core。 若要执行此操作，你将使用`Add-Migration`命令添加迁移后模型移植到 EF Core。 然后，你将删除的所有代码`Up`和`Down`方法的基架的迁移。 该初始迁移已基架时，后续迁移将对模型进行比较。
 

@@ -6,16 +6,16 @@ ms.date: 10/27/2016
 ms.assetid: bcf6d28a-5a2a-40b9-87ea-19ed9ef2e555
 ms.technology: entity-framework-core
 uid: core/get-started/aspnetcore/index
-ms.openlocfilehash: ee835ae30a33384e26d823605af129e810660028
-ms.sourcegitcommit: 01a75cd483c1943ddd6f82af971f07abde20912e
+ms.openlocfilehash: cb4c76c6ad4f9536e89266ff2497d239b95ca63e
+ms.sourcegitcommit: f05e7b62584cf228f17390bb086a61d505712e1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2017
-ms.locfileid: "26048889"
+ms.lasthandoff: 07/08/2018
+ms.locfileid: "37911510"
 ---
 # <a name="getting-started-with-ef-core-on-aspnet-core"></a>基于 ASP.NET Core 的 EF Core 入门
 
-无需具备 Entity Framework Core 或 Visual Studio 背景知识即可学习这 101 个教程。 这些教程会逐步演示如何创建简单的 ASP.NET Core 应用程序，以便查询和保存数据库中的数据。 你可以选择一个教程，了解如何基于现有数据库创建模型，或者基于模型创建数据库。
+无需具备 Entity Framework Core 或 Visual Studio 背景知识即可学习这 101 个教程。 这些教程会逐步演示如何创建简单的 ASP.NET Core 应用程序，以便查询和保存数据库中的数据。 可选择一个教程，了解如何基于现有数据库创建模型，或基于模型创建数据库。
 
 可在 [docs.asp.net](https://docs.asp.net) 中找到 ASP.NET Core 文档。
 

@@ -9,14 +9,15 @@ ms.technology: entity-framework-6
 ms.topic: article
 ms.assetid: 7BFB7763-CD6C-4520-93A2-7B265F5FA586
 caps.latest.revision: 3
-ms.openlocfilehash: 9ec7a83e8bdfde2f67b821bbe46dd688f64bc51d
-ms.sourcegitcommit: f05e7b62584cf228f17390bb086a61d505712e1b
+ms.openlocfilehash: 8bd5a5a420d741accd1167845575e23c09579ae1
+ms.sourcegitcommit: 390f3a37bc55105ed7cc5b0e0925b7f9c9e80ba6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/08/2018
-ms.locfileid: "37911631"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37914292"
 ---
 # <a name="entity-framework-6-providers"></a>实体框架 6 提供程序
+> [!NOTE]
 > **仅限 EF6 及更高版本** - 此页面中讨论的功能、API 等已引入实体框架 6。 如果使用的是早期版本，则部分或全部信息不适用。
 
 实体框架现在正在开源许可证下开发，EF6 及更高版本不会作为 .NET Framework 的一部分提供。 这样做有许多好处，但也需要针对 EF6 程序集重建 EF 提供程序。 这就意味着 EF5 及以下版本的 EF 提供程序在重建之前不能用于 EF6。

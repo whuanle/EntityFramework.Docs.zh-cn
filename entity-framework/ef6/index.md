@@ -1,20 +1,56 @@
 ---
-title: Entity Framework 6
-author: rowanmiller
+title: 实体框架 6 快速概览
+author: divega
+ms.date: 2016-10-23
+ms.prod: entity-framework
 ms.author: divega
-ms.date: 10/27/2016
-ms.assetid: d16eb5be-7e94-477a-84cd-e6dce25df12a
+ms.manager: avickers
 ms.technology: entity-framework-6
+ms.topic: article
+ms.assetid: 8ae74d63-6bad-4686-b325-bbf9d68f3743
+caps.latest.revision: 5
 uid: ef6/index
-ms.openlocfilehash: 235a1404e56b5a78a3ef4f85e37c84a8bde2c014
-ms.sourcegitcommit: 01a75cd483c1943ddd6f82af971f07abde20912e
+ms.openlocfilehash: df661f19afdeef53257c86bdd32b1444737c9b0a
+ms.sourcegitcommit: 45494121254ad4fdcec613d1dd22d850068d6f39
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2017
-ms.locfileid: "26048899"
+ms.lasthandoff: 07/08/2018
+ms.locfileid: "37913494"
 ---
-# <a name="entity-framework-6"></a><span data-ttu-id="ff4a1-102">Entity Framework 6</span><span class="sxs-lookup"><span data-stu-id="ff4a1-102">Entity Framework 6</span></span>
+# <a name="entity-framework-6-quick-overview"></a><span data-ttu-id="c3636-102">实体框架 6 快速概览</span><span class="sxs-lookup"><span data-stu-id="c3636-102">Entity Framework 6 Quick Overview</span></span>
 
-<span data-ttu-id="ff4a1-103">Entity Framework 6 (EF6) 是经过反复测试的数据访问技术，其功能和稳定性已沿用多年。</span><span class="sxs-lookup"><span data-stu-id="ff4a1-103">Entity Framework 6 (EF6) is a tried and tested data access technology with many years of features and stabilization.</span></span> <span data-ttu-id="ff4a1-104">它作为 .NET Framework 3.5 SP1 和 Visual Studio 2008 SP1 的一部分，于 2008 年初次发布。</span><span class="sxs-lookup"><span data-stu-id="ff4a1-104">It first released in 2008, as part of .NET Framework 3.5 SP1 and Visual Studio 2008 SP1.</span></span> <span data-ttu-id="ff4a1-105">从 EF4.1 版本开始，它已经作为 [EntityFramework NuGet 包](https://www.nuget.org/packages/EntityFramework/)发布 - 目前是 NuGet.org 上最受欢迎的包之一。</span><span class="sxs-lookup"><span data-stu-id="ff4a1-105">Starting with the EF4.1 release it has shipped as the [EntityFramework NuGet package](https://www.nuget.org/packages/EntityFramework/) - currently one of the most popular packages on NuGet.org.</span></span>
+<span data-ttu-id="c3636-103">实体框架 6 (EF6) 是经试验和测试的关系映射器 (O/RM)，适用于 .NET 的对象，其功能和稳定性经过了多年的开发和调试。</span><span class="sxs-lookup"><span data-stu-id="c3636-103">Entity Framework 6 (EF6) is a tried and tested object-relational mapper (O/RM) for .NET with many years of feature development and stabilization.</span></span>
 
-<span data-ttu-id="ff4a1-106">目前，[msdn.com/data/ef](http://msdn.com/data/ef) 中提供有 Entity Framework 6 文档。</span><span class="sxs-lookup"><span data-stu-id="ff4a1-106">The Entity Framework 6 documentation is currently available at [msdn.com/data/ef](http://msdn.com/data/ef).</span></span>
+<span data-ttu-id="c3636-104">EF6 可实现许多热门 O/RM 功能：</span><span class="sxs-lookup"><span data-stu-id="c3636-104">EF6 implements many popular O/RM features:</span></span>
+- <span data-ttu-id="c3636-105">映射不依赖于任何 EF 类型的“持久性无感知”（也称为“POCO”，简单传统 CLR 对象）实体类</span><span class="sxs-lookup"><span data-stu-id="c3636-105">Mapping of "persistence ignorant" (also known as "POCO", for Plan-Old CLR Object) entity classes which do not depend on any EF types</span></span>
+- <span data-ttu-id="c3636-106">自动更改跟踪</span><span class="sxs-lookup"><span data-stu-id="c3636-106">Automatic change tracking</span></span>
+- <span data-ttu-id="c3636-107">标识解析和工作单元</span><span class="sxs-lookup"><span data-stu-id="c3636-107">Identity resolution and Unit of Work</span></span>
+- <span data-ttu-id="c3636-108">预先、延迟和显式加载</span><span class="sxs-lookup"><span data-stu-id="c3636-108">Eager, lazy and explicit loading</span></span>
+- <span data-ttu-id="c3636-109">使用 LINQ（语言集成查询）转换强类型查询</span><span class="sxs-lookup"><span data-stu-id="c3636-109">Translation of strongly-typed queries using LINQ (Language INtegrated Query)</span></span> 
+- <span data-ttu-id="c3636-110">丰富的映射功能，可支持：</span><span class="sxs-lookup"><span data-stu-id="c3636-110">Rich mapping capabilities, including support for:</span></span>
+  - <span data-ttu-id="c3636-111">继承（每个层次结构一张表、每个类型一张表和每个具体类一张表）</span><span class="sxs-lookup"><span data-stu-id="c3636-111">Inheritance (table per hierarchy, table per type and table per concrete class)</span></span>
+  - <span data-ttu-id="c3636-112">复杂类型</span><span class="sxs-lookup"><span data-stu-id="c3636-112">Complex types</span></span>
+  - <span data-ttu-id="c3636-113">存储过程</span><span class="sxs-lookup"><span data-stu-id="c3636-113">Stored procedures</span></span>
+- <span data-ttu-id="c3636-114">通过可视化设计器创建实体模型。</span><span class="sxs-lookup"><span data-stu-id="c3636-114">A visual designer to create entity models.</span></span>
+- <span data-ttu-id="c3636-115">支持通过编写代码创建实体模型的“Code First”体验。</span><span class="sxs-lookup"><span data-stu-id="c3636-115">A "Code First" experience that supports creating entity models by writing code.</span></span>
+- <span data-ttu-id="c3636-116">既可从现有数据库生成模型，然后手动编辑，也可从头开始创建模型，然后用于生成新的数据库。</span><span class="sxs-lookup"><span data-stu-id="c3636-116">Models can either be generated form existing databases and then hand-edited, or they can be created from scratch and then used to generate new databases.</span></span>
+- <span data-ttu-id="c3636-117">与 .NET Framework 应用程序模型（包括 ASP.NET）集成，并通过数据绑定与 WPF 和 WinForms 集成。</span><span class="sxs-lookup"><span data-stu-id="c3636-117">Integration with .NET Framework application models, including ASP.NET, and through databinding, with WPF and WinForms.</span></span>
+- <span data-ttu-id="c3636-118">基于 ADO.NET 的数据库连接和可用于连接到 SQL Server、Oracle、MySQL、SQLite、PostgreSQL、DB2 等的众多提供程序。</span><span class="sxs-lookup"><span data-stu-id="c3636-118">Database connectivity based on ADO.NET and numerous providers available to connect to SQL Server, Oracle, MySQL, SQLite, PostgreSQL, DB2, etc.</span></span>
+
+<span data-ttu-id="c3636-119">作为 O/RM，EF6 降低了关系方面和面向对象的方面之间的阻抗不匹配，使开发人员能够使用表示应用程序域的强类型 .NET 对象来编写应用程序，该应用程序可与存储在关系数据库中的数据交互，同时使开发人员无需再编写大部分的数据访问“管道”代码。</span><span class="sxs-lookup"><span data-stu-id="c3636-119">As an O/RM, EF6 reduces the impedance mismatch between the relational and object-oriented worlds, enabling developers to write applications that interact with data stored in relational databases using strongly-typed .NET objects that represent the application's domain, and eliminating the need for a large portion of the data access "plumbing" code that they usually need to write.</span></span>
+
+## <a name="should-i-use-ef6-or-ef-core"></a><span data-ttu-id="c3636-120">应使用 EF6 还是 EF Core？</span><span class="sxs-lookup"><span data-stu-id="c3636-120">Should I use EF6 or EF Core?</span></span>
+
+<span data-ttu-id="c3636-121">EF Core 是更现代、可扩展的轻量级实体框架版本，与 EF6 的功能和优点非常相似。</span><span class="sxs-lookup"><span data-stu-id="c3636-121">EF Core is a more modern, lightweight and extensible version of Entity Framework that has very similar capabilities and benefits to EF6.</span></span>
+<span data-ttu-id="c3636-122">EF Core 则完全进行了重写，包含许多 EF6 没有的新功能，但还是缺少 EF6 中最高级的一些映射功能。</span><span class="sxs-lookup"><span data-stu-id="c3636-122">EF Core is a complete rewrite and contains many new features not available in EF6, although it also still lacks some of the most advanced mapping capabilities of EF6.</span></span>
+<span data-ttu-id="c3636-123">只要功能集与需求匹配，建议在新应用程序中使用 EF Core。</span><span class="sxs-lookup"><span data-stu-id="c3636-123">We recommend using EF Core in new applications as long as the feature set matches your requirements.</span></span>
+<span data-ttu-id="c3636-124">[比较 EF Core 和 EF6](xref:efcore-and-ef6/index)中更详细地讨论了此选项。</span><span class="sxs-lookup"><span data-stu-id="c3636-124">[Compare EF Core & EF6](xref:efcore-and-ef6/index) examines this choice in greater detail.</span></span>
+
+## <a name="get-startedef6get-startedmd"></a>[<span data-ttu-id="c3636-125">入门</span><span class="sxs-lookup"><span data-stu-id="c3636-125">Get Started</span></span>](~/ef6/get-started.md)
+
+<span data-ttu-id="c3636-126">将 EntityFramework NuGet 包添加到项目或安装适用于 Visual Studio 的 Entity Framework Tools。</span><span class="sxs-lookup"><span data-stu-id="c3636-126">Add the EntityFramework NuGet package to your project or install the Entity Framework Tools for Visual Studio.</span></span> <span data-ttu-id="c3636-127">然后观看视频、阅读教程和高级文档，以充分利用实体框架 6。</span><span class="sxs-lookup"><span data-stu-id="c3636-127">Then watch videos, read tutorials, and advanced documentation to help you make the most of Entity Framework 6.</span></span>
+
+## <a name="past-entity-framework-versions"></a><span data-ttu-id="c3636-128">过去的实体框架版本</span><span class="sxs-lookup"><span data-stu-id="c3636-128">Past Entity Framework Versions</span></span>
+
+<span data-ttu-id="c3636-129">本文档针对的是最新版本的实体框架 6 ，但其中大部分内容也适用于过去的版本。</span><span class="sxs-lookup"><span data-stu-id="c3636-129">This is the documentation for the latest version of Entity Framework 6, although much of it also applies to past releases.</span></span>
+<span data-ttu-id="c3636-130">请查看[新增功能](~/ef6/what-is-new/index.md)和[过去的版本](~/ef6/what-is-new/past-releases.md)，了解 EF 版本和其中引入的功能的完整列表。</span><span class="sxs-lookup"><span data-stu-id="c3636-130">Check out [What's New](~/ef6/what-is-new/index.md) and [Past Releases](~/ef6/what-is-new/past-releases.md) for a complete list of EF releases and the features they introduced.</span></span>

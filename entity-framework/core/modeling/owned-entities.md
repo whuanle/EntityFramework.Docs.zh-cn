@@ -6,12 +6,12 @@ ms.date: 2/26/2018
 ms.assetid: 2B0BADCE-E23E-4B28-B8EE-537883E16DF3
 ms.technology: entity-framework-core
 uid: core/modeling/owned-entities
-ms.openlocfilehash: 768429b857b09c1974f4ade31b5bbb6b1c7e15c3
-ms.sourcegitcommit: f05e7b62584cf228f17390bb086a61d505712e1b
+ms.openlocfilehash: 476a1dcaadcd99eba0cd4f5f0ac40c32a97af5c9
+ms.sourcegitcommit: bdd06c9a591ba5e6d6a3ec046c80de98f598f3f3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/08/2018
-ms.locfileid: "37911871"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37949422"
 ---
 # <a name="owned-entity-types"></a>固有的实体类型
 
@@ -155,7 +155,7 @@ modelBuilder.Entity<Order>().OwnsOne(p => p.OrderDetails, od =>
 
 可以实现相同的操作使用`OwnedAttribute`OrderDetails 和 StreetAdress 上。
 
-嵌套固有类型，除了固有的类型可以引用常规实体。 在以下示例中，国家/地区是常规的 （即非固有） 实体：
+嵌套固有类型，除了固有的类型可以引用常规实体。 在以下示例中，国家/地区是常规的非固有实体：
 
 ``` csharp
 public class StreetAddress
@@ -182,7 +182,7 @@ modelBuilder.Entity<Order>().OwnsOne(p => p.OrderDetails, od =>
 
 ## <a name="querying-owned-types"></a>查询固有的类型
 
-查询所有者时，固有类型将默认包含在内。 不需要使用`Include`方法，即使固有的类型存储在一个单独的表中。 根据之前所述的模型，以下查询将拉取顺序、 OrderDetails 和从数据库的所有挂起订单的两个拥有的 StreeAddresses:
+查询所有者时，固有类型将默认包含在内。 不需要使用`Include`方法，即使固有的类型存储在一个单独的表中。 根据之前所述的模型，以下查询将拉取顺序、 OrderDetails 和从数据库的所有挂起订单的两个拥有的 StreetAddresses:
 
 ``` csharp
 var orders = context.Orders.Where(o => o.Status == OrderStatus.Pending);
@@ -194,11 +194,11 @@ var orders = context.Orders.Where(o => o.Status == OrderStatus.Pending);
 
 ### <a name="shortcomings-in-previous-versions"></a>在早期版本中的不足之处
 - 在 EF Core 2.0 中，导航到拥有不能在派生的实体类型中声明实体类型，除非自有的实体被显式映射到一个单独的表所有者层次结构中。 EF Core 2.1 中已删除此限制
- 
+
 ### <a name="current-shortcomings"></a>当前的不足之处
 - 包含的继承层次结构拥有不支持实体类型
 - 固有的实体类型不能指向集合导航属性 （目前支持导航的唯一参考）
-- 导航到所拥有的实体类型不能为 null，除非它们显式映射到单独的表中的所有者 
+- 导航到所拥有的实体类型不能为 null，除非它们显式映射到单独的表中的所有者
 - 固有的实体类型的实例无法共享的多个所有者 （这是一个已知的值对象不能使用固有的实体类型实现的方案）
 
 ### <a name="by-design-restrictions"></a>按设计限制

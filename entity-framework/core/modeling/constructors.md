@@ -6,26 +6,26 @@ ms.date: 02/23/2018
 ms.assetid: 420AFFE7-B709-4A68-9149-F06F8746FB33
 ms.technology: entity-framework-core
 uid: core/modeling/constructors
-ms.openlocfilehash: 8cea624c295f99ef54cb8b4758642eade03c235e
-ms.sourcegitcommit: 507a40ed050fee957bcf8cf05f6e0ec8a3b1a363
+ms.openlocfilehash: 80c7ee04d3bb0dd45b66ec7d6fec5ee7e3343026
+ms.sourcegitcommit: bdd06c9a591ba5e6d6a3ec046c80de98f598f3f3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/26/2018
-ms.locfileid: "31812490"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37949200"
 ---
 # <a name="entity-types-with-constructors"></a>使用构造函数的实体类型
 
 > [!NOTE]  
 > 此功能是在 EF Core 2.1 的新增功能。
 
-从开始 EF Core 2.1，它则现在可以定义参数的构造函数，并让 EF Core 创建实体的实例时调用此构造函数。 构造函数参数可以绑定到映射的属性，或到各种类型的服务，以便于行为喜欢延迟加载。
+从开始 EF Core 2.1，它则现在可以定义参数的构造函数，并让 EF Core 创建实体的实例时调用此构造函数。 构造函数参数可以绑定到映射的属性，或到各种类型的服务，以促进行为 like 延迟加载。
 
 > [!NOTE]  
-> 截至 EF Core 2.1，按照约定将为所有构造函数绑定。 若要使用的特定构造函数的配置被计划未来的版本。
+> 截至 EF Core 2.1，按照约定将为所有构造函数绑定。 配置特定的构造函数使用计划在将来的版本。
 
 ## <a name="binding-to-mapped-properties"></a>绑定到映射的属性
 
-典型的博客/Post 模型，请考虑：
+请考虑一个典型博客/文章模型：
 
 ```Csharp
 public class Blog
@@ -88,19 +88,19 @@ public class Post
     public Blog Blog { get; set; }
 }
 ```
-需要注意的一些事项：
-* 需要具有构造函数的参数不是所有属性。 例如，由任何构造函数参数，因此 EF Core 将以正常方式调用的构造函数后设置未设置 Post.Content 属性。
-* 参数类型和名称必须与匹配的属性类型和名称，只不过属性可以是 Pascal 大小写形式时参数采用 camel 大小写形式。
+需要注意一些事项：
+* 需要具有构造函数参数不是所有属性。 例如，由任何构造函数参数，因此 EF Core 将以正常方式调用的构造函数后设置未设置 Post.Content 属性。
+* 参数类型和名称必须与匹配的属性类型和名称，只不过属性可以是 Pascal 大小写而参数 camel 大小写。
 * 无法设置 （如博客或更高版本的文章） 的导航属性，EF Core 使用构造函数。
 * 构造函数可以是公共、 私有的或具有任何其他可访问性。
 
 ### <a name="read-only-properties"></a>只读属性
 
-通过构造函数中设置属性之后它很有意义，以使其中一些只读的。 EF Core 支持此功能，但有一些需要注意的事项：
-* 按照约定未映射而无需 setter 的属性。 （这样倾向于映射不应将映射，如计算属性的属性。）
-* 使用自动生成的密钥值需要是可读写，因为密钥的值需要插入新实体时，密钥生成器进行设置的密钥属性。
+通过构造函数中设置属性之后它以使其中一些只读可以很有意义。 EF Core 支持此功能，但有一些需要注意的事项：
+* 按照约定未映射不包含 setter 的属性。 （执行此操作通常不应将映射，如计算属性的属性映射。）
+* 使用自动生成的密钥值需要是读写的因为需要插入新实体时，密钥生成器设置密钥值的键属性。
 
-若要避免这些内容的简单方法是使用专用 setter。 例如：
+避免这些事情的简单方法是使用私有资源库。 例如：
 ```Csharp
 public class Blog
 {
@@ -139,7 +139,7 @@ public class Post
 ```
 EF Core 看到为读写模式，这意味着，像以前那样映射所有属性并密钥可能仍会由存储生成的具有专用 setter 的属性。
 
-使用专用 setter 的替代方法是使属性实际上是只读的并在 OnModelCreating 中添加更多显式映射。 同样，可以完全删除某些属性并将其替换为只有字段。 例如，考虑这些实体类型：
+使用私有资源库的替代方法是使属性实际上是只读的并在 OnModelCreating 中添加更多显式映射。 同样，某些属性可以彻底删除并替换为只有字段。 例如，考虑这些实体类型：
 
 ```Csharp
 public class Blog
@@ -175,7 +175,7 @@ public class Post
     public Blog Blog { get; set; }
 }
 ```
-和中 OnModelCreating 此配置：
+与此配置在 OnModelCreating 中：
 ```Csharp
 protected override void OnModelCreating(ModelBuilder modelBuilder)
 {
@@ -197,25 +197,25 @@ protected override void OnModelCreating(ModelBuilder modelBuilder)
 }
 ```
 需要注意的事项：
-* "Property"的密钥现在是一个字段。 它不是`readonly`字段，以便可以使用由存储生成的键。 
-* 其他属性是只读属性只能在构造函数中设置。
-* 如果主键值是永远只有由 EF 设置，或从数据库读取，则无需将其包含在构造函数。 这为简单字段离开键"属性"，并使其清除，它不应设置显式创建新的博客或文章时。
+* 键"属性"现在是一个字段。 它不是`readonly`字段，以便可以使用应用商店生成的键。
+* 其他属性是只读的只能在构造函数中设置的属性。
+* 如果主键值是只通过 EF 设置或从数据库读取，则无需将其包括在构造函数。 这为简单字段离开密钥"属性"，并使用户清楚地知道，它不应设置显式创建新的博客或帖子时。
 
 > [!NOTE]  
-> 此代码将导致编译器警告"169"，该字段永远不会使用该值。 由于在现实中 EF Core extralinguistic 的方式使用该字段，这可予以忽视。
+> 此代码将导致编译器警告"169"，永远不会使用该字段指示。 由于在现实中 EF Core extralinguistic 的方式使用该字段，这可予以忽视。
 
-## <a name="injecting-services"></a>将注入服务
+## <a name="injecting-services"></a>注入服务
 
-EF Core 还可以将"服务"注入到实体类型的构造函数。 例如，以下可插入：
-* `DbContext` -还为您派生的 DbContext 类型类型化的当前上下文实例
-* `ILazyLoader` 的延迟加载服务-请参阅[延迟加载文档](../querying/related-data.md)有关详细信息
-* `Action<object, string>` 的延迟加载委托-请参阅[延迟加载文档](../querying/related-data.md)有关详细信息
+EF Core 还可以将"服务"注入到实体类型的构造函数。 例如，下面可以注入：
+* `DbContext` -当前上下文实例，也可以作为派生 DbContext 类型类型化
+* `ILazyLoader` -延迟加载服务中--请参阅[延迟加载文档](../querying/related-data.md)的更多详细信息
+* `Action<object, string>` -延迟加载委托-请参阅[延迟加载文档](../querying/related-data.md)的更多详细信息
 * `IEntityType` -与此实体类型关联的 EF Core 元数据
 
 > [!NOTE]  
-> 截至 EF Core 2.1，可插入仅通过 EF Core 已知的服务。 支持将注入应用程序服务正在考虑针对将来的版本。
+> 截至 EF Core 2.1，可插入仅通过 EF Core 已知的服务。 注入应用程序服务的支持正在考虑针对将来的版本。
 
-例如，插入的 DbContext 可用来有选择地访问数据库以获取有关相关的实体的信息不加载所有这些情况下。 在以下示例中这用于不加载文章情况下获取的博客中的文章数：
+例如，注入的 DbContext 可用于有选择地访问数据库以获取有关相关实体的信息不加载所有这些情况下。 在下面的示例这用于获取在博客中的帖子数而不加载发布的文章：
 
 ```Csharp
 public class Blog
@@ -253,10 +253,10 @@ public class Post
     public Blog Blog { get; set; }
 }
 ```
-有关此请注意以下内容：
+请注意，有关这几个注意事项：
 * 构造函数是专用容器，因为它只能由 EF Core，并且没有用于常规用途的另一个公共构造函数。
-* 使用插入的服务的代码 （即上下文） 是对其防御性正在`null`以便处理在 EF Core 不创建实例的情况。
-* 由于服务存储在读/写属性，则将重置时该实体附加到新的上下文实例。
+* 使用注入的服务 （上下文） 的代码是针对该防御性正在`null`处理情况下，其中 EF Core 不创建实例。
+* 由于服务存储在读/写属性将重置时该实体附加到新的上下文实例。
 
 > [!WARNING]  
-> 因为它将直接与 EF Core 的实体类型，将注入如下 DbContext 通常被视为反模式。 使用如下服务注入之前请仔细考虑所有选项。
+> 因为它将直接与 EF Core 的实体类型，将注入如下 DbContext 通常被视为反模式。 使用此类服务注入之前仔细考虑所有选项。

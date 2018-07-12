@@ -9,12 +9,12 @@ ms.technology: entity-framework-6
 ms.topic: article
 ms.assetid: 41d1f86b-ce66-4bf2-8963-48514406fb4c
 caps.latest.revision: 3
-ms.openlocfilehash: 0da2ce778a765037ecacd0726cbb7cda08b5683f
-ms.sourcegitcommit: f05e7b62584cf228f17390bb086a61d505712e1b
+ms.openlocfilehash: dba6403fa341e1abfe8da488a19cf8520e3ea574
+ms.sourcegitcommit: 390f3a37bc55105ed7cc5b0e0925b7f9c9e80ba6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/08/2018
-ms.locfileid: "37911701"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37914171"
 ---
 # <a name="whats-new-in-ef6"></a>EF6 中的新增功能
 
@@ -28,14 +28,14 @@ ms.locfileid: "37911701"
 
 ### <a name="ef-tools-update-in-visual-studio-2017-157"></a>Visual Studio 2017 15.7 中的 EF 工具更新
 
-2018 年 5 月，我们在 Visual Studio 2017 15.7 中发布了更新后的 EF6 工具。
-该版本包括对一些常见难题的改进：
+2018 年 5 月，我们在 Visual Studio 2017 15.7 中发布了更新后的 EF 工具。
+该版本包括对一些常见点的改进：
 
-- 全面检查了用户界面的辅助功能
-- 解决了 SQL Server 在反向工程上性能退化的问题 [#4](https://github.com/aspnet/entityframework6/issues/4)
-- 根据数据库支持更新模型，从而在 SQL Server 上获得较大模型 [#185](https://github.com/aspnet/EntityFramework6/issues/185)
+- 修复了多个用户界面辅助功能 bug
+- 从现有数据库生成模型时 SQL Server 性能退化的解决方法 [#4](https://github.com/aspnet/entityframework6/issues/4)
+- 支持适用于 SQL Server 上较大模型的更新模型 [#185](https://github.com/aspnet/EntityFramework6/issues/185)
 
-在新项目中创建模型时，此新版本的 EF 工具会安装 EF 6.2 运行时。 借助较旧版本的 Visual Studio，可通过安装相应版本的 NuGet 包来使用 EF 6.2 运行时（以及以前任何版本的 EF）。
+此新版本的 EF 工具中的另一项改进是，在新项目中创建模型时会安装 EF 6.2 运行时。 借助较旧版本的 Visual Studio，可通过安装相应版本的 NuGet 包来使用 EF 6.2 运行时（以及以前任何版本的 EF）。
 
 ### <a name="ef-62-runtime"></a>EF 6.2 运行时
 
@@ -59,4 +59,4 @@ EF 6.2 运行时已于 2017 年 10 月发布到 NuGet。
 
 ## <a name="past-releases"></a>过去的版本
 
-[过去的版本](past-releases.md)页包含过去所有版本的 EF 的存档以及各版本中引入的主要功能。 
+[过去的版本](past-releases.md)页包含过去所有版本的 EF 的存档以及各版本中引入的主要功能。

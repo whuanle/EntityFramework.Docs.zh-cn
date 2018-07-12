@@ -9,12 +9,12 @@ ms.technology: entity-framework-6
 ms.topic: article
 ms.assetid: 36591d8f-36e1-4835-8a51-90f34f633d1e
 caps.latest.revision: 3
-ms.openlocfilehash: 1941337da55e5bb63efba42360c87c1c0f6ee325
-ms.sourcegitcommit: f05e7b62584cf228f17390bb086a61d505712e1b
+ms.openlocfilehash: 5c7431985e2e404060197615bf281fcf3b318403
+ms.sourcegitcommit: 390f3a37bc55105ed7cc5b0e0925b7f9c9e80ba6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/08/2018
-ms.locfileid: "37911711"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37914279"
 ---
 # <a name="code-first-migrations"></a>Code First 迁移
 如果正在使用 Code First 工作流，推荐使用 Code First 迁移改进应用程序的数据库架构。 迁移提供一组允许以下操作的工具：
@@ -310,7 +310,7 @@ Code First 迁移出色的构建了这些更改，但我们可能还需要做出
 
 Code First 迁移将运行迁移管道，但并非是应用更改，而是将更改写入到 .sql 文件。 生成脚本后，将在 Visual Studio 中打开，以供查看或保存。
 
-### <a name="generating-idempotent-scripts-ef6-onwards"></a>生成幂等脚本（EF6 以上版本）
+### <a name="generating-idempotent-scripts"></a>生成幂等脚本
 
 从 EF6 开始，如果指定 –SourceMigration $InitialDatabase，则生成的脚本将为“幂等”。 幂等脚本可以将当前任何版本的数据库升级到最新版本（或使用 – TargetMigration 升级到指定版本）。 生成的脚本包括检查 \_\_MigrationsHistory 表的逻辑，并且仅应用以前未应用的更改。
 

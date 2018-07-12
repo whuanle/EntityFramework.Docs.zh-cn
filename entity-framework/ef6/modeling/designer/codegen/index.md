@@ -9,12 +9,12 @@ ms.technology: entity-framework-6
 ms.topic: article
 ms.assetid: 56e00fa2-f9f0-48b3-8006-f8266ca7e74b
 caps.latest.revision: 3
-ms.openlocfilehash: e06dc1c35f8d74772e5c7d69b29553288fd652d0
-ms.sourcegitcommit: f05e7b62584cf228f17390bb086a61d505712e1b
+ms.openlocfilehash: 8a656ca73a7e1a628f4053ff7ad47f5c1b17d878
+ms.sourcegitcommit: bdd06c9a591ba5e6d6a3ec046c80de98f598f3f3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/08/2018
-ms.locfileid: "37911721"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37949174"
 ---
 # <a name="designer-code-generation-templates"></a>设计器代码生成模板
 使用 Entity Framework 设计器创建模型时，会自动生成类和派生上下文。 除默认代码生成之外，我们还提供了许多模板，可用于自定义生成的代码。 这些模板以 T4 文本模板的形式提供，可按需自定义模板。
@@ -151,7 +151,7 @@ ms.locfileid: "37911721"
 
 ### <a name="what-are-the-web-sites-templates"></a>“网站”模板是什么
 
-“网站”模板（即适用于 C\# 网站的 EF 5.x DbContext 生成器）可用于通过“文件”-&gt;“新建”-&gt;“网站...”创建的网站项目。这不同于通过“文件”-&gt;“新建”-&gt;项目...”创建的 Web 应用程序，后者使用的是标准模板。 我们单独提供了这些模板，因为 Visual Studio 中的项模板系统需要这些模板。
+“网站”模板（例如适用于 C\# 网站的 EF 5.x DbContext 生成器）可用于通过“文件”-&gt;“新建”-&gt;“网站...”创建的网站项目。这不同于通过“文件”-&gt;“新建”-&gt;项目...”创建的 Web 应用程序，后者使用的是标准模板。 我们单独提供了这些模板，因为 Visual Studio 中的项模板系统需要这些模板。
 
 ## <a name="using-a-template"></a>使用模板
 

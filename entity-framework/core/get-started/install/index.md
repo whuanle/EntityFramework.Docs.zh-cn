@@ -6,16 +6,16 @@ ms.date: 08/06/2017
 ms.assetid: 608cc774-c570-4809-8a3e-cd2c8446b8b2
 ms.technology: entity-framework-core
 uid: core/get-started/install/index
-ms.openlocfilehash: 31b96ebd0ae282b88be98988eff6263084dc5dd5
-ms.sourcegitcommit: 5e2d97e731f975cf3405ff3deab2a3c75ad1b969
+ms.openlocfilehash: 7bb2ee11940a4fd5736c7a23c16533ef53018f7b
+ms.sourcegitcommit: bdd06c9a591ba5e6d6a3ec046c80de98f598f3f3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2017
-ms.locfileid: "26049239"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37949187"
 ---
 # <a name="installing-ef-core"></a>安装 EF Core
 
-## <a name="prerequisites"></a>先决条件
+## <a name="prerequisites"></a>系统必备
 
 为了开发 .NET Core 2.0 应用程序（包括面向 .NET Core 的 ASP.NET Core 2.0 应用程序），需要下载并安装适合所用平台的 [.NET Core 2.0 SDK](https://www.microsoft.com/net/download/core) 版本。 即使已安装 Visual Studio 2017 版本 15.3，也是如此。
 
@@ -42,7 +42,7 @@ ms.locfileid: "26049239"
 除运行时库外，还可安装相应工具，以便在设计时更轻松地执行项目中的多个 EF Core 相关任务，例如创建和应用迁移以及基于现有数据库创建模型。
 
 > [!TIP]  
-> 如需更新使用第三方数据库提供程序的应用程序，请始终检查与要使用的 EF Core 版本兼容的提供程序有无更新。 例如 早期版本的数据库提供程序不兼容 2.0 版 EF Core 运行时。  
+> 如需更新使用第三方数据库提供程序的应用程序，请始终检查与要使用的 EF Core 版本兼容的提供程序有无更新。 例如，早期版本的数据库提供程序不兼容 2.0 版 EF Core 运行时。  
 
 > [!TIP]  
 > 面向 ASP.NET Core 2.0 的应用程序可以使用 EF Core 2.0，而不需要第三方数据库提供程序以外的其他依赖项。 面向 ASP.NET Core 早期版本的应用程序需升级至 ASP.NET Core 2.0 方可使用 EF Core 2.0。
@@ -53,7 +53,7 @@ ms.locfileid: "26049239"
 要开发面向 [.NET Core](https://www.microsoft.com/net/download/core) 的应用程序，可以选择将 [`dotnet` CLI 命令](https://docs.microsoft.com/dotnet/core/tools/)与你喜爱的文本编辑器或集成开发环境 (IDE) 结合使用，例如 Visual Studio、Visual Studio for Mac 或 Visual Studio Code。
 
 > [!IMPORTANT]  
-> 面向 .NET Core 的应用程序需要使用特定版本的 Visual Studio，例如 .NET Core 1.x 开发需要使用 Visual Studio 2017，而 .NET Core 2.0 开发需要使用 Visual Studio 2017 版本 15.3。
+> 面向 .NET Core 的应用程序需要特定版本的 Visual Studio。 例如，.NET Core 1.x 开发需要 Visual Studio 2017，而 .NET Core 2.0 开发需要 Visual Studio 2017 版本 15.3。
 
 要在跨平台 .NET Core 应用程序中安装或升级 SQL Server 提供程序，请切换至应用程序的目录，并在命令行中运行以下命令：
 
@@ -61,7 +61,7 @@ ms.locfileid: "26049239"
 dotnet add package Microsoft.EntityFrameworkCore.SqlServer
 ```
 
-可以使用 `-v` 修饰符在 `dotnet add package` 命令中指明特定的安装版本。 例如 要安装 EF Core 2.0 包，请将 `-v 2.0.0` 追加到此命令。
+可以使用 `-v` 修饰符在 `dotnet add package` 命令中指明特定的安装版本。 例如，要安装 EF Core 2.0 包，请将 `-v 2.0.0` 追加到此命令。
 
 EF Core 包含一套以 `dotnet ef` 开头的[附加 `dotnet` CLI 命令](../../miscellaneous/cli/dotnet.md)。 要使用 `dotnet ef` CLI 命令，应用程序的 `.csproj` 文件需包含以下条目：
 
@@ -106,7 +106,7 @@ dotnet add package Microsoft.EntityFrameworkCore.Design
   ```
 * 可以改为使用 `Update-Package` 命令将已安装的包更新至较新版本
 
-* 要指定特定版本，可使用 `-Version` 修饰符；例如，要安装 EF Core 2.0 包，可将 `-Version 2.0.0` 追加到该命令
+* 若要指定特定版本，可以使用 `-Version` 修饰符。 例如，要安装 EF Core 2.0 包，请将 `-Version 2.0.0` 追加到此命令
 
 #### <a name="tools"></a>工具
 

@@ -10,34 +10,34 @@ ms.topic: article
 ms.assetid: 8ae74d63-6bad-4686-b325-bbf9d68f3743
 caps.latest.revision: 5
 uid: ef6/index
-ms.openlocfilehash: df661f19afdeef53257c86bdd32b1444737c9b0a
-ms.sourcegitcommit: 45494121254ad4fdcec613d1dd22d850068d6f39
+ms.openlocfilehash: 7bb51ea82640ef29bb376c2320ea29a81eeb175e
+ms.sourcegitcommit: 390f3a37bc55105ed7cc5b0e0925b7f9c9e80ba6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/08/2018
-ms.locfileid: "37913494"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37914336"
 ---
 # <a name="entity-framework-6-quick-overview"></a>实体框架 6 快速概览
-
 实体框架 6 (EF6) 是经试验和测试的关系映射器 (O/RM)，适用于 .NET 的对象，其功能和稳定性经过了多年的开发和调试。
 
+作为 O/RM，EF6 降低了关系方面和面向对象的方面之间的阻抗不匹配，使开发人员能够使用表示应用程序域的强类型 .NET 对象来编写应用程序，该应用程序可与存储在关系数据库中的数据交互，同时使开发人员无需再编写大部分的数据访问“管道”代码。
+
 EF6 可实现许多热门 O/RM 功能：
-- 映射不依赖于任何 EF 类型的“持久性无感知”（也称为“POCO”，简单传统 CLR 对象）实体类
+- 不依赖于任何 EF 类型的 [POCO](~/ef6/resources/glossary.md#poco) 实体类的映射
 - 自动更改跟踪
 - 标识解析和工作单元
 - 预先、延迟和显式加载
-- 使用 LINQ（语言集成查询）转换强类型查询 
+- 使用 LINQ（语言集成查询）转换强类型查询
 - 丰富的映射功能，可支持：
+  - 一对一、一对多和多对多关系
   - 继承（每个层次结构一张表、每个类型一张表和每个具体类一张表）
   - 复杂类型
   - 存储过程
 - 通过可视化设计器创建实体模型。
-- 支持通过编写代码创建实体模型的“Code First”体验。
+- 通过编写代码创建实体模型的“Code First”体验。
 - 既可从现有数据库生成模型，然后手动编辑，也可从头开始创建模型，然后用于生成新的数据库。
 - 与 .NET Framework 应用程序模型（包括 ASP.NET）集成，并通过数据绑定与 WPF 和 WinForms 集成。
 - 基于 ADO.NET 的数据库连接和可用于连接到 SQL Server、Oracle、MySQL、SQLite、PostgreSQL、DB2 等的众多提供程序。
-
-作为 O/RM，EF6 降低了关系方面和面向对象的方面之间的阻抗不匹配，使开发人员能够使用表示应用程序域的强类型 .NET 对象来编写应用程序，该应用程序可与存储在关系数据库中的数据交互，同时使开发人员无需再编写大部分的数据访问“管道”代码。
 
 ## <a name="should-i-use-ef6-or-ef-core"></a>应使用 EF6 还是 EF Core？
 
@@ -48,7 +48,7 @@ EF Core 则完全进行了重写，包含许多 EF6 没有的新功能，但还�
 
 ## <a name="get-startedef6get-startedmd"></a>[入门](~/ef6/get-started.md)
 
-将 EntityFramework NuGet 包添加到项目或安装适用于 Visual Studio 的 Entity Framework Tools。 然后观看视频、阅读教程和高级文档，以充分利用实体框架 6。
+将 EntityFramework NuGet 包添加到项目或安装适用于 Visual Studio 的 Entity Framework Tools。 然后观看视频、阅读教程和高级文档，以充分利用 EF6。
 
 ## <a name="past-entity-framework-versions"></a>过去的实体框架版本
 

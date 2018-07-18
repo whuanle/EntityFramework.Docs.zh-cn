@@ -6,12 +6,12 @@ ms.date: 02/20/2018
 ms.assetid: 2CB5809E-0EFB-44F6-AF14-9D5BFFFBFF9D
 ms.technology: entity-framework-core
 uid: core/what-is-new/ef-core-2.0
-ms.openlocfilehash: 02d0b6fe2956e819e08e08c9a0658008abd36c34
-ms.sourcegitcommit: b2d94cebdc32edad4fecb07e53fece66437d1b04
+ms.openlocfilehash: 538458cf49ee86b9a5cba2f606adc04e583605e2
+ms.sourcegitcommit: bdd06c9a591ba5e6d6a3ec046c80de98f598f3f3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/28/2018
-ms.locfileid: "29680018"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37949122"
 ---
 # <a name="new-features-in-ef-core-20"></a>EF Core 2.0 中的新增功能
 
@@ -93,7 +93,7 @@ public class BloggingContext : DbContext
     }
 }
 ```
-我们为 ```Post``` 实体类型的实例定义一个实现多租户和软删除的模型级别筛选器。 请留意 DbContext 实例级别属性的使用：```TenantId```。 模型级别筛选器将使用来自正确上下文实例的值。 即执行查询的值。
+我们为 ```Post``` 实体类型的实例定义一个实现多租户和软删除的模型级别筛选器。 请留意 DbContext 实例级别属性的使用：```TenantId```。 模型级筛选器将使用正确上下文实例（即执行查询的上下文实例）中的值。
 
 可使用 IgnoreQueryFilters() 运算符对各个 LINQ 查询禁用筛选器。
 
@@ -134,7 +134,7 @@ var query =
 
 - 依照约定，方法名称在生成 SQL 时会用作函数（此情况下为用户定义的函数）名称，但是你可以在方法注册期间替代名称和架构
 - 当前仅支持标量函数
-- 必须在数据库中创建映射函数，原因是 EF Core 迁移不负责创建映射函数
+- 必须在数据库中创建映射函数。 EF Core 迁移不创建此函数
 
 ### <a name="self-contained-type-configuration-for-code-first"></a>Code First 的自包含类型配置
 
@@ -177,7 +177,7 @@ services.AddDbContextPool<BloggingContext>(
 此新方法对使用 DbContext 的 ```OnConfiguring()``` 方法可执行的操作带来了一些限制。
 
 > [!WARNING]  
-> 如果需要在派生 DbContext 类（不应该在请求之间共享）中保持自己的状态（例如私有字段），请避免使用 DbContext 池。 EF Core 仅会重置将 DbContext 实例添加到池之前所识别的状态。
+> 如果要在不能在请求间共享的派生的 DbContext 类中保留自己的状态（例如私有字段），请避免使用 DbContext 池。 EF Core 仅会重置将 DbContext 实例添加到池之前所识别的状态。
 
 ### <a name="explicitly-compiled-queries"></a>显式编译的查询
 
@@ -220,7 +220,7 @@ EF Core 支持通过多种机制自动生成键值。 使用此功能时，如�
 
 ### <a name="string-interpolation-in-fromsql-and-executesqlcommand"></a>FromSql 和 ExecuteSqlCommand 中的字符串内插
 
-C# 6 引入了字符串内插功能，此功能允许将 C# 表达式直接嵌入字符串文本，从而提供了一种很适合在运行时生成字符串的方法。 在 EF Core 2.0 中，我们为两个主要 API 添加了对内插字符串的特殊支持，这两个 API 用于接收原始 SQL 字符串：```FromSql``` 和 ```ExecuteSqlCommand```。 这项新支持允许以“安全”方式使用 C# 字符串内插。 即，采用这种方式可防止在运行时动态构造 SQL 时可能发生的常见 SQL 注入错误。
+C# 6 引入了字符串内插功能，此功能允许将 C# 表达式直接嵌入字符串文本，从而提供了一种很适合在运行时生成字符串的方法。 在 EF Core 2.0 中，我们为两个主要 API 添加了对内插字符串的特殊支持，这两个 API 用于接收原始 SQL 字符串：```FromSql``` 和 ```ExecuteSqlCommand```。 这项新支持允许以“安全”方式使用 C# 字符串内插。 即，采用此方式可防止在运行时动态构造 SQL 时可能发生的常见 SQL 注入错误。
 
 下面是一个示例：
 
@@ -259,7 +259,7 @@ WHERE ""City"" = @p0
 ``` csharp
 var aCustomers =
     from c in context.Customers
-    where EF.Functions.Like(c.Name, "a%");
+    where EF.Functions.Like(c.Name, "a%")
     select c;
 ```
 

@@ -5,12 +5,12 @@ ms.author: divega
 ms.date: 10/27/2016
 ms.assetid: 288f825b-b3e6-4096-971b-d0a1cb96770e
 uid: efcore-and-ef6/choosing
-ms.openlocfilehash: f0a632902384a65ea3cddf752ad262c7a2e89e2e
-ms.sourcegitcommit: 2ef0a4a90b01edd22b9206f8729b8de459ef8cab
+ms.openlocfilehash: 17c81e0d6c384c06e45f0cf4f338d4ba402788e1
+ms.sourcegitcommit: bdd06c9a591ba5e6d6a3ec046c80de98f598f3f3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/20/2018
-ms.locfileid: "30002816"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37949135"
 ---
 # <a name="ef-core-and-ef6-which-one-is-right-for-you"></a>EF Core 和 EF6：哪个版本适合你
 
@@ -20,7 +20,7 @@ ms.locfileid: "30002816"
 
 如果想要利用 EF Core 的所有功能且应用程序不需要任何 EF Core 中尚未实现的功能，请考虑对新应用程序使用 EF Core。
 
-EF6 需要 .NET Framework 4.0（或更高版本）且仅在 Windows 上受支持（即它不在 .NET Core 上运行，在其他操作系统中不受支持），但是，只要这些约束是可接受的，且应用程序不需要 EF6 不适用的 EF Core 的新功能，这对新应用程序仍是一个可行的选择。
+EF6 需要 .NET Framework 4.0 或更高版本，且仅在 Windows 上受支持（即 EF6 当前不在 .NET Core 上运行且在其他操作系统中不受支持），但只要这些约束是可接受的且应用程序无需使用 EF6 不适用的 EF Core 的新功能，新的应用程序仍可选择使用它。
 
 查看[功能比较](features.md)以查看 EF Core 是否适合你的应用程序。
 

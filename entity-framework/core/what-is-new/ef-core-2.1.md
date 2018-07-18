@@ -6,12 +6,12 @@ ms.date: 2/20/2018
 ms.assetid: 585F90A3-4D5A-4DD1-92D8-5243B14E0FEC
 ms.technology: entity-framework-core
 uid: core/what-is-new/ef-core-2.1
-ms.openlocfilehash: 2372a6b2e3f3b7b1d9214a6ea321fe28cea45fff
-ms.sourcegitcommit: 72e59e6af86b568653e1b29727529dfd7f65d312
+ms.openlocfilehash: 44cbbc965755a694772dc4336ca2c1efc51fd6cd
+ms.sourcegitcommit: bdd06c9a591ba5e6d6a3ec046c80de98f598f3f3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34754420"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37949226"
 ---
 # <a name="new-features-in-ef-core-21"></a>EF Core 2.1 中的新增功能
 
@@ -157,7 +157,7 @@ dotnet-ef 命令现在是 .NET Core SDK 的一部分，因此无须在项目中�
 
 ## <a name="raw-sql-parameter-analyzer"></a>原始 SQL 参数分析器
 
-EF Core 随附新增一个代码分析器，用于检测原始 SQL API（如 `FromSql` 或 `ExecuteSqlCommand`）的潜在不安全用法。 例如， 对于下面的查询，将会看到一条警告，因为 minAge 未参数化：
+EF Core 随附新增一个代码分析器，用于检测原始 SQL API（如 `FromSql` 或 `ExecuteSqlCommand`）的潜在不安全用法。 例如，对于下面的查询，将会看到一条警告，因为 minAge 未参数化：
 
 ``` csharp
 var sql = $"SELECT * FROM People WHERE Age > {minAge}";

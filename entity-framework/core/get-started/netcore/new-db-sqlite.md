@@ -5,38 +5,35 @@ ms.author: riande
 ms.author2: tdykstra
 description: 通过 Entity Framework Core 开始使用 .NET Core
 keywords: .NET Core, Entity Framework Core, VS Code, Visual Studio Code, Mac, Linux
-ms.date: 04/05/2017
+ms.date: 06/05/2018
 ms.assetid: 099d179e-dd7b-4755-8f3c-fcde914bf50b
 ms.technology: entity-framework-core
 uid: core/get-started/netcore/new-db-sqlite
-ms.openlocfilehash: fcace3c0f259b1a456d9ca1086e6a1549c070d57
-ms.sourcegitcommit: 507a40ed050fee957bcf8cf05f6e0ec8a3b1a363
+ms.openlocfilehash: e4eafed037325237345efbc3d7d42b32270a54e3
+ms.sourcegitcommit: f05e7b62584cf228f17390bb086a61d505712e1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/26/2018
-ms.locfileid: "31812529"
+ms.lasthandoff: 07/08/2018
+ms.locfileid: "37911497"
 ---
 # <a name="getting-started-with-ef-core-on-net-core-console-app-with-a-new-database"></a>使用新数据库在 NET Core 控制台应用程序上开始使用 EF Core
 
-在本演练中，你将创建一个 .NET Core 控制台应用程序，该程序使用 Entity Framework Core 对 SQLite 数据库执行基本数据访问。 你将使用迁移功能从模型创建数据库。 有关使用 ASP.NET Core MVC 的 Visual Studio 版本，请参阅 [ASP.NET Core - 新数据库](xref:core/get-started/aspnetcore/new-db)。
+在本演示中，创建通过 Entity Framework Core 针对 SQLite 数据库执行数据访问的 .NET Core 控制台应用。 你将通过迁移基于此模型创建数据库。 有关使用 ASP.NET Core MVC 的 Visual Studio 版本，请参阅 [ASP.NET Core - 新数据库](xref:core/get-started/aspnetcore/new-db)。
 
 > [!TIP]  
 > 可在 GitHub 上查看此文章的[示例](https://github.com/aspnet/EntityFramework.Docs/tree/master/samples/core/GetStarted/NetCore/ConsoleApp.SQLite)。
 
 ## <a name="prerequisites"></a>系统必备
 
-完成本演练需要以下先决条件：
-* 支持 .NET Core 的操作系统。
-* [.NET Core SDK ](https://www.microsoft.com/net/core) 2.0（虽然可以使用指令并经过少量修改来创建较早版本的应用程序）。
+[The .NET Core SDK](https://www.microsoft.com/net/core) 2.1
 
 ## <a name="create-a-new-project"></a>创建新项目
 
-* 为项目创建一个新的 `ConsoleApp.SQLite` 文件夹，并使用 `dotnet` 命令通过 .NET Core 应用程序对其进行填充。
+* 新建控制台项目：
 
 ``` Console
-mkdir ConsoleApp.SQLite
+dotnet new console -o ConsoleApp.SQLite
 cd ConsoleApp.SQLite/
-dotnet new console
 ```
 
 ## <a name="install-entity-framework-core"></a>安装 Entity Framework Core
@@ -50,21 +47,7 @@ dotnet add package Microsoft.EntityFrameworkCore.Sqlite
 dotnet add package Microsoft.EntityFrameworkCore.Design
 ```
 
-* 手动编辑 `ConsoleApp.SQLite.csproj` 以将 DotNetCliToolReference 添加到 Microsoft.EntityFrameworkCore.Tools.DotNet：
-
-  ``` xml
-  <ItemGroup>
-    <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.0.0" />
-  </ItemGroup>
-  ```
-
-`ConsoleApp.SQLite.csproj` 现在应包含以下代码：
-
-[!code[Main](../../../../samples/core/GetStarted/NetCore/ConsoleApp.SQLite/ConsoleApp.SQLite.csproj)]
-
- 注意：上面使用的版本号在发布时是正确的。
-
-*  运行 `dotnet restore` 来安装新的程序包。
+* 运行 `dotnet restore` 来安装新的程序包。
 
 ## <a name="create-the-model"></a>创建模型
 
@@ -74,17 +57,16 @@ dotnet add package Microsoft.EntityFrameworkCore.Design
 
 [!code-csharp[Main](../../../../samples/core/GetStarted/NetCore/ConsoleApp.SQLite/Model.cs)]
 
-提示：在实际的应用程序中，你可以将每个类放在单独的文件中，并将连接字符串放在配置文件中。 为简化本教程，我们会将所有内容放在一个文件中。
+提示：在实际的应用程序中，将每个列放在单独的文件中，并将连接字符串放在配置文件中。 为简化本教程，所有内容均放在一个文件中。
 
 ## <a name="create-the-database"></a>创建数据库
 
-有了模型后，你可以使用[迁移](https://docs.microsoft.com/aspnet/core/data/ef-mvc/migrations#introduction-to-migrations)创建数据库。
+有了模型后，即可通过[迁移](https://docs.microsoft.com/aspnet/core/data/ef-mvc/migrations#introduction-to-migrations)创建数据库。
 
 * 运行 `dotnet ef migrations add InitialCreate` 以为迁移搭建基架，并为模型创建一组初始表。
 * 运行 `dotnet ef database update` 以将新迁移应用到数据库。 在应用迁移之前，此命令可创建数据库。
 
-> [!NOTE]  
-> 在 SQLite 中使用相对路径时，路径将与应用程序的主程序集相关。 在此示例中，主要的二进制文件是 `bin/Debug/netcoreapp2.0/ConsoleApp.SQLite.dll`，因此 SQLite 数据库将在 `bin/Debug/netcoreapp2.0/blogging.db` 中。
+blogging.db* SQLite DB 位于项目目录中。
 
 ## <a name="use-your-model"></a>使用模型
 

@@ -6,12 +6,12 @@ ms.date: 02/20/2018
 ms.assetid: 834C9729-7F6E-4355-917D-DE3EE9FE149E
 ms.technology: entity-framework-core
 uid: core/what-is-new/roadmap
-ms.openlocfilehash: e23f5d7b1ff95bead310fa8e618a88c161a4e10c
-ms.sourcegitcommit: 72e59e6af86b568653e1b29727529dfd7f65d312
+ms.openlocfilehash: f319aabb53019e0f153c911dde5814328423081b
+ms.sourcegitcommit: bdd06c9a591ba5e6d6a3ec046c80de98f598f3f3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34754439"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37949161"
 ---
 # <a name="entity-framework-core-roadmap"></a>Entity Framework Core 路线图
 
@@ -54,4 +54,4 @@ EF Core 的计划与 [.NET Core 计划](https://github.com/dotnet/core/blob/mast
 
 6. **从事功能开发工作的人员的能力如何？如何最充分地利用这些资源？** EF 团队的每个成员以及我们的社区参与者拥有不同领域的不同程度的经验，我们需要进行相应地计划。 即便我们希望“全员就位”开发特定功能，如 GroupBy 转换或多对多功能，但这是不切实际的。
 
-正如前文所述，这个过程会随着每个版本变化，将来我们希望为开发人员社区的成员提供更多的机会，为版本计划出谋划策，例如，使查看功能和版本计划的建议草稿更加轻松。
+正如前文所述，该过程会随着每个版本变化，将来我们希望为开发人员社区的成员提供更多的机会，为版本计划出谋划策，例如使查看功能和版本计划的建议草稿更加轻松。

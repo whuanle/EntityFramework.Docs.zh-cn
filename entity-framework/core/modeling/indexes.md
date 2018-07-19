@@ -49,7 +49,7 @@ public class Blog
 }
 ```
 
-此外可以指定索引应是唯一的这意味着任何两个实体可以具有的给定属性的相同值。
+此外可以指定索引应是唯一的这意味着没有两个实体可以具有的给定属性的相同值。
 
 <!-- [!code-csharp[Main](samples/core/Modeling/FluentAPI/Samples/IndexUnique.cs?highlight=3)] -->
 ``` csharp
@@ -58,7 +58,7 @@ public class Blog
             .IsUnique();
 ```
 
-你还可以通过多个列中指定索引。
+你还可以跨多个列中指定索引。
 
 <!-- [!code-csharp[Main](samples/core/Modeling/FluentAPI/Samples/IndexComposite.cs?highlight=7,8)] -->
 ``` csharp
@@ -82,4 +82,4 @@ public class Person
 ```
 
 > [!TIP]  
-> 没有每个非重复的属性集只有一个索引。 如果你使用 Fluent API 配置索引上的一组属性已索引定义，方法是约定或以前的配置，然后将会更改该索引的定义。 这是在你想进一步配置的索引，它由约定很有用。
+> 每个非重复的属性集只能有一个索引。 如果你使用 Fluent API 配置索引上的一组属性已包含索引定义，方法是约定或以前的配置，那么将会更改该索引的定义。 这是在你想进一步配置由约定创建的索引时很有用。

@@ -6,12 +6,12 @@ ms.date: 2/26/2018
 ms.assetid: 2B0BADCE-E23E-4B28-B8EE-537883E16DF3
 ms.technology: entity-framework-core
 uid: core/modeling/owned-entities
-ms.openlocfilehash: 476a1dcaadcd99eba0cd4f5f0ac40c32a97af5c9
-ms.sourcegitcommit: bdd06c9a591ba5e6d6a3ec046c80de98f598f3f3
+ms.openlocfilehash: 3eb7480625db4ebc3ce0b7a18d042139f888dab8
+ms.sourcegitcommit: 0935ff275ae739243297f5b97eb21414398125c6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37949422"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39201888"
 ---
 # <a name="owned-entity-types"></a>固有的实体类型
 
@@ -70,7 +70,7 @@ public class Order
 
 在 EF Core 2.0 和 2.1 中，仅引用导航属性可以指向拥有的类型。 不支持的固有类型的集合。 拥有这些引用的类型与所有者始终具有一对一的关系，因此他们并不需要其自己的密钥值。 在上一示例中，不需要定义键属性的 StreetAddress 类型。  
 
-在了解如何 EF Core 跟踪这些对象的顺序，有必要考虑主密钥被创建为[隐藏属性](xref:core/modeling/shadow-properties)拥有的类型。 固有类型的实例键的值将为所有者实例的键的值相同。      
+若要了解如何 EF Core 可跟踪这些对象，最好先认为，作为创建主键[阴影属性](xref:core/modeling/shadow-properties)对于固有类型。 固有类型的实例键的值将为所有者实例的键的值相同。      
 
 ## <a name="mapping-owned-types-with-table-splitting"></a>映射固有类型与表拆分
 

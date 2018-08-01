@@ -6,12 +6,12 @@ ms.date: 2/23/2018
 ms.assetid: 14fffb6c-a687-4881-a094-af4a1359a296
 ms.technology: entity-framework-core
 uid: core/providers/index
-ms.openlocfilehash: 6f058698f78c787fc6c313486874b0af2183f97a
-ms.sourcegitcommit: bdd06c9a591ba5e6d6a3ec046c80de98f598f3f3
+ms.openlocfilehash: f51304a20bab2c80d2d546fc4685da0fa28d5f92
+ms.sourcegitcommit: 5c2634c546720902fe01935f4fc031d73aa3ebde
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37949309"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39393745"
 ---
 # <a name="database-providers"></a>数据库提供程序
 
@@ -53,7 +53,7 @@ Entity Framework Core 可通过名为数据库提供程序的插件库访问许�
 Oracle .NET 团队表示他们计划在 2018 年第三季度左右针对 EF Core 2.0 发布第一方提供程序。 有关详细信息，请参阅其[关于 .NET Core 和 Entity Framework Core 方向的声明](http://www.oracle.com/technetwork/topics/dotnet/tech-info/odpnet-dotnet-ef-core-sod-4395108.pdf)。
 请在 [Oracle 社区网站](https://community.oracle.com/)上提出有关此提供程序的任何问题（包括发布时间线）。
 
-与此同时，EF 团队还[为 Oracle 数据库提供了示例 EF Core 提供程序](https://github.com/aspnet/EntityFrameworkCore/blob/dev/samples/OracleProvider/README.md)。 推行该项目不是为了生产属于 Microsoft 的 EF Core 提供程序，而是为了帮助我们找出 EF Core 的关系和基础功能间的差距，我们需要弥补这些差距，更好地为 Oracle 提供支持，加快 Oracle 或第三方为 EF Core 开发其他 Oracle 提供程序的速度。
+与此同时，EF 团队还[为 Oracle 数据库提供了示例 EF Core 提供程序](https://github.com/aspnet/EntityFrameworkCore/tree/master/samples/OracleProvider)。 推行该项目不是为了生产属于 Microsoft 的 EF Core 提供程序，而是为了帮助我们找出 EF Core 的关系和基础功能间的差距，我们需要弥补这些差距，更好地为 Oracle 提供支持，加快 Oracle 或第三方为 EF Core 开发其他 Oracle 提供程序的速度。
 
 对实现该示例有益的建议我们都会考虑。 我们也欢迎并鼓励社区以该示例为基础为 EF Core 创建开源 Oracle 提供程序。
 

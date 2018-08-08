@@ -988,7 +988,7 @@ ModificationFunctionMapping 子元素可用于映射插入、 更新或删除实
 
 **映射**以映射规范语言 （msl） 表示的元素包含对象 （如存储模型中所述） 到数据库的概念模型中定义的映射的信息。 有关详细信息，请参阅 CSDL 规范和 SSDL 规范。
 
-**映射**元素是映射规范的根元素。 映射规范的 XML 命名空间是http://schemas.microsoft.com/ado/2009/11/mapping/cs。
+**映射**元素是映射规范的根元素。 映射规范的 XML 命名空间是 http://schemas.microsoft.com/ado/2009/11/mapping/cs 。
 
 映射元素可以具有以下子元素（按所列顺序）：
 

@@ -908,7 +908,7 @@ SSDL 关联集的 AssociationSetMapping 元素映射到 CSDL 关联集。 但是
 
 **架构**元素使用**Namespace**属性来定义存储模型中的实体类型和关联对象的命名空间。 在命名空间内，任何两个对象都不能同名。
 
-存储模型命名空间是不同的 XML 命名空间**架构**元素。 存储模型命名空间 (由定义**Namespace**属性) 是实体类型和关联类型的逻辑容器。 XML 命名空间 (由**xmlns**属性) 的**架构**元素是子元素和属性的默认命名空间**架构**元素。 窗体的 XML 命名空间http://schemas.microsoft.com/ado/YYYY/MM/edm/ssdl（其中 YYYY 和 MM 表示年和月分别） 是为 SSDL 保留。 自定义元素和特性不能位于具有此格式的命名空间中。
+存储模型命名空间是不同的 XML 命名空间**架构**元素。 存储模型命名空间 (由定义**Namespace**属性) 是实体类型和关联类型的逻辑容器。 XML 命名空间 (由**xmlns**属性) 的**架构**元素是子元素和属性的默认命名空间**架构**元素。 窗体的 XML 命名空间 http://schemas.microsoft.com/ado/YYYY/MM/edm/ssdl （其中 YYYY 和 MM 表示年和月分别） 是为 SSDL 保留。 自定义元素和特性不能位于具有此格式的命名空间中。
 
 ### <a name="applicable-attributes"></a>适用的特性
 

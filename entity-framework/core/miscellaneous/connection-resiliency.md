@@ -6,14 +6,14 @@ ms.date: 11/15/2016
 ms.assetid: e079d4af-c455-4a14-8e15-a8471516d748
 ms.technology: entity-framework-core
 uid: core/miscellaneous/connection-resiliency
-ms.openlocfilehash: 34ca1908257ed5544f2e134fa7686c9802fcebea
-ms.sourcegitcommit: bdd06c9a591ba5e6d6a3ec046c80de98f598f3f3
+ms.openlocfilehash: dae646e39b4dbd96b34f47582f9b2aa531cf88a7
+ms.sourcegitcommit: 902257be9c63c427dc793750a2b827d6feb8e38c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37949291"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39614332"
 ---
-# <a name="connection-resiliency"></a>连接复原
+# <a name="connection-resiliency"></a>连接弹性
 
 连接复原自动重试失败的数据库命令。 通过提供"执行策略"，它封装检测故障，然后重试命令所需的逻辑，该功能可以使用与任何数据库。 EF Core提供程序可以提供定制为其特定数据库失败条件和最佳的重试策略的执行策略。
 
@@ -39,7 +39,7 @@ protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 
 ## <a name="execution-strategies-and-transactions"></a>执行策略和事务
 
-会自动重试失败的执行策略需要能够播放失败重试块中的每个操作。 启用重试次数后，通过 EF Core 执行每个操作将成为其自己的可重试操作。 也就是说，每个查询和每次调用`SaveChanges()`如果发生暂时性故障重试作为一个单元。
+会自动重试失败的执行策略需要能够播放失败的重试块中的每个操作。 启用重试次数后，通过 EF Core 执行每个操作将成为其自己的可重试操作。 也就是说，每个查询和每次调用`SaveChanges()`如果发生暂时性故障重试作为一个单元。
 
 但是，如果你的代码启动了事务使用`BeginTransaction()`要定义自己的需要作为一个单元来处理的操作的组和事务内的所有内容可能需要进行播放应发生故障时。 如果您尝试执行此操作使用执行策略时，将收到如下所示的异常：
 

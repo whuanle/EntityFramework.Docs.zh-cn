@@ -2,201 +2,124 @@
 title: .NET Framework 入门 - 现有数据库 - EF Core
 author: rowanmiller
 ms.author: divega
-ms.date: 10/27/2016
+ms.date: 08/06/2018
 ms.assetid: a29a3d97-b2d8-4d33-9475-40ac67b3b2c6
 ms.technology: entity-framework-core
 uid: core/get-started/full-dotnet/existing-db
-ms.openlocfilehash: 39e77ab8c124df67458cc5fa6db2882b65943ebe
-ms.sourcegitcommit: 4467032fd6ca223e5965b59912d74cf88a1dd77f
+ms.openlocfilehash: d5c548927b736199c7d6fddc9c74139ca5f6614e
+ms.sourcegitcommit: 902257be9c63c427dc793750a2b827d6feb8e38c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39388463"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39614410"
 ---
-# <a name="getting-started-with-ef-core-on-net-framework-with-an-existing-database"></a><span data-ttu-id="b2336-102">通过现有数据库在 .NET Framework 上开始使用 EF Core</span><span class="sxs-lookup"><span data-stu-id="b2336-102">Getting started with EF Core on .NET Framework with an Existing Database</span></span>
+# <a name="getting-started-with-ef-core-on-net-framework-with-an-existing-database"></a><span data-ttu-id="a808f-102">通过现有数据库在 .NET Framework 上开始使用 EF Core</span><span class="sxs-lookup"><span data-stu-id="a808f-102">Getting started with EF Core on .NET Framework with an Existing Database</span></span>
 
-<span data-ttu-id="b2336-103">在本演练中，你将构建一个控制台应用程序，该程序使用 Entity Framework 对 Microsoft SQL Server 数据库执行基本数据访问。</span><span class="sxs-lookup"><span data-stu-id="b2336-103">In this walkthrough, you will build a console application that performs basic data access against a Microsoft SQL Server database using Entity Framework.</span></span> <span data-ttu-id="b2336-104">你将使用反向工程基于现有数据库创建 Entity Framework 模型。</span><span class="sxs-lookup"><span data-stu-id="b2336-104">You will use reverse engineering to create an Entity Framework model based on an existing database.</span></span>
+<span data-ttu-id="a808f-103">在本教程中，你将构建一个控制台应用程序，它使用 Entity Framework 对 Microsoft SQL Server 数据库执行基本数据访问。</span><span class="sxs-lookup"><span data-stu-id="a808f-103">In this tutorial, you build a console application that performs basic data access against a Microsoft SQL Server database using Entity Framework.</span></span> <span data-ttu-id="a808f-104">通过对现有数据库进行反向工程，创建 Entity Framework 模型。</span><span class="sxs-lookup"><span data-stu-id="a808f-104">You create an Entity Framework model by reverse engineering an existing database.</span></span>
 
-> [!TIP]  
-> <span data-ttu-id="b2336-105">可在 GitHub 上查看此文章的[示例](https://github.com/aspnet/EntityFramework.Docs/tree/master/samples/core/GetStarted/FullNet/ConsoleApp.ExistingDb)。</span><span class="sxs-lookup"><span data-stu-id="b2336-105">You can view this article's [sample](https://github.com/aspnet/EntityFramework.Docs/tree/master/samples/core/GetStarted/FullNet/ConsoleApp.ExistingDb) on GitHub.</span></span>
+<span data-ttu-id="a808f-105">[在 GitHub 上查看此文章的示例](https://github.com/aspnet/EntityFramework.Docs/tree/master/samples/core/GetStarted/FullNet/ConsoleApp.ExistingDb)。</span><span class="sxs-lookup"><span data-stu-id="a808f-105">[View this article's sample on GitHub](https://github.com/aspnet/EntityFramework.Docs/tree/master/samples/core/GetStarted/FullNet/ConsoleApp.ExistingDb).</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="b2336-106">系统必备</span><span class="sxs-lookup"><span data-stu-id="b2336-106">Prerequisites</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="a808f-106">系统必备</span><span class="sxs-lookup"><span data-stu-id="a808f-106">Prerequisites</span></span>
 
-<span data-ttu-id="b2336-107">完成本演练需要以下先决条件：</span><span class="sxs-lookup"><span data-stu-id="b2336-107">The following prerequisites are needed to complete this walkthrough:</span></span>
+* [<span data-ttu-id="a808f-107">Visual Studio 2017 版本 15.7 或更高版本</span><span class="sxs-lookup"><span data-stu-id="a808f-107">Visual Studio 2017 version 15.7 or later</span></span>](https://www.visualstudio.com/downloads/)
 
-* <span data-ttu-id="b2336-108">[Visual Studio 2017](https://www.visualstudio.com/downloads/) - 至少版本 15.3</span><span class="sxs-lookup"><span data-stu-id="b2336-108">[Visual Studio 2017](https://www.visualstudio.com/downloads/) - at least version 15.3</span></span>
+## <a name="create-blogging-database"></a><span data-ttu-id="a808f-108">创建博客数据库</span><span class="sxs-lookup"><span data-stu-id="a808f-108">Create Blogging database</span></span>
 
-* [<span data-ttu-id="b2336-109">最新版本的 NuGet 包管理器</span><span class="sxs-lookup"><span data-stu-id="b2336-109">Latest version of NuGet Package Manager</span></span>](https://dist.nuget.org/index.html)
+<span data-ttu-id="a808f-109">本教程使用 LocalDb 实例上的博客数据库作为现有数据库。</span><span class="sxs-lookup"><span data-stu-id="a808f-109">This tutorial uses a **Blogging** database on the LocalDb instance as the existing database.</span></span> <span data-ttu-id="a808f-110">如果已在其他教程中创建了博客数据库，请跳过这些步骤。</span><span class="sxs-lookup"><span data-stu-id="a808f-110">If you have already created the **Blogging** database as part of another tutorial, skip these steps.</span></span>
 
-* [<span data-ttu-id="b2336-110">最新版本的 Windows PowerShell</span><span class="sxs-lookup"><span data-stu-id="b2336-110">Latest version of Windows PowerShell</span></span>](https://docs.microsoft.com/powershell/scripting/setup/installing-windows-powershell)
+* <span data-ttu-id="a808f-111">打开 Visual Studio</span><span class="sxs-lookup"><span data-stu-id="a808f-111">Open Visual Studio</span></span>
 
-* [<span data-ttu-id="b2336-111">博客数据库</span><span class="sxs-lookup"><span data-stu-id="b2336-111">Blogging database</span></span>](#blogging-database)
+* <span data-ttu-id="a808f-112">“工具”->“连接到数据库...”</span><span class="sxs-lookup"><span data-stu-id="a808f-112">**Tools > Connect to Database...**</span></span>
 
-### <a name="blogging-database"></a><span data-ttu-id="b2336-112">博客数据库</span><span class="sxs-lookup"><span data-stu-id="b2336-112">Blogging database</span></span>
+* <span data-ttu-id="a808f-113">选择“Microsoft SQL Server”，然后单击“继续”</span><span class="sxs-lookup"><span data-stu-id="a808f-113">Select **Microsoft SQL Server** and click **Continue**</span></span>
 
-<span data-ttu-id="b2336-113">本教程使用 LocalDb 实例上的博客数据库作为现有数据库。</span><span class="sxs-lookup"><span data-stu-id="b2336-113">This tutorial uses a **Blogging** database on your LocalDb instance as the existing database.</span></span>
+* <span data-ttu-id="a808f-114">输入“(localdb)\mssqllocaldb”作为服务器名称</span><span class="sxs-lookup"><span data-stu-id="a808f-114">Enter **(localdb)\mssqllocaldb** as the **Server Name**</span></span>
 
-> [!TIP]  
-> <span data-ttu-id="b2336-114">如果你已在其他教程中创建了博客数据库，则可以跳过这些步骤。</span><span class="sxs-lookup"><span data-stu-id="b2336-114">If you have already created the **Blogging** database as part of another tutorial, you can skip these steps.</span></span>
+* <span data-ttu-id="a808f-115">输入“master”作为数据库名称，然后单击“确定”</span><span class="sxs-lookup"><span data-stu-id="a808f-115">Enter **master** as the **Database Name** and click **OK**</span></span>
 
-* <span data-ttu-id="b2336-115">打开 Visual Studio</span><span class="sxs-lookup"><span data-stu-id="b2336-115">Open Visual Studio</span></span>
+* <span data-ttu-id="a808f-116">Master 数据库现在显示在“服务器资源管理器”的“数据连接”中</span><span class="sxs-lookup"><span data-stu-id="a808f-116">The master database is now displayed under **Data Connections** in **Server Explorer**</span></span>
 
-* <span data-ttu-id="b2336-116">“工具”->“连接到数据库...”</span><span class="sxs-lookup"><span data-stu-id="b2336-116">Tools > Connect to Database...</span></span>
+* <span data-ttu-id="a808f-117">右键单击“服务器资源管理器”中的数据库，然后选择“新建查询”</span><span class="sxs-lookup"><span data-stu-id="a808f-117">Right-click on the database in **Server Explorer** and select **New Query**</span></span>
 
-* <span data-ttu-id="b2336-117">选择“Microsoft SQL Server”，然后单击“继续”</span><span class="sxs-lookup"><span data-stu-id="b2336-117">Select **Microsoft SQL Server** and click **Continue**</span></span>
+* <span data-ttu-id="a808f-118">将下列脚本复制到查询编辑器中</span><span class="sxs-lookup"><span data-stu-id="a808f-118">Copy the script listed below into the query editor</span></span>
 
-* <span data-ttu-id="b2336-118">输入“(localdb)\mssqllocaldb”作为服务器名称</span><span class="sxs-lookup"><span data-stu-id="b2336-118">Enter **(localdb)\mssqllocaldb** as the **Server Name**</span></span>
-
-* <span data-ttu-id="b2336-119">输入“master”作为数据库名称，然后单击“确定”</span><span class="sxs-lookup"><span data-stu-id="b2336-119">Enter **master** as the **Database Name** and click **OK**</span></span>
-
-* <span data-ttu-id="b2336-120">Master 数据库现在显示在“服务器资源管理器”的“数据连接”中</span><span class="sxs-lookup"><span data-stu-id="b2336-120">The master database is now displayed under **Data Connections** in **Server Explorer**</span></span>
-
-* <span data-ttu-id="b2336-121">右键单击“服务器资源管理器”中的数据库，然后选择“新建查询”</span><span class="sxs-lookup"><span data-stu-id="b2336-121">Right-click on the database in **Server Explorer** and select **New Query**</span></span>
-
-* <span data-ttu-id="b2336-122">将下面列出的脚本复制到查询编辑器中</span><span class="sxs-lookup"><span data-stu-id="b2336-122">Copy the script, listed below, into the query editor</span></span>
-
-* <span data-ttu-id="b2336-123">右键单击查询编辑器，然后选择“执行”</span><span class="sxs-lookup"><span data-stu-id="b2336-123">Right-click on the query editor and select **Execute**</span></span>
+* <span data-ttu-id="a808f-119">右键单击查询编辑器，然后选择“执行”</span><span class="sxs-lookup"><span data-stu-id="a808f-119">Right-click on the query editor and select **Execute**</span></span>
 
 [!code-sql[Main](../_shared/create-blogging-database-script.sql)]
 
-## <a name="create-a-new-project"></a><span data-ttu-id="b2336-124">创建新项目</span><span class="sxs-lookup"><span data-stu-id="b2336-124">Create a new project</span></span>
+## <a name="create-a-new-project"></a><span data-ttu-id="a808f-120">创建新项目</span><span class="sxs-lookup"><span data-stu-id="a808f-120">Create a new project</span></span>
 
-* <span data-ttu-id="b2336-125">打开 Visual Studio</span><span class="sxs-lookup"><span data-stu-id="b2336-125">Open Visual Studio</span></span>
+* <span data-ttu-id="a808f-121">打开 Visual Studio 2017</span><span class="sxs-lookup"><span data-stu-id="a808f-121">Open Visual Studio 2017</span></span>
 
-* <span data-ttu-id="b2336-126">“文件”>“新建”>“项目...”</span><span class="sxs-lookup"><span data-stu-id="b2336-126">File > New > Project...</span></span>
+* <span data-ttu-id="a808f-122">“文件”>“新建”>“项目...”</span><span class="sxs-lookup"><span data-stu-id="a808f-122">**File > New > Project...**</span></span>
 
-* <span data-ttu-id="b2336-127">从左侧菜单中选择“模板”>“Visual C#”>“Windows”</span><span class="sxs-lookup"><span data-stu-id="b2336-127">From the left menu select Templates > Visual C# > Windows</span></span>
+* <span data-ttu-id="a808f-123">从左侧菜单中选择“已安装”>“Visual C#”->“Windows Desktop”</span><span class="sxs-lookup"><span data-stu-id="a808f-123">From the left menu select **Installed > Visual C# > Windows Desktop**</span></span>
 
-* <span data-ttu-id="b2336-128">选择“控制台应用程序”项目模板</span><span class="sxs-lookup"><span data-stu-id="b2336-128">Select the **Console Application** project template</span></span>
+* <span data-ttu-id="a808f-124">选择“控制台应用(.NET Framework)”项目模板</span><span class="sxs-lookup"><span data-stu-id="a808f-124">Select the **Console App (.NET Framework)** project template</span></span>
 
-* <span data-ttu-id="b2336-129">确保将 **.NET Framework 4.6.1** 或更高版本设为目标</span><span class="sxs-lookup"><span data-stu-id="b2336-129">Ensure you are targeting **.NET Framework 4.6.1** or later</span></span>
+* <span data-ttu-id="a808f-125">确保项目面向 **.NET Framework 4.6.1** 或更高版本</span><span class="sxs-lookup"><span data-stu-id="a808f-125">Make sure that the project targets **.NET Framework 4.6.1** or later</span></span>
 
-* <span data-ttu-id="b2336-130">为项目提供名称，然后单击“确定”</span><span class="sxs-lookup"><span data-stu-id="b2336-130">Give the project a name and click **OK**</span></span>
+* <span data-ttu-id="a808f-126">将项目命名为 ConsoleApp.ExistingDb，并单击“确定”</span><span class="sxs-lookup"><span data-stu-id="a808f-126">Name the project *ConsoleApp.ExistingDb* and click **OK**</span></span>
 
-## <a name="install-entity-framework"></a><span data-ttu-id="b2336-131">安装 Entity Framework</span><span class="sxs-lookup"><span data-stu-id="b2336-131">Install Entity Framework</span></span>
+## <a name="install-entity-framework"></a><span data-ttu-id="a808f-127">安装 Entity Framework</span><span class="sxs-lookup"><span data-stu-id="a808f-127">Install Entity Framework</span></span>
 
-<span data-ttu-id="b2336-132">要使用 EF Core，请为要作为目标对象的数据库提供程序安装程序包。</span><span class="sxs-lookup"><span data-stu-id="b2336-132">To use EF Core, install the package for the database provider(s) you want to target.</span></span> <span data-ttu-id="b2336-133">本演练使用 SQL Server。</span><span class="sxs-lookup"><span data-stu-id="b2336-133">This walkthrough uses SQL Server.</span></span> <span data-ttu-id="b2336-134">有关可用提供程序的列表，请参阅[数据库提供程序](../../providers/index.md)。</span><span class="sxs-lookup"><span data-stu-id="b2336-134">For a list of available providers see [Database Providers](../../providers/index.md).</span></span>
+<span data-ttu-id="a808f-128">要使用 EF Core，请为要作为目标对象的数据库提供程序安装程序包。</span><span class="sxs-lookup"><span data-stu-id="a808f-128">To use EF Core, install the package for the database provider(s) you want to target.</span></span> <span data-ttu-id="a808f-129">本教程使用 SQL Server。</span><span class="sxs-lookup"><span data-stu-id="a808f-129">This tutorial uses SQL Server.</span></span> <span data-ttu-id="a808f-130">有关可用提供程序的列表，请参阅[数据库提供程序](../../providers/index.md)。</span><span class="sxs-lookup"><span data-stu-id="a808f-130">For a list of available providers see [Database Providers](../../providers/index.md).</span></span>
 
-* <span data-ttu-id="b2336-135">“工具”>“NuGet 包管理器”>“包管理器控制台”</span><span class="sxs-lookup"><span data-stu-id="b2336-135">Tools > NuGet Package Manager > Package Manager Console</span></span>
+* <span data-ttu-id="a808f-131">“工具”>“NuGet 包管理器”>“包管理器控制台”</span><span class="sxs-lookup"><span data-stu-id="a808f-131">**Tools > NuGet Package Manager > Package Manager Console**</span></span>
 
-* <span data-ttu-id="b2336-136">运行 `Install-Package Microsoft.EntityFrameworkCore.SqlServer`</span><span class="sxs-lookup"><span data-stu-id="b2336-136">Run `Install-Package Microsoft.EntityFrameworkCore.SqlServer`</span></span>
+* <span data-ttu-id="a808f-132">运行 `Install-Package Microsoft.EntityFrameworkCore.SqlServer`</span><span class="sxs-lookup"><span data-stu-id="a808f-132">Run `Install-Package Microsoft.EntityFrameworkCore.SqlServer`</span></span>
 
-<span data-ttu-id="b2336-137">若要从现有数据库启用反向工程，我们还需要安装几个其他程序包。</span><span class="sxs-lookup"><span data-stu-id="b2336-137">To enable reverse engineering from an existing database we need to install a couple of other packages too.</span></span>
+<span data-ttu-id="a808f-133">下一步，要使用一些 Entity Framework Tools 对该数据库进行反向工程。</span><span class="sxs-lookup"><span data-stu-id="a808f-133">In the next step, you use some Entity Framework Tools to reverse engineer the database.</span></span> <span data-ttu-id="a808f-134">因此，请同时安装该工具包。</span><span class="sxs-lookup"><span data-stu-id="a808f-134">So install the tools package as well.</span></span>
 
-* <span data-ttu-id="b2336-138">运行 `Install-Package Microsoft.EntityFrameworkCore.Tools`</span><span class="sxs-lookup"><span data-stu-id="b2336-138">Run `Install-Package Microsoft.EntityFrameworkCore.Tools`</span></span>
+* <span data-ttu-id="a808f-135">运行 `Install-Package Microsoft.EntityFrameworkCore.Tools`</span><span class="sxs-lookup"><span data-stu-id="a808f-135">Run `Install-Package Microsoft.EntityFrameworkCore.Tools`</span></span>
 
-## <a name="reverse-engineer-your-model"></a><span data-ttu-id="b2336-139">对模型实施反向工程</span><span class="sxs-lookup"><span data-stu-id="b2336-139">Reverse engineer your model</span></span>
+## <a name="reverse-engineer-the-model"></a><span data-ttu-id="a808f-136">对模型实施反向工程</span><span class="sxs-lookup"><span data-stu-id="a808f-136">Reverse engineer the model</span></span>
 
-<span data-ttu-id="b2336-140">现在是时候基于现有数据库创建 EF 模型了。</span><span class="sxs-lookup"><span data-stu-id="b2336-140">Now it's time to create the EF model based on your existing database.</span></span>
+<span data-ttu-id="a808f-137">现在是时候基于现有数据库创建 EF 模型了。</span><span class="sxs-lookup"><span data-stu-id="a808f-137">Now it's time to create the EF model based on an existing database.</span></span>
 
-* <span data-ttu-id="b2336-141">“工具”–>“NuGet 包管理器”–>“包管理器控制台”</span><span class="sxs-lookup"><span data-stu-id="b2336-141">Tools –> NuGet Package Manager –> Package Manager Console</span></span>
+* <span data-ttu-id="a808f-138">“工具”–>“NuGet 包管理器”–>“包管理器控制台”</span><span class="sxs-lookup"><span data-stu-id="a808f-138">**Tools –> NuGet Package Manager –> Package Manager Console**</span></span>
 
-* <span data-ttu-id="b2336-142">运行以下命令以从现有数据库创建模型</span><span class="sxs-lookup"><span data-stu-id="b2336-142">Run the following command to create a model from the existing database</span></span>
+* <span data-ttu-id="a808f-139">运行以下命令以从现有数据库创建模型</span><span class="sxs-lookup"><span data-stu-id="a808f-139">Run the following command to create a model from the existing database</span></span>
 
-``` powershell
-Scaffold-DbContext "Server=(localdb)\mssqllocaldb;Database=Blogging;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer
-```
+  ``` powershell
+  Scaffold-DbContext "Server=(localdb)\mssqllocaldb;Database=Blogging;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer
+  ```
 
-<span data-ttu-id="b2336-143">反向工程过程基于现有数据库的架构创建实体类和派生上下文。</span><span class="sxs-lookup"><span data-stu-id="b2336-143">The reverse engineer process created entity classes and a derived context based on the schema of the existing database.</span></span> <span data-ttu-id="b2336-144">实体类是简单的 C# 对象，代表要查询和保存的数据。</span><span class="sxs-lookup"><span data-stu-id="b2336-144">The entity classes are simple C# objects that represent the data you will be querying and saving.</span></span>
+> [!TIP]  
+> <span data-ttu-id="a808f-140">可以通过将 `-Tables` 参数添加到上述命令来指定要为其生成实体的表。</span><span class="sxs-lookup"><span data-stu-id="a808f-140">You can specify the tables to generate entities for by adding the `-Tables` argument to the command above.</span></span> <span data-ttu-id="a808f-141">例如 `-Tables Blog,Post`。</span><span class="sxs-lookup"><span data-stu-id="a808f-141">For example, `-Tables Blog,Post`.</span></span>
 
-<!-- [!code-csharp[Main](samples/core/GetStarted/FullNet/ConsoleApp.ExistingDb/Blog.cs)] -->
-``` csharp
-using System;
-using System.Collections.Generic;
+<span data-ttu-id="a808f-142">反向工程过程基于现有数据库的架构创建实体类（`Blog` 和 `Post`）和派生上下文（`BloggingContext`）。</span><span class="sxs-lookup"><span data-stu-id="a808f-142">The reverse engineer process created entity classes (`Blog` and `Post`) and a derived context (`BloggingContext`) based on the schema of the existing database.</span></span>
 
-namespace EFGetStarted.ConsoleApp.ExistingDb
-{
-    public partial class Blog
-    {
-        public Blog()
-        {
-            Post = new HashSet<Post>();
-        }
+<span data-ttu-id="a808f-143">实体类是简单的 C# 对象，代表要查询和保存的数据。</span><span class="sxs-lookup"><span data-stu-id="a808f-143">The entity classes are simple C# objects that represent the data you will be querying and saving.</span></span> <span data-ttu-id="a808f-144">以下是 `Blog` 和 `Post` 实体类：</span><span class="sxs-lookup"><span data-stu-id="a808f-144">Here are the `Blog` and `Post` entity classes:</span></span>
 
-        public int BlogId { get; set; }
-        public string Url { get; set; }
+ [!code-csharp[Main](../../../../samples/core/GetStarted/FullNet/ConsoleApp.ExistingDb/Blog.cs)]
 
-        public virtual ICollection<Post> Post { get; set; }
-    }
-}
-```
+[!code-csharp[Main](../../../../samples/core/GetStarted/FullNet/ConsoleApp.ExistingDb/Post.cs)]
 
-<span data-ttu-id="b2336-145">上下文表示与数据库的会话，并允许查询和保存实体类的实例。</span><span class="sxs-lookup"><span data-stu-id="b2336-145">The context represents a session with the database and allows you to query and save instances of the entity classes.</span></span>
+> [!TIP]  
+> <span data-ttu-id="a808f-145">若要启用延迟加载，可以创建导航属性 `virtual`（Blog.Post 和 Post.Blog）。</span><span class="sxs-lookup"><span data-stu-id="a808f-145">To enable lazy loading, you can make navigation properties `virtual` (Blog.Post and Post.Blog).</span></span>
 
-<!-- [!code-csharp[Main](samples/core/GetStarted/FullNet/ConsoleApp.ExistingDb/BloggingContext.cs)] -->
-``` csharp
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
+<span data-ttu-id="a808f-146">上下文表示与数据库的会话。</span><span class="sxs-lookup"><span data-stu-id="a808f-146">The context represents a session with the database.</span></span> <span data-ttu-id="a808f-147">其中有可用于查询和保存实体类实例的方法。</span><span class="sxs-lookup"><span data-stu-id="a808f-147">It has methods that you can use to query and save instances of the entity classes.</span></span>
 
-namespace EFGetStarted.ConsoleApp.ExistingDb
-{
-    public partial class BloggingContext : DbContext
-    {
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-            optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=Blogging;Trusted_Connection=True;");
-        }
+[!code-csharp[Main](../../../../samples/core/GetStarted/FullNet/ConsoleApp.ExistingDb/BloggingContext.cs)]
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<Blog>(entity =>
-            {
-                entity.Property(e => e.Url).IsRequired();
-            });
+## <a name="use-the-model"></a><span data-ttu-id="a808f-148">使用模型</span><span class="sxs-lookup"><span data-stu-id="a808f-148">Use the model</span></span>
 
-            modelBuilder.Entity<Post>(entity =>
-            {
-                entity.HasOne(d => d.Blog)
-                    .WithMany(p => p.Post)
-                    .HasForeignKey(d => d.BlogId);
-            });
-        }
+<span data-ttu-id="a808f-149">现在可以使用模型执行数据访问。</span><span class="sxs-lookup"><span data-stu-id="a808f-149">You can now use the model to perform data access.</span></span>
 
-        public virtual DbSet<Blog> Blog { get; set; }
-        public virtual DbSet<Post> Post { get; set; }
-    }
-}
-```
+* <span data-ttu-id="a808f-150">打开 Program.cs</span><span class="sxs-lookup"><span data-stu-id="a808f-150">Open *Program.cs*</span></span>
 
-## <a name="use-your-model"></a><span data-ttu-id="b2336-146">使用模型</span><span class="sxs-lookup"><span data-stu-id="b2336-146">Use your model</span></span>
+* <span data-ttu-id="a808f-151">将此文件的内容替换为以下代码</span><span class="sxs-lookup"><span data-stu-id="a808f-151">Replace the contents of the file with the following code</span></span>
 
-<span data-ttu-id="b2336-147">你现在可以使用模型执行数据访问。</span><span class="sxs-lookup"><span data-stu-id="b2336-147">You can now use your model to perform data access.</span></span>
+  [!code-csharp[Main](../../../../samples/core/GetStarted/FullNet/ConsoleApp.ExistingDb/Program.cs)] 
 
-* <span data-ttu-id="b2336-148">打开 Program.cs</span><span class="sxs-lookup"><span data-stu-id="b2336-148">Open *Program.cs*</span></span>
+* <span data-ttu-id="a808f-152">“调试”>“开始执行(不调试)”</span><span class="sxs-lookup"><span data-stu-id="a808f-152">Debug > Start Without Debugging</span></span>
 
-* <span data-ttu-id="b2336-149">将此文件的内容替换为以下代码</span><span class="sxs-lookup"><span data-stu-id="b2336-149">Replace the contents of the file with the following code</span></span>
+  <span data-ttu-id="a808f-153">可以看到，把一个博客保存到数据库后，所有博客的详细信息都将显示在控制台中。</span><span class="sxs-lookup"><span data-stu-id="a808f-153">You see that one blog is saved to the database and then the details of all blogs are printed to the console.</span></span>
 
-<!-- [!code-csharp[Main](samples/core/GetStarted/FullNet/ConsoleApp.ExistingDb/Program.cs)] -->
-``` csharp
-using System;
+  ![图像](_static/output-existing-db.png)
 
-namespace EFGetStarted.ConsoleApp.ExistingDb
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            using (var db = new BloggingContext())
-            {
-                db.Blog.Add(new Blog { Url = "http://blogs.msdn.com/adonet" });
-                var count = db.SaveChanges();
-                Console.WriteLine("{0} records saved to database", count);
+## <a name="additional-resources"></a><span data-ttu-id="a808f-155">其他资源</span><span class="sxs-lookup"><span data-stu-id="a808f-155">Additional Resources</span></span>
 
-                Console.WriteLine();
-                Console.WriteLine("All blogs in database:");
-                foreach (var blog in db.Blog)
-                {
-                    Console.WriteLine(" - {0}", blog.Url);
-                }
-            }
-        }
-    }
-}
-```
-
-* <span data-ttu-id="b2336-150">“调试”>“开始执行(不调试)”</span><span class="sxs-lookup"><span data-stu-id="b2336-150">Debug > Start Without Debugging</span></span>
-
-<span data-ttu-id="b2336-151">你将看到，把一个博客保存到数据库后，所有博客的详细信息都将显示在控制台中。</span><span class="sxs-lookup"><span data-stu-id="b2336-151">You will see that one blog is saved to the database and then the details of all blogs are printed to the console.</span></span>
-
-![图像](_static/output-existing-db.png)
+* [<span data-ttu-id="a808f-156">通过新数据库在 .NET Framework 上使用 EF Core</span><span class="sxs-lookup"><span data-stu-id="a808f-156">EF Core on .NET Framework with a new database</span></span>](xref:core/get-started/full-dotnet/new-db)
+* <span data-ttu-id="a808f-157">[通过新数据库在 .NET Core 上使用 EF Core - SQLite](xref:core/get-started/netcore/new-db-sqlite) - 跨平台控制台 EF 教程。</span><span class="sxs-lookup"><span data-stu-id="a808f-157">[EF Core on .NET Core with a new database - SQLite](xref:core/get-started/netcore/new-db-sqlite) -  a cross-platform console EF tutorial.</span></span>

@@ -2,19 +2,13 @@
 title: Fluent API 的配置和映射属性和类型的 EF6
 author: divega
 ms.date: 2016-10-23
-ms.prod: entity-framework
-ms.author: divega
-ms.manager: avickers
-ms.technology: entity-framework-6
-ms.topic: article
 ms.assetid: 648ed274-c501-4630-88e0-d728ab5c4057
-caps.latest.revision: 3
-ms.openlocfilehash: ec8b484433d13899a88f44e37823dd1a4bed6530
-ms.sourcegitcommit: 390f3a37bc55105ed7cc5b0e0925b7f9c9e80ba6
+ms.openlocfilehash: e65a3f4721e5c28de63d143e1143f3584e145477
+ms.sourcegitcommit: dadee5905ada9ecdbae28363a682950383ce3e10
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "39120485"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "42996982"
 ---
 # <a name="fluent-api---configuring-and-mapping-properties-and-types"></a>Fluent API-配置和映射属性和类型
 使用 Entity Framework Code First 时的默认行为是将您的 POCO 类映射到表使用一系列融入 EF 的约定。 有时，但是，您无法或不希望遵循这些约定，并且需要将实体映射到以外的约定的规定。  

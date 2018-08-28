@@ -2,19 +2,13 @@
 title: Load 方法的 EF6
 author: divega
 ms.date: 2016-10-23
-ms.prod: entity-framework
-ms.author: divega
-ms.manager: avickers
-ms.technology: entity-framework-6
-ms.topic: article
 ms.assetid: 03c5a069-b7b4-455f-a16f-ee3b96cc4e28
-caps.latest.revision: 3
-ms.openlocfilehash: 83af79220b52de6e3063868fd9bdac56867d49cb
-ms.sourcegitcommit: f05e7b62584cf228f17390bb086a61d505712e1b
+ms.openlocfilehash: f7e8410b8fb8b5c3e86c51cd61868604a7566d0c
+ms.sourcegitcommit: dadee5905ada9ecdbae28363a682950383ce3e10
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/08/2018
-ms.locfileid: "39120085"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "42996646"
 ---
 # <a name="the-load-method"></a>加载方法
 有几种方案，你可能想要实体从数据库加载到上下文中而无需立即执行与这些实体的任何内容。 很好的例子加载实体，可用于数据绑定，如中所述[本地数据](~/ef6/querying/local-data.md)。 一种常用的方式来执行此操作是编写 LINQ 查询，然后对它，只是为了立即放弃创建的列表调用 ToList。 Load 扩展方法工作方式相似 ToList，不同之处在于它完全避免了列表的创建。  

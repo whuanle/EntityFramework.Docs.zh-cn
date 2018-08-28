@@ -2,19 +2,13 @@
 title: 使用属性值的 EF6
 author: divega
 ms.date: 2016-10-23
-ms.prod: entity-framework
-ms.author: divega
-ms.manager: avickers
-ms.technology: entity-framework-6
-ms.topic: article
 ms.assetid: e3278b4b-9378-4fdb-923d-f64d80aaae70
-caps.latest.revision: 3
-ms.openlocfilehash: 07b71c9efe4e1fc3fd25a52c9cfb25f61e92f859
-ms.sourcegitcommit: f05e7b62584cf228f17390bb086a61d505712e1b
+ms.openlocfilehash: a9b969950ec7dcfb86a2abc9c8bd6cc24899948c
+ms.sourcegitcommit: dadee5905ada9ecdbae28363a682950383ce3e10
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/08/2018
-ms.locfileid: "39119986"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "42998298"
 ---
 # <a name="working-with-property-values"></a>使用属性值
 大多数情况下 Entity Framework 将负责跟踪状态、 原始值和当前值的实体实例的属性。 但是，可能有某些情况下-例如断开连接的场景-你想要查看或操作的属性信息 EF 拥有。 本主题所介绍的方法同样适用于查询使用 Code First 和 EF 设计器创建的模型。  

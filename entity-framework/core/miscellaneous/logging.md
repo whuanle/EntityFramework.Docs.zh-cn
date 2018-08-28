@@ -1,17 +1,15 @@
 ---
 title: 日志记录-EF Core
 author: rowanmiller
-ms.author: divega
 ms.date: 10/27/2016
 ms.assetid: f6e35c6d-45b7-4258-be1d-87c1bb67438d
-ms.technology: entity-framework-core
 uid: core/miscellaneous/logging
-ms.openlocfilehash: 60d76bf3360eb47cdd9836494c1f135d1005a215
-ms.sourcegitcommit: 3adf1267be92effc3c9daa893906a7f36834204f
+ms.openlocfilehash: efc78fbada3c59bf9cf2c4cb694835bb5ad60e76
+ms.sourcegitcommit: dadee5905ada9ecdbae28363a682950383ce3e10
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35232131"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "42997000"
 ---
 # <a name="logging"></a>日志记录
 
@@ -24,16 +22,16 @@ ms.locfileid: "35232131"
 
 ## <a name="other-applications"></a>其他应用程序
 
-当前日志记录的 EF Core 要求 ILoggerFactory 这是配置了一个或多个 ILoggerProvider 本身。 常见的提供程序随附于下列包：
+当前日志记录的 EF Core 要求 ILoggerFactory 这是配置了一个或多个 ILoggerProvider 本身。 在以下包中随附常见提供程序：
 
 * [Microsoft.Extensions.Logging.Console](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Console/)： 简单的控制台记录器。
-* [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices/)： 支持 Azure 应用程序服务诊断日志和日志流功能。
-* [Microsoft.Extensions.Logging.Debug](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Debug/)： 日志传输到使用 System.Diagnostics.Debug.WriteLine() 调试器监视器。
-* [Microsoft.Extensions.Logging.EventLog](https://www.nuget.org/packages/Microsoft.Extensions.Logging.EventLog/)： 到 Windows 事件日志的日志。
+* [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices/)： 支持 Azure 应用服务诊断日志和日志流功能。
+* [Microsoft.Extensions.Logging.Debug](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Debug/)： 使用 System.Diagnostics.Debug.WriteLine() 调试器监视的日志。
+* [Microsoft.Extensions.Logging.EventLog](https://www.nuget.org/packages/Microsoft.Extensions.Logging.EventLog/)： 记录到 Windows 事件日志。
 * [Microsoft.Extensions.Logging.EventSource](https://www.nuget.org/packages/Microsoft.Extensions.Logging.EventSource/)： 支持 EventSource/EventListener。
-* [Microsoft.Extensions.Logging.TraceSource](https://www.nuget.org/packages/Microsoft.Extensions.Logging.TraceSource/)： 到使用 System.Diagnostics.TraceSource.TraceEvent() 的跟踪侦听器的日志。
+* [Microsoft.Extensions.Logging.TraceSource](https://www.nuget.org/packages/Microsoft.Extensions.Logging.TraceSource/)： 使用 System.Diagnostics.TraceSource.TraceEvent() 的跟踪侦听器的日志。
 
-在安装相应的程序包后, 应用程序应创建 LoggerFactory 的单一实例/全局实例。 例如，使用控制台记录器：
+安装相应的程序包之后, 该应用程序应创建 LoggerFactory 的单一实例/全局实例。 例如，使用控制台记录器：
 
 [!code-csharp[Main](../../../samples/core/Miscellaneous/Logging/Logging/BloggingContext.cs#DefineLoggerFactory)]
 
@@ -42,16 +40,16 @@ ms.locfileid: "35232131"
 [!code-csharp[Main](../../../samples/core/Miscellaneous/Logging/Logging/BloggingContext.cs#RegisterLoggerFactory)]
 
 > [!WARNING]
-> 它是非常重要的应用程序不会创建每个上下文实例的新 ILoggerFactory 实例。 这样将导致内存泄漏和性能低下。
+> 它是非常重要的应用程序不会创建新的 ILoggerFactory 实例为每个上下文实例。 执行此操作将导致内存泄漏和性能不佳。
 
-## <a name="filtering-what-is-logged"></a>筛选记录的内容，
+## <a name="filtering-what-is-logged"></a>筛选记录的内容
 
-筛选所记录内容的最简单方法是在注册 ILoggerProvider 时对其进行配置。 例如：
+筛选记录的内容的最简单方法是注册 ILoggerProvider 时对其进行配置。 例如：
 
 [!code-csharp[Main](../../../samples/core/Miscellaneous/Logging/Logging/BloggingContextWithFiltering.cs#DefineLoggerFactory)]
 
-在此示例中，日志筛选以返回仅消息：
- * Microsoft.EntityFrameworkCore.Database.Command 类别中
+在此示例中，筛选日志将仅消息返回：
+ * 在 Microsoft.EntityFrameworkCore.Database.Command 类别中
  * 在信息级别
 
 对于 EF Core 记录器类别在中定义`DbLoggerCategory`类，以便可以方便地查找类别，但这些解析为简单的字符串。

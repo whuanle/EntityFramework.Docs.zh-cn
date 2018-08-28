@@ -2,19 +2,13 @@
 title: 预生成的映射视图-EF6
 author: divega
 ms.date: 2016-10-23
-ms.prod: entity-framework
-ms.author: divega
-ms.manager: avickers
-ms.technology: entity-framework-6
-ms.topic: article
 ms.assetid: 917ba9c8-6ddf-4631-ab8c-c4fb378c2fcd
-caps.latest.revision: 3
-ms.openlocfilehash: 9e74176d02afc424118219eec8e016843333cbb8
-ms.sourcegitcommit: 390f3a37bc55105ed7cc5b0e0925b7f9c9e80ba6
+ms.openlocfilehash: 397569ef374cb44d4938f9e201b588a26c408f6e
+ms.sourcegitcommit: dadee5905ada9ecdbae28363a682950383ce3e10
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "39120473"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "42996467"
 ---
 # <a name="pre-generated-mapping-views"></a>预生成的映射视图
 实体框架可以执行查询或将更改保存到数据源之前，它必须生成一组映射视图来访问数据库。 这些映射视图是一组以抽象方式表示的数据库的实体 SQL 语句，并且每个应用程序域缓存的元数据的一部分。 如果在同一应用程序域中创建相同的上下文的多个实例，这些实例将重用缓存元数据，而无需重新生成它们，从映射视图。 映射视图生成是执行第一个查询的总成本的重要组成部分，实体框架，可预生成映射视图并将其包含在已编译的项目中。 有关详细信息，请参阅[性能注意事项 （实体框架）](~/ef6/fundamentals/performance/perf-whitepaper.md)。

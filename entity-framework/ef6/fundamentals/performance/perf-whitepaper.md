@@ -2,19 +2,13 @@
 title: EF4、 EF5 和 EF6 的性能注意事项
 author: divega
 ms.date: 2016-10-23
-ms.prod: entity-framework
-ms.author: divega
-ms.manager: avickers
-ms.technology: entity-framework-6
-ms.topic: article
 ms.assetid: d6d5a465-6434-45fa-855d-5eb48c61a2ea
-caps.latest.revision: 4
-ms.openlocfilehash: c01cf2b28e56fb73783bd9ed0d133bffa0a7dbe7
-ms.sourcegitcommit: bdd06c9a591ba5e6d6a3ec046c80de98f598f3f3
+ms.openlocfilehash: f71a13ec06ad46259b3f33216367723b53314a5c
+ms.sourcegitcommit: dadee5905ada9ecdbae28363a682950383ce3e10
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "39120609"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "42996743"
 ---
 # <a name="performance-considerations-for-ef-4-5-and-6"></a>有关 EF 4、 5 和 6 的性能注意事项
 由 David Obando、 Eric Dettinger 等
@@ -332,7 +326,7 @@ AggregatingSubtotals 查询是最复杂的与我们测试的查询。 按预期�
 
 某些组件将使用组合 IQueryable 对象，若要启用高级的功能。 例如，ASP。NET 的 GridView 可以进行数据绑定到 IQueryable 对象通过 SelectMethod 属性。 GridView 然后将组合此 IQueryable 对象，以允许排序和分页通过数据模型。 正如您所看到的 GridView 使用 CompiledQuery 将不会命中已编译的查询，但会生成一个新的 autocompiled 查询。
 
-客户顾问团队讨论了此问题在其"潜在性能问题与编译 LINQ 查询重新编译"博客文章：  <http://blogs.msdn.com/b/appfabriccat/archive/2010/08/06/potential-performance-issues-with-compiled-linq-query-re-compiles.aspx>。
+客户顾问团队讨论了此问题在其"潜在性能问题与编译 LINQ 查询重新编译"博客文章： <http://blogs.msdn.com/b/appfabriccat/archive/2010/08/06/potential-performance-issues-with-compiled-linq-query-re-compiles.aspx>。
 
 当向查询添加渐进式筛选器时，其中可能会遇到此类的一个位置。 例如，假设你有客户页的可选筛选器 （例如，国家/地区和 OrdersCount） 的多个下拉列表。 你可以组合这些筛选器的 CompiledQuery IQueryable 结果，但这样做将导致每次执行该计划编译器通过将新查询。
 

@@ -3,25 +3,24 @@ title: 多个提供程序的 EF Core 的迁移
 author: bricelam
 ms.author: bricelam
 ms.date: 11/8/2017
-ms.technology: entity-framework-core
-ms.openlocfilehash: d950e74ed4cef7d4274aabcf3eda7b0b735574c6
-ms.sourcegitcommit: 2ef0a4a90b01edd22b9206f8729b8de459ef8cab
+ms.openlocfilehash: 7ae695037992323337a780cda29d8c8ed8a13458
+ms.sourcegitcommit: dadee5905ada9ecdbae28363a682950383ce3e10
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/20/2018
-ms.locfileid: "30002800"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "42997968"
 ---
 <a name="migrations-with-multiple-providers"></a>多个提供程序的迁移
 ==================================
-[EF Core 工具][ 1]仅创建为活动提供程序的迁移的基架。 有时，但是，你可能想要用于多个提供程序 （例如 Microsoft SQL Server 和 SQLite） 你 DbContext。 有两种方法来处理这与迁移。 你可以维护两组迁移-的情况下，为每个提供程序--或合并到单个设置的其中一个可以工作。
+[EF Core 工具][ 1]仅创建为活动提供程序的迁移的基架。 有时，但是，你可能想要将多个提供程序 （例如 Microsoft SQL Server 和 SQLite） 用于 DbContext。 有两种方法来处理这种情况与迁移。 你可以保留两个集的迁移-另一个用于每个提供程序--或合并到单个这些设置，可以处理两者。
 
-<a name="two-migration-sets"></a>两个迁移集
+<a name="two-migration-sets"></a>两个迁移设置
 ------------------
-在第一个方法中，你将生成两个迁移的每个模型更改。
+在第一种方法，生成两个迁移的每个模型更改。
 
-一种办法这是将每个迁移集[中单独的程序集][ 2]和手动添加两个迁移之间进行切换的活动提供程序 （和迁移程序集）。
+一个方法可以解决这是为了放置每个迁移一组[在单独的程序集中][ 2]并手动添加两个迁移之间进行切换的活动提供程序 （和迁移程序集）。
 
-轻松使用这些工具的另一种方法是创建从 DbContext 派生，并重写活动提供程序的新类型。 此类型用于在设计时添加或将应用迁移的时间。
+使用这些工具更轻松的另一种方法是创建派生自 DbContext 和重写活动提供程序的新类型。 此类型用于在设计时添加或应用迁移的时间。
 
 ``` csharp
 class MySqliteDbContext : MyDbContext
@@ -32,7 +31,7 @@ class MySqliteDbContext : MyDbContext
 ```
 
 > [!NOTE]
-> 由于每个迁移集使用其自己的 DbContext 类型，此方法不需要使用具有单独迁移的程序集。
+> 由于每个迁移集使用其自己的 DbContext 类型，此方法不需要使用单独迁移程序集。
 
 在添加新的迁移时，指定上下文类型。
 
@@ -46,13 +45,13 @@ dotnet ef migrations add InitialCreate --context MySqliteDbContext --output-dir 
 ```
 
 > [!TIP]
-> 你不需要指定后续迁移的输出目录，因为它们将创建为与最后一个同级。
+> 不需要指定以后的迁移的输出目录，因为它们创建为与最后一个同级。
 
-<a name="one-migration-set"></a>有一次迁移集
+<a name="one-migration-set"></a>一个迁移组
 -----------------
-如果你不喜欢具有两个集的迁移，你可以手动将它们合并到一组可以应用于两个提供程序中。
+如果您不喜欢使用两个集的迁移，可以手动将它们合并成一组可以应用于两个提供程序。
 
-批注可以共存，因为提供程序会忽略它不了解任何批注。 例如，适用于 Microsoft SQL Server 和 SQLite 的主键列可能如下所示。
+批注可以共存，因为提供程序将忽略任何不理解的注释。 例如，适用于 Microsoft SQL Server 和 SQLite 的主键列可能如下所示。
 
 ``` csharp
 Id = table.Column<int>(nullable: false)
@@ -61,7 +60,7 @@ Id = table.Column<int>(nullable: false)
     .Annotation("Sqlite:Autoincrement", true),
 ```
 
-如果操作只能应用一个提供程序上 （或它们以不同的方式提供程序之间），使用`ActiveProvider`属性来通知的提供程序处于活动状态。
+如果操作只能应用一个提供程序上 （或它们以不同的方式之间提供程序），使用`ActiveProvider`属性告诉哪个提供程序处于活动状态。
 
 ``` csharp
 if (migrationBuilder.ActiveProvider == "Microsoft.EntityFrameworkCore.SqlServer")

@@ -2,19 +2,13 @@
 title: 存储过程具有多个结果集的 EF6
 author: divega
 ms.date: 2016-10-23
-ms.prod: entity-framework
-ms.author: divega
-ms.manager: avickers
-ms.technology: entity-framework-6
-ms.topic: article
 ms.assetid: 1b3797f9-cd3d-4752-a55e-47b84b399dc1
-caps.latest.revision: 3
-ms.openlocfilehash: 68d544b0c553868ad1ff36cd24db19cff08db073
-ms.sourcegitcommit: f05e7b62584cf228f17390bb086a61d505712e1b
+ms.openlocfilehash: bb104ac5f584d26d279259a173de9afe3f018968
+ms.sourcegitcommit: dadee5905ada9ecdbae28363a682950383ce3e10
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/08/2018
-ms.locfileid: "39120373"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "42996170"
 ---
 # <a name="stored-procedures-with-multiple-result-sets"></a>具有多个结果集的存储的过程
 有时，当使用存储时设置过程将需要返回多个结果。 此方案通常用于减少数据库的所需编写单个屏幕之间的往返。 在 EF5 之前, Entity Framework 将允许要调用的存储的过程，但将仅返回设置为调用代码的第一个结果。

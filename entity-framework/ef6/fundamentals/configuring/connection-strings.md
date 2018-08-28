@@ -2,19 +2,13 @@
 title: 连接字符串和模型的 EF6
 author: divega
 ms.date: 2016-10-23
-ms.prod: entity-framework
-ms.author: divega
-ms.manager: avickers
-ms.technology: entity-framework-6
-ms.topic: article
 ms.assetid: 294bb138-978f-4fe2-8491-fdf3cd3c60c4
-caps.latest.revision: 3
-ms.openlocfilehash: ca597e68a5b3e2085612669ee81da10ba6969eeb
-ms.sourcegitcommit: bdd06c9a591ba5e6d6a3ec046c80de98f598f3f3
+ms.openlocfilehash: dce414ea84f13235691abf0dcadef5c743d90f9d
+ms.sourcegitcommit: dadee5905ada9ecdbae28363a682950383ce3e10
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "39120556"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "42994954"
 ---
 # <a name="connection-strings-and-models"></a>连接字符串和模型
 本主题介绍实体框架如何发现哪个数据库连接，若要使用，以及如何更改它。 同时涉及本主题中使用 Code First 和 EF 设计器创建的模型。  

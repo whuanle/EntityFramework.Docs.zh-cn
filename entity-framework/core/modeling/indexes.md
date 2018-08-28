@@ -1,33 +1,31 @@
-﻿---
+---
 title: 索引的 EF Core
 author: rowanmiller
-ms.author: divega
 ms.date: 10/27/2016
 ms.assetid: 85b92003-b692-417d-ac1d-76d40dce664b
-ms.technology: entity-framework-core
 uid: core/modeling/indexes
-ms.openlocfilehash: f57b545d53613cec6887734bf434958ee8fff4d8
-ms.sourcegitcommit: 01a75cd483c1943ddd6f82af971f07abde20912e
+ms.openlocfilehash: 87fe893243377e3ab83d419ae9bedf813ca50c3f
+ms.sourcegitcommit: dadee5905ada9ecdbae28363a682950383ce3e10
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2017
-ms.locfileid: "26054881"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "42995475"
 ---
 # <a name="indexes"></a>索引
 
-索引是跨多个数据存储的一个公共概念。 尽管数据存储中的其实现可能会有所不同，它们用于使基于列 （或一组列） 的查找更加高效。
+索引是在许多数据存储之间的一个常见概念。 而其数据存储区中的实现可能会有所不同，它们用于使基于列 （或一组列） 上查找更高效。
 
 ## <a name="conventions"></a>约定
 
-按照约定，为外键使用每个属性 （或组的属性） 中创建索引。
+按照约定，用作外键每个属性 （或组的属性） 中创建的索引。
 
 ## <a name="data-annotations"></a>数据注释
 
-不使用数据注释创建索引。
+不使用数据批注创建索引。
 
 ## <a name="fluent-api"></a>Fluent API
 
-Fluent API 可用于的单个属性上指定索引。 默认情况下，索引将非唯一。
+Fluent API 可用于根据单个属性中指定的索引。 默认情况下，索引是非唯一的。
 
 <!-- [!code-csharp[Main](samples/core/Modeling/FluentAPI/Samples/Index.cs?highlight=7,8)] -->
 ``` csharp
@@ -49,7 +47,7 @@ public class Blog
 }
 ```
 
-也可指定性地要求索引的值唯一，也就是说，对于给定的属性，任何两个实体的值都不能相同。
+此外可以指定索引应是唯一的这意味着任何两个实体可以具有给定属性的相同值。
 
 <!-- [!code-csharp[Main](samples/core/Modeling/FluentAPI/Samples/IndexUnique.cs?highlight=3)] -->
 ``` csharp
@@ -58,7 +56,7 @@ public class Blog
             .IsUnique();
 ```
 
-还可以跨多个列指定索引。
+此外可以通过多个列指定一个索引。
 
 <!-- [!code-csharp[Main](samples/core/Modeling/FluentAPI/Samples/IndexComposite.cs?highlight=7,8)] -->
 ``` csharp
@@ -82,4 +80,4 @@ public class Person
 ```
 
 > [!TIP]  
-> 每个独特的属性集只有一个索引。对于已经通过约定或以前的配置定义了某个索引的一组属性，如果使用 Fluent API 在其上配置索引，则会更改该索引的定义。如果需要对通过约定创建的索引进行进一步的配置，则可使用此方法。
+> 没有每个非重复的属性集只有一个索引。 如果 Fluent API 用于在一组已定义了索引，不论是通过约定或以前配置的属性上配置索引然后你将会更改该索引定义。 这是很有用，如果你想要进一步配置按约定创建的索引。

@@ -2,19 +2,13 @@
 title: 本地数据-EF6
 author: divega
 ms.date: 2016-10-23
-ms.prod: entity-framework
-ms.author: divega
-ms.manager: avickers
-ms.technology: entity-framework-6
-ms.topic: article
 ms.assetid: 2eda668b-1e5d-487d-9a8c-0e3beef03fcb
-caps.latest.revision: 3
-ms.openlocfilehash: 79f0d2175199780d41b43088832bab808ab2fff0
-ms.sourcegitcommit: f05e7b62584cf228f17390bb086a61d505712e1b
+ms.openlocfilehash: dac1a1de20398501c706b118443743d47970df17
+ms.sourcegitcommit: dadee5905ada9ecdbae28363a682950383ce3e10
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/08/2018
-ms.locfileid: "39120082"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "42994269"
 ---
 # <a name="local-data"></a>本地数据
 直接对 DbSet 运行 LINQ 查询将始终将查询发送到数据库，但是您可以访问的数据的当前内存中使用的 DbSet.Local 属性。 有关你使用的 DbContext.Entry 和 DbContext.ChangeTracker.Entries 方法的实体，还可以访问 EF 跟踪的额外信息。 本主题所介绍的方法同样适用于查询使用 Code First 和 EF 设计器创建的模型。  

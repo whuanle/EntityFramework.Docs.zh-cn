@@ -2,35 +2,29 @@
 title: Fluent API 的关系-EF6
 author: divega
 ms.date: 2016-10-23
-ms.prod: entity-framework
-ms.author: divega
-ms.manager: avickers
-ms.technology: entity-framework-6
-ms.topic: article
 ms.assetid: fd73b4f8-16d5-40f1-9640-885ceafe67a1
-caps.latest.revision: 3
-ms.openlocfilehash: 7437b395fbed07dcb8c93cd8418317611e14a60b
-ms.sourcegitcommit: f05e7b62584cf228f17390bb086a61d505712e1b
+ms.openlocfilehash: e13a1370f46362e0f2ca3743ec5b063ce6f87cbe
+ms.sourcegitcommit: dadee5905ada9ecdbae28363a682950383ce3e10
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/08/2018
-ms.locfileid: "39120071"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "42994757"
 ---
-# <a name="fluent-api---relationships"></a><span data-ttu-id="3ccfb-102">Fluent API 的关系</span><span class="sxs-lookup"><span data-stu-id="3ccfb-102">Fluent API - Relationships</span></span>
+# <a name="fluent-api---relationships"></a><span data-ttu-id="694b4-102">Fluent API 的关系</span><span class="sxs-lookup"><span data-stu-id="694b4-102">Fluent API - Relationships</span></span>
 > [!NOTE]
-> <span data-ttu-id="3ccfb-103">此页提供了有关设置关系中第一个代码模型使用 fluent API 的信息。</span><span class="sxs-lookup"><span data-stu-id="3ccfb-103">This page provides information about setting up relationships in your Code First model using the fluent API.</span></span> <span data-ttu-id="3ccfb-104">有关在 EF 和如何访问和处理数据使用关系的关系的常规信息，请参阅[关系和导航属性](~/ef6/fundamentals/relationships.md)。</span><span class="sxs-lookup"><span data-stu-id="3ccfb-104">For general information about relationships in EF and how to access and manipulate data using relationships, see [Relationships & Navigation Properties](~/ef6/fundamentals/relationships.md).</span></span>  
+> <span data-ttu-id="694b4-103">此页提供了有关设置关系中第一个代码模型使用 fluent API 的信息。</span><span class="sxs-lookup"><span data-stu-id="694b4-103">This page provides information about setting up relationships in your Code First model using the fluent API.</span></span> <span data-ttu-id="694b4-104">有关在 EF 和如何访问和处理数据使用关系的关系的常规信息，请参阅[关系和导航属性](~/ef6/fundamentals/relationships.md)。</span><span class="sxs-lookup"><span data-stu-id="694b4-104">For general information about relationships in EF and how to access and manipulate data using relationships, see [Relationships & Navigation Properties](~/ef6/fundamentals/relationships.md).</span></span>  
 
-<span data-ttu-id="3ccfb-105">在使用 Code First，可以通过定义域 CLR 类定义您的模型。</span><span class="sxs-lookup"><span data-stu-id="3ccfb-105">When working with Code First, you define your model by defining your domain CLR classes.</span></span> <span data-ttu-id="3ccfb-106">默认情况下，实体框架使用 Code First 约定来将您的类映射到数据库架构。</span><span class="sxs-lookup"><span data-stu-id="3ccfb-106">By default, Entity Framework uses the Code First conventions to map your classes to the database schema.</span></span> <span data-ttu-id="3ccfb-107">如果使用 Code First 的命名约定，在大多数情况下您可以依赖于 Code First 来设置基于外键和导航属性在类定义的表之间的关系。</span><span class="sxs-lookup"><span data-stu-id="3ccfb-107">If you use the Code First naming conventions, in most cases you can rely on Code First to set up relationships between your tables based on the foreign keys and navigation properties that you define on the classes.</span></span> <span data-ttu-id="3ccfb-108">如果定义您的类时不遵循约定或约定如果你想要更改的方式工作，可以使用 fluent API 或数据注释来配置您的类，以便代码优先可以映射在表之间的关系。</span><span class="sxs-lookup"><span data-stu-id="3ccfb-108">If you do not follow the conventions when defining your classes, or if you want to change the way the conventions work, you can use the fluent API or data annotations to configure your classes so Code First can map the relationships between your tables.</span></span>  
+<span data-ttu-id="694b4-105">在使用 Code First，可以通过定义域 CLR 类定义您的模型。</span><span class="sxs-lookup"><span data-stu-id="694b4-105">When working with Code First, you define your model by defining your domain CLR classes.</span></span> <span data-ttu-id="694b4-106">默认情况下，实体框架使用 Code First 约定来将您的类映射到数据库架构。</span><span class="sxs-lookup"><span data-stu-id="694b4-106">By default, Entity Framework uses the Code First conventions to map your classes to the database schema.</span></span> <span data-ttu-id="694b4-107">如果使用 Code First 的命名约定，在大多数情况下您可以依赖于 Code First 来设置基于外键和导航属性在类定义的表之间的关系。</span><span class="sxs-lookup"><span data-stu-id="694b4-107">If you use the Code First naming conventions, in most cases you can rely on Code First to set up relationships between your tables based on the foreign keys and navigation properties that you define on the classes.</span></span> <span data-ttu-id="694b4-108">如果定义您的类时不遵循约定或约定如果你想要更改的方式工作，可以使用 fluent API 或数据注释来配置您的类，以便代码优先可以映射在表之间的关系。</span><span class="sxs-lookup"><span data-stu-id="694b4-108">If you do not follow the conventions when defining your classes, or if you want to change the way the conventions work, you can use the fluent API or data annotations to configure your classes so Code First can map the relationships between your tables.</span></span>  
 
-## <a name="introduction"></a><span data-ttu-id="3ccfb-109">介绍</span><span class="sxs-lookup"><span data-stu-id="3ccfb-109">Introduction</span></span>  
+## <a name="introduction"></a><span data-ttu-id="694b4-109">介绍</span><span class="sxs-lookup"><span data-stu-id="694b4-109">Introduction</span></span>  
 
-<span data-ttu-id="3ccfb-110">在通过 fluent API 配置关系时，开始 EntityTypeConfiguration 实例，然后使用 HasRequired、 HasOptional 或 HasMany 方法指定的此实体所参与的关系的类型。</span><span class="sxs-lookup"><span data-stu-id="3ccfb-110">When configuring a relationship with the fluent API, you start with the EntityTypeConfiguration instance and then use the HasRequired, HasOptional, or HasMany method to specify the type of relationship this entity participates in.</span></span> <span data-ttu-id="3ccfb-111">这些 HasRequired 和 HasOptional 方法采用表示引用导航属性的 lambda 表达式。</span><span class="sxs-lookup"><span data-stu-id="3ccfb-111">The HasRequired and HasOptional methods take a lambda expression that represents a reference navigation property.</span></span> <span data-ttu-id="3ccfb-112">HasMany 方法采用 lambda 表达式，表示集合导航属性。</span><span class="sxs-lookup"><span data-stu-id="3ccfb-112">The HasMany method takes a lambda expression that represents a collection navigation property.</span></span> <span data-ttu-id="3ccfb-113">然后可以使用 WithRequired、 WithOptional 和 WithMany 方法配置一个反向导航属性。</span><span class="sxs-lookup"><span data-stu-id="3ccfb-113">You can then configure an inverse navigation property by using the WithRequired, WithOptional, and WithMany methods.</span></span> <span data-ttu-id="3ccfb-114">这些方法具有重载，它们不采用自变量和可用于单向导航使用指定的基数。</span><span class="sxs-lookup"><span data-stu-id="3ccfb-114">These methods have overloads that do not take arguments and can be used to specify cardinality with unidirectional navigations.</span></span>  
+<span data-ttu-id="694b4-110">在通过 fluent API 配置关系时，开始 EntityTypeConfiguration 实例，然后使用 HasRequired、 HasOptional 或 HasMany 方法指定的此实体所参与的关系的类型。</span><span class="sxs-lookup"><span data-stu-id="694b4-110">When configuring a relationship with the fluent API, you start with the EntityTypeConfiguration instance and then use the HasRequired, HasOptional, or HasMany method to specify the type of relationship this entity participates in.</span></span> <span data-ttu-id="694b4-111">这些 HasRequired 和 HasOptional 方法采用表示引用导航属性的 lambda 表达式。</span><span class="sxs-lookup"><span data-stu-id="694b4-111">The HasRequired and HasOptional methods take a lambda expression that represents a reference navigation property.</span></span> <span data-ttu-id="694b4-112">HasMany 方法采用 lambda 表达式，表示集合导航属性。</span><span class="sxs-lookup"><span data-stu-id="694b4-112">The HasMany method takes a lambda expression that represents a collection navigation property.</span></span> <span data-ttu-id="694b4-113">然后可以使用 WithRequired、 WithOptional 和 WithMany 方法配置一个反向导航属性。</span><span class="sxs-lookup"><span data-stu-id="694b4-113">You can then configure an inverse navigation property by using the WithRequired, WithOptional, and WithMany methods.</span></span> <span data-ttu-id="694b4-114">这些方法具有重载，它们不采用自变量和可用于单向导航使用指定的基数。</span><span class="sxs-lookup"><span data-stu-id="694b4-114">These methods have overloads that do not take arguments and can be used to specify cardinality with unidirectional navigations.</span></span>  
 
-<span data-ttu-id="3ccfb-115">然后可以使用 HasForeignKey 方法来配置外键属性。</span><span class="sxs-lookup"><span data-stu-id="3ccfb-115">You can then configure foreign key properties by using the HasForeignKey method.</span></span> <span data-ttu-id="3ccfb-116">此方法采用 lambda 表达式，表示要用作外键的属性。</span><span class="sxs-lookup"><span data-stu-id="3ccfb-116">This method takes a lambda expression that represents the property to be used as the foreign key.</span></span>  
+<span data-ttu-id="694b4-115">然后可以使用 HasForeignKey 方法来配置外键属性。</span><span class="sxs-lookup"><span data-stu-id="694b4-115">You can then configure foreign key properties by using the HasForeignKey method.</span></span> <span data-ttu-id="694b4-116">此方法采用 lambda 表达式，表示要用作外键的属性。</span><span class="sxs-lookup"><span data-stu-id="694b4-116">This method takes a lambda expression that represents the property to be used as the foreign key.</span></span>  
 
-## <a name="configuring-a-required-to-optional-relationship-one-tozero-or-one"></a><span data-ttu-id="3ccfb-117">配置所需-到-可选关系 （一个-到-零或一）</span><span class="sxs-lookup"><span data-stu-id="3ccfb-117">Configuring a Required-to-Optional Relationship (One-to–Zero-or-One)</span></span>  
+## <a name="configuring-a-required-to-optional-relationship-one-tozero-or-one"></a><span data-ttu-id="694b4-117">配置所需-到-可选关系 （一个-到-零或一）</span><span class="sxs-lookup"><span data-stu-id="694b4-117">Configuring a Required-to-Optional Relationship (One-to–Zero-or-One)</span></span>  
 
-<span data-ttu-id="3ccfb-118">下面的示例配置对零或一一关系。</span><span class="sxs-lookup"><span data-stu-id="3ccfb-118">The following example configures a one-to-zero-or-one relationship.</span></span> <span data-ttu-id="3ccfb-119">OfficeAssignment 具有 primary key 和 foreign key 的 InstructorID 属性，因为该属性的名称不遵循 HasKey 方法用于配置为主键的约定。</span><span class="sxs-lookup"><span data-stu-id="3ccfb-119">The OfficeAssignment has the InstructorID property that is a primary key and a foreign key, because the name of the property does not follow the convention the HasKey method is used to configure the primary key.</span></span>  
+<span data-ttu-id="694b4-118">下面的示例配置对零或一一关系。</span><span class="sxs-lookup"><span data-stu-id="694b4-118">The following example configures a one-to-zero-or-one relationship.</span></span> <span data-ttu-id="694b4-119">OfficeAssignment 具有 primary key 和 foreign key 的 InstructorID 属性，因为该属性的名称不遵循 HasKey 方法用于配置为主键的约定。</span><span class="sxs-lookup"><span data-stu-id="694b4-119">The OfficeAssignment has the InstructorID property that is a primary key and a foreign key, because the name of the property does not follow the convention the HasKey method is used to configure the primary key.</span></span>  
 
 ``` csharp
 // Configure the primary key for the OfficeAssignment
@@ -43,9 +37,9 @@ modelBuilder.Entity<OfficeAssignment>()
     .WithOptional(t => t.OfficeAssignment);
 ```  
 
-## <a name="configuring-a-relationship-where-both-ends-are-required-one-to-one"></a><span data-ttu-id="3ccfb-120">配置两个边界所需 （一对一） 的关系</span><span class="sxs-lookup"><span data-stu-id="3ccfb-120">Configuring a Relationship Where Both Ends Are Required (One-to-One)</span></span>  
+## <a name="configuring-a-relationship-where-both-ends-are-required-one-to-one"></a><span data-ttu-id="694b4-120">配置两个边界所需 （一对一） 的关系</span><span class="sxs-lookup"><span data-stu-id="694b4-120">Configuring a Relationship Where Both Ends Are Required (One-to-One)</span></span>  
 
-<span data-ttu-id="3ccfb-121">在大多数情况下 Entity Framework 可以推断出哪种类型是依赖项以及哪一个是一种关系中的主体。</span><span class="sxs-lookup"><span data-stu-id="3ccfb-121">In most cases Entity Framework can infer which type is the dependent and which is the principal in a relationship.</span></span> <span data-ttu-id="3ccfb-122">但是，当同时关系所需或两侧均可选实体框架无法识别依赖和主体可以。</span><span class="sxs-lookup"><span data-stu-id="3ccfb-122">However, when both ends of the relationship are required or both sides are optional Entity Framework cannot identify the dependent and principal.</span></span> <span data-ttu-id="3ccfb-123">当此关系的两端都是必需的时之后，使用 WithRequiredPrincipal 或 WithRequiredDependent HasRequired 方法。</span><span class="sxs-lookup"><span data-stu-id="3ccfb-123">When both ends of the relationship are required, use WithRequiredPrincipal or WithRequiredDependent after the HasRequired method.</span></span> <span data-ttu-id="3ccfb-124">当此关系的两端都是可选的时之后，使用 WithOptionalPrincipal 或 WithOptionalDependent HasOptional 方法。</span><span class="sxs-lookup"><span data-stu-id="3ccfb-124">When both ends of the relationship are optional, use WithOptionalPrincipal or WithOptionalDependent after the HasOptional method.</span></span>  
+<span data-ttu-id="694b4-121">在大多数情况下 Entity Framework 可以推断出哪种类型是依赖项以及哪一个是一种关系中的主体。</span><span class="sxs-lookup"><span data-stu-id="694b4-121">In most cases Entity Framework can infer which type is the dependent and which is the principal in a relationship.</span></span> <span data-ttu-id="694b4-122">但是，当同时关系所需或两侧均可选实体框架无法识别依赖和主体可以。</span><span class="sxs-lookup"><span data-stu-id="694b4-122">However, when both ends of the relationship are required or both sides are optional Entity Framework cannot identify the dependent and principal.</span></span> <span data-ttu-id="694b4-123">当此关系的两端都是必需的时之后，使用 WithRequiredPrincipal 或 WithRequiredDependent HasRequired 方法。</span><span class="sxs-lookup"><span data-stu-id="694b4-123">When both ends of the relationship are required, use WithRequiredPrincipal or WithRequiredDependent after the HasRequired method.</span></span> <span data-ttu-id="694b4-124">当此关系的两端都是可选的时之后，使用 WithOptionalPrincipal 或 WithOptionalDependent HasOptional 方法。</span><span class="sxs-lookup"><span data-stu-id="694b4-124">When both ends of the relationship are optional, use WithOptionalPrincipal or WithOptionalDependent after the HasOptional method.</span></span>  
 
 ``` csharp
 // Configure the primary key for the OfficeAssignment
@@ -57,9 +51,9 @@ modelBuilder.Entity<Instructor>()
     .WithRequiredPrincipal(t => t.Instructor);
 ```  
 
-## <a name="configuring-a-many-to-many-relationship"></a><span data-ttu-id="3ccfb-125">配置多对多关系</span><span class="sxs-lookup"><span data-stu-id="3ccfb-125">Configuring a Many-to-Many Relationship</span></span>  
+## <a name="configuring-a-many-to-many-relationship"></a><span data-ttu-id="694b4-125">配置多对多关系</span><span class="sxs-lookup"><span data-stu-id="694b4-125">Configuring a Many-to-Many Relationship</span></span>  
 
-<span data-ttu-id="3ccfb-126">下面的代码配置 Course 和 Instructor 类型之间的多对多关系。</span><span class="sxs-lookup"><span data-stu-id="3ccfb-126">The following code configures a many-to-many relationship between the Course and Instructor types.</span></span> <span data-ttu-id="3ccfb-127">在以下示例中，默认 Code First 约定用于创建联接表。</span><span class="sxs-lookup"><span data-stu-id="3ccfb-127">In the following example, the default Code First conventions are used to create a join table.</span></span> <span data-ttu-id="3ccfb-128">因此 CourseInstructor 表是使用 Course_CourseID 和 Instructor_InstructorID 列创建。</span><span class="sxs-lookup"><span data-stu-id="3ccfb-128">As a result the CourseInstructor table is created with Course_CourseID and Instructor_InstructorID columns.</span></span>  
+<span data-ttu-id="694b4-126">下面的代码配置 Course 和 Instructor 类型之间的多对多关系。</span><span class="sxs-lookup"><span data-stu-id="694b4-126">The following code configures a many-to-many relationship between the Course and Instructor types.</span></span> <span data-ttu-id="694b4-127">在以下示例中，默认 Code First 约定用于创建联接表。</span><span class="sxs-lookup"><span data-stu-id="694b4-127">In the following example, the default Code First conventions are used to create a join table.</span></span> <span data-ttu-id="694b4-128">因此 CourseInstructor 表是使用 Course_CourseID 和 Instructor_InstructorID 列创建。</span><span class="sxs-lookup"><span data-stu-id="694b4-128">As a result the CourseInstructor table is created with Course_CourseID and Instructor_InstructorID columns.</span></span>  
 
 ``` csharp
 modelBuilder.Entity<Course>()
@@ -67,7 +61,7 @@ modelBuilder.Entity<Course>()
     .WithMany(t => t.Courses)
 ```  
 
-<span data-ttu-id="3ccfb-129">如果你想要在表中指定联接表名称和列的名称需要使用 Map 方法来执行其他配置。</span><span class="sxs-lookup"><span data-stu-id="3ccfb-129">If you want to specify the join table name and the names of the columns in the table you need to do additional configuration by using the Map method.</span></span> <span data-ttu-id="3ccfb-130">下面的代码生成 CourseID 和 InstructorID 列 CourseInstructor 表。</span><span class="sxs-lookup"><span data-stu-id="3ccfb-130">The following code generates the CourseInstructor table with CourseID and InstructorID columns.</span></span>  
+<span data-ttu-id="694b4-129">如果你想要在表中指定联接表名称和列的名称需要使用 Map 方法来执行其他配置。</span><span class="sxs-lookup"><span data-stu-id="694b4-129">If you want to specify the join table name and the names of the columns in the table you need to do additional configuration by using the Map method.</span></span> <span data-ttu-id="694b4-130">下面的代码生成 CourseID 和 InstructorID 列 CourseInstructor 表。</span><span class="sxs-lookup"><span data-stu-id="694b4-130">The following code generates the CourseInstructor table with CourseID and InstructorID columns.</span></span>  
 
 ``` csharp
 modelBuilder.Entity<Course>()
@@ -81,9 +75,9 @@ modelBuilder.Entity<Course>()
     });
 ```  
 
-## <a name="configuring-a-relationship-with-one-navigation-property"></a><span data-ttu-id="3ccfb-131">使用一个导航属性配置关系</span><span class="sxs-lookup"><span data-stu-id="3ccfb-131">Configuring a Relationship with One Navigation Property</span></span>  
+## <a name="configuring-a-relationship-with-one-navigation-property"></a><span data-ttu-id="694b4-131">使用一个导航属性配置关系</span><span class="sxs-lookup"><span data-stu-id="694b4-131">Configuring a Relationship with One Navigation Property</span></span>  
 
-<span data-ttu-id="3ccfb-132">单向 （也称为单向） 仅之一的关系端而不是两者定义导航属性时，关系。</span><span class="sxs-lookup"><span data-stu-id="3ccfb-132">A one-directional (also called unidirectional) relationship is when a navigation property is defined on only one of the relationship ends and not on both.</span></span> <span data-ttu-id="3ccfb-133">按照约定，代码优先始终解释为一个多单向关系。</span><span class="sxs-lookup"><span data-stu-id="3ccfb-133">By convention, Code First always interprets a unidirectional relationship as one-to-many.</span></span> <span data-ttu-id="3ccfb-134">例如，如果你想一对一关系之间 Instructor 和 OfficeAssignment，其中只有 Instructor 类型有一个导航属性，需要使用 fluent API 来配置此关系。</span><span class="sxs-lookup"><span data-stu-id="3ccfb-134">For example, if you want a one-to-one relationship between Instructor and OfficeAssignment, where you have a navigation property on only the Instructor type, you need to use the fluent API to configure this relationship.</span></span>  
+<span data-ttu-id="694b4-132">单向 （也称为单向） 仅之一的关系端而不是两者定义导航属性时，关系。</span><span class="sxs-lookup"><span data-stu-id="694b4-132">A one-directional (also called unidirectional) relationship is when a navigation property is defined on only one of the relationship ends and not on both.</span></span> <span data-ttu-id="694b4-133">按照约定，代码优先始终解释为一个多单向关系。</span><span class="sxs-lookup"><span data-stu-id="694b4-133">By convention, Code First always interprets a unidirectional relationship as one-to-many.</span></span> <span data-ttu-id="694b4-134">例如，如果你想一对一关系之间 Instructor 和 OfficeAssignment，其中只有 Instructor 类型有一个导航属性，需要使用 fluent API 来配置此关系。</span><span class="sxs-lookup"><span data-stu-id="694b4-134">For example, if you want a one-to-one relationship between Instructor and OfficeAssignment, where you have a navigation property on only the Instructor type, you need to use the fluent API to configure this relationship.</span></span>  
 
 ``` csharp
 // Configure the primary Key for the OfficeAssignment
@@ -95,16 +89,16 @@ modelBuilder.Entity<Instructor>()
     .WithRequiredPrincipal();
 ```  
 
-## <a name="enabling-cascade-delete"></a><span data-ttu-id="3ccfb-135">启用级联删除</span><span class="sxs-lookup"><span data-stu-id="3ccfb-135">Enabling Cascade Delete</span></span>  
+## <a name="enabling-cascade-delete"></a><span data-ttu-id="694b4-135">启用级联删除</span><span class="sxs-lookup"><span data-stu-id="694b4-135">Enabling Cascade Delete</span></span>  
 
-<span data-ttu-id="3ccfb-136">可以通过使用 WillCascadeOnDelete 方法在关系上配置级联删除。</span><span class="sxs-lookup"><span data-stu-id="3ccfb-136">You can configure cascade delete on a relationship by using the WillCascadeOnDelete method.</span></span> <span data-ttu-id="3ccfb-137">如果依赖实体的外键不可为 null，则第一个代码设置级联删除的关系。</span><span class="sxs-lookup"><span data-stu-id="3ccfb-137">If a foreign key on the dependent entity is not nullable, then Code First sets cascade delete on the relationship.</span></span> <span data-ttu-id="3ccfb-138">如果依赖实体的外键是可以为 null，Code First 不会设置级联删除的关系，并且当删除主体将设置外键为 null。</span><span class="sxs-lookup"><span data-stu-id="3ccfb-138">If a foreign key on the dependent entity is nullable, Code First does not set cascade delete on the relationship, and when the principal is deleted the foreign key will be set to null.</span></span>  
+<span data-ttu-id="694b4-136">可以通过使用 WillCascadeOnDelete 方法在关系上配置级联删除。</span><span class="sxs-lookup"><span data-stu-id="694b4-136">You can configure cascade delete on a relationship by using the WillCascadeOnDelete method.</span></span> <span data-ttu-id="694b4-137">如果依赖实体的外键不可为 null，则第一个代码设置级联删除的关系。</span><span class="sxs-lookup"><span data-stu-id="694b4-137">If a foreign key on the dependent entity is not nullable, then Code First sets cascade delete on the relationship.</span></span> <span data-ttu-id="694b4-138">如果依赖实体的外键是可以为 null，Code First 不会设置级联删除的关系，并且当删除主体将设置外键为 null。</span><span class="sxs-lookup"><span data-stu-id="694b4-138">If a foreign key on the dependent entity is nullable, Code First does not set cascade delete on the relationship, and when the principal is deleted the foreign key will be set to null.</span></span>  
 
-<span data-ttu-id="3ccfb-139">可通过删除以下级联删除约定：</span><span class="sxs-lookup"><span data-stu-id="3ccfb-139">You can remove these cascade delete conventions by using:</span></span>  
+<span data-ttu-id="694b4-139">可通过删除以下级联删除约定：</span><span class="sxs-lookup"><span data-stu-id="694b4-139">You can remove these cascade delete conventions by using:</span></span>  
 
-<span data-ttu-id="3ccfb-140">modelBuilder.Conventions.Remove\<OneToManyCascadeDeleteConvention\>（)</span><span class="sxs-lookup"><span data-stu-id="3ccfb-140">modelBuilder.Conventions.Remove\<OneToManyCascadeDeleteConvention\>()</span></span>  
-<span data-ttu-id="3ccfb-141">modelBuilder.Conventions.Remove\<ManyToManyCascadeDeleteConvention\>（)</span><span class="sxs-lookup"><span data-stu-id="3ccfb-141">modelBuilder.Conventions.Remove\<ManyToManyCascadeDeleteConvention\>()</span></span>  
+<span data-ttu-id="694b4-140">modelBuilder.Conventions.Remove\<OneToManyCascadeDeleteConvention\>（)</span><span class="sxs-lookup"><span data-stu-id="694b4-140">modelBuilder.Conventions.Remove\<OneToManyCascadeDeleteConvention\>()</span></span>  
+<span data-ttu-id="694b4-141">modelBuilder.Conventions.Remove\<ManyToManyCascadeDeleteConvention\>（)</span><span class="sxs-lookup"><span data-stu-id="694b4-141">modelBuilder.Conventions.Remove\<ManyToManyCascadeDeleteConvention\>()</span></span>  
 
-<span data-ttu-id="3ccfb-142">下面的代码将关系是必需的配置，然后禁用级联删除。</span><span class="sxs-lookup"><span data-stu-id="3ccfb-142">The following code configures the relationship to be required and then disables cascade delete.</span></span>  
+<span data-ttu-id="694b4-142">下面的代码将关系是必需的配置，然后禁用级联删除。</span><span class="sxs-lookup"><span data-stu-id="694b4-142">The following code configures the relationship to be required and then disables cascade delete.</span></span>  
 
 ``` csharp
 modelBuilder.Entity<Course>()
@@ -114,9 +108,9 @@ modelBuilder.Entity<Course>()
     .WillCascadeOnDelete(false);
 ```  
 
-## <a name="configuring-a-composite-foreign-key"></a><span data-ttu-id="3ccfb-143">配置复合外键</span><span class="sxs-lookup"><span data-stu-id="3ccfb-143">Configuring a Composite Foreign Key</span></span>  
+## <a name="configuring-a-composite-foreign-key"></a><span data-ttu-id="694b4-143">配置复合外键</span><span class="sxs-lookup"><span data-stu-id="694b4-143">Configuring a Composite Foreign Key</span></span>  
 
-<span data-ttu-id="3ccfb-144">如果部门类型的主键包含 DepartmentID 和 Name 属性，则配置为主键部门和课程类型上的外键，如下所示：</span><span class="sxs-lookup"><span data-stu-id="3ccfb-144">If the primary key on the Department type consisted of DepartmentID and Name properties, you would configure the primary key for the Department and the foreign key on the Course types as follows:</span></span>  
+<span data-ttu-id="694b4-144">如果部门类型的主键包含 DepartmentID 和 Name 属性，则配置为主键部门和课程类型上的外键，如下所示：</span><span class="sxs-lookup"><span data-stu-id="694b4-144">If the primary key on the Department type consisted of DepartmentID and Name properties, you would configure the primary key for the Department and the foreign key on the Course types as follows:</span></span>  
 
 ``` csharp
 // Composite primary key
@@ -130,9 +124,9 @@ modelBuilder.Entity<Course>()
     .HasForeignKey(d => new { d.DepartmentID, d.DepartmentName });
 ```  
 
-## <a name="renaming-a-foreign-key-that-is-not-defined-in-the-model"></a><span data-ttu-id="3ccfb-145">重命名模型中未定义的外键</span><span class="sxs-lookup"><span data-stu-id="3ccfb-145">Renaming a Foreign Key That Is Not Defined in the Model</span></span>  
+## <a name="renaming-a-foreign-key-that-is-not-defined-in-the-model"></a><span data-ttu-id="694b4-145">重命名模型中未定义的外键</span><span class="sxs-lookup"><span data-stu-id="694b4-145">Renaming a Foreign Key That Is Not Defined in the Model</span></span>  
 
-<span data-ttu-id="3ccfb-146">如果您选择不在 CLR 类型上定义外键，但想要在数据库中指定它应具有什么名称，请执行以下操作：</span><span class="sxs-lookup"><span data-stu-id="3ccfb-146">If you choose not to define a foreign key on the CLR type, but want to specify what name it should have in the database, do the following:</span></span>  
+<span data-ttu-id="694b4-146">如果您选择不在 CLR 类型上定义外键，但想要在数据库中指定它应具有什么名称，请执行以下操作：</span><span class="sxs-lookup"><span data-stu-id="694b4-146">If you choose not to define a foreign key on the CLR type, but want to specify what name it should have in the database, do the following:</span></span>  
 
 ``` csharp
 modelBuilder.Entity<Course>()
@@ -141,9 +135,9 @@ modelBuilder.Entity<Course>()
     .Map(m => m.MapKey("ChangedDepartmentID"));
 ```  
 
-## <a name="configuring-a-foreign-key-name-that-does-not-follow-the-code-first-convention"></a><span data-ttu-id="3ccfb-147">配置不遵循代码的第一个约定的外键名称</span><span class="sxs-lookup"><span data-stu-id="3ccfb-147">Configuring a Foreign Key Name That Does Not Follow the Code First Convention</span></span>  
+## <a name="configuring-a-foreign-key-name-that-does-not-follow-the-code-first-convention"></a><span data-ttu-id="694b4-147">配置不遵循代码的第一个约定的外键名称</span><span class="sxs-lookup"><span data-stu-id="694b4-147">Configuring a Foreign Key Name That Does Not Follow the Code First Convention</span></span>  
 
-<span data-ttu-id="3ccfb-148">如果外的键属性课程类上调用而不是 DepartmentID SomeDepartmentID，需要执行以下操作来指定你想要作为外键的 SomeDepartmentID:</span><span class="sxs-lookup"><span data-stu-id="3ccfb-148">If the foreign key property on the Course class was called SomeDepartmentID instead of DepartmentID, you would need to do the following to specify that you want SomeDepartmentID to be the foreign key:</span></span>  
+<span data-ttu-id="694b4-148">如果外的键属性课程类上调用而不是 DepartmentID SomeDepartmentID，需要执行以下操作来指定你想要作为外键的 SomeDepartmentID:</span><span class="sxs-lookup"><span data-stu-id="694b4-148">If the foreign key property on the Course class was called SomeDepartmentID instead of DepartmentID, you would need to do the following to specify that you want SomeDepartmentID to be the foreign key:</span></span>  
 
 ``` csharp
 modelBuilder.Entity<Course>()
@@ -152,9 +146,9 @@ modelBuilder.Entity<Course>()
          .HasForeignKey(c => c.SomeDepartmentID);
 ```  
 
-## <a name="model-used-in-samples"></a><span data-ttu-id="3ccfb-149">示例中所用的模型</span><span class="sxs-lookup"><span data-stu-id="3ccfb-149">Model Used in Samples</span></span>  
+## <a name="model-used-in-samples"></a><span data-ttu-id="694b4-149">示例中所用的模型</span><span class="sxs-lookup"><span data-stu-id="694b4-149">Model Used in Samples</span></span>  
 
-<span data-ttu-id="3ccfb-150">下面的代码优先模型用于在此页上的示例。</span><span class="sxs-lookup"><span data-stu-id="3ccfb-150">The following Code First model is used for the samples on this page.</span></span>  
+<span data-ttu-id="694b4-150">下面的代码优先模型用于在此页上的示例。</span><span class="sxs-lookup"><span data-stu-id="694b4-150">The following Code First model is used for the samples on this page.</span></span>  
 
 ``` csharp
 using System.Data.Entity;

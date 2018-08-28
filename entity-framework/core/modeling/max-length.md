@@ -1,32 +1,30 @@
 ---
 title: 最大长度-EF Core
 author: rowanmiller
-ms.author: divega
 ms.date: 10/27/2016
 ms.assetid: c39c5d43-018d-48b8-94f2-b8bc7c686c69
-ms.technology: entity-framework-core
 uid: core/modeling/max-length
-ms.openlocfilehash: 7325c0c3328477473392bf9e7c82f1696bb4f424
-ms.sourcegitcommit: 01a75cd483c1943ddd6f82af971f07abde20912e
+ms.openlocfilehash: e54d3671f378b96a49eaf4cb312e72072813fc6d
+ms.sourcegitcommit: dadee5905ada9ecdbae28363a682950383ce3e10
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2017
-ms.locfileid: "26052667"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "42996186"
 ---
-# <a name="maximum-length"></a><span data-ttu-id="2ccc8-102">最大长度</span><span class="sxs-lookup"><span data-stu-id="2ccc8-102">Maximum Length</span></span>
+# <a name="maximum-length"></a><span data-ttu-id="1969c-102">最大长度</span><span class="sxs-lookup"><span data-stu-id="1969c-102">Maximum Length</span></span>
 
-<span data-ttu-id="2ccc8-103">配置的最大长度提供了关于给定属性适用于使用适当的数据类型与数据存储的提示。</span><span class="sxs-lookup"><span data-stu-id="2ccc8-103">Configuring a maximum length provides a hint to the data store about the appropriate data type to use for a given property.</span></span> <span data-ttu-id="2ccc8-104">最大长度仅适用于数组数据类型，如`string`和`byte[]`。</span><span class="sxs-lookup"><span data-stu-id="2ccc8-104">Maximum length only applies to array data types, such as `string` and `byte[]`.</span></span>
+<span data-ttu-id="1969c-103">配置最大长度可提供对有关要使用的给定属性的相应的数据类型的数据存储区的提示。</span><span class="sxs-lookup"><span data-stu-id="1969c-103">Configuring a maximum length provides a hint to the data store about the appropriate data type to use for a given property.</span></span> <span data-ttu-id="1969c-104">最大长度仅适用于数组数据类型，如`string`和`byte[]`。</span><span class="sxs-lookup"><span data-stu-id="1969c-104">Maximum length only applies to array data types, such as `string` and `byte[]`.</span></span>
 
 > [!NOTE]  
-> <span data-ttu-id="2ccc8-105">实体框架不执行最大长度的任何的验证，然后再将数据传递给提供程序。</span><span class="sxs-lookup"><span data-stu-id="2ccc8-105">Entity Framework does not do any validation of maximum length before passing data to the provider.</span></span> <span data-ttu-id="2ccc8-106">负责要验证如果相应的提供程序或数据存储区。</span><span class="sxs-lookup"><span data-stu-id="2ccc8-106">It is up to the provider or data store to validate if appropriate.</span></span> <span data-ttu-id="2ccc8-107">例如，面向 SQL Server，超过最大长度将结果作为基础列的数据类型引发异常时将不允许过多的数据存储。</span><span class="sxs-lookup"><span data-stu-id="2ccc8-107">For example, when targeting SQL Server, exceeding the maximum length will result in an exception as the data type of the underlying column will not allow excess data to be stored.</span></span>
+> <span data-ttu-id="1969c-105">实体框架不会执行操作最大长度然后再将数据传递给提供程序的任何的验证。</span><span class="sxs-lookup"><span data-stu-id="1969c-105">Entity Framework does not do any validation of maximum length before passing data to the provider.</span></span> <span data-ttu-id="1969c-106">负责要验证是否适当的提供程序或数据存储区。</span><span class="sxs-lookup"><span data-stu-id="1969c-106">It is up to the provider or data store to validate if appropriate.</span></span> <span data-ttu-id="1969c-107">例如，针对 SQL Server，超出最大长度会导致异常，因为基础列的数据类型时将不允许过多数据存储。</span><span class="sxs-lookup"><span data-stu-id="1969c-107">For example, when targeting SQL Server, exceeding the maximum length will result in an exception as the data type of the underlying column will not allow excess data to be stored.</span></span>
 
-## <a name="conventions"></a><span data-ttu-id="2ccc8-108">约定</span><span class="sxs-lookup"><span data-stu-id="2ccc8-108">Conventions</span></span>
+## <a name="conventions"></a><span data-ttu-id="1969c-108">约定</span><span class="sxs-lookup"><span data-stu-id="1969c-108">Conventions</span></span>
 
-<span data-ttu-id="2ccc8-109">按照约定，它将保持最多要选择适当的数据类型的属性的数据库提供程序。</span><span class="sxs-lookup"><span data-stu-id="2ccc8-109">By convention, it is left up to the database provider to choose an appropriate data type for properties.</span></span> <span data-ttu-id="2ccc8-110">对于具有长度的属性，数据库提供程序通常将选择的数据类型必须允许的最长长度的数据。</span><span class="sxs-lookup"><span data-stu-id="2ccc8-110">For properties that have a length, the database provider will generally choose a data type that allows for the longest length of data.</span></span> <span data-ttu-id="2ccc8-111">例如，Microsoft SQL Server 将使用`nvarchar(max)`为`string`属性 (或`nvarchar(450)`如果列用作键)。</span><span class="sxs-lookup"><span data-stu-id="2ccc8-111">For example, Microsoft SQL Server will use `nvarchar(max)` for `string` properties (or `nvarchar(450)` if the column is used as a key).</span></span>
+<span data-ttu-id="1969c-109">按照约定，它是应由数据库提供程序选择适当的数据类型的属性。</span><span class="sxs-lookup"><span data-stu-id="1969c-109">By convention, it is left up to the database provider to choose an appropriate data type for properties.</span></span> <span data-ttu-id="1969c-110">对于具有长度的属性，数据库提供程序通常将选择允许的最长长度的数据的数据类型。</span><span class="sxs-lookup"><span data-stu-id="1969c-110">For properties that have a length, the database provider will generally choose a data type that allows for the longest length of data.</span></span> <span data-ttu-id="1969c-111">例如，将使用 Microsoft SQL Server`nvarchar(max)`有关`string`属性 (或`nvarchar(450)`如果列用作键)。</span><span class="sxs-lookup"><span data-stu-id="1969c-111">For example, Microsoft SQL Server will use `nvarchar(max)` for `string` properties (or `nvarchar(450)` if the column is used as a key).</span></span>
 
-## <a name="data-annotations"></a><span data-ttu-id="2ccc8-112">数据注释</span><span class="sxs-lookup"><span data-stu-id="2ccc8-112">Data Annotations</span></span>
+## <a name="data-annotations"></a><span data-ttu-id="1969c-112">数据注释</span><span class="sxs-lookup"><span data-stu-id="1969c-112">Data Annotations</span></span>
 
-<span data-ttu-id="2ccc8-113">数据注释可用于配置属性的最大长度。</span><span class="sxs-lookup"><span data-stu-id="2ccc8-113">You can use the Data Annotations to configure a maximum length for a property.</span></span> <span data-ttu-id="2ccc8-114">在此示例中，面向 SQL Server，这将导致`nvarchar(500)`正在使用的数据类型。</span><span class="sxs-lookup"><span data-stu-id="2ccc8-114">In this example, targeting SQL Server this would result in the `nvarchar(500)` data type being used.</span></span>
+<span data-ttu-id="1969c-113">可以使用数据注释来配置属性的最大长度。</span><span class="sxs-lookup"><span data-stu-id="1969c-113">You can use the Data Annotations to configure a maximum length for a property.</span></span> <span data-ttu-id="1969c-114">在此示例中，面向 SQL Server，这将导致`nvarchar(500)`所使用的数据类型。</span><span class="sxs-lookup"><span data-stu-id="1969c-114">In this example, targeting SQL Server this would result in the `nvarchar(500)` data type being used.</span></span>
 
 <!-- [!code-csharp[Main](samples/core/Modeling/DataAnnotations/Samples/MaxLength.cs?highlight=4)] -->
 ``` csharp
@@ -38,9 +36,9 @@ public class Blog
 }
 ```
 
-## <a name="fluent-api"></a><span data-ttu-id="2ccc8-115">Fluent API</span><span class="sxs-lookup"><span data-stu-id="2ccc8-115">Fluent API</span></span>
+## <a name="fluent-api"></a><span data-ttu-id="1969c-115">Fluent API</span><span class="sxs-lookup"><span data-stu-id="1969c-115">Fluent API</span></span>
 
-<span data-ttu-id="2ccc8-116">Fluent API 可用于配置属性的最大长度。</span><span class="sxs-lookup"><span data-stu-id="2ccc8-116">You can use the Fluent API to configure a maximum length for a property.</span></span> <span data-ttu-id="2ccc8-117">在此示例中，面向 SQL Server，这将导致`nvarchar(500)`正在使用的数据类型。</span><span class="sxs-lookup"><span data-stu-id="2ccc8-117">In this example, targeting SQL Server this would result in the `nvarchar(500)` data type being used.</span></span>
+<span data-ttu-id="1969c-116">可以使用 Fluent API 配置属性的最大长度。</span><span class="sxs-lookup"><span data-stu-id="1969c-116">You can use the Fluent API to configure a maximum length for a property.</span></span> <span data-ttu-id="1969c-117">在此示例中，面向 SQL Server，这将导致`nvarchar(500)`所使用的数据类型。</span><span class="sxs-lookup"><span data-stu-id="1969c-117">In this example, targeting SQL Server this would result in the `nvarchar(500)` data type being used.</span></span>
 
 <!-- [!code-csharp[Main](samples/core/Modeling/FluentAPI/Samples/MaxLength.cs?highlight=7,8,9)] -->
 ``` csharp

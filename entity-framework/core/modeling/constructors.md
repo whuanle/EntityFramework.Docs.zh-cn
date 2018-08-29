@@ -4,12 +4,12 @@ author: ajcvickers
 ms.date: 02/23/2018
 ms.assetid: 420AFFE7-B709-4A68-9149-F06F8746FB33
 uid: core/modeling/constructors
-ms.openlocfilehash: 0536393d074d82583f47faae13cc22498193cb7e
-ms.sourcegitcommit: dadee5905ada9ecdbae28363a682950383ce3e10
+ms.openlocfilehash: 1b36197465fb9a6571a306d36eb1e9d885a5399e
+ms.sourcegitcommit: 0cef7d448e1e47bdb333002e2254ed42d57b45b6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "42994888"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43152460"
 ---
 # <a name="entity-types-with-constructors"></a>使用构造函数的实体类型
 
@@ -25,7 +25,7 @@ ms.locfileid: "42994888"
 
 请考虑一个典型博客/文章模型：
 
-```Csharp
+``` csharp
 public class Blog
 {
     public int Id { get; set; }
@@ -50,7 +50,7 @@ public class Post
 
 当 EF Core 创建这些类型的实例时，如的结果的查询，它将首先调用默认的无参数构造函数，然后设置每个属性的值从数据库。 但是，如果 EF Core 查找的参数化构造函数参数名称和类型相匹配的映射属性，则它将改为调用这些属性具有值的参数化构造函数，然后将未显式设置每个属性。 例如：
 
-```Csharp
+``` csharp
 public class Blog
 {
     public Blog(int id, string name, string author)
@@ -99,7 +99,7 @@ public class Post
 * 使用自动生成的密钥值需要是读写的因为需要插入新实体时，密钥生成器设置密钥值的键属性。
 
 避免这些事情的简单方法是使用私有资源库。 例如：
-```Csharp
+``` csharp
 public class Blog
 {
     public Blog(int id, string name, string author)
@@ -139,7 +139,7 @@ EF Core 看到为读写模式，这意味着，像以前那样映射所有属性
 
 使用私有资源库的替代方法是使属性实际上是只读的并在 OnModelCreating 中添加更多显式映射。 同样，某些属性可以彻底删除并替换为只有字段。 例如，考虑这些实体类型：
 
-```Csharp
+``` csharp
 public class Blog
 {
     private int _id;
@@ -174,7 +174,7 @@ public class Post
 }
 ```
 与此配置在 OnModelCreating 中：
-```Csharp
+``` csharp
 protected override void OnModelCreating(ModelBuilder modelBuilder)
 {
     modelBuilder.Entity<Blog>(
@@ -215,7 +215,7 @@ EF Core 还可以将"服务"注入到实体类型的构造函数。 例如，下
 
 例如，注入的 DbContext 可用于有选择地访问数据库以获取有关相关实体的信息不加载所有这些情况下。 在下面的示例这用于获取在博客中的帖子数而不加载发布的文章：
 
-```Csharp
+``` csharp
 public class Blog
 {
     public Blog()

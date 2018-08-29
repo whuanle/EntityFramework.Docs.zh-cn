@@ -6,12 +6,12 @@ ms.date: 10/27/2016
 ms.assetid: 850d842e-3fad-4ef2-be17-053768e97b9e
 ms.technology: entity-framework-core
 uid: core/saving/basic
-ms.openlocfilehash: deead323301dc4a0ee0748b4536ddff4596b99e6
-ms.sourcegitcommit: 4997314356118d0d97b04ad82e433e49bb9420a2
+ms.openlocfilehash: ecf8f344a5baae37a5e7255a4affb1085f1b3ff3
+ms.sourcegitcommit: bdd06c9a591ba5e6d6a3ec046c80de98f598f3f3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31006658"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "42447798"
 ---
 # <a name="basic-save"></a>基本保存
 
@@ -39,7 +39,7 @@ EF 将自动检测对由上下文跟踪的现有实体所做的更改。 这包�
 
 ## <a name="deleting-data"></a>删除数据
 
-使用 *DbSet.Remove* 方法删除实体类的实例。
+使用 DbSet.Remove 方法删除实体类的实例。
 
 如果实体已存在于数据库中，则将在“SaveChanges”期间删除该实体。 如果实体尚未保存到数据库（即跟踪为“已添加”），则在调用“SaveChanges”时，该实体会从上下文中删除且不再插入。
 

@@ -1,20 +1,20 @@
 ---
 title: 支持的 .NET 实现 - EF Core
 author: rowanmiller
-ms.author: divega
 ms.date: 08/30/2017
-ms.technology: entity-framework-core
 uid: core/platforms/index
-ms.openlocfilehash: 790628c407cc4374fee4ebde8201783955afdcc3
-ms.sourcegitcommit: fd50ac53b93a03825dcbb42ed2e7ca95ca858d5f
+ms.openlocfilehash: 347965818f0eab9a86411f66eaaf10cb3aa8d652
+ms.sourcegitcommit: dadee5905ada9ecdbae28363a682950383ce3e10
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37900325"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "42996433"
 ---
 # <a name="net-implementations-supported-by-ef-core"></a>EF Core 支持的 .NET 实现
 
 我们希望 EF Core 可用于任何可编写 .NET 代码 的平台，我们仍在为实现这一目标而努力。 尽管自动测试证明 EF Core 支持 .NET Core 和 .NET Framework ，同时许多应用程序已成功使用 EF Core，但 Mono、Xamarin 和 UWP 仍存在一些问题。
+
+## <a name="overview"></a>概述
 
 下表提供了每个 .NET 实现的指南：
 
@@ -31,6 +31,18 @@ ms.locfileid: "37900325"
 
 <sup>(3)</sup> Xamarin 存在一些问题和已知限制，这些问题和限制可能会阻止部分使用 EF Core 2.0 开发的应用程序正常运行。 查看[未解决问题](https://github.com/aspnet/entityframeworkCore/issues?q=is%3Aopen+is%3Aissue+label%3Aarea-xamarin)列表，了解解决方法。
 
-<sup>(4)</sup> 早期的 EF Core 和 .NET UWP 版本存在许多兼容性问题，尤其是用于使用 .NET Native 工具链编译的应用程序时。 新的 .NET UWP 版本增加了对 .NET Standard 2.0 的支持，且包含了 .NET Native 2.0，修复了之前报告的大多数兼容性问题。 我们使用 UWP 对 EF Core 2.0.1 进行了更彻底的测试，但测试不是自动执行的。
+<sup>(4)</sup> 请参阅本文的[通用 Windows 平台](#universal-windows-platform)部分。
+
+## <a name="universal-windows-platform"></a>通用 Windows 平台
+
+早期的 EF Core 和 .NET UWP 版本存在许多兼容性问题，尤其是用于使用 .NET Native 工具链编译的应用程序时。 新的 .NET UWP 版本增加了对 .NET Standard 2.0 的支持，且包含了 .NET Native 2.0，修复了之前报告的大多数兼容性问题。 我们使用 UWP 对 EF Core 2.0.1 进行了更彻底的测试，但测试不是自动执行的。
+
+在 UWP 上使用 EF Core 时：
+
+* 若要优化查询性能，请避免在 LINQ 查询中使用匿名类型。 将 UWP 应用程序部署到应用商店要求使用 .NET Native 编译应用程序。 使用匿名类型的查询在 .NET Native 上性能较差。
+
+* 若要优化 `SaveChanges()` 性能，请使用 [ChangeTrackingStrategy.ChangingAndChangedNotifications](/dotnet/api/microsoft.entityframeworkcore.changetrackingstrategy)，并在你的实体类型中实施 [INotifyPropertyChanged](https://msdn.microsoft.com/en-us/library/system.componentmodel.inotifypropertychanged.aspx)、[INotifyPropertyChanging](https://msdn.microsoft.com/en-us/library/system.componentmodel.inotifypropertychanging.aspx) 和 [INotifyCollectionChanged](https://msdn.microsoft.com/en-us/library/system.collections.specialized.inotifycollectionchanged.aspx)。
+
+## <a name="report-issues"></a>报告问题
 
 对于未按预期工作的任意组合，我们建议在 [EF Core 问题跟踪程序](https://github.com/aspnet/entityframeworkcore/issues/new)中创建新问题。 对于特定于 Xamarin 的问题，请使用 [Xamarin.Android](https://github.com/xamarin/xamarin-android/issues/new) 或 [Xamarin.iOS](https://github.com/xamarin/xamarin-macios/issues/new) 问题跟踪程序。

@@ -6,12 +6,12 @@ ms.date: 10/27/2016
 ms.assetid: ee8e14ec-2158-4c9c-96b5-118715e2ed9e
 ms.technology: entity-framework-core
 uid: core/saving/cascade-delete
-ms.openlocfilehash: 0fc8929c56d4c657b7fb1e3c8e4b1a71659220c9
-ms.sourcegitcommit: 507a40ed050fee957bcf8cf05f6e0ec8a3b1a363
+ms.openlocfilehash: 7e1c87ae3a955c22b267a108ea7c2bb504e9acc3
+ms.sourcegitcommit: bdd06c9a591ba5e6d6a3ec046c80de98f598f3f3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/26/2018
-ms.locfileid: "31812672"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "42447642"
 ---
 # <a name="cascade-delete"></a>级联删除
 
@@ -32,7 +32,10 @@ EF Core 实现多种不同的删除行为，并允许配置各个关系的删除
 
 对于上面的第二个操作，如果外键不可以为 null，则将某个外键值设置为 null 无效。 （不可为 null 的外键相当于必选关系。）在这些情况下，EF Core 会跟踪到外键属性已标记为 null，直到调用 SaveChanges，由于无法将更改永久保存到数据库，因此会在此时引发异常。 这类似于从数据库中获取约束冲突。
 
-有四个删除行为，如下表中列出。 对于可选关系（可以为 null 的外键），_可以_保存 null 外键值，从而产生以下影响：
+有四个删除行为，如下表中列出。
+
+### <a name="optional-relationships"></a>可选关系
+对于可选关系（可以为 null 的外键），_可以_保存 null 外键值，从而产生以下影响：
 
 | 行为名称               | 对内存中的依赖项/子项的影响    | 对数据库中的依赖项/子项的影响  |
 |:----------------------------|:---------------------------------------|:---------------------------------------|
@@ -41,6 +44,7 @@ EF Core 实现多种不同的删除行为，并允许配置各个关系的删除
 | **SetNull**                 | 外键属性设置为 null | 外键属性设置为 null |
 | **Restrict**                | 无                                   | 无                                   |
 
+### <a name="required-relationships"></a>必选关系
 对于必选关系（不可为 null 的外键），_不可以_保存 null 外键值，从而产生以下影响：
 
 | 行为名称         | 对内存中的依赖项/子项的影响 | 对数据库中的依赖项/子项的影响 |

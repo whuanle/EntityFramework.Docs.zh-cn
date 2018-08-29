@@ -6,16 +6,16 @@ ms.date: 10/27/2016
 ms.assetid: 70aae9b5-8743-4557-9c5d-239f688bf418
 ms.technology: entity-framework-core
 uid: core/querying/raw-sql
-ms.openlocfilehash: 29b7e20e875bf791a88a92636c1df4bc4e31656b
-ms.sourcegitcommit: 038acd91ce2f5a28d76dcd2eab72eeba225e366d
+ms.openlocfilehash: a1d554795dcd8a3e5b44e89ac014f538598461cc
+ms.sourcegitcommit: bdd06c9a591ba5e6d6a3ec046c80de98f598f3f3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34163208"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "42447627"
 ---
 # <a name="raw-sql-queries"></a>原生 SQL 查询
 
-通过 Entity Framework Core 可以在使用关系数据库时下拉到原生 SQL 查询。 这在无法使用 LINQ 表示要执行的查询或在使用 LINQ 查询导致 SQL 发送到数据库的效率低时非常有用。
+通过 Entity Framework Core 可以在使用关系数据库时下拉到原生 SQL 查询。 这在无法使用 LINQ 表示要执行的查询或在使用 LINQ 查询导致 SQL 发送到数据库的效率低时非常有用。 原始 SQL 查询可返回实体类型，或者，从 EF Core 2.1 开始，可返回属于你的模型的[查询类型](xref:core/modeling/query-types)。
 
 > [!TIP]  
 > 可在 GitHub 上查看此文章的[示例](https://github.com/aspnet/EntityFramework.Docs/tree/master/samples/core/Querying)。
@@ -23,7 +23,6 @@ ms.locfileid: "34163208"
 ## <a name="limitations"></a>限制
 
 使用原生 SQL 查询时需注意以下几个限制：
-* SQL 查询只能用于返回属于你的模型的实体类型。 积压工作有一个增强功能，即[可从原生 SQL 查询中返回临时类型](https://github.com/aspnet/EntityFramework/issues/1862)。
 
 * SQL 查询必须返回实体或查询类型的所有属性的数据。
 
@@ -33,10 +32,10 @@ ms.locfileid: "34163208"
 
 * 传递到此方法的 `SELECT` 语句通常应该可以进行编写：如果 EF Core 需要计算服务器上的其他查询运算符（例如，转换 `FromSql` 后应用的 LINQ 运算符），则提供的 SQL 将被视为子查询。 这意味着传递的 SQL 不应包含子查询上无效的任何字符或选项，如：
   * 尾随分号
-  * 在 SQL Server 上，尾随的查询级提示，如 `OPTION (HASH JOIN)`
+  * 在 SQL Server 上，尾随的查询级提示（例如，`OPTION (HASH JOIN)`）
   * 在 SQL Server 上，不附带 `SELECT` 子句中的 `TOP 100 PERCENT` 的 `ORDER BY` 子句
 
-* 除 `SELECT` 以外的其他 SQL 语句自动识别为不可编写。 因此，存储过程的完整结果将始终返回到客户端，且在内存中计算 `FromSql` 后应用的任何 LINQ 运算符。 
+* 除 `SELECT` 以外的其他 SQL 语句自动识别为不可编写。 因此，存储过程的完整结果将始终返回到客户端，且在内存中计算 `FromSql` 后应用的任何 LINQ 运算符。
 
 ## <a name="basic-raw-sql-queries"></a>基本原生 SQL 查询
 

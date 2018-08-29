@@ -3,14 +3,13 @@ title: 设计时 DbContext 创建-EF Core
 author: bricelam
 ms.author: bricelam
 ms.date: 10/27/2017
-ms.technology: entity-framework-core
 uid: core/miscellaneous/cli/dbcontext-creation
-ms.openlocfilehash: 648ca990252fb32d8cf181a7ae672d07a81f56bb
-ms.sourcegitcommit: 0935ff275ae739243297f5b97eb21414398125c6
+ms.openlocfilehash: 66fec7605b6ac2da0af1e801f8a1dca0789aea35
+ms.sourcegitcommit: dadee5905ada9ecdbae28363a682950383ce3e10
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39201914"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "42993713"
 ---
 <a name="design-time-dbcontext-creation"></a>设计时 DbContext 创建
 ==============================
@@ -22,7 +21,7 @@ ms.locfileid: "39201914"
 -------------------------
 如果你的启动项目，ASP.NET Core 应用工具将尝试从应用程序的服务提供程序获取 DbContext 对象。
 
-该工具将首先尝试通过调用获取服务提供商`Program.BuildWebHost()`和访问`IWebHost.Services`属性。
+工具会首先尝试通过调用获取服务提供商`Program.BuildWebHost()`和访问`IWebHost.Services`属性。
 
 > [!NOTE]
 > 在创建新的 ASP.NET Core 2.0 应用程序时，默认情况下包含此挂钩。 在以前版本的 EF Core 和 ASP.NET Core，工具尝试调用`Startup.ConfigureServices`直接以获取应用程序的服务提供商，但此模式不能再正常 ASP.NET Core 2.0 应用程序中。 如果您正在升级到 2.0 ASP.NET Core 1.x 应用程序，则可以[修改你`Program`类遵循新模式][3]。

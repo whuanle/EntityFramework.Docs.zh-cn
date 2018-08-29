@@ -106,6 +106,7 @@
 ##### [SQLite 限制](core/providers/sqlite/limitations.md)
 #### [InMemory（用于测试）](core/providers/in-memory/index.md)
 #### [编写数据库提供程序](core/providers/writing-a-provider.md)
+#### [提供程序影响的更改](core/providers/provider-log.md)
 
 ### [工具和扩展](core/extensions/index.md)
 

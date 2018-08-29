@@ -3,18 +3,18 @@ title: 到新的数据库的 EF6 代码优先
 author: divega
 ms.date: 2016-10-23
 ms.assetid: 2df6cb0a-7d8b-4e28-9d05-e2b9a90125af
-ms.openlocfilehash: bb44a3300bc8ffc9d7050c4784e7b76b29c61796
-ms.sourcegitcommit: dadee5905ada9ecdbae28363a682950383ce3e10
+ms.openlocfilehash: 50c6a4710bc50879304f64e781a46c4836f86882
+ms.sourcegitcommit: 0cef7d448e1e47bdb333002e2254ed42d57b45b6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "42994613"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43152473"
 ---
 # <a name="code-first-to-a-new-database"></a>代码优先的新数据库
-此视频和分步演练会提供针对新数据库 Code First 开发的简介。 此方案包括目标不存在的数据库和 Code First 将创建，或 Code First 将添加新的空数据库表过。 代码首先允许你定义使用 C 模型\#或 VB.Net 类。 （可选） 可以使用特性在类和属性，或使用 fluent API 执行其他配置。
+此视频和分步演练会提供针对新数据库 Code First 开发的简介。 此方案包括目标不存在的数据库和 Code First 将创建，或一个空数据库，Code First 将添加到新表。 代码首先允许你定义使用 C 模型\#或 VB.Net 类。 （可选） 可以使用特性在类和属性，或使用 fluent API 执行其他配置。
 
 ## <a name="watch-the-video"></a>观看视频
-此视频提供了针对新数据库 Code First 开发的简介。 此方案包括目标不存在的数据库和 Code First 将创建，或 Code First 将添加新的空数据库表过。 代码首先允许你定义使用 C# 或 VB.Net 类模型。 （可选） 可以使用特性在类和属性，或使用 fluent API 执行其他配置。
+此视频提供了针对新数据库 Code First 开发的简介。 此方案包括目标不存在的数据库和 Code First 将创建，或一个空数据库，Code First 将添加到新表。 代码首先允许你定义使用 C# 或 VB.Net 类模型。 （可选） 可以使用特性在类和属性，或使用 fluent API 执行其他配置。
 
 **主讲人**：[Rowan Miller](http://romiller.com/)
 

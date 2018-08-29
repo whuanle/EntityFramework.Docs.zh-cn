@@ -1,16 +1,15 @@
 ---
 title: 从 EF6 移植到 EF Core-验证要求
 author: rowanmiller
-ms.author: divega
 ms.date: 10/27/2016
 ms.assetid: d3b66f3c-9d10-4974-a090-8ad093c9a53d
 uid: efcore-and-ef6/porting/ensure-requirements
-ms.openlocfilehash: 65bdc8bb9574d37db697aa47c8e8c480cefcb4f7
-ms.sourcegitcommit: bdd06c9a591ba5e6d6a3ec046c80de98f598f3f3
+ms.openlocfilehash: fd378c72a3c8de4a441861b3c52b94eba5f7e5b4
+ms.sourcegitcommit: dadee5905ada9ecdbae28363a682950383ce3e10
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37949109"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "42993435"
 ---
 # <a name="before-porting-from-ef6-to-ef-core-validate-your-applications-requirements"></a>之前从 EF6 到 EF Core的迁移： 验证应用程序的要求
 

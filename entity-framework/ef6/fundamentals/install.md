@@ -3,12 +3,12 @@ title: 获取实体框架的 EF6
 author: divega
 ms.date: 2016-10-23
 ms.assetid: 122c38a2-f9e8-4ecc-9c72-a83bc9af7814
-ms.openlocfilehash: 78ef1e7b20bd879c972870552c8f692e153b7abb
-ms.sourcegitcommit: dadee5905ada9ecdbae28363a682950383ce3e10
+ms.openlocfilehash: 91b78e56f60edf7ebc8769b1c385f8547f63cd3d
+ms.sourcegitcommit: 0cef7d448e1e47bdb333002e2254ed42d57b45b6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "42996560"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43152383"
 ---
 # <a name="get-entity-framework"></a>获取实体框架
 实体框架的 Visual Studio 和 EF 运行时由组成的 EF 工具。
@@ -39,7 +39,7 @@ Install-Package EntityFramework
 
 ## <a name="installing-a-specific-version-of-ef"></a>安装特定版本的 EF
 
-从 EF 4.1 及更高版本，已作为发布新版本的 EF 运行时[EntityFramework NuGet 包内](https://www.nuget.org/packages/EntityFramework/)。 任何这些版本可以向基于.NET Framework 的项目添加，通过在 Visual Studio 中运行以下命令[程序包管理器控制台](http://docs.nuget.org/docs/start-here/using-the-package-manager-console):
+从 EF 4.1 及更高版本，已作为发布新版本的 EF 运行时[EntityFramework NuGet 包](https://www.nuget.org/packages/EntityFramework/)。 任何这些版本可以向基于.NET Framework 的项目添加，通过在 Visual Studio 中运行以下命令[程序包管理器控制台](http://docs.nuget.org/docs/start-here/using-the-package-manager-console):
 
 ``` powershell
 Install-Package EntityFramework -Version <number>

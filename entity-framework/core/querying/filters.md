@@ -5,12 +5,12 @@ ms.author: anpete
 ms.date: 11/03/2017
 ms.technology: entity-framework-core
 uid: core/querying/filters
-ms.openlocfilehash: 4e3c3c99d155f69e00fed99c415f519808ea1a68
-ms.sourcegitcommit: 6e379265e4f087fb7cf180c824722c81750554dc
+ms.openlocfilehash: 6b7a4069917c93015a218c131ff0d0a3920fb69d
+ms.sourcegitcommit: 4467032fd6ca223e5965b59912d74cf88a1dd77f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2017
-ms.locfileid: "26053897"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "42447651"
 ---
 # <a name="global-query-filters"></a>全局查询筛选器
 
@@ -24,28 +24,28 @@ ms.locfileid: "26053897"
 下面的示例显示了如何使用全局查询筛选器在简单的博客模型中实现软删除和多租户查询行为。
 
 > [!TIP]
-> 可在 GitHub 上查看此文章的[示例](https://github.com/aspnet/EntityFrameworkCore/tree/dev/samples/QueryFilters)。
+> 可在 GitHub 上查看此文章的[示例](https://github.com/aspnet/EntityFrameworkCore/tree/master/samples/QueryFilters)。
 
 首先，定义实体：
 
-[!code-csharp[Main](../../../efcore-dev/samples/QueryFilters/Program.cs#Entities)]
+[!code-csharp[Main](../../../efcore-repo/samples/QueryFilters/Program.cs#Entities)]
 
-请记住_博客_实体上 __tenantId_ 字段的声明。 这会用于将每个博客实例与特定租户相关联。 还会定义_文章_实体类型上的 _IsDeleted_ 属性。 这会用于跟踪_文章_实例是否已“软删除”。 即实例标记为已删除，而实际上不会删除基础数据。
+请记住_博客_实体上 __tenantId_ 字段的声明。 这会用于将每个博客实例与特定租户相关联。 还会定义_文章_实体类型上的 _IsDeleted_ 属性。 这会用于跟踪文章实例是否已“软删除”。 也就是说，实例标记为已删除，而实际上不会删除基础数据。
 
 接下来，使用 ```HasQueryFilter``` API 在 _OnModelCreating_ 中配置查询筛选器。
 
-[!code-csharp[Main](../../../efcore-dev/samples/QueryFilters/Program.cs#Configuration)]
+[!code-csharp[Main](../../../efcore-repo/samples/QueryFilters/Program.cs#Configuration)]
 
 传递给 _HasQueryFilter_ 调用的谓词表达式将立即自动应用于这些类型的任何 LINQ 查询。
 
 > [!TIP]
-> 请注意 DbContext 实例级别字段的使用：```_tenantId``` 用于设置当前租户。 模型级别筛选器将使用来自正确上下文实例的值。 即执行查询的实例。
+> 请注意 DbContext 实例级别字段的使用：```_tenantId``` 用于设置当前租户。 模型级筛选器将使用正确上下文实例（即执行查询的实例）中的值。
 
 ## <a name="disabling-filters"></a>禁用筛选器
 
 可使用 ```IgnoreQueryFilters()``` 运算符对各个 LINQ 查询禁用筛选器。
 
-[!code-csharp[Main](../../../efcore-dev/samples/QueryFilters/Program.cs#IgnoreFilters)]
+[!code-csharp[Main](../../../efcore-repo/samples/QueryFilters/Program.cs#IgnoreFilters)]
 
 ## <a name="limitations"></a>限制
 

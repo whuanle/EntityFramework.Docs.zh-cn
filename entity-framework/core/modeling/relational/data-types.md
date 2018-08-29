@@ -1,41 +1,39 @@
 ---
 title: 数据类型的 EF Core
 author: rowanmiller
-ms.author: divega
 ms.date: 10/27/2016
 ms.assetid: 9d2e647f-29e4-483b-af00-74269eb06e8f
-ms.technology: entity-framework-core
 uid: core/modeling/relational/data-types
-ms.openlocfilehash: fd4668a3f9554eb9d3b1161d5dddce2fcdcac712
-ms.sourcegitcommit: 860ec5d047342fbc4063a0de881c9861cc1f8813
+ms.openlocfilehash: 9060f66c752be01090ce40be6bf3a32f348ce571
+ms.sourcegitcommit: dadee5905ada9ecdbae28363a682950383ce3e10
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/05/2017
-ms.locfileid: "26053497"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "42993516"
 ---
-# <a name="data-types"></a><span data-ttu-id="fd16e-102">数据类型</span><span class="sxs-lookup"><span data-stu-id="fd16e-102">Data Types</span></span>
+# <a name="data-types"></a><span data-ttu-id="7ca9c-102">数据类型</span><span class="sxs-lookup"><span data-stu-id="7ca9c-102">Data Types</span></span>
 
 > [!NOTE]  
-> <span data-ttu-id="fd16e-103">一般情况下，此部分中的配置是适用于关系数据库。</span><span class="sxs-lookup"><span data-stu-id="fd16e-103">The configuration in this section is applicable to relational databases in general.</span></span> <span data-ttu-id="fd16e-104">此处所示的扩展方法将变为可用时安装关系数据库提供程序 (由于共享*Microsoft.EntityFrameworkCore.Relational*包)。</span><span class="sxs-lookup"><span data-stu-id="fd16e-104">The extension methods shown here will become available when you install a relational database provider (due to the shared *Microsoft.EntityFrameworkCore.Relational* package).</span></span>
+> <span data-ttu-id="7ca9c-103">一般而言，本部分中的配置适用于关系数据库。</span><span class="sxs-lookup"><span data-stu-id="7ca9c-103">The configuration in this section is applicable to relational databases in general.</span></span> <span data-ttu-id="7ca9c-104">安装关系数据库提供程序时，此处显示的扩展方法将变为可用（原因在于共享的 Microsoft.EntityFrameworkCore.Relational 包）。</span><span class="sxs-lookup"><span data-stu-id="7ca9c-104">The extension methods shown here will become available when you install a relational database provider (due to the shared *Microsoft.EntityFrameworkCore.Relational* package).</span></span>
 
-<span data-ttu-id="fd16e-105">数据类型是指数据库特定类型的属性映射的列。</span><span class="sxs-lookup"><span data-stu-id="fd16e-105">Data type refers to the database specific type of the column to which a property is mapped.</span></span>
+<span data-ttu-id="7ca9c-105">数据类型是指数据库特定类型的属性映射到其中的列。</span><span class="sxs-lookup"><span data-stu-id="7ca9c-105">Data type refers to the database specific type of the column to which a property is mapped.</span></span>
 
-## <a name="conventions"></a><span data-ttu-id="fd16e-106">约定</span><span class="sxs-lookup"><span data-stu-id="fd16e-106">Conventions</span></span>
+## <a name="conventions"></a><span data-ttu-id="7ca9c-106">约定</span><span class="sxs-lookup"><span data-stu-id="7ca9c-106">Conventions</span></span>
 
-<span data-ttu-id="fd16e-107">按照约定，数据库提供程序选择基于属性的 CLR 类型的数据类型。</span><span class="sxs-lookup"><span data-stu-id="fd16e-107">By convention, the database provider selects a data type based on the CLR type of the property.</span></span> <span data-ttu-id="fd16e-108">它还会考虑其他元数据，例如配置[最大长度](../max-length.md)，无论该属性是一部分的主键，等等。</span><span class="sxs-lookup"><span data-stu-id="fd16e-108">It also takes into account other metadata, such as the configured [Maximum Length](../max-length.md), whether the property is part of a primary key, etc.</span></span>
+<span data-ttu-id="7ca9c-107">按照约定，数据库提供程序选择基于属性的 CLR 类型的数据类型。</span><span class="sxs-lookup"><span data-stu-id="7ca9c-107">By convention, the database provider selects a data type based on the CLR type of the property.</span></span> <span data-ttu-id="7ca9c-108">它还会考虑其他元数据，例如配置[最大长度](../max-length.md)，该属性是否属于主键，等等。</span><span class="sxs-lookup"><span data-stu-id="7ca9c-108">It also takes into account other metadata, such as the configured [Maximum Length](../max-length.md), whether the property is part of a primary key, etc.</span></span>
 
-<span data-ttu-id="fd16e-109">例如，SQL Server 使用`datetime2(7)`为`DateTime`属性，和`nvarchar(max)`为`string`属性 (或`nvarchar(450)`为`string`用作键的属性)。</span><span class="sxs-lookup"><span data-stu-id="fd16e-109">For example, SQL Server uses `datetime2(7)` for `DateTime` properties, and `nvarchar(max)` for `string` properties (or `nvarchar(450)` for `string` properties that are used as a key).</span></span>
+<span data-ttu-id="7ca9c-109">例如，使用 SQL Server`datetime2(7)`有关`DateTime`属性，并`nvarchar(max)`的`string`属性 (或`nvarchar(450)`的`string`用作键的属性)。</span><span class="sxs-lookup"><span data-stu-id="7ca9c-109">For example, SQL Server uses `datetime2(7)` for `DateTime` properties, and `nvarchar(max)` for `string` properties (or `nvarchar(450)` for `string` properties that are used as a key).</span></span>
 
-## <a name="data-annotations"></a><span data-ttu-id="fd16e-110">数据注释</span><span class="sxs-lookup"><span data-stu-id="fd16e-110">Data Annotations</span></span>
+## <a name="data-annotations"></a><span data-ttu-id="7ca9c-110">数据注释</span><span class="sxs-lookup"><span data-stu-id="7ca9c-110">Data Annotations</span></span>
 
-<span data-ttu-id="fd16e-111">可以使用数据注释以指定确切的数据类型列。</span><span class="sxs-lookup"><span data-stu-id="fd16e-111">You can use Data Annotations to specify an exact data type for a column.</span></span>
+<span data-ttu-id="7ca9c-111">可以使用数据注释来指定精确的数据类型的列。</span><span class="sxs-lookup"><span data-stu-id="7ca9c-111">You can use Data Annotations to specify an exact data type for a column.</span></span>
 
-<span data-ttu-id="fd16e-112">例如下面的代码配置`Url`为非 unicode 字符串，最大长度为`200`和`Rating`用作小数点的精度`5`和缩放的`2`。</span><span class="sxs-lookup"><span data-stu-id="fd16e-112">For example the following code configures `Url` as a non-unicode string with maximum length of `200` and `Rating` as decimal with precision of `5` and scale of `2`.</span></span>
+<span data-ttu-id="7ca9c-112">例如下面的代码中将配置`Url`为非 unicode 字符串，最大长度为`200`并`Rating`用作小数点的精度`5`和缩放的`2`。</span><span class="sxs-lookup"><span data-stu-id="7ca9c-112">For example the following code configures `Url` as a non-unicode string with maximum length of `200` and `Rating` as decimal with precision of `5` and scale of `2`.</span></span>
 
 [!code-csharp[Main](../../../../samples/core/Modeling/DataAnnotations/Samples/Relational/DataType.cs?name=Entities&highlight=4,6)]
 
-## <a name="fluent-api"></a><span data-ttu-id="fd16e-113">Fluent API</span><span class="sxs-lookup"><span data-stu-id="fd16e-113">Fluent API</span></span>
+## <a name="fluent-api"></a><span data-ttu-id="7ca9c-113">Fluent API</span><span class="sxs-lookup"><span data-stu-id="7ca9c-113">Fluent API</span></span>
 
-<span data-ttu-id="fd16e-114">Fluent API 还可用于指定列的相同数据类型。</span><span class="sxs-lookup"><span data-stu-id="fd16e-114">You can also use the Fluent API to specify the same data types for the columns.</span></span>
+<span data-ttu-id="7ca9c-114">Fluent API 还可用于指定相同的数据类型的列。</span><span class="sxs-lookup"><span data-stu-id="7ca9c-114">You can also use the Fluent API to specify the same data types for the columns.</span></span>
 
 [!code-csharp[Main](../../../../samples/core/Modeling/FluentAPI/Samples/Relational/DataType.cs?name=Model&highlight=9-10)]

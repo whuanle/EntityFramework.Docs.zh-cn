@@ -2,19 +2,13 @@
 title: CSDL 规范的 EF6
 author: divega
 ms.date: 2016-10-23
-ms.prod: entity-framework
-ms.author: divega
-ms.manager: avickers
-ms.technology: entity-framework-6
-ms.topic: article
 ms.assetid: c54255f4-253f-49eb-bec8-ad7927ac2fa3
-caps.latest.revision: 3
-ms.openlocfilehash: 0ece73a19fe7ea244905bccb728ab2a104c5179f
-ms.sourcegitcommit: f05e7b62584cf228f17390bb086a61d505712e1b
+ms.openlocfilehash: 88669cf80f9a792fda7d191d9f6be2b1734691df
+ms.sourcegitcommit: dadee5905ada9ecdbae28363a682950383ce3e10
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/08/2018
-ms.locfileid: "39120377"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "42994724"
 ---
 # <a name="csdl-specification"></a>CSDL 规范
 概念架构定义语言 (CSDL) 是一种基于 XML 的语言，它描述构成数据驱动应用程序的概念模型的实体、关系和函数。 实体框架或 WCF 数据服务可以使用此概念模型。 实体框架使用通过 CSDL 描述的元数据实体和关系数据源的概念模型中定义的映射。 有关详细信息，请参阅[SSDL 规范](~/ef6/modeling/designer/advanced/edmx/ssdl-spec.md)并[MSL 规范](~/ef6/modeling/designer/advanced/edmx/msl-spec.md)。

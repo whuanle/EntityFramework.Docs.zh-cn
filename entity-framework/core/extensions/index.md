@@ -4,12 +4,12 @@ author: ErikEJ
 ms.date: 7/3/2018
 ms.assetid: 14fffb6c-a687-4881-a094-af4a1359a296
 uid: core/extensions/index
-ms.openlocfilehash: e9f9a6cbbceeb0379ddb5588b564b0d2a962795f
-ms.sourcegitcommit: dadee5905ada9ecdbae28363a682950383ce3e10
+ms.openlocfilehash: e88bd01f79e05a9a3b0c0bbeecca89df178098a6
+ms.sourcegitcommit: 0cef7d448e1e47bdb333002e2254ed42d57b45b6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "42995508"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43152447"
 ---
 # <a name="ef-core-tools--extensions"></a>EF Core 工具和扩展
 
@@ -37,6 +37,12 @@ Devart Entity Developer 是一种用于 ADO.NET 实体框架、NHibernate、Linq
 Visual Studio 2017 及以上版本扩展。 可从现有数据库或 SQL Server 数据库项目反向 DbContext 和 POCO 类的工程，并采用各种方式可视化和检查 DbContext。
 
 [GitHub wiki](https://github.com/ErikEJ/SqlCeToolbox/wiki/EF-Core-Power-Tools)
+
+### <a name="entity-framework-visual-editor"></a>实体框架可视化编辑器
+
+Visual Studio 2017 扩展，可增添 ORM 设计器，用于 Entity Framework 6、Core 2.0 和 Core 2.1 类的可视化设计。 使用 T4 模板生成代码，因此可完全自定义以满足任何需求。 支持继承、单向和双向关联，还支持枚举、用颜色标识类、添加文本块以阐释设计的潜在不可预测部分。
+
+[市场](https://marketplace.visualstudio.com/items?itemName=michaelsawczyn.EFDesigner)
 
 ## <a name="extensions"></a>扩展
 

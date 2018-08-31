@@ -4,12 +4,12 @@ author: divega
 ms.date: 2016-10-23
 ms.assetid: 8ae74d63-6bad-4686-b325-bbf9d68f3743
 uid: ef6/index
-ms.openlocfilehash: 00e5f36788be599ea2e2b44480107f14e2f026c3
-ms.sourcegitcommit: dadee5905ada9ecdbae28363a682950383ce3e10
+ms.openlocfilehash: 5218f3f8149b15cb5ad3a14779dfa9c23eb71a0e
+ms.sourcegitcommit: 0cef7d448e1e47bdb333002e2254ed42d57b45b6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "42998024"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43152489"
 ---
 # <a name="entity-framework-6"></a>Entity Framework 6
 实体框架 6 (EF6) 是经试验和测试的关系映射器 (O/RM)，适用于 .NET 的对象，其功能和稳定性经过了多年的开发和调试。

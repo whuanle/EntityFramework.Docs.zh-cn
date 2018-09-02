@@ -1,17 +1,15 @@
 ---
 title: 事务 - EF Core
 author: rowanmiller
-ms.author: divega
 ms.date: 10/27/2016
 ms.assetid: d3e6515b-8181-482c-a790-c4a6778748c1
-ms.technology: entity-framework-core
 uid: core/saving/transactions
-ms.openlocfilehash: 6e6ded74e15187b387e8e0b2ad00cb47a84ff7e8
-ms.sourcegitcommit: 6cf6493d81b6d81b0b0f37a00e0fc23ec7189158
+ms.openlocfilehash: 7083a1228420416a1b60d9744ca2dad2339be53f
+ms.sourcegitcommit: dadee5905ada9ecdbae28363a682950383ce3e10
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/12/2018
-ms.locfileid: "42447714"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "42993600"
 ---
 # <a name="using-transactions"></a>使用事务
 
@@ -106,4 +104,4 @@ public class BloggingContext : DbContext
    > [!IMPORTANT]  
    > 建议你测试在依赖提供程序以管理事务之前 API 与该提供程序的行为是否正确。 如果不正确，则建议你与数据库提供程序的维护人员联系。 
 
-2. 自版本 2.1 起，.NET Core 中的 System.Transactions 实现不包括对分布式事务的支持，因此不能使用 `TransactionScope` 或 `CommitableTransaction` 来跨多个资源管理器协调事务。 
+2. 自版本 2.1 起，.NET Core 中的 System.Transactions 实现不包括对分布式事务的支持，因此不能使用 `TransactionScope` 或 `CommittableTransaction` 来跨多个资源管理器协调事务。 

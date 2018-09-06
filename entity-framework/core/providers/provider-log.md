@@ -6,12 +6,12 @@ ms.date: 08/08/2018
 ms.assetid: 7CEF496E-A5B0-4F5F-B68E-529609B23EF9
 ms.technology: entity-framework-core
 uid: core/providers/provider-log
-ms.openlocfilehash: ee73940e3c0030b76e73438b1852cc29ebeadb45
-ms.sourcegitcommit: dadee5905ada9ecdbae28363a682950383ce3e10
+ms.openlocfilehash: 44b200223153fca44cb2cfa3e78b3bedc7b4a552
+ms.sourcegitcommit: a81aed575372637997b18a0f9466d8fefb33350a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "42998359"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43821330"
 ---
 # <a name="provider-impacting-changes"></a>提供程序影响的更改
 
@@ -46,3 +46,8 @@ ms.locfileid: "42998359"
   * 允许在派生类中简化 RelationalTypeMapping 到 2.1 中的更改。 我们不相信这中断到提供程序，但提供程序可以充分利用此更改及其派生类型中将类映射。
 * https://github.com/aspnet/EntityFrameworkCore/pull/12069 -标记或命名查询
   * 添加用于标记 LINQ 查询并显示为 SQL 中的注释这些标记的基础结构。 这可能需要提供程序中的 SQL 生成的做出响应。
+* https://github.com/aspnet/EntityFrameworkCore/pull/13115 -支持通过 NTS 空间数据
+  * 允许类型映射和成员翻译人员外部提供程序注册
+    * 提供程序必须调用基。在其工作其 ITypeMappingSource 实现中 FindMapping()
+  * 遵循此模式将空间支持添加到您在提供程序都是一致的提供商。
+

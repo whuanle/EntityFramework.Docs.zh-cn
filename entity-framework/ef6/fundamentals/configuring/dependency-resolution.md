@@ -3,12 +3,12 @@ title: 依赖项解析-EF6
 author: divega
 ms.date: 2016-10-23
 ms.assetid: 32d19ac6-9186-4ae1-8655-64ee49da55d0
-ms.openlocfilehash: 45681bb0cedecd502b1968b90b7f682d3257dd23
-ms.sourcegitcommit: dadee5905ada9ecdbae28363a682950383ce3e10
+ms.openlocfilehash: c6c56c3048e17a5c888ffe564e7606abf8b0c4ed
+ms.sourcegitcommit: 0d36e8ff0892b7f034b765b15e041f375f88579a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "42998157"
+ms.lasthandoff: 09/09/2018
+ms.locfileid: "44251240"
 ---
 # <a name="dependency-resolution"></a>依赖项解析
 > [!NOTE]
@@ -25,13 +25,11 @@ public interface IDbDependencyResolver
 
 GetService 方法通常由 EF 调用和由 IDbDependencyResolver EF 或应用程序提供的实现。 类型参数调用时，是所请求的服务的接口或基类的类类型和键的对象为 null 或对象，用于提供有关所请求服务的上下文信息。  
 
-这篇文章不包含有关如何实现 IDbDependencyResolver，完整的详细信息，但充当其 EF 调用 GetService 和键的对象的语义的每个服务类型 （即，接口和基类类类型） 的引用调用。 本文档将保持最新状态添加其他服务时。  
+除非另有说明返回任何对象必须是线程安全，因为它可以用作单一实例。 在许多情况下，在这种情况下是一个工厂返回的对象工厂本身必须是线程安全，但从工厂返回的对象不需要是线程安全，因为从每次使用工厂请求的新实例。
 
-## <a name="services-resolved"></a>解析的服务  
+这篇文章不包含有关如何实现 IDbDependencyResolver，完整的详细信息，但充当其 EF 调用 GetService 和键的对象的语义的每个服务类型 （即，接口和基类类类型） 的引用调用。
 
-除非另有说明返回任何对象必须是线程安全，因为它可以用作单一实例。 在许多情况下，在这种情况下是一个工厂返回的对象工厂本身必须是线程安全，但从工厂返回的对象不需要是线程安全，因为从每次使用工厂请求的新实例。  
-
-### <a name="systemdataentityidatabaseinitializertcontext"></a>System.Data.Entity.IDatabaseInitializer < TContext\>  
+## <a name="systemdataentityidatabaseinitializertcontext"></a>System.Data.Entity.IDatabaseInitializer < TContext\>  
 
 **版本引入了**: EF6.0.0  
 
@@ -39,7 +37,7 @@ GetService 方法通常由 EF 调用和由 IDbDependencyResolver EF 或应用程
 
 **密钥**： 未使用; 将为 null  
 
-### <a name="funcsystemdataentitymigrationssqlmigrationsqlgenerator"></a>Func < System.Data.Entity.Migrations.Sql.MigrationSqlGenerator\>  
+## <a name="funcsystemdataentitymigrationssqlmigrationsqlgenerator"></a>Func < System.Data.Entity.Migrations.Sql.MigrationSqlGenerator\>  
 
 **版本引入了**: EF6.0.0
 
@@ -50,7 +48,7 @@ GetService 方法通常由 EF 调用和由 IDbDependencyResolver EF 或应用程
 >[!NOTE]
 > 有关在 EF6 中与提供程序相关的服务的详细信息，请参阅[EF6 提供程序模型](~/ef6/fundamentals/providers/provider-model.md)部分。  
 
-### <a name="systemdataentitycorecommondbproviderservices"></a>System.Data.Entity.Core.Common.DbProviderServices  
+## <a name="systemdataentitycorecommondbproviderservices"></a>System.Data.Entity.Core.Common.DbProviderServices  
 
 **版本引入了**: EF6.0.0  
 
@@ -61,7 +59,7 @@ GetService 方法通常由 EF 调用和由 IDbDependencyResolver EF 或应用程
 >[!NOTE]
 > 有关在 EF6 中与提供程序相关的服务的详细信息，请参阅[EF6 提供程序模型](~/ef6/fundamentals/providers/provider-model.md)部分。  
 
-### <a name="systemdataentityinfrastructureidbconnectionfactory"></a>System.Data.Entity.Infrastructure.IDbConnectionFactory  
+## <a name="systemdataentityinfrastructureidbconnectionfactory"></a>System.Data.Entity.Infrastructure.IDbConnectionFactory  
 
 **版本引入了**: EF6.0.0  
 
@@ -72,7 +70,7 @@ GetService 方法通常由 EF 调用和由 IDbDependencyResolver EF 或应用程
 >[!NOTE]
 > 有关在 EF6 中与提供程序相关的服务的详细信息，请参阅[EF6 提供程序模型](~/ef6/fundamentals/providers/provider-model.md)部分。  
 
-### <a name="systemdataentityinfrastructureimanifesttokenservice"></a>System.Data.Entity.Infrastructure.IManifestTokenService  
+## <a name="systemdataentityinfrastructureimanifesttokenservice"></a>System.Data.Entity.Infrastructure.IManifestTokenService  
 
 **版本引入了**: EF6.0.0  
 
@@ -82,7 +80,7 @@ GetService 方法通常由 EF 调用和由 IDbDependencyResolver EF 或应用程
 
 **密钥**： 未使用; 将为 null  
 
-### <a name="systemdataentityinfrastructureidbproviderfactoryservice"></a>System.Data.Entity.Infrastructure.IDbProviderFactoryService  
+## <a name="systemdataentityinfrastructureidbproviderfactoryservice"></a>System.Data.Entity.Infrastructure.IDbProviderFactoryService  
 
 **版本引入了**: EF6.0.0  
 
@@ -90,7 +88,7 @@ GetService 方法通常由 EF 调用和由 IDbDependencyResolver EF 或应用程
 
 **密钥**： 未使用; 将为 null  
 
-### <a name="funcdbcontext-systemdataentityinfrastructureidbmodelcachekey"></a>Func < DbContext，System.Data.Entity.Infrastructure.IDbModelCacheKey\>  
+## <a name="funcdbcontext-systemdataentityinfrastructureidbmodelcachekey"></a>Func < DbContext，System.Data.Entity.Infrastructure.IDbModelCacheKey\>  
 
 **版本引入了**: EF6.0.0  
 
@@ -98,7 +96,7 @@ GetService 方法通常由 EF 调用和由 IDbDependencyResolver EF 或应用程
 
 **密钥**： 未使用; 将为 null  
 
-### <a name="systemdataentityspatialdbspatialservices"></a>System.Data.Entity.Spatial.DbSpatialServices  
+## <a name="systemdataentityspatialdbspatialservices"></a>System.Data.Entity.Spatial.DbSpatialServices  
 
 **版本引入了**: EF6.0.0  
 
@@ -109,7 +107,7 @@ GetService 方法通常由 EF 调用和由 IDbDependencyResolver EF 或应用程
 >[!NOTE]
 > 有关在 EF6 中与提供程序相关的服务的详细信息，请参阅[EF6 提供程序模型](~/ef6/fundamentals/providers/provider-model.md)部分。  
 
-### <a name="funcsystemdataentityinfrastructureidbexecutionstrategy"></a>Func < System.Data.Entity.Infrastructure.IDbExecutionStrategy\>  
+## <a name="funcsystemdataentityinfrastructureidbexecutionstrategy"></a>Func < System.Data.Entity.Infrastructure.IDbExecutionStrategy\>  
 
 **版本引入了**: EF6.0.0  
 
@@ -120,7 +118,7 @@ GetService 方法通常由 EF 调用和由 IDbDependencyResolver EF 或应用程
 >[!NOTE]
 > 有关在 EF6 中与提供程序相关的服务的详细信息，请参阅[EF6 提供程序模型](~/ef6/fundamentals/providers/provider-model.md)部分。  
 
-### <a name="funcdbconnection-string-systemdataentitymigrationshistoryhistorycontext"></a>Func < DbConnection，字符串，System.Data.Entity.Migrations.History.HistoryContext\>  
+## <a name="funcdbconnection-string-systemdataentitymigrationshistoryhistorycontext"></a>Func < DbConnection，字符串，System.Data.Entity.Migrations.History.HistoryContext\>  
 
 **版本引入了**: EF6.0.0  
 
@@ -131,7 +129,7 @@ GetService 方法通常由 EF 调用和由 IDbDependencyResolver EF 或应用程
 >[!NOTE]
 > 有关在 EF6 中与提供程序相关的服务的详细信息，请参阅[EF6 提供程序模型](~/ef6/fundamentals/providers/provider-model.md)部分。  
 
-### <a name="systemdatacommondbproviderfactory"></a>System.Data.Common.DbProviderFactory  
+## <a name="systemdatacommondbproviderfactory"></a>System.Data.Common.DbProviderFactory  
 
 **版本引入了**: EF6.0.0  
 
@@ -142,7 +140,7 @@ GetService 方法通常由 EF 调用和由 IDbDependencyResolver EF 或应用程
 >[!NOTE]
 > 此服务不通常会更改直接由于的默认实现使用普通 ADO.NET 提供程序注册。 有关在 EF6 中与提供程序相关的服务的详细信息，请参阅[EF6 提供程序模型](~/ef6/fundamentals/providers/provider-model.md)部分。  
 
-### <a name="systemdataentityinfrastructureiproviderinvariantname"></a>System.Data.Entity.Infrastructure.IProviderInvariantName  
+## <a name="systemdataentityinfrastructureiproviderinvariantname"></a>System.Data.Entity.Infrastructure.IProviderInvariantName  
 
 **版本引入了**: EF6.0.0  
 
@@ -153,7 +151,7 @@ GetService 方法通常由 EF 调用和由 IDbDependencyResolver EF 或应用程
 >[!NOTE]
 > 有关在 EF6 中与提供程序相关的服务的详细信息，请参阅[EF6 提供程序模型](~/ef6/fundamentals/providers/provider-model.md)部分。  
 
-### <a name="systemdataentitycoremappingviewgenerationiviewassemblycache"></a>System.Data.Entity.Core.Mapping.ViewGeneration.IViewAssemblyCache  
+## <a name="systemdataentitycoremappingviewgenerationiviewassemblycache"></a>System.Data.Entity.Core.Mapping.ViewGeneration.IViewAssemblyCache  
 
 **版本引入了**: EF6.0.0  
 
@@ -161,7 +159,7 @@ GetService 方法通常由 EF 调用和由 IDbDependencyResolver EF 或应用程
 
 **密钥**： 未使用; 将为 null  
 
-### <a name="systemdataentityinfrastructurepluralizationipluralizationservice"></a>System.Data.Entity.Infrastructure.Pluralization.IPluralizationService
+## <a name="systemdataentityinfrastructurepluralizationipluralizationservice"></a>System.Data.Entity.Infrastructure.Pluralization.IPluralizationService
 
 **版本引入了**: EF6.0.0  
 
@@ -169,7 +167,7 @@ GetService 方法通常由 EF 调用和由 IDbDependencyResolver EF 或应用程
 
 **密钥**： 未使用; 将为 null  
 
-### <a name="systemdataentityinfrastructureinterceptionidbinterceptor"></a>System.Data.Entity.Infrastructure.Interception.IDbInterceptor  
+## <a name="systemdataentityinfrastructureinterceptionidbinterceptor"></a>System.Data.Entity.Infrastructure.Interception.IDbInterceptor  
 
 **版本引入了**: EF6.0.0
 
@@ -177,7 +175,7 @@ GetService 方法通常由 EF 调用和由 IDbDependencyResolver EF 或应用程
 
 **密钥**： 未使用; 将为 null。  
 
-### <a name="funcsystemdataentitydbcontext-actionstring-systemdataentityinfrastructureinterceptiondatabaselogformatter"></a>Func < System.Data.Entity.DbContext、 操作 < 字符串\>，System.Data.Entity.Infrastructure.Interception.DatabaseLogFormatter\>  
+## <a name="funcsystemdataentitydbcontext-actionstring-systemdataentityinfrastructureinterceptiondatabaselogformatter"></a>Func < System.Data.Entity.DbContext、 操作 < 字符串\>，System.Data.Entity.Infrastructure.Interception.DatabaseLogFormatter\>  
 
 **版本引入了**: EF6.0.0  
 
@@ -185,7 +183,7 @@ GetService 方法通常由 EF 调用和由 IDbDependencyResolver EF 或应用程
 
 **密钥**： 未使用; 将为 null。  
 
-### <a name="funcsystemdataentitydbcontext"></a>Func < System.Data.Entity.DbContext\>  
+## <a name="funcsystemdataentitydbcontext"></a>Func < System.Data.Entity.DbContext\>  
 
 **版本引入了**: EF6.1.0  
 
@@ -193,7 +191,7 @@ GetService 方法通常由 EF 调用和由 IDbDependencyResolver EF 或应用程
 
 **密钥**: 工厂为其所需的派生 dbcontext 类型的类型对象。  
 
-### <a name="funcsystemdataentitycoremetadataedmimetadataannotationserializer"></a>Func < System.Data.Entity.Core.Metadata.Edm.IMetadataAnnotationSerializer\>  
+## <a name="funcsystemdataentitycoremetadataedmimetadataannotationserializer"></a>Func < System.Data.Entity.Core.Metadata.Edm.IMetadataAnnotationSerializer\>  
 
 **版本引入了**: EF6.1.0  
 
@@ -201,7 +199,7 @@ GetService 方法通常由 EF 调用和由 IDbDependencyResolver EF 或应用程
 
 **密钥**： 正在批注的名称序列化或反序列化。  
 
-### <a name="funcsystemdataentityinfrastructuretransactionhandler"></a>Func < System.Data.Entity.Infrastructure.TransactionHandler\>  
+## <a name="funcsystemdataentityinfrastructuretransactionhandler"></a>Func < System.Data.Entity.Infrastructure.TransactionHandler\>  
 
 **版本引入了**: EF6.1.0  
 

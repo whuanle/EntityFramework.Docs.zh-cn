@@ -3,12 +3,12 @@ title: 验证-EF6
 author: divega
 ms.date: 2016-10-23
 ms.assetid: 77d6a095-c0d0-471e-80b9-8f9aea6108b2
-ms.openlocfilehash: eec834888e2e3efaadc8acf9d4f64307f394ea4a
-ms.sourcegitcommit: dadee5905ada9ecdbae28363a682950383ce3e10
+ms.openlocfilehash: 65639b0f91f54ee2cd1336f6b6cd4caf45ede680
+ms.sourcegitcommit: 0d36e8ff0892b7f034b765b15e041f375f88579a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "42994440"
+ms.lasthandoff: 09/09/2018
+ms.locfileid: "44251019"
 ---
 # <a name="data-validation"></a>数据验证
 > [!NOTE]
@@ -54,7 +54,7 @@ ms.locfileid: "42994440"
 
 与任何其他代码或应用程序中的标记更改时，现有的 MVC 应用程序将执行客户端验证，甚至动态生成使用的属性和批注名称的消息。
 
-![figure01](~/ef6/media/figure01.png)
+![图 1](~/ef6/media/figure01.png)
 
 文中重新创建此视图的方法，实体框架用于将新博客保存到数据库，但 MVC 的客户端验证会触发之前应用程序到达该代码。
 
@@ -153,7 +153,7 @@ ValidationResult 构造函数采用一个字符串，表示错误消息和一个
 
 与 Fluent API 提供的验证，此验证结果会被视为由视图和我之前使用将错误添加到 ModelState 的异常处理程序是不必要的。 由于我在 ValidationResult 中设置两个属性名称，MVC HtmlHelpers 这些属性的两个显示的错误消息。
 
-![figure02](~/ef6/media/figure02.png)
+![图 2](~/ef6/media/figure02.png)
 
 ## <a name="dbcontextvalidateentity"></a>DbContext.ValidateEntity
 

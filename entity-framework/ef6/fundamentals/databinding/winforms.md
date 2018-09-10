@@ -3,12 +3,12 @@ title: 使用 WinForms-EF6 进行数据绑定
 author: divega
 ms.date: 2016-10-23
 ms.assetid: 80fc5062-2f1c-4dbd-ab6e-b99496784b36
-ms.openlocfilehash: 7ceb8e85fe3d8f5ab9a5e58ef9c84599585d8f77
-ms.sourcegitcommit: dadee5905ada9ecdbae28363a682950383ce3e10
+ms.openlocfilehash: 071172810f7dac45f42aca0efa7f329bac31e9cd
+ms.sourcegitcommit: 0d36e8ff0892b7f034b765b15e041f375f88579a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "42994524"
+ms.lasthandoff: 09/09/2018
+ms.locfileid: "44251188"
 ---
 # <a name="databinding-with-winforms"></a>使用 WinForms 进行数据绑定
 此分步演练说明如何将 POCO 类型绑定到"母版-详细信息"窗体中的 Window 窗体 (WinForms) 控件。 应用程序使用实体框架来填充数据库中的数据对象、 跟踪更改，然后将数据保存到数据库。
@@ -179,17 +179,17 @@ ms.locfileid: "42994524"
 -   右键单击**数据连接-&gt;添加连接...**
 -   如果你尚未连接到数据库服务器资源管理器之前将需要选择 Microsoft SQL Server 作为数据源
 
-    ![ChangeDataSource](~/ef6/media/changedatasource.png)
+    ![更改数据源](~/ef6/media/changedatasource.png)
 
 -   连接到 LocalDB 或 SQL Express，具体取决于哪一个已安装，并输入**产品**作为数据库名称
 
-    ![AddConnectionLocalDB](~/ef6/media/addconnectionlocaldb.png)
+    ![添加连接 LocalDB](~/ef6/media/addconnectionlocaldb.png)
 
-    ![AddConnectionExpress](~/ef6/media/addconnectionexpress.png)
+    ![添加连接 Express](~/ef6/media/addconnectionexpress.png)
 
 -   选择**确定**并将你想要创建新数据库，请选择要求你**是**
 
-    ![CreateDatabase](~/ef6/media/createdatabase.png)
+    ![创建数据库](~/ef6/media/createdatabase.png)
 
 -   新数据库现在将出现在服务器资源管理器，右键单击它并选择**新查询**
 -   将下面的 SQL 复制到新的查询，然后右键单击查询并选择**Execute**
@@ -227,11 +227,11 @@ ms.locfileid: "42994524"
 
 -   选择连接到第一个部分中创建的数据库中，输入**ProductContext**作为名称的连接字符串和单击**下一步**
 
-    ![ChooseYourConnection](~/ef6/media/chooseyourconnection.png)
+    ![选择您的连接](~/ef6/media/chooseyourconnection.png)
 
 -   单击表导入的所有表并单击完成旁边的复选框
 
-    ![ChooseYourObjects](~/ef6/media/chooseyourobjects.png)
+    ![选择对象](~/ef6/media/chooseyourobjects.png)
 
 反向工程过程完成后的新模型添加到你的项目，并打开，以便在实体框架设计器中查看。 此外具有已 App.config 文件添加到你的项目数据库的连接详细信息。
 
@@ -250,7 +250,7 @@ EF 从您的模型使用 T4 模板生成代码。 随 Visual Studio 或从 Visua
 -   打开**解决方案资源管理器**并找到**ProductModel.edmx**文件
 -   查找**ProductModel.tt**将嵌套在 ProductModel.edmx 文件下的文件
 
-    ![ProductModelTemplate](~/ef6/media/productmodeltemplate.png)
+    ![产品模型模板](~/ef6/media/productmodeltemplate.png)
 
 -   双击 ProductModel.tt 文件以在 Visual Studio 编辑器中打开它
 -   查找和替换的两个实例"**ICollection**"with"**ObservableListSource**"。 这些是位于大约行 296 和 484。
@@ -278,13 +278,13 @@ EF 提供了一个选项的相关的实体从数据库中加载自动首次访�
 -   在选择数据源类型窗口中，选择**对象**单击**下一步**
 -   在选择数据对象对话框中，展开**WinFormswithEFSample**两次，然后选择**类别**没有不需要选择产品数据源，因为我们将通过该产品的获取到它类别数据源的属性。
 
-    ![DataSource](~/ef6/media/datasource.png)
+    ![“数据源”](~/ef6/media/datasource.png)
 
 -   单击**完成。**
     *如果未显示数据源窗口，选择 * * * 视图-&gt;其他 Windows-&gt;数据源**
 -   按固定图标，以便数据源窗口不会不会自动隐藏。 您可能需要按刷新按钮，如果窗口已可见。
 
-    ![DataSource2](~/ef6/media/datasource2.png)
+    ![数据源 2](~/ef6/media/datasource2.png)
 
 -   在解决方案资源管理器中双击**Form1.cs**文件以在设计器中打开主窗体。
 -   选择**类别**数据源，并将其拖动窗体上。 默认情况下，新 DataGridView (**categoryDataGridView**) 和导航工具栏控件添加到设计器。 这些控件绑定到 BindingSource (**categoryBindingSource**) 和绑定的导航器 (**categoryBindingNavigator**) 也创建的组件。
@@ -302,7 +302,7 @@ EF 提供了一个选项的相关的实体从数据库中加载自动首次访�
     到目前为止，我们可以我们 DataGridView 控件与 BindingSource 组件在设计器中。 在下一部分中我们会将代码添加到代码隐藏将 categoryBindingSource.DataSource 设置为当前跟踪通过 DbContext 的实体的集合。 当从 WinForms 类别下拖动和删除产品谨慎 productsBindingSource.DataSource 属性，并为产品 categoryBindingSource 和 productsBindingSource.DataMember 属性设置。 由于此绑定将中 productDataGridView 显示仅属于当前所选类别的产品。
 -   启用**保存**通过单击鼠标右键并选择导航工具栏上的按钮**已启用**。
 
-    ![Form1 设计器](~/ef6/media/form1-designer.png)
+    ![窗体 1 设计器](~/ef6/media/form1-designer.png)
 
 -   添加保存的事件处理程序通过双击该按钮的按钮。 这将添加事件处理程序，并转到代码隐藏窗体。 代码**categoryBindingNavigatorSaveItem\_单击**将在下一节中添加事件处理程序。
 
@@ -401,12 +401,12 @@ EF 提供了一个选项的相关的实体从数据库中加载自动首次访�
 
 -   编译和运行应用程序，而且可以测试功能。
 
-    ![Form1BeforeSave](~/ef6/media/form1beforesave.png)
+    ![窗体 1 保存之前](~/ef6/media/form1beforesave.png)
 
 -   保存后生成的存储密钥显示在屏幕上。
 
-    ![Form1AfterSave](~/ef6/media/form1aftersave.png)
+    ![窗体 1 保存后](~/ef6/media/form1aftersave.png)
 
 -   如果使用 Code First，那么您还会看到**WinFormswithEFSample.ProductContext**为您创建数据库。
 
-    ![ServerObjExplorer](~/ef6/media/serverobjexplorer.png)
+    ![Server 对象资源管理器](~/ef6/media/serverobjexplorer.png)

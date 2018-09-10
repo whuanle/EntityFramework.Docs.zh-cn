@@ -3,12 +3,12 @@ title: 模型优先的 EF6
 author: divega
 ms.date: 2016-10-23
 ms.assetid: e1b9c319-bb8a-4417-ac94-7890f257e7f6
-ms.openlocfilehash: c21592b27fa752532f5ede5923d0bd751f0bf372
-ms.sourcegitcommit: dadee5905ada9ecdbae28363a682950383ce3e10
+ms.openlocfilehash: 3dd0eba29619f09995d7009dd29462c14bde98c4
+ms.sourcegitcommit: 0d36e8ff0892b7f034b765b15e041f375f88579a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "42998110"
+ms.lasthandoff: 09/09/2018
+ms.locfileid: "44251136"
 ---
 # <a name="model-first"></a>模型优先
 此视频和分步演练会提供使用实体框架模型优先开发的简介。 模型首先允许你创建使用实体框架设计器的新模型，然后从模型生成数据库架构。 模型存储在 EDMX 文件 （扩展名为.edmx） 并可以查看和编辑实体框架设计器中。 从 EDMX 文件自动生成与交互应用程序中的类。
@@ -45,7 +45,7 @@ ms.locfileid: "42998110"
 -   输入**BloggingModel**作为名称，然后单击**确定**，这将启动实体数据模型向导
 -   选择**空模型**单击**完成**
 
-    ![CreateEmptyModel](~/ef6/media/createemptymodel.png)
+    ![创建空模型](~/ef6/media/createemptymodel.png)
 
 实体框架设计器将打开具有空模型。 现在我们可以开始向模型添加实体、 属性和关联。
 
@@ -55,7 +55,7 @@ ms.locfileid: "42998110"
 -   右键单击设计图面，然后选择**添加新的&gt;实体...**
 -   输入**博客**作为实体名称并**BlogId**作为键名称，然后单击**确定**
 
-    ![AddBlogEntity](~/ef6/media/addblogentity.png)
+    ![添加博客实体](~/ef6/media/addblogentity.png)
 
 -   右键单击设计图面，然后选择新的实体**添加新的&gt;标量属性**，输入**名称**作为属性的名称。
 -   重复此过程以添加**Url**属性。
@@ -71,11 +71,11 @@ ms.locfileid: "42998110"
     *这意味着博客中发布了许多文章和文章属于一个博客*
 -   请确保**将外键属性添加到 Post 实体**框为选中状态，并单击**确定**
 
-    ![AddAssociationMF](~/ef6/media/addassociationmf.png)
+    ![添加关联 MF](~/ef6/media/addassociationmf.png)
 
 现在，我们有一个我们可以生成从数据库和用于读取和写入数据的简单模型。
 
-![ModelInitial](~/ef6/media/modelinitial.png)
+![初始的模型](~/ef6/media/modelinitial.png)
 
 ### <a name="additional-steps-in-visual-studio-2010"></a>Visual Studio 2010 中的其他步骤
 
@@ -95,7 +95,7 @@ ms.locfileid: "42998110"
 -   选择**联机模板**从左侧的菜单并搜索**DbContext**
 -   选择 EF **5.x DbContext 生成器 C\#**，输入**BloggingModel**作为名称，然后单击**添加**
 
-    ![DbContextTemplate](~/ef6/media/dbcontexttemplate.png)
+    ![DbContext 模板](~/ef6/media/dbcontexttemplate.png)
 
 ## <a name="3-generating-the-database"></a>3.生成数据库
 
@@ -111,9 +111,9 @@ ms.locfileid: "42998110"
 -   右键单击设计图面，然后选择**根据模型生成数据库...**
 -   单击**新建连接...** 指定 LocalDB 或 SQL Express，具体取决于哪个版本的 Visual Studio 使用，并输入**ModelFirst.Blogging**作为数据库名称。
 
-    ![LocalDBConnectionMF](~/ef6/media/localdbconnectionmf.png)
+    ![LocalDB 连接 MF](~/ef6/media/localdbconnectionmf.png)
 
-    ![SqlExpressConnectionMF](~/ef6/media/sqlexpressconnectionmf.png)
+    ![Sql Express 连接 MF](~/ef6/media/sqlexpressconnectionmf.png)
 
 -   选择**确定**并将你想要创建新数据库，请选择要求你**是**
 -   选择**下一步**和实体框架设计器会计算一个脚本来创建数据库架构
@@ -126,7 +126,7 @@ ms.locfileid: "42998110"
 
 *此屏幕截图取自 Visual Studio 2012 中，如果您使用的 Visual Studio 2010 BloggingModel.tt 并 BloggingModel.Context.tt 文件将直接位于你的项目而不是嵌套在 EDMX 文件下。*
 
-![GeneratedClasses](~/ef6/media/generatedclasses.png)
+![生成的类](~/ef6/media/generatedclasses.png)
 
 在 Program.cs 中实现的 Main 方法，如下所示。 此代码将创建我们的上下文的新实例，并使用它来插入新博客。 然后它使用 LINQ 查询以从按标题按字母顺序排序的数据库中检索所有博客。
 
@@ -180,7 +180,7 @@ Press any key to exit...
 
 -   添加一个新**用户**与实体名称**用户名**作为键名称并**字符串**作为键的属性类型
 
-    ![AddUserEntity](~/ef6/media/adduserentity.png)
+    ![添加用户实体](~/ef6/media/adduserentity.png)
 
 -   右键单击**用户名**设计图面并选择属性**属性**，在属性窗口中更改**MaxLength**设置为**50** 
     *这会限制可存储在为 50 个字符的用户名中的数据*

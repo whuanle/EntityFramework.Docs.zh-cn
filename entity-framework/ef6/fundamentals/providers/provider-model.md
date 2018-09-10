@@ -3,12 +3,12 @@ title: Entity Framework 6 提供程序模型的 EF6
 author: divega
 ms.date: 2018-06-27
 ms.assetid: 066832F0-D51B-4655-8BE7-C983C557E0E4
-ms.openlocfilehash: e8b0552ec083d8ab276aa9de109650f423160269
-ms.sourcegitcommit: a81aed575372637997b18a0f9466d8fefb33350a
+ms.openlocfilehash: 7d9e2f49b9ef59fb63b024646911ec0d8dfcfc60
+ms.sourcegitcommit: 0d36e8ff0892b7f034b765b15e041f375f88579a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43821382"
+ms.lasthandoff: 09/09/2018
+ms.locfileid: "44251097"
 ---
 # <a name="the-entity-framework-6-provider-model"></a>Entity Framework 6 提供程序模型
 
@@ -24,13 +24,13 @@ ms.locfileid: "43821382"
 
 EF 提供程序实际上是特定于提供程序的服务定义的这些服务将从扩展 （适用于基类） 或 （对于接口） 实现的 CLR 类型的集合。 两个这些服务是基本和 EF 才能完全正常的必要条件。 其他人是可选的只需在特定的功能是必需的和/或这些服务的默认实现不适合作为目标的特定数据库服务器。
 
-### <a name="fundamental-provider-types"></a>基本提供程序类型
+## <a name="fundamental-provider-types"></a>基本提供程序类型
 
-#### <a name="dbproviderfactory"></a>DbProviderFactory
+### <a name="dbproviderfactory"></a>DbProviderFactory
 
 EF 依赖于具有某一类型派生自[System.Data.Common.DbProviderFactory](http://msdn.microsoft.com/en-us/library/system.data.common.dbproviderfactory.aspx)执行的所有低级数据库访问。 DbProviderFactory 不是实际的 EF 的一部分，但却为 ADO.NET 提供程序提供的入口点的.NET Framework 中的类可用于通过 EF，其他 O/Rm 或直接由应用程序获取实例的连接、 命令、 参数和提供程序中的其他 ADO.NET 抽象无关的方式。 有关 DbProviderFactory 的详细信息中找到[ADO.NET 的 MSDN 文档](http://msdn.microsoft.com/en-us/library/a6cd7c08.aspx)。
 
-#### <a name="dbproviderservices"></a>DbProviderServices
+### <a name="dbproviderservices"></a>DbProviderServices
 
 EF 依赖于具有某一类型派生自 DbProviderServices 提供所需的 EF 基于 ADO.NET 提供程序已提供的功能的其他功能。 在较旧版本的 EF DbProviderServices 类是.NET Framework 的一部分，未找到 System.Data.Common 命名空间中。 此类从 EF6 现在是 EntityFramework.dll 的一部分并 System.Data.Entity.Core.Common 命名空间中。
 
@@ -38,33 +38,33 @@ EF 依赖于具有某一类型派生自 DbProviderServices 提供所需的 EF �
 
 在较旧版本的 EF 中直接从 ADO.NET 提供程序中获取了要使用的 DbProviderServices 实现。 这是通过强制转换为 IServiceProvider，DbProviderFactory 和调用 GetService 方法。 这与 DbProviderFactory 紧密耦合的 EF 提供程序。 这种耦合阻止 EF 移出.NET Framework，因此为 EF6 这种紧密耦合已被删除，直接在应用程序的配置文件中或在基于代码的现已注册的 DbProviderServices 实现配置更多详细信息中所述_注册 DbProviderServices_下面一节。
 
-### <a name="additional-services"></a>其他服务
+## <a name="additional-services"></a>其他服务
 
 除了上面所述的基本服务还有其他许多服务使用的 EF 始终或有时提供程序特定。 DbProviderServices 实现可以提供这些服务的默认提供程序特定于实现。 应用程序还可以重写这些服务的实现或 DbProviderServices 类型不提供默认值时提供的实现。 这在更多详细信息中所述_解析其他服务_下面一节。
 
 下面列出了提供程序可能需要向提供程序的其他服务类型。 可以在 API 文档中找到有关每个服务类型的更多详细信息。
 
-#### <a name="idbexecutionstrategy"></a>IDbExecutionStrategy
+### <a name="idbexecutionstrategy"></a>IDbExecutionStrategy
 
 这是一项可选服务，允许提供程序时对数据库执行查询和命令实现重试或其他行为。 如果未不提供任何实现，然后 EF 将只需执行命令并引发任何异常传播。 SQL Server 的此服务用于提供的重试策略，这是针对基于云的数据库服务器，例如 SQL Azure 运行时特别有用。
 
-#### <a name="idbconnectionfactory"></a>IDbConnectionFactory
+### <a name="idbconnectionfactory"></a>IDbConnectionFactory
 
 这是一项可选服务，允许一个提供程序来创建 DbConnection 对象按照约定，如果给定的数据库名称。 请注意，虽然 DbProviderServices 实现即可解决此服务，它 EF 4.1 以来一直存在，也可以显式设置配置文件中或在代码中。 提供程序仅将有机会若要解决此服务，如果它注册为默认提供程序 (请参阅_的默认提供程序_下面)，如果默认连接工厂尚未设置其他位置。
 
-#### <a name="dbspatialservices"></a>DbSpatialServices
+### <a name="dbspatialservices"></a>DbSpatialServices
 
 这是一项可选服务，允许一个提供程序来添加对 geography 和 geometry 空间类型的支持。 为了使应用程序使用的空间类型使用 EF，必须提供此服务的实现。 DbSptialServices 要求的两种方式。 首先，提供程序特定的空间服务请求使用 DbProviderInfo 对象 (其中包含固定条件名称和清单标记) 作为键。 其次，DbSpatialServices 可以要求不含键。 这用于解决"全局空间提供程序"创建独立的 DbGeography 或 DbGeometry 类型时使用。
 
-#### <a name="migrationsqlgenerator"></a>MigrationSqlGenerator
+### <a name="migrationsqlgenerator"></a>MigrationSqlGenerator
 
 这是一项可选服务，用于生成使用 SQL 创建和修改数据库架构中由 Code First 的 EF 迁移。 实现所需支持迁移。 如果提供了一个实现然后它将还使用时使用数据库初始值设定项或 Database.Create 方法创建数据库。
 
-#### <a name="funcdbconnection-string-historycontextfactory"></a>Func < DbConnection，HistoryContextFactory 字符串 >
+### <a name="funcdbconnection-string-historycontextfactory"></a>Func < DbConnection，HistoryContextFactory 字符串 >
 
 这是一项可选服务，允许一个提供程序来配置映射到 HistoryContext`__MigrationHistory`使用 EF 迁移的表。 HistoryContext 是代码的第一个 DbContext，并且可以使用正常的 fluent API 来更改像表和列映射规范的名称进行配置。 此服务为所有提供程序返回的 EF 的默认实现可能适用于给定的数据库服务器，如果该提供程序支持所有的默认值表和列映射。 这种情况下不需要提供此服务的实现提供程序。
 
-#### <a name="idbproviderfactoryresolver"></a>IDbProviderFactoryResolver
+### <a name="idbproviderfactoryresolver"></a>IDbProviderFactoryResolver
 
 这是一项可选服务用于从给定的 DbConnection 对象获取正确的 DbProviderFactory。 此服务为所有提供程序返回的 EF 的默认实现需要适用于所有提供程序。 但是，.NET 4 上运行时，DbProviderFactory 不可公开访问从一个 if 其 DbConnections。 因此，EF 使用某些启发搜索已注册的提供程序查找匹配项。 很可能某些提供商对于这些试探法将失败，而且该提供程序应在这种情况下提供的新实现。
 

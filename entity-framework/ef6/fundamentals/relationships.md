@@ -3,12 +3,12 @@ title: 关系、 导航属性和外键的 EF6
 author: divega
 ms.date: 2016-10-23
 ms.assetid: 8a21ae73-6d9b-4b50-838a-ec1fddffcf37
-ms.openlocfilehash: a1653afd609280ab572ef88a9fcf8a6275b79fd6
-ms.sourcegitcommit: a81aed575372637997b18a0f9466d8fefb33350a
+ms.openlocfilehash: 53f428360be4ea2e11a42676d22e584633ceedbc
+ms.sourcegitcommit: 0d36e8ff0892b7f034b765b15e041f375f88579a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43821395"
+ms.lasthandoff: 09/09/2018
+ms.locfileid: "44251214"
 ---
 # <a name="relationships-navigation-properties-and-foreign-keys"></a>关系、 导航属性和外键
 本主题概述了的实体框架如何管理实体之间的关系。 它还提供有关如何将映射和操作关系的一些指导。
@@ -19,7 +19,7 @@ ms.locfileid: "43821395"
 
 下图显示一个对多关系中两个参与的表。 **课程**表是相关的表，因为它包含**DepartmentID**其链接到的列**部门**表。
 
-![数据库 2](~/ef6/media/database2.png)
+![部门和 Course 表](~/ef6/media/database2.png)
 
 在实体框架中，实体可以与其他实体通过关联或关系。 每个关系包含两个端点，用于描述实体类型和在该关系中的两个实体类型 （一个、 零或一个或许多） 的重数。 此关系可能会受引用约束，其中描述了关系中的哪一端为 principal role 以及哪一个是从属角色。
 
@@ -33,7 +33,7 @@ ms.locfileid: "43821395"
 
 下图显示了使用实体框架设计器创建的概念模型。 该模型包含两个参与对多关系的实体。 这两个实体都具有导航属性。 **课程**，且是 depend 实体**DepartmentID**定义的外键属性。
 
-![RelationshipEFDesigner](~/ef6/media/relationshipefdesigner.png)
+![具有导航属性的部门和 Course 表](~/ef6/media/relationshipefdesigner.png)
 
 以下代码片段显示使用 Code First 创建的相同模型。
 

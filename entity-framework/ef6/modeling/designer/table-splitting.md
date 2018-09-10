@@ -3,12 +3,12 @@ title: 设计器的表拆分的 EF6
 author: divega
 ms.date: 2016-10-23
 ms.assetid: 452f17c3-9f26-4de4-9894-8bc036e23b0f
-ms.openlocfilehash: 87b6e1bd0374f77dfffab342c659cf4e16c8a337
-ms.sourcegitcommit: dadee5905ada9ecdbae28363a682950383ce3e10
+ms.openlocfilehash: f07aeb0aa679f6fa8131c667ac808f17c3f03f20
+ms.sourcegitcommit: 0d36e8ff0892b7f034b765b15e041f375f88579a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "42994498"
+ms.lasthandoff: 09/09/2018
+ms.locfileid: "44250980"
 ---
 # <a name="designer-table-splitting"></a>设计器的表拆分
 本演练演示如何通过修改模型与实体框架设计器 （EF 设计器） 将多个实体类型映射到单个表。
@@ -17,7 +17,7 @@ ms.locfileid: "42994498"
 
 下图显示了使用 EF 设计器时使用的主窗口。
 
-![EFDesigner](~/ef6/media/efdesigner.png)
+![EF 设计器](~/ef6/media/efdesigner.png)
 
 ## <a name="prerequisites"></a>系统必备
 
@@ -130,8 +130,8 @@ ms.locfileid: "42994498"
 
 -   以下**选择**因执行上下文执行。People.FirstOrDefault() 并选择只是列映射到**人员**
 
-    ![Select1](~/ef6/media/select1.png)
+    ![选择 1](~/ef6/media/select1.png)
 
 -   以下**选择**访问导航属性 existingPerson.Instructor 已执行与选择映射到列**HireInfo**
 
-    ![Select2](~/ef6/media/select2.png)
+    ![选择 2](~/ef6/media/select2.png)

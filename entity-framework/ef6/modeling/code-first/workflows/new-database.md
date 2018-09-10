@@ -3,12 +3,12 @@ title: 到新的数据库的 EF6 代码优先
 author: divega
 ms.date: 2016-10-23
 ms.assetid: 2df6cb0a-7d8b-4e28-9d05-e2b9a90125af
-ms.openlocfilehash: 50c6a4710bc50879304f64e781a46c4836f86882
-ms.sourcegitcommit: 0cef7d448e1e47bdb333002e2254ed42d57b45b6
+ms.openlocfilehash: 8ed1bfbc3536acc0d83b9c8ecdd180aeb44eff83
+ms.sourcegitcommit: 0d36e8ff0892b7f034b765b15e041f375f88579a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43152473"
+ms.lasthandoff: 09/09/2018
+ms.locfileid: "44251045"
 ---
 # <a name="code-first-to-a-new-database"></a>代码优先的新数据库
 此视频和分步演练会提供针对新数据库 Code First 开发的简介。 此方案包括目标不存在的数据库和 Code First 将创建，或一个空数据库，Code First 将添加到新表。 代码首先允许你定义使用 C 模型\#或 VB.Net 类。 （可选） 可以使用特性在类和属性，或使用 fluent API 执行其他配置。
@@ -199,13 +199,13 @@ Press any key to exit...
 -   右键单击**数据连接**，然后选择**添加连接...**
 -   如果你尚未连接到数据库服务器资源管理器之前将需要选择 Microsoft SQL Server 作为数据源
 
-    ![SelectDataSource](~/ef6/media/selectdatasource.png)
+    ![选择数据源](~/ef6/media/selectdatasource.png)
 
 -   连接到 LocalDB 或 SQL Express，具体取决于哪一个已安装
 
 我们现在可以检查 Code First 创建的架构。
 
-![SchemaInitial](~/ef6/media/schemainitial.png)
+![架构初始](~/ef6/media/schemainitial.png)
 
 DbContext 计算出来以查看我们定义的 DbSet 属性包含在模型中哪些类。 然后使用默认组 Code First 约定来确定表和列的名称，确定数据类型，查找主键，等等。 在本演练后面将介绍如何重写这些约定。
 
@@ -266,7 +266,7 @@ namespace CodeFirstNewDatabaseSample.Migrations
 
 新的 Url 列现在添加到数据库中的 Blogs 表：
 
-![SchemaWithUrl](~/ef6/media/schemawithurl.png)
+![使用 Url 的架构](~/ef6/media/schemawithurl.png)
 
 ## <a name="6-data-annotations"></a>6.数据注释
 
@@ -316,7 +316,7 @@ public class User
 
 现在，新表已添加到数据库：
 
-![SchemaWithUsers](~/ef6/media/schemawithusers.png)
+![与用户的架构](~/ef6/media/schemawithusers.png)
 
 是由 EF 支持注释的完整列表：
 
@@ -365,7 +365,7 @@ public class BloggingContext : DbContext
 
 DisplayName 列现在重命名以显示\_名称：
 
-![SchemaWithDisplayNameRenamed](~/ef6/media/schemawithdisplaynamerenamed.png)
+![重命名的显示名称的架构](~/ef6/media/schemawithdisplaynamerenamed.png)
 
 ## <a name="summary"></a>总结
 

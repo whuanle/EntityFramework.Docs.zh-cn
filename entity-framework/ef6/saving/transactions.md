@@ -3,12 +3,12 @@ title: 使用事务-EF6
 author: divega
 ms.date: 2016-10-23
 ms.assetid: 0d0f1824-d781-4cb3-8fda-b7eaefced1cd
-ms.openlocfilehash: 20b63c88c41c10b5a69660d5027097c647c7eedd
-ms.sourcegitcommit: dadee5905ada9ecdbae28363a682950383ce3e10
+ms.openlocfilehash: 26473e1e52a6044babc717d5b158ad73aac5c738
+ms.sourcegitcommit: 0d36e8ff0892b7f034b765b15e041f375f88579a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "42997546"
+ms.lasthandoff: 09/09/2018
+ms.locfileid: "44250597"
 ---
 # <a name="working-with-transactions"></a>使用事务
 > [!NOTE]
@@ -198,7 +198,7 @@ namespace TransactionsExamples
 
 ### <a name="connection-resiliency"></a>连接弹性  
 
-新的连接复原功能并不适用于用户启动事务。 有关详细信息，请参阅[重试执行策略限制](~/ef6/fundamentals/connection-resiliency/retry-logic.md#limitations)。  
+新的连接复原功能并不适用于用户启动事务。 有关详细信息，请参阅[重试执行策略](~/ef6/fundamentals/connection-resiliency/retry-logic.md#user-initiated-transactions-are-not-supported)。  
 
 ### <a name="asynchronous-programming"></a>异步编程  
 

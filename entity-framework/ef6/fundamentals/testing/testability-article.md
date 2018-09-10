@@ -3,12 +3,12 @@ title: 可测试性和 Entity Framework 4.0
 author: divega
 ms.date: 2016-10-23
 ms.assetid: 9430e2ab-261c-4e8e-8545-2ebc52d7a247
-ms.openlocfilehash: 17a9f09022531a81042979464de05fbbd2570759
-ms.sourcegitcommit: dadee5905ada9ecdbae28363a682950383ce3e10
+ms.openlocfilehash: 2a2384c7868ae3cf6af4f915c06ae9fdb622634c
+ms.sourcegitcommit: 0d36e8ff0892b7f034b765b15e041f375f88579a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "42995224"
+ms.lasthandoff: 09/09/2018
+ms.locfileid: "44251318"
 ---
 # <a name="testability-and-entity-framework-40"></a>可测试性和 Entity Framework 4.0
 Scott Allen
@@ -194,13 +194,13 @@ Fowler 使用名称延迟加载来描述"一个对象不包含的所有数据，
 
 使用就地 Poco 我们可以创建实体数据模型 (EDM) 在 Visual Studio 中 （请参阅图 1）。 我们不会使用 EDM 来为实体生成代码。 相反，我们想要使用我们 lovingly 手动创建的实体。 我们仅将使用 EDM 生成数据库架构，并提供 EF4 需要将对象映射到数据库的元数据。
 
-![eftest_01](~/ef6/media/eftest-01.jpg)
+![ef test_01](~/ef6/media/eftest-01.jpg)
 
 **图 1**
 
 注意： 如果你想要首先开发的 EDM 模型，就可以以干净的生成 POCO 代码从 EDM。 可以使用数据可编程性团队提供的 Visual Studio 2010 扩展来执行此操作。 若要下载该扩展，启动 Visual Studio 中的工具菜单中的扩展管理器，并搜索"POCO"（请参阅图 2） 的模板的联机库。 有几个 POCO 模板可用于 EF。 有关使用模板的详细信息，请参阅"[演练： POCO 实体框架的模板](http://blogs.msdn.com/adonet/pages/walkthrough-poco-template-for-the-entity-framework.aspx)"。
 
-![eftest_02](~/ef6/media/eftest-02.png)
+![ef test_02](~/ef6/media/eftest-02.png)
 
 **图 2**
 
@@ -415,13 +415,13 @@ IObjectSet&lt;T&gt;符合要求的存储库，因为它类似于对象的集合 
 
 我们可以使用 EmployeeControllerTestBase 作为基类的几个测试装置 （见图 3）。 每个测试固定例程将测试的特定控制器操作。 例如，一个测试固定例程将重点介绍测试期间 HTTP GET 请求 （若要显示用于创建员工视图），使用创建操作和不同装置将重点介绍使用 HTTP POST 请求中的创建操作 (才能提交的信息要为用户创建员工）。 每个派生的类只是负责在其特定上下文中，并提供验证其特定的测试上下文的结果所需的断言所需的设置。
 
-![eftest_03](~/ef6/media/eftest-03.png)
+![ef test_03](~/ef6/media/eftest-03.png)
 
 **图 3**
 
 此处提供的命名约定和测试样式不是必需的可测试代码，它是一种方法。 图 4 显示了在 Jet 大脑 Resharper 中运行的测试用于 Visual Studio 2010 的测试运行程序插件。
 
-![eftest_04](~/ef6/media/eftest-04.png)
+![ef test_04](~/ef6/media/eftest-04.png)
 
 **图 4**
 

@@ -3,12 +3,12 @@ title: 恢复到 ObjectContext 中实体框架设计器的 EF6
 author: divega
 ms.date: 2016-10-23
 ms.assetid: 36550569-a1de-47cb-ba6d-544794ffd500
-ms.openlocfilehash: b52bfc36c97e1a3c7cd2d3716feb1ae48c68a56e
-ms.sourcegitcommit: dadee5905ada9ecdbae28363a682950383ce3e10
+ms.openlocfilehash: e90af3e973c71e2ce872e3edc24aafc1b2ccce0f
+ms.sourcegitcommit: 0d36e8ff0892b7f034b765b15e041f375f88579a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "42997307"
+ms.lasthandoff: 09/09/2018
+ms.locfileid: "44250330"
 ---
 # <a name="reverting-to-objectcontext-in-entity-framework-designer"></a>恢复到 ObjectContext 中实体框架设计器
 与以前版本的 Entity Framework 使用 EF 设计器创建的模型将生成派生自 ObjectContext 的上下文和从 entityobject 继承派生的实体类。
@@ -23,11 +23,11 @@ ms.locfileid: "42997307"
 
 派生的 DbContext 和 POCO 类生成由你的项目中的两个.tt 文件，如果展开.edmx 文件在解决方案资源管理器中的会看到这些文件。 从项目中删除这两个文件。
 
-![CodeGenFiles](~/ef6/media/codegenfiles.png)
+![常规文件](~/ef6/media/codegenfiles.png)
 
 如果使用 VB.NET 将需要选择**显示所有文件**按钮以查看嵌套的文件。
 
-![ShowAllFiles](~/ef6/media/showallfiles.png)
+![显示所有文件](~/ef6/media/showallfiles.png)
 
 ### <a name="2-re-enable-objectcontext-code-generation"></a>2.重新启用 ObjectContext 代码生成
 
@@ -35,4 +35,4 @@ ms.locfileid: "42997307"
 
 在属性窗口中更改**代码生成策略**从**None**到**默认**。
 
-![CodeGenStrategy](~/ef6/media/codegenstrategy.png)
+![代码常规策略](~/ef6/media/codegenstrategy.png)

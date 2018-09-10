@@ -3,12 +3,12 @@ title: 异步查询和保存的 EF6
 author: divega
 ms.date: 2016-10-23
 ms.assetid: d56e6f1d-4bd1-4b50-9558-9a30e04a8ec3
-ms.openlocfilehash: 64051dea740b2183cb904d7fb4293d7048c218ca
-ms.sourcegitcommit: 0cef7d448e1e47bdb333002e2254ed42d57b45b6
+ms.openlocfilehash: 35604fc16ea37415d39801831aa162d0d42c2a2f
+ms.sourcegitcommit: 0d36e8ff0892b7f034b765b15e041f375f88579a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43152432"
+ms.lasthandoff: 09/09/2018
+ms.locfileid: "44250746"
 ---
 # <a name="async-query-and-save"></a>异步查询和保存
 > [!NOTE]
@@ -145,7 +145,7 @@ EF6 引入了异步查询和保存使用的支持[async 和 await 关键字](htt
 4.  查询返回，而结果将写入到**控制台**
 5.  一天中的引号写入到**控制台**
 
-![SyncOutput](~/ef6/media/syncoutput.png) 
+![同步输出](~/ef6/media/syncoutput.png) 
 
  
 
@@ -227,7 +227,7 @@ EF6 引入了异步查询和保存使用的支持[async 和 await 关键字](htt
 4.  所有查询**博客**发送到数据库*同样，托管的线程是免费的数据库中处理查询时执行其他工作。由于所有其他执行完成后，该线程将只需暂停等待调用不过。*
 5.  查询返回，而结果将写入到**控制台**
 
-![AsyncOutput](~/ef6/media/asyncoutput.png) 
+![异步输出](~/ef6/media/asyncoutput.png) 
 
  
 

@@ -3,12 +3,12 @@ title: 自动 Code First 迁移的 EF6
 author: divega
 ms.date: 2016-10-23
 ms.assetid: 0eb86787-2161-4cb4-9cb8-67c5d6e95650
-ms.openlocfilehash: f358a4df04b03399e9e54ffdf0389e43d715af1c
-ms.sourcegitcommit: dadee5905ada9ecdbae28363a682950383ce3e10
+ms.openlocfilehash: 256d1c774a2165dc12daf3d04550566c1a44b751
+ms.sourcegitcommit: 0d36e8ff0892b7f034b765b15e041f375f88579a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "42996090"
+ms.lasthandoff: 09/09/2018
+ms.locfileid: "44250447"
 ---
 # <a name="automatic-code-first-migrations"></a>自动 Code First 迁移
 自动迁移，可使用 Code First 迁移，而无需每个所做的更改在项目中的代码文件。 并非所有更改都将自动都应用-例如列重命名要求使用基于代码的迁移。
@@ -85,7 +85,7 @@ ms.locfileid: "42996090"
 
 -   运行应用程序并将会看到**MigrationsAutomaticCodeDemo.BlogContext**为您创建数据库。
 
-    ![DatabaseLocalDB](~/ef6/media/databaselocaldb.png)
+    ![数据库 LocalDB](~/ef6/media/databaselocaldb.png)
 
 ## <a name="enabling-migrations"></a>启用迁移
 

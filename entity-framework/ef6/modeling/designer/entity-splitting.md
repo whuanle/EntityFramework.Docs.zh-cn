@@ -3,19 +3,19 @@ title: 设计器的实体拆分的 EF6
 author: divega
 ms.date: 2016-10-23
 ms.assetid: aa2dd48a-1f0e-49dd-863d-d6b4f5834832
-ms.openlocfilehash: 214561f0a0381bced3ceae0b6acfcd45f5dd65c5
-ms.sourcegitcommit: dadee5905ada9ecdbae28363a682950383ce3e10
+ms.openlocfilehash: 06199be977276cd3656e2550df79bac24276ec51
+ms.sourcegitcommit: 0d36e8ff0892b7f034b765b15e041f375f88579a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "42995614"
+ms.lasthandoff: 09/09/2018
+ms.locfileid: "44250591"
 ---
 # <a name="designer-entity-splitting"></a>设计器的实体拆分
 本演练演示如何通过修改具有实体框架设计器 （EF 设计器） 的模型的实体类型映射到两个表。 如果多个表共享同一个键，则可以将一个实体映射到这些表。 适用于将一个实体类型映射到两个表的概念，可以轻松扩展为将一个实体类型映射到两个以上的表。
 
 下图显示了使用 EF 设计器时使用的主窗口。
 
-![EFDesigner](~/ef6/media/efdesigner.png)
+![EF 设计器](~/ef6/media/efdesigner.png)
 
 ## <a name="prerequisites"></a>系统必备
 
@@ -93,7 +93,7 @@ CONSTRAINT [FK_Person_PersonInfo] FOREIGN KEY ([PersonId]) REFERENCES [dbo].[Per
 -   在设计图面上，选择**PersonInfo**实体，然后按**删除**键盘上的按钮。
 -   单击**否**当系统询问是否要删除**PersonInfo**表从模型中，我们正准备将其映射到**人员**实体。
 
-    ![DeleteTables](~/ef6/media/deletetables.png)
+    ![删除表](~/ef6/media/deletetables.png)
 
 下一步骤要求**映射详细信息**窗口。 如果您无法查看此窗口中，右键单击设计图面并选择**映射详细信息**。
 
@@ -103,7 +103,7 @@ CONSTRAINT [FK_Person_PersonInfo] FOREIGN KEY ([PersonId]) REFERENCES [dbo].[Per
 
 **Person**实体类型现在所映射到**人员**并**PersonInfo**表。
 
-![Mapping2](~/ef6/media/mapping2.png)
+![映射 2](~/ef6/media/mapping2.png)
 
 ## <a name="use-the-model"></a>使用模型
 
@@ -136,9 +136,9 @@ CONSTRAINT [FK_Person_PersonInfo] FOREIGN KEY ([PersonId]) REFERENCES [dbo].[Per
 
 -   以下两个**插入**语句执行因执行上下文。Savechanges （)。 它们采用的数据**Person**实体并将其之间拆分**人员**并**PersonInfo**表。
 
-    ![Insert1](~/ef6/media/insert1.png)
+    ![插入 1](~/ef6/media/insert1.png)
 
-    ![Insert2](~/ef6/media/insert2.png)
+    ![插入 2](~/ef6/media/insert2.png)
 -   以下**选择**由于枚举在数据库中的人员执行。 它将从数据相结合**Person**并**PersonInfo**表。
 
     ![选择](~/ef6/media/select.png)

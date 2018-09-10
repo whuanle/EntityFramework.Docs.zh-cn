@@ -3,12 +3,12 @@ title: 自定义代码优先约定-EF6
 author: divega
 ms.date: 2016-10-23
 ms.assetid: dd2bdbd9-ae9e-470a-aeb8-d0ba160499b7
-ms.openlocfilehash: 79450790c6d3c8ce7fad209e3946e81d3fad4b75
-ms.sourcegitcommit: dadee5905ada9ecdbae28363a682950383ce3e10
+ms.openlocfilehash: a0e8080037cf86640275f498ed159c847ff5c057
+ms.sourcegitcommit: 0d36e8ff0892b7f034b765b15e041f375f88579a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "42995823"
+ms.lasthandoff: 09/09/2018
+ms.locfileid: "44251058"
 ---
 # <a name="custom-code-first-conventions"></a>自定义代码优先约定
 > [!NOTE]
@@ -115,7 +115,7 @@ IsKey 方法的一个有趣功能是，它是累加性。 这意味着，如果�
 
 此代码将在模型 int 键列和字符串名称列组成的复合键中配置的类型。 如果我们查看模型设计器中它将如下所示：
 
-![compositeKey](~/ef6/media/compositekey.png)
+![复合键](~/ef6/media/compositekey.png)
 
 属性约定的另一个示例是我要映射到 SQL Server 中而不是日期时间的 datetime2 类型的模型中配置所有日期时间属性。 您可以使用以下实现此目的：
 
@@ -292,7 +292,7 @@ ToTable 的另一个重要方面是，如果显式将类型映射到给定的表
 
 上面的代码将映射到类似于下面的表结构：
 
-![tptExample](~/ef6/media/tptexample.jpg)
+![tpt 示例](~/ef6/media/tptexample.jpg)
 
 可以避免此问题，同时保持几种方法中的默认 TPH 映射：
 

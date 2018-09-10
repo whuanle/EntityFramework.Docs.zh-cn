@@ -3,12 +3,12 @@ title: 关系的 EF 设计器的 EF6
 author: divega
 ms.date: 2016-10-23
 ms.assetid: 402fe960-754b-470f-976b-e5de3e9986b5
-ms.openlocfilehash: 72efe76956c930a787449e6cce453ab0317adc7c
-ms.sourcegitcommit: dadee5905ada9ecdbae28363a682950383ce3e10
+ms.openlocfilehash: e1912a5e00e51b4f07b1ac83848fdbe0aa4755aa
+ms.sourcegitcommit: 0d36e8ff0892b7f034b765b15e041f375f88579a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "42994643"
+ms.lasthandoff: 09/09/2018
+ms.locfileid: "44250707"
 ---
 # <a name="relationships---ef-designer"></a>关系的 EF 设计器
 > [!NOTE]
@@ -16,7 +16,7 @@ ms.locfileid: "42994643"
 
 关联定义一个模型中的实体类型之间的关系。 本主题演示如何将映射与实体框架设计器 （EF 设计器） 之间的关联。 下图显示了使用 EF 设计器时使用的主窗口。
 
-![EFDesigner](~/ef6/media/efdesigner.png)
+![EF 设计器](~/ef6/media/efdesigner.png)
 
 > [!NOTE]
 > 生成概念模型时，可能会在错误列表中出现有关未映射的实体和关联的警告。 可以忽略这些警告，因为您选择从模型生成数据库后，这些错误将会消失。
@@ -44,7 +44,7 @@ ms.locfileid: "42994643"
 1.  右键单击设计图面上的空白区域，指向**新添**，然后选择**关联...**.
 2.  中的关联的设置中填充**添加关联**对话框。
 
-    ![AddAssociation](~/ef6/media/addassociation.png)
+    ![添加关联](~/ef6/media/addassociation.png)
 
     > [!NOTE]
     > 您可以选择不添加导航属性或外键属性向位于关联各端实体通过清除 * * 导航属性 * * 和 * * 添加到外的键属性&lt;实体类型名称&gt;实体 * *复选框。 如果只添加一个导航属性，则将只能在一个方向遍历关联。 如果不添加导航属性，则必须选择添加外键属性才能访问位于关联各端的实体。
@@ -76,7 +76,7 @@ ms.locfileid: "42994643"
 -   从**依赖**下拉列表中，选择依赖实体的引用约束中。
 -   对于具有依赖键每个主体键，从下拉列表中选择对应的依赖键**依赖键**列。
 
-    ![RefConstraint](~/ef6/media/refconstraint.png)
+    ![Ref 约束](~/ef6/media/refconstraint.png)
 
 -   单击 **“确定”**。
 
@@ -97,7 +97,7 @@ ms.locfileid: "42994643"
     **映射详细信息**窗口将显示在每个关联和键属性的实体类型的两端**最终**。
 -   每个键属性，请单击**列**字段，然后选择该属性将映射到其中的列。
 
-    ![MappingDetails4](~/ef6/media/mappingdetails4.png)
+    ![映射详细信息 4](~/ef6/media/mappingdetails4.png)
 
 ### <a name="edit-an-association-mapping"></a>编辑关联映射
 

@@ -3,12 +3,12 @@ title: 设计器 CUD 存储过程-EF6
 author: divega
 ms.date: 2016-10-23
 ms.assetid: 1e773972-2da5-45e0-85a2-3cf3fbcfa5cf
-ms.openlocfilehash: 7a3176e1057816dd11ced5fc545aa3baa672bd03
-ms.sourcegitcommit: dadee5905ada9ecdbae28363a682950383ce3e10
+ms.openlocfilehash: 36c9b97b77fec30136cba1d850a0259c689e69ae
+ms.sourcegitcommit: 0d36e8ff0892b7f034b765b15e041f375f88579a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "42993884"
+ms.lasthandoff: 09/09/2018
+ms.locfileid: "44250915"
 ---
 # <a name="designer-cud-stored-procedures"></a>设计器 CUD 存储过程
 此分步演练演示如何将映射创建\\插入、 更新和删除 (CUD) 操作的实体类型到存储过程使用实体框架设计器 （EF 设计器）。  默认情况下，实体框架会自动生成 SQL 语句的 CUD 操作，但还可以将存储的过程映射到这些操作。  
@@ -54,7 +54,7 @@ var query = context.Products.SqlQuery("EXECUTE [dbo].[GetAllProducts]");
 -   此外，请选择下的以下存储的过程**存储过程和函数**节点： **DeletePerson**， **InsertPerson**，和**UpdatePerson**. 
 -   从 Visual Studio 2012 EF 设计器支持大容量导入的存储过程。 **导入选定的存储的过程和函数的实体模型到**默认选中的。 由于在此示例中我们拥有存储过程的插入、 更新和删除实体类型，因此我们不希望将其导入，并将取消选中此复选框。 
 
-    ![ImportSProcs](~/ef6/media/importsprocs.jpg)
+    ![导入 S 存储过程](~/ef6/media/importsprocs.jpg)
 
 -   单击 **“完成”**。
     EF 设计器中，为编辑您的模型提供了设计图面上，会显示。
@@ -72,7 +72,7 @@ var query = context.Products.SqlQuery("EXECUTE [dbo].[GetAllProducts]");
 -   按 **Enter**。
 -   默认情况下**NewPersonID**映射到实体键**PersonID**。 请注意，箭头指示映射的方向：向属性提供结果列的值。
 
-    ![MappingDetails](~/ef6/media/mappingdetails.png)
+    ![映射的详细信息](~/ef6/media/mappingdetails.png)
 
 -   单击**&lt;选择更新函数&gt;** ，然后选择**UpdatePerson**从产生的下拉列表。
 -   此时将显示存储过程参数和实体属性之间的默认映射。

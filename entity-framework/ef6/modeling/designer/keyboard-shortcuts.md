@@ -3,12 +3,12 @@ title: 实体框架设计器键盘快捷方式-EF6
 author: divega
 ms.date: 2016-10-23
 ms.assetid: 3c76cdd5-17c5-4c54-a6a5-cf21b974636b
-ms.openlocfilehash: 70c9705956b58f4d00908dd9cca6ad0e0a078fc6
-ms.sourcegitcommit: dadee5905ada9ecdbae28363a682950383ce3e10
+ms.openlocfilehash: e3a9d968c26841c143b1b7b0ba9a168ecd13f469
+ms.sourcegitcommit: 0d36e8ff0892b7f034b765b15e041f375f88579a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "42997758"
+ms.lasthandoff: 09/09/2018
+ms.locfileid: "44251123"
 ---
 # <a name="entity-framework-designer-keyboard-shortcuts"></a>实体框架设计器键盘快捷方式
 此页提供了一系列适用于 Visual Studio 的实体框架工具的各种屏幕中可用的键盘快捷方式。
@@ -17,7 +17,7 @@ ms.locfileid: "42997758"
 
 ### <a name="step-one-choose-model-contents"></a>第一步： 选择模型内容
 
-![WizardOne](~/ef6/media/wizardone.png)
+![向导的一个](~/ef6/media/wizardone.png)
 
 | 快捷键  | 操作                                                     | 说明                                               |
 |:----------|:-----------------------------------------------------------|:----------------------------------------------------|
@@ -27,7 +27,7 @@ ms.locfileid: "42997758"
 
 ### <a name="step-two-choose-your-connection"></a>第二步： 选择您的连接
 
-![WizardTwo](~/ef6/media/wizardtwo.png)
+![向导的两个](~/ef6/media/wizardtwo.png)
 
 | 快捷键  | 操作                                                     | 说明                                                   |
 |:----------|:-----------------------------------------------------------|:--------------------------------------------------------|
@@ -41,7 +41,7 @@ ms.locfileid: "42997758"
 
 ### <a name="step-three-choose-your-version"></a>第三步： 选择你的版本
 
-![WizardThree](~/ef6/media/wizardthree.png)
+![向导的三个](~/ef6/media/wizardthree.png)
 
 | 快捷键  | 操作                                             | 说明                                                                                 |
 |:----------|:---------------------------------------------------|:--------------------------------------------------------------------------------------|
@@ -51,7 +51,7 @@ ms.locfileid: "42997758"
 
 ### <a name="step-four-choose-your-database-objects-and-settings"></a>第四步： 选择数据库对象和设置
 
-![WizardFour](~/ef6/media/wizardfour.png)
+![向导的四个](~/ef6/media/wizardfour.png)
 
 | 快捷键  | 操作                                                                                    | 说明                                                               |
 |:----------|:------------------------------------------------------------------------------------------|:--------------------------------------------------------------------|
@@ -70,7 +70,7 @@ ms.locfileid: "42997758"
 
 ## <a name="ef-designer-surface"></a>EF 设计器图面
 
-![DesignerSurface](~/ef6/media/designersurface.png)
+![设计器图面](~/ef6/media/designersurface.png)
 
 | 快捷键                                                                                | 操作                      | 说明                                                                                                                                                                                                                               |
 |:----------------------------------------------------------------------------------------|:----------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -113,7 +113,7 @@ ms.locfileid: "42997758"
 
 ## <a name="mapping-details-window"></a>“映射详细信息”窗口
 
-![MappingDetailsShortcuts](~/ef6/media/mappingdetailsshortcuts.png)
+![映射详细信息的快捷方式](~/ef6/media/mappingdetailsshortcuts.png)
 
 | 快捷键                  | 操作         | 说明                                                                                                                                 |
 |:--------------------------|:---------------|:--------------------------------------------------------------------------------------------------------------------------------------|

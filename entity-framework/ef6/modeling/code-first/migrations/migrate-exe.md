@@ -3,12 +3,12 @@ title: 使用 migrate.exe-EF6
 author: divega
 ms.date: 2016-10-23
 ms.assetid: 989ea862-e936-4c85-926a-8cfbef5df5b8
-ms.openlocfilehash: 39740578e4a8c2d5400bcabbcb107baf0648fba5
-ms.sourcegitcommit: dadee5905ada9ecdbae28363a682950383ce3e10
+ms.openlocfilehash: 8f0ff6d472c39eaf000c31783fe7a769c8746fec
+ms.sourcegitcommit: 0d36e8ff0892b7f034b765b15e041f375f88579a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "42993494"
+ms.lasthandoff: 09/09/2018
+ms.locfileid: "44251103"
 ---
 # <a name="using-migrateexe"></a>使用 migrate.exe
 可以使用 code First 迁移更新数据库从内部 visual studio 中，但也可以通过命令行工具 migrate.exe 执行。 此页将提供有关如何使用 migrate.exe 执行针对数据库迁移的快速概述。
@@ -26,16 +26,14 @@ ms.locfileid: "42993494"
 
 | .NET 4.5                                   | .NET 4.0                                   |
 |:-------------------------------------------|:-------------------------------------------|
-| ![Net45Files](~/ef6/media/net45files.png)  | ![Net40Files](~/ef6/media/net40files.png)  |
+| ![.NET 4.5 文件](~/ef6/media/net45files.png)  | ![.NET 4.0 文件](~/ef6/media/net40files.png)  |
 
 > [!NOTE]
 > migrate.exe 不支持 x64 的程序集。
 
-## <a name="using-migrateexe"></a>使用 Migrate.exe
-
 一旦已移至正确的文件夹的 migrate.exe 则应能够使用它来执行对数据库的迁移。 该实用程序用于执行操作的就是执行迁移。 它不能生成迁移或创建一个 SQL 脚本。
 
-### <a name="see-options"></a>请参阅选项
+## <a name="see-options"></a>请参阅选项
 
 ``` console
 Migrate.exe /?
@@ -43,7 +41,7 @@ Migrate.exe /?
 
 更高版本将显示与此实用程序，请注意，需要能够 EntityFramework.dll 正在 migrate.exe 为了使此功能在同一位置相关联的帮助页。
 
-### <a name="migrate-to-the-latest-migration"></a>迁移到最新的迁移
+## <a name="migrate-to-the-latest-migration"></a>迁移到最新的迁移
 
 ``` console
 Migrate.exe MyMvcApplication.dll /startupConfigurationFile=”..\\web.config”
@@ -51,7 +49,7 @@ Migrate.exe MyMvcApplication.dll /startupConfigurationFile=”..\\web.config”
 
 当运行 migrate.exe 唯一必需的参数是程序集，这是包含想要运行的迁移的程序集，但它将使用所有约定基于设置，如果未指定配置文件。
 
-### <a name="migrate-to-a-specific-migration"></a>迁移到特定的迁移
+## <a name="migrate-to-a-specific-migration"></a>迁移到特定的迁移
 
 ``` console
 Migrate.exe MyApp.exe /startupConfigurationFile=”MyApp.exe.config” /targetMigration=”AddTitle”
@@ -59,7 +57,7 @@ Migrate.exe MyApp.exe /startupConfigurationFile=”MyApp.exe.config” /targetMi
 
 如果你想要运行到特定迁移的迁移，你可以指定迁移的名称。 这将根据需要运行所有以前的迁移之前获取到指定的迁移。
 
-### <a name="specify-working-directory"></a>指定工作目录
+## <a name="specify-working-directory"></a>指定工作目录
 
 ``` console
 Migrate.exe MyApp.exe /startupConfigurationFile=”MyApp.exe.config” /startupDirectory=”c:\\MyApp”
@@ -67,7 +65,7 @@ Migrate.exe MyApp.exe /startupConfigurationFile=”MyApp.exe.config” /startupD
 
 如果您的程序集具有依赖关系或读取文件相对于工作目录，你将需要设置 startupDirectory。
 
-### <a name="specify-migration-configuration-to-use"></a>指定要使用的迁移配置
+## <a name="specify-migration-configuration-to-use"></a>指定要使用的迁移配置
 
 ``` console
 Migrate.exe MyAssembly CustomConfig /startupConfigurationFile=”..\\web.config”
@@ -75,7 +73,7 @@ Migrate.exe MyAssembly CustomConfig /startupConfigurationFile=”..\\web.config�
 
 如果有多个迁移配置类，类继承 DbMigrationConfiguration，然后您需要指定这是要用于此执行。 这是通过提供可选的第二个参数而无需为上面的开关来指定。
 
-### <a name="provide-connection-string"></a>提供连接字符串
+## <a name="provide-connection-string"></a>提供连接字符串
 
 ``` console
 Migrate.exe BlogDemo.dll /connectionString=”Data Source=localhost;Initial Catalog=BlogDemo;Integrated Security=SSPI” /connectionProviderName=”System.Data.SqlClient”

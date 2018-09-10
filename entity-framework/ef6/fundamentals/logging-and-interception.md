@@ -3,12 +3,12 @@ title: 日志记录和拦截数据库操作的 EF6
 author: divega
 ms.date: 2016-10-23
 ms.assetid: b5ee7eb1-88cc-456e-b53c-c67e24c3f8ca
-ms.openlocfilehash: 2e16502abf54be3f3b2f63fe69d2605ef13dea27
-ms.sourcegitcommit: dadee5905ada9ecdbae28363a682950383ce3e10
+ms.openlocfilehash: 9a8be81af45d9f27caa8c26f66d219dc568b6604
+ms.sourcegitcommit: 0d36e8ff0892b7f034b765b15e041f375f88579a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "42994630"
+ms.lasthandoff: 09/09/2018
+ms.locfileid: "44251266"
 ---
 # <a name="logging-and-intercepting-database-operations"></a>日志记录和拦截数据库操作
 > [!NOTE]
@@ -36,8 +36,6 @@ using (var context = new BlogContext())
 ```  
 
 请注意，该上下文。Database.Log 设置为 Console.Write。 这是所有所需 SQL 记录到控制台。  
-
-### <a name="example-output"></a>示例输出  
 
 让我们添加一些简单的查询/插入/更新代码，以便我们可以看到一些输出：  
 
@@ -98,7 +96,7 @@ WHERE @@ROWCOUNT > 0 AND [Id] = scope_identity()
 
 （请注意，这是输出假定已发生的任何数据库初始化。 如果数据库初始化不已发生了则不会有更多输出显示了所有工作迁移实际执行了检查或创建新的数据库。）  
 
-### <a name="what-gets-logged"></a>获取记录内容？  
+## <a name="what-gets-logged"></a>获取记录内容？  
 
 日志属性时设置以下所有条件，将会记录：  
 
@@ -124,7 +122,7 @@ WHERE @@ROWCOUNT > 0 AND [Id] = scope_identity()
     - 请注意的 FK 和 Title 属性的参数详细信息  
     - 请注意，以异步方式执行这些命令  
 
-### <a name="logging-to-different-places"></a>日志记录到不同的位置  
+## <a name="logging-to-different-places"></a>日志记录到不同的位置  
 
 日志记录到如上所示控制台是非常容易。 它也很容易使用不同登录到内存、 文件等的[TextWriter](https://msdn.microsoft.com/library/system.io.textwriter.aspx)。  
 
@@ -147,7 +145,7 @@ var logger = new MyLogger();
 context.Database.Log = s => logger.Log("EFApp", s);
 ```  
 
-### <a name="result-logging"></a>结果日志记录  
+## <a name="result-logging"></a>结果日志记录  
 
 默认记录器命令文本 (SQL)、 参数和"正在执行"行使用记录时间戳之前的命令发送到数据库。 包含已用时间的"已完成"行是记录的执行以下命令。  
 
@@ -155,11 +153,11 @@ context.Database.Log = s => logger.Log("EFApp", s);
 
 在"已完成"的行包含不同的信息，具体取决于命令和已成功执行的类型。  
 
-#### <a name="successful-execution"></a>成功执行  
+### <a name="successful-execution"></a>成功执行  
 
 对于成功完成输出的命令是"已完成中的使用结果毫秒 x:"跟以及结果的提示。 指示返回的结果的数据读取器的命令是一种[DbDataReader](https://msdn.microsoft.com/library/system.data.common.dbdatareader.aspx)返回。 返回一个整数值，例如更新的命令对于上面所示的结果所示的命令是该整数。  
 
-#### <a name="failed-execution"></a>执行失败  
+### <a name="failed-execution"></a>执行失败  
 
 对于失败的命令都通过引发异常，输出包含来自异常的消息。 例如，使用 SqlQuery 对存在的表的查询将导致日志输出如下：  
 
@@ -169,7 +167,7 @@ SELECT * from ThisTableIsMissing
 -- Failed in 1 ms with error: Invalid object name 'ThisTableIsMissing'.
 ```  
 
-#### <a name="canceled-execution"></a>已取消的执行  
+### <a name="canceled-execution"></a>已取消的执行  
 
 对于已取消任务的异步命令结果可能会失败并引发异常，因为这是基础 ADO.NET 提供程序通常的用途时尝试取消。 如果不会出现此问题，则输出将如下所示完全取消任务：  
 
@@ -180,8 +178,6 @@ update Blogs set Title = 'No' where Id = -1
 ```  
 
 ## <a name="changing-log-content-and-formatting"></a>更改日志内容和格式设置  
-
-### <a name="databaselogformatter"></a>DatabaseLogFormatter  
 
 在后台 Database.Log 属性，则可以使用的 DatabaseLogFormatter 对象。 此对象有效地将 IDbCommandInterceptor 实现 （见下文） 绑定到一个委托，它接受字符串和 DbContext。 这意味着 DatabaseLogFormatter 上的方法通过 EF 调用之前和之后执行命令。 这些 DatabaseLogFormatter 方法收集和设置日志输出的格式并将其发送给该委托。  
 

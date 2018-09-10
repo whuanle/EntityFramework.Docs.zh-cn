@@ -3,12 +3,12 @@ title: 预生成的映射视图-EF6
 author: divega
 ms.date: 2016-10-23
 ms.assetid: 917ba9c8-6ddf-4631-ab8c-c4fb378c2fcd
-ms.openlocfilehash: 397569ef374cb44d4938f9e201b588a26c408f6e
-ms.sourcegitcommit: dadee5905ada9ecdbae28363a682950383ce3e10
+ms.openlocfilehash: c2ad7125122c04af238e8fdd07da2c6c308a2756
+ms.sourcegitcommit: 0d36e8ff0892b7f034b765b15e041f375f88579a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "42996467"
+ms.lasthandoff: 09/09/2018
+ms.locfileid: "44250759"
 ---
 # <a name="pre-generated-mapping-views"></a>预生成的映射视图
 实体框架可以执行查询或将更改保存到数据源之前，它必须生成一组映射视图来访问数据库。 这些映射视图是一组以抽象方式表示的数据库的实体 SQL 语句，并且每个应用程序域缓存的元数据的一部分。 如果在同一应用程序域中创建相同的上下文的多个实例，这些实例将重用缓存元数据，而无需重新生成它们，从映射视图。 映射视图生成是执行第一个查询的总成本的重要组成部分，实体框架，可预生成映射视图并将其包含在已编译的项目中。 有关详细信息，请参阅[性能注意事项 （实体框架）](~/ef6/fundamentals/performance/perf-whitepaper.md)。
@@ -20,11 +20,11 @@ ms.locfileid: "42996467"
 -   有关**Code First**模型右键单击包含您的 DbContext 类的代码文件。
 -   有关**EF 设计器**模型右键单击 EDMX 文件。
 
-![generateViews](~/ef6/media/generateviews.png)
+![生成的视图](~/ef6/media/generateviews.png)
 
 该过程完成后将具有类似于以下生成的类
 
-![generatedViews](~/ef6/media/generatedviews.png)
+![生成的视图](~/ef6/media/generatedviews.png)
 
 现在，在运行时 EF 应用程序将使用此类加载所需的视图。 如果模型更改，但不重新生成此类 EF 将引发异常。
 

@@ -3,22 +3,22 @@ title: 第一个数据注释-EF6 的代码
 author: divega
 ms.date: 2016-10-23
 ms.assetid: 80abefbd-23c9-4fce-9cd3-520e5df9856e
-ms.openlocfilehash: 0ab66afa3babafe657b3ddb32c02c3fba0ae310e
-ms.sourcegitcommit: dadee5905ada9ecdbae28363a682950383ce3e10
+ms.openlocfilehash: 57e2b988f81d9c82e10a07a5cd4f3a1decfd838a
+ms.sourcegitcommit: 0d36e8ff0892b7f034b765b15e041f375f88579a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "42994581"
+ms.lasthandoff: 09/09/2018
+ms.locfileid: "44251201"
 ---
 # <a name="code-first-data-annotations"></a>Code First 数据注释
 > [!NOTE]
-> **EF4.1 及更高版本仅**的功能，Api，Entity Framework 4.1 中引入了此页所述的等。 如果使用的是早期版本，则部分或全部信息不适用。
+> **EF4.1 及更高版本仅**的功能，Api，Entity Framework 4.1 中引入了此页所述的等。 如果您使用的是早期版本，则不适用的部分或所有这些信息。
 
-此页上的内容改编自文章作者： Julie Lerman 最初编写和 (\<http://thedatafarm.com>)。
+此页上的内容是从作者： Julie Lerman 最初编写一篇文章 (\<http://thedatafarm.com>)。
 
-实体框架 Code First 允许您使用您自己的域类来表示 EF 依赖于执行查询，该模型更改跟踪和更新功能。 代码首先利用称为约定对配置的编程模式。 这意味着该代码，则首先将假定您的类遵循 EF 使用的约定。 在这种情况下，EF 将能够执行其作业所需的细节。 但是，如果您的类不遵循这些约定，必须将配置添加到您的类与它所需的信息提供 EF 的功能。
+实体框架 Code First 允许您使用您自己的域类来表示 EF 依赖于执行查询，该模型更改跟踪和更新功能。 代码首先将利用一种编程模式称为惯例优先于配置。 代码首先将假定您的类遵循的约定的实体框架，以及在这种情况下，将自动解决如何执行它的作业。 但是，如果您的类不遵循这些约定，必须将配置添加到您的类以提供必要的信息，EF 的功能。
 
-代码首先提供了两种方法将这些配置添加到您的类。 一种使用简单的属性名为 DataAnnotations 和另一种是使用 code first 是 Fluent API，后者为您提供一种在代码中以强制方式，描述配置方法。
+代码首先提供了两种方法将这些配置添加到您的类。 一种使用简单的属性名为 DataAnnotations，并且第二个使用 Code First Fluent API，后者为您提供一种在代码中以强制方式，描述配置方法。
 
 本文将重点介绍使用 DataAnnotations （System.ComponentModel.DataAnnotations 命名空间中） 来配置你的类，突出显示的最常见所需的配置。 DataAnnotations 还能够理解的大量的.NET 应用程序，如 ASP.NET MVC 允许这些应用程序可以利用相同的注释进行客户端验证。
 
@@ -47,15 +47,15 @@ ms.locfileid: "42994581"
     }
 ```
 
-因为它们是在博客和文章类方便地遵循代码的第一个约定和所需帮助 EF 处理它们的调整。 但也可以使用批注来向 EF 提供的详细信息，有关类和它们映射到的数据库。
+因为它们是在博客和文章类方便地遵循代码的第一个约定并需要启用 EF 兼容性的调整。 但是，您可以使用批注的类和数据库映射到的有关向 EF 提供的详细信息。
 
  
 
 ## <a name="key"></a>键
 
-Entity Framework 依赖于它的跟踪实体使用的密钥值的每个实体。 首先取决于代码约定之一是如何表示哪个属性是中的每个代码第一类的键。 这种约定将查找名为"Id"或其中结合的类名称和"Id"，如"BlogId"的属性。 该属性将映射到数据库中的主键列。
+Entity Framework 依赖于具有一个密钥值，用于跟踪的实体的每个实体。 一种约定的 Code First 是隐式键属性;第一次代码将查找名为"Id"或类名称和"Id"，如"BlogId"的组合的属性。 此属性将映射到数据库中的主键列。
 
-博客和文章类都遵循此约定。 但是，如果他们不乐意这样呢？ 如果博客使用名称*PrimaryTrackingKey*改为甚至*foo*？ 如果代码第一次未找到匹配此约定属性它将引发异常，由于实体框架的需求，您必须具有键属性。 关键批注用于指定哪些属性是要使用的 entitykey。
+博客和文章类都遵循此约定。 如果他们不乐意这样？ 如果博客使用名称*PrimaryTrackingKey*相反，或甚至*foo*？ 如果代码第一次未找到匹配此约定属性它将引发异常，由于实体框架的需求，您必须具有键属性。 关键批注用于指定哪些属性是要使用的 entitykey。
 
 ``` csharp
     public class Blog
@@ -68,13 +68,13 @@ Entity Framework 依赖于它的跟踪实体使用的密钥值的每个实体。
     }
 ```
 
-如果您是使用 code first 是数据库生成功能、 博客表具有名为 PrimaryTrackingKey 它默认情况下也定义为标识主键列。
+如果您是使用 code first 是数据库生成功能、 博客表具有名为 PrimaryTrackingKey，默认情况下也定义为标识主键列。
 
-![jj591583_figure01](~/ef6/media/jj591583-figure01.png)
+![博客具有主键的表](~/ef6/media/jj591583-figure01.png)
 
 ### <a name="composite-keys"></a>复合键
 
-实体框架支持的复合键-主键由多个属性组成。 例如，你可能有其主键为 PassportNumber 和 IssuingCountry 的组合的 Passport 类。
+实体框架支持的复合键-主键由多个属性组成。 例如，你可以其主键为 PassportNumber 和 IssuingCountry 的组合的 Passport 类。
 
 ``` csharp
     public class Passport
@@ -88,11 +88,11 @@ Entity Framework 依赖于它的跟踪实体使用的密钥值的每个实体。
     }
 ```
 
-如果已尝试并在 EF 模型中使用上述类，则会得到一个引发 Invalidoperationexception 指出;
+尝试在 EF 模型中使用上述的类将导致`InvalidOperationException`:
 
 *无法确定复合主键排序类型 Passport。使用 ColumnAttribute 或 HasKey 方法指定为复合主键的订单。*
 
-如果您具有复合键，实体框架要求定义键属性的顺序。 您可以执行此操作使用的列批注指定的顺序。
+若要使用的复合键，实体框架要求定义键属性的顺序。 可以使用列批注以指定的顺序来执行此操作。
 
 >[!NOTE]
 > 将顺序值是相对 （而非基于索引） 以便可以使用任何值。 例如，100 到 200 个将代替 1 和 2 可接受。
@@ -111,7 +111,7 @@ Entity Framework 依赖于它的跟踪实体使用的密钥值的每个实体。
     }
 ```
 
-如果您有包含的复合外键的实体，则必须指定相同的列排序用于相应的主键属性。
+如果你有具有复合外键的实体，则必须指定相同的列排序用于相应的主键属性。
 
 仅的相对顺序中的外键属性必须是相同的确切的值分配给**顺序**不需要匹配。 例如，在以下类中，3 和 4 可用来代替 1 和 2。
 
@@ -148,7 +148,7 @@ Entity Framework 依赖于它的跟踪实体使用的密钥值的每个实体。
 
 任何其他不使用代码或标记在应用程序中的更改，MVC 应用程序将执行客户端验证，甚至动态生成使用的属性和批注名称的消息。
 
-![jj591583_figure02](~/ef6/media/jj591583-figure02.png)
+![创建具有标题页是所需的错误](~/ef6/media/jj591583-figure02.png)
 
 所需的属性也会影响生成的数据库，从而映射的属性不可为 null。 请注意，标题字段已更改为"not null"。
 
@@ -157,7 +157,7 @@ Entity Framework 依赖于它的跟踪实体使用的密钥值的每个实体。
 
  
 
-![jj591583_figure03](~/ef6/media/jj591583-figure03.png)
+![Blogs 表](~/ef6/media/jj591583-figure03.png)
 
  
 
@@ -174,7 +174,7 @@ MaxLength 和 MinLength 属性，可以指定其他属性验证，像您那样�
 
 MaxLength 批注会影响数据库的属性的长度设置为 10。
 
-![jj591583_figure04](~/ef6/media/jj591583-figure04.png)
+![Blogs 表 BloggerName 列上显示的最大长度](~/ef6/media/jj591583-figure04.png)
 
 客户端的批注 MVC 和 EF 4.1 服务器端批注将都遵循此验证，再次动态生成一条错误消息:"字段 BloggerName 具有最大长度为"10"的字符串或数组类型必须是"。该消息是有点长。 很多批注，可以使用 ErrorMessage 属性指定一条错误消息。
 
@@ -185,7 +185,7 @@ MaxLength 批注会影响数据库的属性的长度设置为 10。
 
 此外可以在所需的批注中指定错误消息。
 
-![jj591583_figure05](~/ef6/media/jj591583-figure05.png)
+![创建具有自定义错误消息页](~/ef6/media/jj591583-figure05.png)
 
  
 
@@ -243,7 +243,7 @@ MaxLength 批注会影响数据库的属性的长度设置为 10。
 
 在数据库中，博客表将包含的所有博客包括其 BlogDetail 属性中包含的属性的属性。 默认情况下，每个前面带有复杂类型，BlogDetail 的名称。
 
-![jj591583_figure06](~/ef6/media/jj591583-figure06.png)
+![具有复杂类型的网络日志表](~/ef6/media/jj591583-figure06.png)
 
 另一个注意事项是，虽然 DateCreated 属性被定义为不可为 null 的日期时间在类中，相关数据库字段是可以为 null。 如果你想要影响的数据库架构，则必须使用所需的批注。
 
@@ -284,7 +284,7 @@ ConcurrencyCheck 批注可以标记一个或多个要在进行并发检查数据
 
 在代码中首次在数据库表中创建不可以为 null 的时间戳列的结果。
 
-![jj591583_figure07](~/ef6/media/jj591583-figure07.png)
+![使用时间戳列的 Blogs 表](~/ef6/media/jj591583-figure07.png)
 
  
 
@@ -310,7 +310,7 @@ ConcurrencyCheck 批注可以标记一个或多个要在进行并发检查数据
 
 下面是表后已重新生成。 表名已更改为 InternalBlogs，从复杂类型说明列现在是 BlogDescription。 因为在批注中指定了名称，但代码首先将不使用的复杂类型的名称开头的列名称的约定。
 
-![jj591583_figure08](~/ef6/media/jj591583-figure08.png)
+![Blogs 表和列重命名](~/ef6/media/jj591583-figure08.png)
 
  
 
@@ -418,7 +418,7 @@ ConcurrencyCheck 批注可以标记一个或多个要在进行并发检查数据
 
 在数据库中的约束演示 InternalBlogs.PrimaryTrackingKey 和 Posts.BlogId 之间的关系。 
 
-![jj591583_figure09](~/ef6/media/jj591583-figure09.png)
+![InternalBlogs.PrimaryTrackingKey 与 Posts.BlogId 之间的关系](~/ef6/media/jj591583-figure09.png)
 
 有多个类之间的关系时，使用 InverseProperty。
 
@@ -443,7 +443,7 @@ ConcurrencyCheck 批注可以标记一个或多个要在进行并发检查数据
 
 代码首先不能在其自己的两个类中的属性匹配。 文章的数据库表的 CreatedBy 人员应有一个外键和一个用于 UpdatedBy 人但代码首先将创建四个将外键属性： Person\_Id、 人\_Id1、 CreatedBy\_Id 和UpdatedBy\_id。
 
-![jj591583_figure10](~/ef6/media/jj591583-figure10.png)
+![Posts 表包含的额外外键](~/ef6/media/jj591583-figure10.png)
 
 若要解决这些问题，可以使用 InverseProperty 批注指定属性的对齐方式。
 
@@ -457,7 +457,7 @@ ConcurrencyCheck 批注可以标记一个或多个要在进行并发检查数据
 
 亲自 PostsWritten 属性就知道，这是指 Post 类型，因为它将生成与 Post.CreatedBy 之间的关系。 同样，PostsUpdated 将连接到 Post.UpdatedBy。 且代码首先会创建额外外键。
 
-![jj591583_figure11](~/ef6/media/jj591583-figure11.png)
+![Posts 表，而无需额外外键](~/ef6/media/jj591583-figure11.png)
 
  
 

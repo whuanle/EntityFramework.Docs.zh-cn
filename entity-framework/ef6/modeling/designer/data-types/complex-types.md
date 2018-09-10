@@ -3,19 +3,19 @@ title: 复杂类型的 EF 设计器-EF6
 author: divega
 ms.date: 2016-10-23
 ms.assetid: 9a8228ef-acfd-4575-860d-769d2c0e18a1
-ms.openlocfilehash: d35504cbe60823249d54385962568802b3e41308
-ms.sourcegitcommit: dadee5905ada9ecdbae28363a682950383ce3e10
+ms.openlocfilehash: 2a516bd14131fd035a4d005e0fdf140f7ff4d65f
+ms.sourcegitcommit: 0d36e8ff0892b7f034b765b15e041f375f88579a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "42994848"
+ms.lasthandoff: 09/09/2018
+ms.locfileid: "44250824"
 ---
 # <a name="complex-types---ef-designer"></a>复杂类型的 EF 设计器
 本主题演示如何将映射与实体框架设计器 （EF 设计器） 的复杂类型以及如何查询实体包含复杂类型的属性。
 
 下图显示了使用 EF 设计器时使用的主窗口。
 
-![EFDesigner](~/ef6/media/efdesigner.png)
+![EF 设计器](~/ef6/media/efdesigner.png)
 
 > [!NOTE]
 > 生成概念模型时，可能会在错误列表中出现有关未映射的实体和关联的警告。 可以忽略这些警告，因为您选择从模型生成数据库后，这些错误将会消失。
@@ -45,7 +45,7 @@ ms.locfileid: "42994848"
 
 新创建类型的复杂属性将替换选定属性。 所有属性映射都将保留。
 
-![Refactor2](~/ef6/media/refactor2.png)
+![重构 2](~/ef6/media/refactor2.png)
 
 ## <a name="create-a-new-complex-type"></a>创建新的复杂类型
 
@@ -53,7 +53,7 @@ ms.locfileid: "42994848"
 
 右键单击**复杂类型**文件夹在模型浏览器，指向**AddNew 复杂类型...**. 或者，可以选择**复杂类型**文件夹，然后按**插入**键盘上键。
 
-![AddNewComplextype](~/ef6/media/addnewcomplextype.png)
+![添加新复杂类型](~/ef6/media/addnewcomplextype.png)
 
 新复杂类型将添加到具有默认名称的文件夹。 现在可以为类型添加属性。
 
@@ -65,7 +65,7 @@ ms.locfileid: "42994848"
 
 -   右键单击模型浏览器中的复杂类型，指向**外**，然后指向**标量属性**或**复杂属性**，然后选择所需的属性类型。 或者，您可以选择一种复杂类型，然后按**插入**键盘上键。  
 
-    ![AddPropertiestoComplexType](~/ef6/media/addpropertiestocomplextype.png)
+    ![将属性添加到复杂类型](~/ef6/media/addpropertiestocomplextype.png)
 
     新属性将添加到具有默认名称的复杂类型。
 
@@ -108,7 +108,7 @@ ms.locfileid: "42994848"
     出现一个包含所有标量属性的下拉列表。
 7.  选择适当的属性。
 
-    ![MapComplexType](~/ef6/media/mapcomplextype.png)
+    ![将复杂类型映射](~/ef6/media/mapcomplextype.png)
 
 8.  对每一个表列重复步骤 6 和 7。
 
@@ -121,14 +121,14 @@ ms.locfileid: "42994848"
 
 -   双击你想要将映射到复杂类型导入的函数。
 
-    ![FunctionImports](~/ef6/media/functionimports.png)
+    ![函数导入](~/ef6/media/functionimports.png)
 
 -   填入新函数导入的设置，如下所示：
     -   指定要为其创建中的函数导入该存储的过程**存储过程名称**字段。 此字段是一个下拉列表，其中显示存储模型中的所有存储过程。
     -   指定的名称中的函数导入**函数导入名称**字段。
     -   选择**复杂**作为返回类型，然后通过从下拉列表中选择适当的类型指定特定的复杂返回类型。
 
-        ![EditFunctionImport](~/ef6/media/editfunctionimport.png)
+        ![编辑函数导入](~/ef6/media/editfunctionimport.png)
 
 -   单击 **“确定”**。
     此时将在概念模型中创建函数导入项。

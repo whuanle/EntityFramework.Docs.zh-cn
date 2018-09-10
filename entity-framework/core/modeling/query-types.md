@@ -4,12 +4,12 @@ author: anpete
 ms.date: 2/26/2018
 ms.assetid: 9F4450C5-1A3F-4BB6-AC19-9FAC64292AAD
 uid: core/modeling/query-types
-ms.openlocfilehash: bacb121ca00a9b0aa00bfe201de4f95113472d70
-ms.sourcegitcommit: dadee5905ada9ecdbae28363a682950383ce3e10
+ms.openlocfilehash: 54d960e2e2236e2d4185dedc48f51035f5c10e93
+ms.sourcegitcommit: 0d36e8ff0892b7f034b765b15e041f375f88579a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "42996694"
+ms.lasthandoff: 09/09/2018
+ms.locfileid: "44250720"
 ---
 # <a name="query-types"></a>查询类型
 > [!NOTE]
@@ -17,12 +17,14 @@ ms.locfileid: "42996694"
 
 EF Core 模型可以包含实体类型，除了_查询类型_，这可以用于执行针对未映射到实体类型的数据的数据库查询。
 
-查询类型与实体类型具有许多相似之处：
+## <a name="compare-query-types-to-entity-types"></a>比较查询类型与实体类型
 
-- 它们还可以添加到模型或者在`OnModelCreating`，或通过"设置"属性上派生_DbContext_。
-- 它们支持许多相同的映射功能，如继承映射，导航属性 （请参阅下面的限制），然后在关系存储区，配置目标数据库对象和列通过 fluent API 方法或数据注释的功能。
+查询类型它们与实体类型中的一样：
 
-但是不同于实体中的类型，它们：
+- 可以添加到模型或者在`OnModelCreating`或通过"设置"属性上派生_DbContext_。
+- 支持许多相同的映射功能，如继承映射和导航属性。 上关系存储，他们可以配置的目标数据库对象和列通过 fluent API 方法或数据注释。
+
+但是，它们是不同于实体中的类型：
 
 - 不需要定义的键。
 - 永远不会跟踪的更改上_DbContext_并因此永远不会插入、 更新或删除数据库。
@@ -36,6 +38,8 @@ EF Core 模型可以包含实体类型，除了_查询类型_，这可以用于�
 - 映射到使用的数据库对象`ToView`方法，而非`ToTable`。
 - 可以映射到_定义查询_-定义查询是可查询类型的数据源在模型中声明的第二次查询。
 
+## <a name="usage-scenarios"></a>使用方案
+
 下面是一些查询类型主要使用方案：
 
 - 作为返回类型的即席`FromSql()`查询。
@@ -43,8 +47,9 @@ EF Core 模型可以包含实体类型，除了_查询类型_，这可以用于�
 - 映射到不具有定义的主键的表。
 - 映射到模型中定义的查询。
 
-> [!TIP]
-> 查询类型映射到的数据库对象通过实现`ToView`fluent API。 此方法中指定的数据库对象是从 EF Core 的角度来看，_视图_，这意味着它将被视为只读查询源和不能作为目标的更新、 插入或删除操作。 但是，这并不意味着该数据库对象是实际需要的数据库视图-它或者可以是以只读方式将被视为一个数据库表。 相反，实体类型，EF Core 假定数据库对象中指定`ToTable`方法可以视为_表_、 意味着它可以用作查询源，但是还针对由更新、 删除和插入操作。 事实上，可以指定数据库视图中的名称`ToTable`和所有内容应该能够正常工作，只要视图被配置为可在数据库上更新。
+## <a name="mapping-to-database-objects"></a>映射到数据库对象
+
+查询类型映射到的数据库对象通过实现`ToView`fluent API。 此方法中指定的数据库对象是从 EF Core 的角度来看，_视图_，这意味着它将被视为只读查询源和不能作为目标的更新、 插入或删除操作。 但是，这并不意味着该数据库对象是实际需要的数据库视图-它或者可以是以只读方式将被视为一个数据库表。 相反，实体类型，EF Core 假定数据库对象中指定`ToTable`方法可以视为_表_、 意味着它可以用作查询源，但是还针对由更新、 删除和插入操作。 事实上，可以指定数据库视图中的名称`ToTable`和所有内容应该能够正常工作，只要视图被配置为可在数据库上更新。
 
 ## <a name="example"></a>示例
 

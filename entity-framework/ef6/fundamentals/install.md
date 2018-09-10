@@ -3,12 +3,12 @@ title: 获取实体框架的 EF6
 author: divega
 ms.date: 2016-10-23
 ms.assetid: 122c38a2-f9e8-4ecc-9c72-a83bc9af7814
-ms.openlocfilehash: 91b78e56f60edf7ebc8769b1c385f8547f63cd3d
-ms.sourcegitcommit: 0cef7d448e1e47bdb333002e2254ed42d57b45b6
+ms.openlocfilehash: 601f8d123d5494be6a658da1c4ad3743ed50385c
+ms.sourcegitcommit: 0d36e8ff0892b7f034b765b15e041f375f88579a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43152383"
+ms.lasthandoff: 09/09/2018
+ms.locfileid: "44250876"
 ---
 # <a name="get-entity-framework"></a>获取实体框架
 实体框架的 Visual Studio 和 EF 运行时由组成的 EF 工具。
@@ -27,7 +27,7 @@ ms.locfileid: "43152383"
 
 可以通过右键单击安装 EntityFramework 包**引用**项目文件夹并选择**管理 NuGet 包...**
 
-![ManageNuGetPackages](~/ef6/media/managenugetpackages.png)
+![管理 NuGet 包](~/ef6/media/managenugetpackages.png)
 
 ### <a name="installing-from-package-manager-console"></a>从包管理器控制台安装
 
@@ -55,7 +55,7 @@ EF 4.1 之前的运行时是.NET Framework 的一部分，并且不能单独安�
 
 若要安装的 EntityFramework 可以选择最新预览版**包括预发行版**管理 NuGet 包窗口中。 如果不有任何预发布版本将自动获取最新的实体框架的完全受支持的版本。
 
-![IncludePreRelease](~/ef6/media/includeprerelease.png)
+![包括预发行版](~/ef6/media/includeprerelease.png)
 
 或者，可以运行以下命令[程序包管理器控制台](http://docs.nuget.org/docs/start-here/using-the-package-manager-console)。
 

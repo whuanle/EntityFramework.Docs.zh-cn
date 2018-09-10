@@ -3,12 +3,12 @@ title: 处理事务提交失败的 EF6
 author: divega
 ms.date: 2016-10-23
 ms.assetid: 5b1f7a7d-1b24-4645-95ec-5608a31ef577
-ms.openlocfilehash: a22a651851bc46e2bf1fe652b3b9a921ec22b70b
-ms.sourcegitcommit: dadee5905ada9ecdbae28363a682950383ce3e10
+ms.openlocfilehash: f912777104c2e925122c05046d4d65660de8b8a8
+ms.sourcegitcommit: 0d36e8ff0892b7f034b765b15e041f375f88579a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "42996832"
+ms.lasthandoff: 09/09/2018
+ms.locfileid: "44250845"
 ---
 # <a name="handling-transaction-commit-failures"></a>处理事务提交失败
 > [!NOTE]
@@ -50,23 +50,23 @@ public class MyConfiguration : DbConfiguration
 
 在 EF 6.1 之前没有机制来处理 EF 产品中的提交失败。 有几种方法来处理这种情况可与以前版本的 EF6 应用：  
 
-### <a name="option-1---do-nothing"></a>选项 1-不执行任何操作  
+* 选项 1-不执行任何操作  
 
-因此，可能会使应用程序直接失败，如果实际上发生这种情况可接受的事务提交过程中的连接故障的可能性较低。  
+  因此，可能会使应用程序直接失败，如果实际上发生这种情况可接受的事务提交过程中的连接故障的可能性较低。  
 
-## <a name="option-2---use-the-database-to-reset-state"></a>选项 2-使用数据库来重置状态  
+* 选项 2-使用数据库来重置状态  
 
-1. 放弃当前的 DbContext  
-2. 创建新的 DbContext 和从数据库中还原应用程序的状态  
-3. 通知用户，最后一次操作可能不具有已成功完成  
+  1. 放弃当前的 DbContext  
+  2. 创建新的 DbContext 和从数据库中还原应用程序的状态  
+  3. 通知用户，最后一次操作可能不具有已成功完成  
 
-## <a name="option-3---manually-track-the-transaction"></a>选项 3-手动跟踪事务  
+* 选项 3-手动跟踪事务  
 
-1. 将非跟踪的表添加到用于跟踪事务的状态的数据库。  
-2. 插入到表中每个事务的开始处的行。  
-3. 如果连接失败在提交期间，检查存在的数据库中的相应行。  
-    - 如果存在该行，则继续正常运行，因为该事务已提交成功  
-    - 如果该行不存在，使用执行策略以重试当前操作。  
-4. 如果提交成功，删除对应的行，以避免对表的增长。  
+  1. 将非跟踪的表添加到用于跟踪事务的状态的数据库。  
+  2. 插入到表中每个事务的开始处的行。  
+  3. 如果连接失败在提交期间，检查存在的数据库中的相应行。  
+     - 如果存在该行，则继续正常运行，因为该事务已提交成功  
+     - 如果该行不存在，使用执行策略以重试当前操作。  
+  4. 如果提交成功，删除对应的行，以避免对表的增长。  
 
 [这篇博客文章](http://blogs.msdn.com/b/adonet/archive/2013/03/11/sql-database-connectivity-and-the-idempotency-issue.aspx)包含在 SQL Azure 上实现此目的的示例代码。  

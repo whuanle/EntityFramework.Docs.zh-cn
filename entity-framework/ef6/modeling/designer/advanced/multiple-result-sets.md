@@ -3,12 +3,12 @@ title: 存储过程具有多个结果集的 EF6
 author: divega
 ms.date: 2016-10-23
 ms.assetid: 1b3797f9-cd3d-4752-a55e-47b84b399dc1
-ms.openlocfilehash: bb104ac5f584d26d279259a173de9afe3f018968
-ms.sourcegitcommit: dadee5905ada9ecdbae28363a682950383ce3e10
+ms.openlocfilehash: 56c28f05bd7efe1b54d6cadd32afe0e9c6cf38b5
+ms.sourcegitcommit: 0d36e8ff0892b7f034b765b15e041f375f88579a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "42996170"
+ms.lasthandoff: 09/09/2018
+ms.locfileid: "44251006"
 ---
 # <a name="stored-procedures-with-multiple-result-sets"></a>具有多个结果集的存储的过程
 有时，当使用存储时设置过程将需要返回多个结果。 此方案通常用于减少数据库的所需编写单个屏幕之间的往返。 在 EF5 之前, Entity Framework 将允许要调用的存储的过程，但将仅返回设置为调用代码的第一个结果。
@@ -104,7 +104,7 @@ Translate 方法接受我们执行该过程，一个实体集的名称和 MergeO
 -   若要执行此操作需要将存储的过程添加到您的模型，就像为单个结果集查询。
 -   当您获得此则需要您在模型上右键单击并选择**打开方式...** 然后**Xml**
 
-    ![OpenAs](~/ef6/media/openas.png)
+    ![打开为](~/ef6/media/openas.png)
 
 后的模型以 XML 形式打开，则需要执行以下步骤：
 

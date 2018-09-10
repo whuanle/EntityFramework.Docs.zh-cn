@@ -3,12 +3,12 @@ title: 自跟踪实体演练-EF6
 author: divega
 ms.date: 2016-10-23
 ms.assetid: b21207c9-1d95-4aa3-ae05-bc5fe300dab0
-ms.openlocfilehash: 64ca9ae42df1a1c740131e254b8f80f67b2f9f97
-ms.sourcegitcommit: dadee5905ada9ecdbae28363a682950383ce3e10
+ms.openlocfilehash: 1c450bbb20c246d9b9d58707ac03eb48eadfa970
+ms.sourcegitcommit: 0d36e8ff0892b7f034b765b15e041f375f88579a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "42995416"
+ms.lasthandoff: 09/09/2018
+ms.locfileid: "44251279"
 ---
 # <a name="self-tracking-entities-walkthrough"></a>自跟踪实体演练
 > [!IMPORTANT]
@@ -142,7 +142,7 @@ ms.locfileid: "42995416"
 -   选择**STETemplate.tt**文件
 -   单击向下箭头旁边**外**按钮，然后选择**添加为链接**
 
-    ![AddLinkedTemplate](~/ef6/media/addlinkedtemplate.png)
+    ![添加链接的模板](~/ef6/media/addlinkedtemplate.png)
 
 我们还将确保在相同的命名空间上下文中生成实体类。 这只是减少使用我们需要添加整个我们的应用程序的语句。
 
@@ -552,4 +552,4 @@ Press any key to exit...
 -   右键单击**STESample.WPFTest**项目中**解决方案资源管理器**，然后选择**调试-&gt;启动新实例**
 -   您可以操作在显示的数据并将其保存通过服务使用**保存**按钮
 
-![WPF](~/ef6/media/wpf.png)
+![WPF 主窗口](~/ef6/media/wpf.png)

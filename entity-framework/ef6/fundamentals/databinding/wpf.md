@@ -3,12 +3,12 @@ title: 与 WPF-EF6 的数据绑定
 author: divega
 ms.date: 2016-10-23
 ms.assetid: e90d48e6-bea5-47ef-b756-7b89cce4daf0
-ms.openlocfilehash: 0b1f4d5ea204cd80acf42caa499732610daa0e31
-ms.sourcegitcommit: dadee5905ada9ecdbae28363a682950383ce3e10
+ms.openlocfilehash: e6df90db17d39d3aa91275800a6414fed40fb5db
+ms.sourcegitcommit: 0d36e8ff0892b7f034b765b15e041f375f88579a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "42994818"
+ms.lasthandoff: 09/09/2018
+ms.locfileid: "44251149"
 ---
 # <a name="databinding-with-wpf"></a>使用 WPF 数据绑定
 此分步演练说明如何将 POCO 类型绑定到"母版-详细信息"窗体中的 WPF 控件。 应用程序使用 Entity Framework Api 填充数据库中的数据对象、 跟踪更改，然后将数据保存到数据库。
@@ -142,17 +142,17 @@ ms.locfileid: "42994818"
 -   右键单击**数据连接-&gt;添加连接...**
 -   如果你尚未连接到数据库服务器资源管理器之前将需要选择 Microsoft SQL Server 作为数据源
 
-    ![ChangeDataSource](~/ef6/media/changedatasource.png)
+    ![更改数据源](~/ef6/media/changedatasource.png)
 
 -   连接到 LocalDB 或 SQL Express，具体取决于哪一个已安装，并输入**产品**作为数据库名称
 
-    ![AddConnectionLocalDB](~/ef6/media/addconnectionlocaldb.png)
+    ![添加连接 LocalDB](~/ef6/media/addconnectionlocaldb.png)
 
-    ![AddConnectionExpress](~/ef6/media/addconnectionexpress.png)
+    ![添加连接 Express](~/ef6/media/addconnectionexpress.png)
 
 -   选择**确定**并将你想要创建新数据库，请选择要求你**是**
 
-    ![CreateDatabase](~/ef6/media/createdatabase.png)
+    ![创建数据库](~/ef6/media/createdatabase.png)
 
 -   新数据库现在将出现在服务器资源管理器，右键单击它并选择**新查询**
 -   将下面的 SQL 复制到新的查询，然后右键单击查询并选择**Execute**
@@ -186,15 +186,15 @@ ms.locfileid: "42994818"
 -   这将启动**实体数据模型向导**
 -   选择**从数据库生成**单击**下一步**
 
-    ![ChooseModelContents](~/ef6/media/choosemodelcontents.png)
+    ![选择模型内容](~/ef6/media/choosemodelcontents.png)
 
 -   选择连接到第一个部分中创建的数据库中，输入**ProductContext**作为名称的连接字符串和单击**下一步**
 
-    ![ChooseYourConnection](~/ef6/media/chooseyourconnection.png)
+    ![选择您的连接](~/ef6/media/chooseyourconnection.png)
 
 -   单击表导入的所有表并单击完成旁边的复选框
 
-    ![ChooseYourObjects](~/ef6/media/chooseyourobjects.png)
+    ![选择对象](~/ef6/media/chooseyourobjects.png)
 
 反向工程过程完成后的新模型添加到你的项目，并打开，以便在实体框架设计器中查看。 此外具有已 App.config 文件添加到你的项目数据库的连接详细信息。
 
@@ -213,7 +213,7 @@ EF 从您的模型使用 T4 模板生成代码。 随 Visual Studio 或从 Visua
 -   打开**解决方案资源管理器**并找到**ProductModel.edmx**文件
 -   查找**ProductModel.tt**将嵌套在 ProductModel.edmx 文件下的文件
 
-    ![WpfProductModelTemplate](~/ef6/media/wpfproductmodeltemplate.png)
+    ![WPF 产品模型模板](~/ef6/media/wpfproductmodeltemplate.png)
 
 -   双击 ProductModel.tt 文件以在 Visual Studio 编辑器中打开它
 -   查找和替换的两个实例"**ICollection**"with"**ObservableCollection**"。 这些文件位于大约有 296 和 484 的行。
@@ -244,19 +244,19 @@ EF 提供了一个选项的相关的实体从数据库中加载自动首次访�
 -   在选择数据对象对话框中，展开**WPFwithEFSample**两次，然后选择**类别**  
     *若要选择无需**产品**数据源，因为会对通过此**产品**的属性**类别**数据源*  
 
-    ![SelectDataObjects](~/ef6/media/selectdataobjects.png)
+    ![选择数据对象](~/ef6/media/selectdataobjects.png)
 
 -   单击**完成。**
 -   数据源窗口打开 MainWindow.xaml 窗口的旁边*如果未显示数据源窗口，选择**视图-&gt;其他 Windows-&gt;数据源***
 -   按固定图标，以便数据源窗口不会不会自动隐藏。 您可能需要按刷新按钮，如果窗口已可见。
 
-    ![DataSources](~/ef6/media/datasources.png)
+    ![Data Sources](~/ef6/media/datasources.png)
 
 -   选择 * * 类别 * * 数据源，并将其拖动窗体上。
 
 我们拖动到此源时，将发生以下的情况：
 
--   **CategoryViewSource**资源和 * * categoryDataGrid * * 控件添加到 XAML。 有关 DataViewSources 详细信息，请参阅http://bea.stollnitz.com/blog/?p=387。
+-   **CategoryViewSource**资源和 * * categoryDataGrid * * 控件添加到 XAML。 有关 DataViewSources 详细信息，请参阅 http://bea.stollnitz.com/blog/?p=387。
 -   父网格元素的 DataContext 属性设置为"{StaticResource **categoryViewSource** }"。  **CategoryViewSource**资源用作绑定源的外部\\父网格元素。 内部的网格元素然后从父网格 （categoryDataGrid 的 ItemsSource 属性设置为"{Binding}"） 继承的 DataContext 值。 
 
 ``` xml
@@ -299,7 +299,7 @@ EF 提供了一个选项的相关的实体从数据库中加载自动首次访�
 -   在 XAML 窗口中，单击**&lt;窗口**元素，这将选择主窗口
 -   在中**属性**窗口中选择**事件**右上角，然后双击右侧的文本框**Loaded**标签
 
-    ![MainWindowProperties](~/ef6/media/mainwindowproperties.png)
+    ![主窗口属性](~/ef6/media/mainwindowproperties.png)
 
 -   此外将添加**单击**事件**保存**通过双击设计器中的保存按钮的按钮。 
 
@@ -385,10 +385,10 @@ EF 提供了一个选项的相关的实体从数据库中加载自动首次访�
 -   编译并运行该应用程序。 如果使用 Code First，那么，你将看到**WPFwithEFSample.ProductContext**为您创建数据库。
 -   在底部网格中的顶级网格和产品名称中输入类别名称*不要输入任何内容 ID 在列中，因为由数据库生成的主键*
 
-    ![Screen1](~/ef6/media/screen1.png)
+    ![使用新类别和产品的主窗口](~/ef6/media/screen1.png)
 
 -   按**保存**按钮以将数据保存到数据库
 
 调用的 DbContext 的后面**SaveChanges**（），Id 将填入数据库生成值。 因为我们调用**刷新**（) 后的**SaveChanges**（) **DataGrid**控件更新使用新值。
 
-![屏幕 2](~/ef6/media/screen2.png)
+![使用 Id 填充主窗口](~/ef6/media/screen2.png)

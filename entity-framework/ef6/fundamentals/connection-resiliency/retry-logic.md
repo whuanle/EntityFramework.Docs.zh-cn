@@ -3,12 +3,12 @@ title: 连接复原和重试逻辑-EF6
 author: divega
 ms.date: 2016-10-23
 ms.assetid: 47d68ac1-927e-4842-ab8c-ed8c8698dff2
-ms.openlocfilehash: 47181292873009c7bce2047787503258ffa35d9d
-ms.sourcegitcommit: dadee5905ada9ecdbae28363a682950383ce3e10
+ms.openlocfilehash: d7e58abfa17c5537cdc9b0068e7c2a3c2e390038
+ms.sourcegitcommit: 0d36e8ff0892b7f034b765b15e041f375f88579a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "42997480"
+ms.lasthandoff: 09/09/2018
+ms.locfileid: "44250512"
 ---
 # <a name="connection-resiliency-and-retry-logic"></a>连接复原和重试逻辑
 > [!NOTE]
@@ -68,11 +68,9 @@ public class MyConfiguration : DbConfiguration
 
 将仅在有限的数量的异常通常是 tansient 重试执行策略，您将仍需要处理其他错误，以及所捕获这种情况的错误不是暂时性或花很长时间来解决 RetryLimitExceeded 异常本身。  
 
-## <a name="limitations"></a>限制  
-
 使用重试执行策略时，有一些已知限制：  
 
-### <a name="streaming-queries-are-not-supported"></a>不支持流式处理查询  
+## <a name="streaming-queries-are-not-supported"></a>不支持流式处理查询  
 
 默认情况下，EF6 和更高版本进行缓冲处理的查询结果，而不是流式处理它们。 如果想要的结果流式传输你可以使用 AsStreaming 方法更改 LINQ to Entities 查询到流式处理。  
 
@@ -88,11 +86,9 @@ using (var db = new BloggingContext())
 
 注册正在重试执行策略时，不支持流式处理。 存在此限制，因为连接无法期间删除通过所返回的结果。 此操作时，EF 需要重新运行整个查询，但具有可靠的方法知道已返回的结果 （数据可能已更改自初始查询的发送，结果可能会返回不同的顺序，结果可能不具有唯一标识符等等。)。  
 
-### <a name="user-initiated-transactions-not-supported"></a>用户启动的事务不受支持  
+## <a name="user-initiated-transactions-are-not-supported"></a>不支持用户启动事务  
 
 已配置导致重试执行策略，时使用的事务存在一些限制。  
-
-#### <a name="whats-supported-efs-default-transaction-behavior"></a>支持的功能： EF 的默认事务行为  
 
 默认情况下，EF 将执行的事务中任何数据库更新。 无需执行任何操作即可启用此功能，EF 始终自动执行此操作。  
 
@@ -106,8 +102,6 @@ using (var db = new BloggingContext())
     db.SaveChanges();
 }
 ```  
-
-#### <a name="whats-not-supported-user-initiated-transactions"></a>不支持的功能： 用户启动的事务  
 
 不使用重试执行策略时可以在单个事务中包装多个操作。 例如，下面的代码将两个 SaveChanges 调用包装在单个事务中。 如果这两种操作的任何部分然后失败的任何更改会应用。  
 
@@ -130,9 +124,7 @@ using (var db = new BloggingContext())
 
 仅使用重试执行策略，因为 EF 不知道的任何先前的操作以及如何重试时，不支持此操作。 例如，如果第二个 SaveChanges 未通过，则 EF 无法再具有所需的信息以第一次的 SaveChanges 调用重试。  
 
-#### <a name="possible-workarounds"></a>可能的解决方法  
-
-##### <a name="suspend-execution-strategy"></a>挂起执行策略  
+### <a name="workaround-suspend-execution-strategy"></a>解决方法： 挂起执行策略  
 
 一种解决方法是代码的挂起的需要使用用户段的重试执行策略启动的事务。 若要执行此操作的最简单方法是添加到你的代码的 SuspendExecutionStrategy 标志基于配置类和更改执行策略 lambda 时要返回的默认 (非 retying) 执行策略设置的标志。  
 
@@ -193,7 +185,7 @@ using (var db = new BloggingContext())
 }
 ```  
 
-##### <a name="manually-call-execution-strategy"></a>手动调用执行策略  
+### <a name="workaround-manually-call-execution-strategy"></a>解决方法： 手动调用执行策略  
 
 另一个选项是手动使用执行策略并为其提供逻辑来运行，整个集，以便它可以重试的所有内容如果其中一个操作失败。 我们仍需要挂起执行策略的使用方法，以便在可重试代码块内使用任何上下文不尝试重试-上面所示。  
 

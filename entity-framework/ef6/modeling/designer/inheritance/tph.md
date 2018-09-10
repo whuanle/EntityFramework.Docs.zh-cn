@@ -3,12 +3,12 @@ title: 设计器 TPH 继承-EF6
 author: divega
 ms.date: 2016-10-23
 ms.assetid: 72d26a8e-20ab-4500-bd13-394a08e73394
-ms.openlocfilehash: 9a546f6450b5aa3b03c062d1ab2c6f9257ba8292
-ms.sourcegitcommit: dadee5905ada9ecdbae28363a682950383ce3e10
+ms.openlocfilehash: 1eb935414b20d6e93e9d470ccc845bc13626ed3a
+ms.sourcegitcommit: 0d36e8ff0892b7f034b765b15e041f375f88579a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "42994999"
+ms.lasthandoff: 09/09/2018
+ms.locfileid: "44250837"
 ---
 # <a name="designer-tph-inheritance"></a>设计器 TPH 继承
 此分步演练演示如何使用实体框架设计器 （EF 设计器） 在概念模型中实现每个层次结构一个表 (TPH) 继承。 TPH 继承使用数据库表维护继承层次结构中的实体类型的所有数据。
@@ -54,7 +54,7 @@ ms.locfileid: "42994999"
 
 它是如何**人员**表查找数据库中。
 
-![PersonTable](~/ef6/media/persontable.png) 
+![Person 表](~/ef6/media/persontable.png) 
 
 ## <a name="implement-table-per-hierarchy-inheritance"></a>实现每个层次结构一个表继承
 
@@ -94,14 +94,14 @@ ms.locfileid: "42994999"
 -   在中**运算符**的列**映射详细信息**窗口中，选择 = 从下拉列表。
 -   在中**值/属性**列中，键入**讲师**。 最终结果应如下所示：
 
-    ![MappingDetails2](~/ef6/media/mappingdetails2.png)
+    ![映射的详细信息](~/ef6/media/mappingdetails2.png)
 
 -   重复这些步骤**学生**实体类型，但请等于条件**学生**值。  
     *我们想要删除的原因**鉴别器**属性，是因为您不能超过一次将映射的表列。将为条件映射时，使用此列，因此不能为属性映射还使用它。它可用于这种，如果条件使用的唯一方式**Is Null**或**Is Not Null**比较。*
 
 “每个层次结构一个表”继承实现完毕。
 
-![FinalTPH](~/ef6/media/finaltph.png)
+![最终 TPH](~/ef6/media/finaltph.png)
 
 ## <a name="use-the-model"></a>使用模型
 

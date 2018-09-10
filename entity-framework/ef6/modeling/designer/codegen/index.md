@@ -3,12 +3,12 @@ title: 设计器代码生成模板 - EF6
 author: divega
 ms.date: 2016-10-23
 ms.assetid: 56e00fa2-f9f0-48b3-8006-f8266ca7e74b
-ms.openlocfilehash: 29e28dd4ebe0e5e6e3cddacb1d34202c2010f389
-ms.sourcegitcommit: dadee5905ada9ecdbae28363a682950383ce3e10
+ms.openlocfilehash: e4d4aaa647baca9f85b85db1aadaade37abd6ff2
+ms.sourcegitcommit: 0d36e8ff0892b7f034b765b15e041f375f88579a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "42994866"
+ms.lasthandoff: 09/09/2018
+ms.locfileid: "44251162"
 ---
 # <a name="designer-code-generation-templates"></a>设计器代码生成模板
 使用 Entity Framework 设计器创建模型时，会自动生成类和派生上下文。 除默认代码生成之外，我们还提供了许多模板，可用于自定义生成的代码。 这些模板以 T4 文本模板的形式提供，可按需自定义模板。
@@ -151,7 +151,7 @@ ms.locfileid: "42994866"
 
 若要开始使用代码生成模板，请右键单击 EF 设计器中设计界面上的空白区域，然后选择“添加代码生成项...”。
 
-![Add_Code_Gen_Item](~/ef6/media/add-code-gen-item.png)
+![添加代码生成项](~/ef6/media/add-code-gen-item.png)
 
 如果已安装要使用的模板（或模板包含在 Visual Studio 中），则可从左侧菜单的“代码”或“数据”部分使用此模板。
 
@@ -166,8 +166,8 @@ ms.locfileid: "42994866"
 > [!NOTE]
 > 对于在 Visual Studio 2012 中创建的模型，需删除用于默认代码生成的模板，否则会生成重复的类和上下文。 默认文件是 &lt;model name&gt;.tt 和 &lt;model name&gt;.context.tt。 
 
-![VS2012_Templates](~/ef6/media/vs2012-templates.png)
+![VS2012 模板](~/ef6/media/vs2012-templates.png)
 
 如果使用的是 Visual Studio 2010，则 tt 文件会直接添加到项目中。  
 
-![VS2010_Templates](~/ef6/media/vs2010-templates.png)
+![VS2010 模板](~/ef6/media/vs2010-templates.png)

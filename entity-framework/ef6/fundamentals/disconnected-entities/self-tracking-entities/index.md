@@ -3,12 +3,12 @@ title: 自跟踪实体 - EF6
 author: divega
 ms.date: 2016-10-23
 ms.assetid: 5e60f5be-7bbb-4bf8-835e-0ac808d6c84a
-ms.openlocfilehash: 8b555d211facd737aedf120a1ecfdc88d3903107
-ms.sourcegitcommit: dadee5905ada9ecdbae28363a682950383ce3e10
+ms.openlocfilehash: bd22df9e14fe71ae065baf1d747b1642dd7bafce
+ms.sourcegitcommit: 0d36e8ff0892b7f034b765b15e041f375f88579a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "42998011"
+ms.lasthandoff: 09/09/2018
+ms.locfileid: "44250856"
 ---
 # <a name="self-tracking-entities"></a>自跟踪实体
 
@@ -28,7 +28,7 @@ ms.locfileid: "42998011"
 
 若要开始操作，请访问[自跟踪实体演练](walkthrough.md)页。  
 
-## <a name="considerations-when-working-with-self-tracking-entities"></a>使用自跟踪实体时的注意事项  
+## <a name="functional-considerations-when-working-with-self-tracking-entities"></a>使用自跟踪实体时的功能性注意事项  
 > [!IMPORTANT]
 > 我们不再建议使用自跟踪实体模板。 它将仅继续用于支持现有应用程序。 如果应用程序需要使用断开连接的实体图，请考虑其他替代方案，例如[可跟踪实体](http://trackableentities.github.io/)，它与自跟踪实体类似，社区在更积极地开发这种技术，或使用低级别更改跟踪 API 编写自定义代码。
 
@@ -46,7 +46,7 @@ ms.locfileid: "42998011"
 - 执行延迟加载时不启用自跟踪实体。  
 - 自跟踪实体不支持二进制序列化和针对 ASP.NET 状态管理对象的序列化。 但是，您可以自定义此模板来添加二进制序列化支持。 有关详细信息，请参阅[将二进制序列化和 ViewState 用于自跟踪实体](http://go.microsoft.com/fwlink/?LinkId=199208)。  
 
-### <a name="security-considerations"></a>安全注意事项  
+## <a name="security-considerations"></a>安全注意事项  
 
 使用自跟踪实体时，应考虑以下安全注意事项：  
 

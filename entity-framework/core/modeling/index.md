@@ -4,14 +4,14 @@ author: rowanmiller
 ms.date: 10/27/2016
 ms.assetid: 88253ff3-174e-485c-b3f8-768243d01ee1
 uid: core/modeling/index
-ms.openlocfilehash: 9f702d5833b88e6eb77c0afefdae0ed3bc162ec8
-ms.sourcegitcommit: dadee5905ada9ecdbae28363a682950383ce3e10
+ms.openlocfilehash: e4eed480178ce43cbc5ece8db8e584032da7b2b9
+ms.sourcegitcommit: 0d36e8ff0892b7f034b765b15e041f375f88579a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "42993928"
+ms.lasthandoff: 09/09/2018
+ms.locfileid: "44250343"
 ---
-# <a name="creating-a-model"></a>创建模型
+# <a name="creating-and-configuring-a-model"></a>创建并配置模型
 
 Entity Framework 使用一组约定基于实体类的形状构建模型。 可指定其他配置补充和/或替代由约定发现的内容。
 
@@ -20,9 +20,7 @@ Entity Framework 使用一组约定基于实体类的形状构建模型。 可�
 > [!TIP]  
 > 可在 GitHub 上查看此文章的[示例](https://github.com/aspnet/EntityFramework.Docs/tree/master/samples)。
 
-## <a name="methods-of-configuration"></a>配置方法
-
-### <a name="fluent-api"></a>Fluent API
+## <a name="use-fluent-api-to-configure-a-model"></a>使用 fluent API 配置模型
 
 可在派生上下文中替代 `OnModelCreating` 方法，并使用 `ModelBuilder API` 来配置模型。 此配置方法最为有效，并可在不修改实体类的情况下指定配置。 Fluent API 配置具有最高优先级，并将替代约定和数据注释。
 
@@ -42,7 +40,7 @@ Entity Framework 使用一组约定基于实体类的形状构建模型。 可�
     }
 ```
 
-### <a name="data-annotations"></a>数据注释
+## <a name="use-data-annotations-to-configure-a-model"></a>使用数据注释来配置模型
 
 也可将特性（称为数据注释）应用于类和属性。 数据注释会替代约定，但会被 Fluent API 配置覆盖。
 

@@ -1,116 +1,135 @@
 ---
-title: 安装 EF Core
+title: 安装 Entity Framework Core
 author: divega
 ms.date: 08/06/2017
 ms.assetid: 608cc774-c570-4809-8a3e-cd2c8446b8b2
 uid: core/get-started/install/index
-ms.openlocfilehash: 30ca81a0ede65506a6684d2322d31332115b1ed3
-ms.sourcegitcommit: dadee5905ada9ecdbae28363a682950383ce3e10
+ms.openlocfilehash: 7831e6a54e885cf0b89ef3eef2cd81a9292df606
+ms.sourcegitcommit: 0d36e8ff0892b7f034b765b15e041f375f88579a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "42996923"
+ms.lasthandoff: 09/09/2018
+ms.locfileid: "44250317"
 ---
-# <a name="installing-ef-core"></a>安装 EF Core
+# <a name="installing-entity-framework-core"></a>安装 Entity Framework Core
 
 ## <a name="prerequisites"></a>系统必备
 
-必须下载并安装适合所用平台的 [.NET Core 2.1 SDK](https://www.microsoft.com/net/download/core) 版本，才能开发 .NET Core 2.1 应用程序（包括定目标到 .NET Core 的 ASP.NET Core 2.1 应用程序）。 **即使已安装 Visual Studio 2017 版本 15.7，也不例外。**
+* 若要开发面向.NET Core 2.1 的应用，请安装 [.NET Core 2.1 SDK](https://www.microsoft.com/net/download/core)。 即使有 Visual Studio 2017 的最新版本，也必须安装 SDK。
 
-必须有可感知 .NET Standard 2.0 及其兼容框架的 NuGet 版本，才能将 EF Core 2.1 或其他任何 .NET Standard 2.0 库用于除 .NET Core 2.1 以外的 .NET 平台（例如 .NET Framework 4.6.1 或更高版本）。 可通过几种方法获取此版本：
+* 若要使用 Visual Studio 开发面向 .NET Core 2.1 的应用，请安装 Visual Studio 2017 版本 15.7 或更高版本。
 
-* 安装 Visual Studio 2017 版本 15.7
-* 如果使用 Visual Studio 2015，请[下载 NuGet 客户端并升级至 3.6.0 版](https://www.nuget.org/downloads)
+* 若要在 ASP.NET Core 应用程序中使用 Entity Framework 2.1，请使用 ASP.NET Core 2.1。 使用早期版本的 ASP.NET Core 的应用程序必须更新到 2.1。
 
-为了与 .NET Framework 2.0 库兼容，使用以前版本的 Visual Studio 创建且面向 .NET Framework 的项目可能需要其他修改：
+* 可以将 Visual Studio 2015 用于面向 .NET Framework 4.6.1 或更高版本的应用。 但需要可识别 .NET Standard 2.0 及其兼容框架的 NuGet 版本。 若要在 Visual Studio 2015 中获取此版本，[将 NuGet 客户端升级到版本 3.6.0](https://www.nuget.org/downloads)。
 
-* 编辑项目文件，并确保以下条目出现在初始属性组中：
-  ``` xml
-  <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-  ```
+## <a name="get-the-entity-framework-core-runtime"></a>获取 Entity Framework Core 运行时
 
-* 对于测试项目，还要确保存在以下条目：
-  ``` xml
-  <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
-  ```
+要将 EF Core 运行时库添加到应用程序，可以为要使用的数据库提供程序安装 NuGet 包。 要获取支持的提供程序及其 NuGet 包名称的列表，请参阅[数据库提供程序](../../providers/index.md)。
 
-## <a name="getting-the-bits"></a>获取相应工具
-将 EF Core 运行时库添加到应用程序的推荐方法是，从 NuGet 安装 EF Core 数据库提供程序。
+要安装或更新 NuGet 包，可以使用 .NET Core CLI、Visual Studio 包管理器对话框或 Visual Studio 包管理器控制台。
 
-除运行时库外，还可安装相应工具，以便在设计时更轻松地执行项目中的多个 EF Core 相关任务，例如创建和应用迁移以及基于现有数据库创建模型。
+ASP.NET Core 2.1 应用程序自动随附内存中和 SQL Server 提供程序，因此无需单独安装。
 
 > [!TIP]  
 > 如需更新使用第三方数据库提供程序的应用程序，请始终检查与要使用的 EF Core 版本兼容的提供程序有无更新。 例如，旧版本使用的数据库提供程序与 2.1 版 EF Core 运行时不兼容。  
 
-> [!TIP]  
-> 定目标到 ASP.NET Core 2.1 的应用程序可以使用 EF Core 2.1，无需除第三方数据库提供程序以外的其他依赖项。 定目标到旧版 ASP.NET Core 的应用程序必须升级到 ASP.NET Core 2.1，才能使用 EF Core 2.1。
+### <a name="net-core-cli"></a>.NET Core CLI
 
-<a name="cli"></a>
-### <a name="cross-platform-development-using-the-net-core-command-line-interface-cli"></a>使用 .NET Core 命令行接口 (CLI) 进行跨平台开发
-
-若要开发定目标到 [.NET Core](https://www.microsoft.com/net/download/core) 的应用程序，可以选择结合使用 [`dotnet` CLI 命令](https://docs.microsoft.com/dotnet/core/tools/)与常用文本编辑器或集成开发环境 (IDE)（如 Visual Studio、Visual Studio for Mac 或 Visual Studio Code）。
-
-> [!IMPORTANT]  
-> 面向 .NET Core 的应用程序需要特定版本的 Visual Studio。 例如，.NET Core 1.x 开发需要 Visual Studio 2017，而 .NET Core 2.1 开发则需要 Visual Studio 2017 版本 15.7。
-
-要在跨平台 .NET Core 应用程序中安装或升级 SQL Server 提供程序，请切换至应用程序的目录，并在命令行中运行以下命令：
+以下 .NET Core CLI 命令安装或更新 SQL Server 提供程序：
 
 ``` Console
 dotnet add package Microsoft.EntityFrameworkCore.SqlServer
 ```
 
-可以使用 `-v` 修饰符在 `dotnet add package` 命令中指明特定的安装版本。 例如，若要安装 EF Core 2.1 包，请将 `-v 2.1.0` 追加到命令中。
+可以使用 `-v` 修饰符在 `dotnet add package` 命令中指明特定的版本。 例如，若要安装 EF Core 2.1.0 包，请将 `-v 2.1.0` 追加到命令中。
 
-EF Core 包含一套以 `dotnet ef` 开头的[附加 `dotnet` CLI 命令](../../miscellaneous/cli/dotnet.md)。 适用于 EF Core 的 .NET Core CLI 工具需要包 `Microsoft.EntityFrameworkCore.Design`。 可以运行下面的命令，将它添加到项目中：
-
- ``` Console    
-dotnet add package Microsoft.EntityFrameworkCore.Design 
-``` 
-
-> [!IMPORTANT]      
-> 请务必使用与运行时包主版本匹配的工具包版本。
-
-<a name="visual-studio"></a>
-### <a name="visual-studio-development"></a>Visual Studio 开发
-
-使用 Visual Studio 可以开发许多不同类型的应用程序，这些应用程序面向 .NET Core、.NET Framework 或受 EF Core 支持的其他平台。
-
-使用 Visual Studio 可通过两种方式在应用程序中安装 EF Core 数据库提供程序：
-
-#### <a name="using-nugets-package-manager-user-interfacehttpsdocsmicrosoftcomnugettoolspackage-manager-ui"></a>使用 NuGet 的[包管理器用户界面](https://docs.microsoft.com/nuget/tools/package-manager-ui)
+### <a name="visual-studio-nuget-package-manager-dialog"></a>Visual Studio NuGet 包管理器对话框
 
 * 在菜单上选择“项目”>“管理 NuGet 程序包”
 
 * 单击“浏览”或“更新”选项卡
 
-* 选择 `Microsoft.EntityFrameworkCore.SqlServer` 包及所需版本，然后确认
+* 若要安装或更新 SQL Server 提供程序，请选择 `Microsoft.EntityFrameworkCore.SqlServer` 包并确认。
 
-#### <a name="using-nugets-package-manager-console-pmchttpsdocsmicrosoftcomnugettoolspackage-manager-console"></a>使用 NuGet 的[包管理器控制台 (PMC)](https://docs.microsoft.com/nuget/tools/package-manager-console)
+有关详细信息，请参阅 [NuGet 包管理器对话框](https://docs.microsoft.com/nuget/tools/package-manager-ui)。
 
-* 在菜单上选择“工具”>“NuGet 包管理器”>“包管理器控制台”
+### <a name="visual-studio-nuget-package-manager-console"></a>Visual Studio NuGet 包管理器控制台
 
-* 在 PMC 中键入并运行以下命令：
+* 从菜单中，选择“工具”>“NuGet 包管理器”>“包管理器控制台”
+
+* 若要安装 SQL Server 提供程序，请在包管理器控制台中运行以下命令：
 
   ``` PowerShell  
   Install-Package Microsoft.EntityFrameworkCore.SqlServer
   ```
-* 可以改为使用 `Update-Package` 命令将已安装的包更新至较新版本
+* 若要更新提供程序，使用 `Update-Package` 命令。
 
-* 若要指定特定版本，可以使用 `-Version` 修饰符。 例如，若要安装 EF Core 2.1 包，请将 `-Version 2.1.0` 追加到命令中
+* 若要指定特定版本，可以使用 `-Version` 修饰符。 例如，若要安装 EF Core 2.1.0 包，请将 `-Version 2.1.0` 追加到命令中
 
-#### <a name="tools"></a>工具
+有关详细信息，请参阅[包管理器控制台](https://docs.microsoft.com/nuget/tools/package-manager-console)。
 
-Visual Studio 中还有 PowerShell 版本的[在 PMC 内运行的 EF Core 命令](../../miscellaneous/cli/powershell.md)，其功能与 `dotnet ef` 命令相似。 
+## <a name="get-entity-framework-core-tools"></a>获取 Entity Framework Core 工具
 
-> [!TIP]  
-> 尽管可以在 Visual Studio 中使用来自 PMC 的 `dotnet ef` 命令，但使用 PowerShell 版本要方便得多：
-> * 它们会自动使用 PMC 中选择的当前项目，无需手动切换目录。  
-> * 命令完成后，它们会自动在 Visual Studio 中打开命令所生成的文件。
+除了运行时库，还可以安装设计时可在项目中执行一些与 EF Core 相关的任务的工具。 例如，可以创建迁移、应用迁移，并创建基于现有数据库的模型。
 
-> [!IMPORTANT]  
-> **EF Core 2.1 中的弃用包：** 若要将现有应用程序升级到 EF Core 2.1，可能需要手动删除一些对旧版 EF Core 包的引用：
-> * EF Core 2.1 不再需要或支持 `Microsoft.EntityFrameworkCore.SqlServer.Design` 等数据库提供程序设计时包，但在升级其他包后，它们不会被自动删除。
-> * .NET SDK 现包含 .NET CLI 工具，这样就可以从 .csproj 文件中删除对相应包的引用：
->   ```
->   <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.0.0" />
->   ```
+提供了两个工具集：
+* .NET Core [命令行接口 (CLI) 工具](../../miscellaneous/cli/dotnet.md)可用于 Windows、Linux 或 macOS。 这些命令以 `dotnet ef` 开头。 
+* [包管理器控制台工具](../../miscellaneous/cli/powershell.md)在 Windows 上的 Visual Studio 2017 中运行。 这些命令以动词开头，例如 `Add-Migration`、`Update-Database`。
+
+虽然可在包管理器控制台中使用 `dotnet ef` 命令，但在使用 Visual Studio 时使用包管理器控制台工具更方便：
+* 它们会自动使用包管理器控制台中选择的当前项目，无需手动切换目录。  
+* 命令完成后，它们会自动在 Visual Studio 中打开命令所生成的文件。
+
+<a name="cli"></a>
+
+### <a name="get-the-cli-tools"></a>获取 CLI 工具
+
+`dotnet ef` 命令随附在 .NET Core SDK 中，但若要启用这些命令，必须安装 `Microsoft.EntityFrameworkCore.Design` 包：
+
+ ``` Console    
+dotnet add package Microsoft.EntityFrameworkCore.Design 
+``` 
+
+ASP.NET Core 2.1 应用自动随附此包。
+
+如前面[先决条件](#prerequisites)所述，还需要安装 .NET Core 2.1 SDK。
+
+> [!IMPORTANT]      
+> 请务必使用与运行时包主版本匹配的工具包版本。
+
+### <a name="get-the-package-manager-console-tools"></a>获取包管理器控制台工具
+
+若要获取适用于 EF Core 的包管理器控制台工具，请安装 `Microsoft.EntityFrameworkCore.Tools` 包：
+
+ ``` Console    
+dotnet add package Microsoft.EntityFrameworkCore.Tools
+``` 
+
+ASP.NET Core 2.1 应用自动随附此包。
+
+## <a name="upgrading-to-ef-core-21"></a>升级到 EF Core 2.1
+
+若要将现有应用程序升级到 EF Core 2.1，可能需要手动删除一些对旧版 EF Core 包的引用：
+
+* EF Core 2.1 不再需要或支持 `Microsoft.EntityFrameworkCore.SqlServer.Design` 等数据库提供程序设计时包，但在升级其他包后，它们不会被自动删除。
+
+* .NET SDK 现包含 .NET CLI 工具，这样就可以从 .csproj 文件中删除对相应包的引用：
+
+  ```
+  <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.0.0" />
+  ```
+
+对于面向 .NET Framework 且由 Visual Studio 早期版本创建的应用程序，请确保它们与 .NET Standard 2.0 库兼容：
+
+  * 编辑项目文件，并确保以下条目出现在初始属性组中：
+
+    ``` xml
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    ```
+
+  * 对于测试项目，还要确保存在以下条目：
+
+    ``` xml
+    <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
+    ```

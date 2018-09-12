@@ -4,21 +4,33 @@ author: divega
 ms.date: 02/20/2018
 ms.assetid: 834C9729-7F6E-4355-917D-DE3EE9FE149E
 uid: core/what-is-new/roadmap
-ms.openlocfilehash: cd4b7ddaafe9501c4bb9f2496e87f619d239ab62
-ms.sourcegitcommit: dadee5905ada9ecdbae28363a682950383ce3e10
+ms.openlocfilehash: fd9086c9911cdb0890117d44c2787780aad9a7cb
+ms.sourcegitcommit: a81aed575372637997b18a0f9466d8fefb33350a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "42995255"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43821356"
 ---
 # <a name="entity-framework-core-roadmap"></a>Entity Framework Core 路线图
 
 > [!IMPORTANT]
 > 请注意，将来版本的功能集和计划会发生更改，尽管我们会尽力使此页面保持最新状态，但它可能不会始终反映我们的最新计划。
 
+## <a name="last-release-ef-core-21"></a>上次发布的版本：EF Core 2.1
+
 EF Core 2.1 的稳定版本已于 2018 年 5 月 30 日发布。 可在 [EF Core 2.1 中的新增功能](xref:core/what-is-new/ef-core-2.1)中查找有关此版本的详细信息。
 
-我们尚未完成 2.1 后的下一个版本的[发布规划进程](#release-planning-process)。
+## <a name="future-releases"></a>未来将要发布的版本
+
+### <a name="ef-core-22"></a>EF Core 2.2
+
+此版本将包含多个 Bug 修复和少量新功能。 有关此版本的详细信息，请参阅 [EF Core 2.2 路线图公告](https://github.com/aspnet/Announcements/issues/308)。 
+
+### <a name="ef-core-30"></a>EF Core 3.0
+
+对于 2.2 之后的下一个版本，虽然尚未完成[版本规划过程](#release-planning-process)，但我们目前正计划与 .NET Core 3.0 和 ASP.NET 3.0 一起发布一个主要版本。 
+
+可以在[我们的问题跟踪程序中使用此查询](https://github.com/aspnet/EntityFrameworkCore/issues?q=is%3Aopen+is%3Aissue+milestone%3A3.0.0+sort%3Areactions-%2B1-desc)来查看暂时分配给此未来版本的工作项。
 
 ## <a name="schedule"></a>计划
 

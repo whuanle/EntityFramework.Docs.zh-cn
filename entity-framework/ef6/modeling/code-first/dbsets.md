@@ -1,14 +1,14 @@
 ---
 title: 定义 Dbset 的 EF6
 author: divega
-ms.date: 2016-10-23
+ms.date: 10/23/2016
 ms.assetid: 4528a509-ace7-4dfb-8065-1b833f5e03a0
-ms.openlocfilehash: cc45ed1ceb20bc90090adb3e93c10651c69c9a6a
-ms.sourcegitcommit: dadee5905ada9ecdbae28363a682950383ce3e10
+ms.openlocfilehash: 045b22d2b9d26804948689dd7c9dd694baadda7e
+ms.sourcegitcommit: 2b787009fd5be5627f1189ee396e708cd130e07b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "42993852"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45488993"
 ---
 # <a name="defining-dbsets"></a>定义 Dbset
 使用代码优先工作流进行开发时定义一个派生的 DbContext 来表示与数据库的会话，并公开您的模型中每个类型的 DbSet。 本主题介绍您可以定义 DbSet 属性的各种方法。  

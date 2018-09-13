@@ -1,14 +1,14 @@
 ---
 title: 原始 SQL 查询的 EF6
 author: divega
-ms.date: 2016-10-23
+ms.date: 10/23/2016
 ms.assetid: 9e1ee76e-2499-408c-81e8-9b6c5d1945a0
-ms.openlocfilehash: 99893ca1c634ce6f2e4cf9dcb70b1a1e43532c60
-ms.sourcegitcommit: dadee5905ada9ecdbae28363a682950383ce3e10
+ms.openlocfilehash: 6b00648939ccedffeed09b4e1d6e8d70fa262a36
+ms.sourcegitcommit: 2b787009fd5be5627f1189ee396e708cd130e07b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "42995729"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45490579"
 ---
 # <a name="raw-sql-queries"></a>原生 SQL 查询
 实体框架，可与实体类使用 LINQ 进行查询。 但是，可能有时你想要使用原始 SQL 直接针对数据库运行查询。 这包括调用存储的过程的当前不支持映射到存储过程的 Code First 模型会很有用。 本主题所介绍的方法同样适用于查询使用 Code First 和 EF 设计器创建的模型。  

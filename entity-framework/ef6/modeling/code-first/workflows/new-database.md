@@ -1,14 +1,14 @@
 ---
 title: 到新的数据库的 EF6 代码优先
 author: divega
-ms.date: 2016-10-23
+ms.date: 10/23/2016
 ms.assetid: 2df6cb0a-7d8b-4e28-9d05-e2b9a90125af
-ms.openlocfilehash: 8ed1bfbc3536acc0d83b9c8ecdd180aeb44eff83
-ms.sourcegitcommit: 0d36e8ff0892b7f034b765b15e041f375f88579a
+ms.openlocfilehash: 6572574ad36094ac0960c429cfa8606b6aebb492
+ms.sourcegitcommit: 2b787009fd5be5627f1189ee396e708cd130e07b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2018
-ms.locfileid: "44251045"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45490737"
 ---
 # <a name="code-first-to-a-new-database"></a>代码优先的新数据库
 此视频和分步演练会提供针对新数据库 Code First 开发的简介。 此方案包括目标不存在的数据库和 Code First 将创建，或一个空数据库，Code First 将添加到新表。 代码首先允许你定义使用 C 模型\#或 VB.Net 类。 （可选） 可以使用特性在类和属性，或使用 fluent API 执行其他配置。
@@ -20,7 +20,7 @@ ms.locfileid: "44251045"
 
 **视频**: [WMV](http://download.microsoft.com/download/B/A/5/BA57BADE-D558-4693-8F82-29E64E4084AB/HDI-ITPro-MSDN-winvideo-CodeFirstNewDatabase.wmv) | [MP4](http://download.microsoft.com/download/B/A/5/BA57BADE-D558-4693-8F82-29E64E4084AB/HDI-ITPro-MSDN-mp4Video-CodeFirstNewDatabase.m4v) | [WMV (ZIP)](http://download.microsoft.com/download/B/A/5/BA57BADE-D558-4693-8F82-29E64E4084AB/HDI-ITPro-MSDN-winvideo-CodeFirstNewDatabase.zip)
 
-# <a name="pre-requisites"></a>系统必备组件
+## <a name="pre-requisites"></a>系统必备组件
 
 将需要安装最低版本为 Visual Studio 2010 或 Visual Studio 2012 安装来完成本演练。
 

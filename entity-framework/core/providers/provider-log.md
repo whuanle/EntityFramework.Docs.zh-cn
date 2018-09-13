@@ -6,12 +6,12 @@ ms.date: 08/08/2018
 ms.assetid: 7CEF496E-A5B0-4F5F-B68E-529609B23EF9
 ms.technology: entity-framework-core
 uid: core/providers/provider-log
-ms.openlocfilehash: 5da1043310e2858638c81a0654a9cab23e39c220
-ms.sourcegitcommit: 0d36e8ff0892b7f034b765b15e041f375f88579a
+ms.openlocfilehash: a637e5e2f75e16bc7b11b1a51abcbe16274a1c75
+ms.sourcegitcommit: 2b787009fd5be5627f1189ee396e708cd130e07b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2018
-ms.locfileid: "44250811"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45490761"
 ---
 # <a name="provider-impacting-changes"></a>提供程序影响的更改
 
@@ -52,3 +52,7 @@ ms.locfileid: "44250811"
   * 遵循此模式将空间支持添加到您在提供程序都是一致的提供商。
 * https://github.com/aspnet/EntityFrameworkCore/pull/13199 -添加用于创建服务提供程序增强调试
   * 允许 DbContextOptionsExtensions 实现新的接口，可帮助用户了解为什么将内部服务提供商正在重新生成
+* https://github.com/aspnet/EntityFrameworkCore/pull/13289 -添加连接 API 使用的运行状况检查
+  * 此拉取请求将添加这一概念`CanConnect`将由 ASP.NET Core 运行状况检查来确定数据库是否可用。 默认情况下，关系的实现只需调用`Exist`，但如有必要提供程序可以实现一些不同。 非关系提供程序将需要使运行状况检查能够实现新的 API。
+* https://github.com/aspnet/EntityFrameworkCore/pull/13306 -更新基 RelationalTypeMapping 不设置 DbParameter 大小
+  * 停止默认情况下设置大小，因为它可能会导致截断。 提供程序可能需要添加其自己的逻辑，如果需要设置大小。

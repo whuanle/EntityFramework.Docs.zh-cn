@@ -1,14 +1,14 @@
 ---
 title: 设计器 TPH 继承-EF6
 author: divega
-ms.date: 2016-10-23
+ms.date: 10/23/2016
 ms.assetid: 72d26a8e-20ab-4500-bd13-394a08e73394
-ms.openlocfilehash: 1eb935414b20d6e93e9d470ccc845bc13626ed3a
-ms.sourcegitcommit: 0d36e8ff0892b7f034b765b15e041f375f88579a
+ms.openlocfilehash: 43ba34a98c3960a7a3052a00e2ed2751c2f2b121
+ms.sourcegitcommit: 2b787009fd5be5627f1189ee396e708cd130e07b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2018
-ms.locfileid: "44250837"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45490092"
 ---
 # <a name="designer-tph-inheritance"></a>设计器 TPH 继承
 此分步演练演示如何使用实体框架设计器 （EF 设计器） 在概念模型中实现每个层次结构一个表 (TPH) 继承。 TPH 继承使用数据库表维护继承层次结构中的实体类型的所有数据。

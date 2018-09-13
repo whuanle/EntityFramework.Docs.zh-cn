@@ -1,14 +1,14 @@
 ---
 title: 设计器的表拆分的 EF6
 author: divega
-ms.date: 2016-10-23
+ms.date: 10/23/2016
 ms.assetid: 452f17c3-9f26-4de4-9894-8bc036e23b0f
-ms.openlocfilehash: f07aeb0aa679f6fa8131c667ac808f17c3f03f20
-ms.sourcegitcommit: 0d36e8ff0892b7f034b765b15e041f375f88579a
+ms.openlocfilehash: 8b0ca6778a06ed43b1365d2e5969ff15948f8004
+ms.sourcegitcommit: 2b787009fd5be5627f1189ee396e708cd130e07b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2018
-ms.locfileid: "44250980"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45490682"
 ---
 # <a name="designer-table-splitting"></a>设计器的表拆分
 本演练演示如何通过修改模型与实体框架设计器 （EF 设计器） 将多个实体类型映射到单个表。

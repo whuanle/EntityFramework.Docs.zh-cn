@@ -1,14 +1,14 @@
 ---
 title: 代码优先的现有数据库-EF6
 author: divega
-ms.date: 2016-10-23
+ms.date: 10/23/2016
 ms.assetid: a7e60b74-973d-4480-868f-500a3899932e
-ms.openlocfilehash: fedfb921919582e2cdb5f3bc497f11889b972ad6
-ms.sourcegitcommit: 0d36e8ff0892b7f034b765b15e041f375f88579a
+ms.openlocfilehash: f05420beb3dff2d632151fcbf48986b0d9cd18ff
+ms.sourcegitcommit: 2b787009fd5be5627f1189ee396e708cd130e07b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2018
-ms.locfileid: "44251071"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45490605"
 ---
 # <a name="code-first-to-an-existing-database"></a>代码优先的现有数据库
 此视频和分步演练会提供面向现有数据库的代码优先开发的简介。 代码首先允许你定义使用 C 模型\#或 VB.Net 类。 可使用特性在类和属性，或使用 fluent API 执行可选的其他配置。

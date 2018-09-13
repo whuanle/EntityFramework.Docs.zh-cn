@@ -1,14 +1,14 @@
 ---
 title: 设计器 CUD 存储过程-EF6
 author: divega
-ms.date: 2016-10-23
+ms.date: 10/23/2016
 ms.assetid: 1e773972-2da5-45e0-85a2-3cf3fbcfa5cf
-ms.openlocfilehash: 36c9b97b77fec30136cba1d850a0259c689e69ae
-ms.sourcegitcommit: 0d36e8ff0892b7f034b765b15e041f375f88579a
+ms.openlocfilehash: 35a00aa817c8643352c517c233977efd49e3baac
+ms.sourcegitcommit: 2b787009fd5be5627f1189ee396e708cd130e07b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2018
-ms.locfileid: "44250915"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45489552"
 ---
 # <a name="designer-cud-stored-procedures"></a>设计器 CUD 存储过程
 此分步演练演示如何将映射创建\\插入、 更新和删除 (CUD) 操作的实体类型到存储过程使用实体框架设计器 （EF 设计器）。  默认情况下，实体框架会自动生成 SQL 语句的 CUD 操作，但还可以将存储的过程映射到这些操作。  

@@ -1,14 +1,14 @@
 ---
 title: 设计器 TPT 继承的 EF6
 author: divega
-ms.date: 2016-10-23
+ms.date: 10/23/2016
 ms.assetid: efc78c31-b4ea-4ea3-a0cd-c69eb507020e
-ms.openlocfilehash: 68980fa89446940b8b7f5f73c519d38e727a9039
-ms.sourcegitcommit: dadee5905ada9ecdbae28363a682950383ce3e10
+ms.openlocfilehash: 84330fba4807620aa242a70cd8ac76a60284416d
+ms.sourcegitcommit: 2b787009fd5be5627f1189ee396e708cd130e07b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "42996343"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45489448"
 ---
 # <a name="designer-tpt-inheritance"></a>设计器 TPT 继承
 此分步演练演示如何使用实体框架设计器 （EF 设计器） 在模型中实现每种类型一个表 (TPT) 继承。 每种类型一个表继承使用数据库中单独的表为继承层次结构中的每种类型维护非继承属性和键属性的数据。

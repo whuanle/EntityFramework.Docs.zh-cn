@@ -1,14 +1,14 @@
 ---
 title: 设计器的查询存储过程-EF6
 author: divega
-ms.date: 2016-10-23
+ms.date: 10/23/2016
 ms.assetid: 9554ed25-c5c1-43be-acad-5da37739697f
-ms.openlocfilehash: 29b7745c2229ce4a38ad81e11406474424adfa24
-ms.sourcegitcommit: dadee5905ada9ecdbae28363a682950383ce3e10
+ms.openlocfilehash: 6284b10261e6f3b9bf69d1c15e121988e4976d48
+ms.sourcegitcommit: 2b787009fd5be5627f1189ee396e708cd130e07b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "42994967"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45489942"
 ---
 # <a name="designer-query-stored-procedures"></a>设计器的查询存储过程
 此分步演练演示如何使用实体框架设计器 （EF 设计器） 导入存储的过程转换为模型，然后调用导入的存储的过程来检索结果。 

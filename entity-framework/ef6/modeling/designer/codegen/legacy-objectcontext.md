@@ -1,14 +1,14 @@
 ---
 title: 恢复到 ObjectContext 中实体框架设计器的 EF6
 author: divega
-ms.date: 2016-10-23
+ms.date: 10/23/2016
 ms.assetid: 36550569-a1de-47cb-ba6d-544794ffd500
-ms.openlocfilehash: e90af3e973c71e2ce872e3edc24aafc1b2ccce0f
-ms.sourcegitcommit: 0d36e8ff0892b7f034b765b15e041f375f88579a
+ms.openlocfilehash: 3e436f0d9cf94720be9c424b327816438d571ae8
+ms.sourcegitcommit: 2b787009fd5be5627f1189ee396e708cd130e07b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2018
-ms.locfileid: "44250330"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45488930"
 ---
 # <a name="reverting-to-objectcontext-in-entity-framework-designer"></a>恢复到 ObjectContext 中实体框架设计器
 与以前版本的 Entity Framework 使用 EF 设计器创建的模型将生成派生自 ObjectContext 的上下文和从 entityobject 继承派生的实体类。

@@ -1,14 +1,14 @@
 ---
 title: 模型优先的 EF6
 author: divega
-ms.date: 2016-10-23
+ms.date: 10/23/2016
 ms.assetid: e1b9c319-bb8a-4417-ac94-7890f257e7f6
-ms.openlocfilehash: 3dd0eba29619f09995d7009dd29462c14bde98c4
-ms.sourcegitcommit: 0d36e8ff0892b7f034b765b15e041f375f88579a
+ms.openlocfilehash: 8e010f95db40261073b4af80a3c0e3225a2cd1cf
+ms.sourcegitcommit: 2b787009fd5be5627f1189ee396e708cd130e07b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2018
-ms.locfileid: "44251136"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45490475"
 ---
 # <a name="model-first"></a>模型优先
 此视频和分步演练会提供使用实体框架模型优先开发的简介。 模型首先允许你创建使用实体框架设计器的新模型，然后从模型生成数据库架构。 模型存储在 EDMX 文件 （扩展名为.edmx） 并可以查看和编辑实体框架设计器中。 从 EDMX 文件自动生成与交互应用程序中的类。

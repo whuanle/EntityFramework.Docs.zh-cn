@@ -1,14 +1,14 @@
 ---
 title: 使用代理的 EF6
 author: divega
-ms.date: 2016-10-23
+ms.date: 10/23/2016
 ms.assetid: 869ee4dc-06f1-471d-8e0e-0a1a2bc59c30
-ms.openlocfilehash: 7b82dd370e67d1622fc00ff5e5275721d0fc4fe1
-ms.sourcegitcommit: dadee5905ada9ecdbae28363a682950383ce3e10
+ms.openlocfilehash: 8f7d2e8b41ece28efe8d1df3b0679e6e4510d64a
+ms.sourcegitcommit: 2b787009fd5be5627f1189ee396e708cd130e07b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "42997198"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45489812"
 ---
 # <a name="working-with-proxies"></a>使用代理
 创建 POCO 实体类型的实例时，实体框架通常会创建动态生成的派生类型的代理的实体的实例。 此代理将覆盖要插入挂钩，以便访问属性时自动执行的操作的实体的某些虚拟属性。 例如，这种机制用于支持延迟加载的关系。 本主题所介绍的方法同样适用于查询使用 Code First 和 EF 设计器创建的模型。  

@@ -1,14 +1,14 @@
 ---
 title: 定义查询的 EF 设计器-EF6
 author: divega
-ms.date: 2016-10-23
+ms.date: 10/23/2016
 ms.assetid: e52a297e-85aa-42f6-a922-ba960f8a4b22
-ms.openlocfilehash: 8415a265cdbe078422e0467ee97da955a81b873d
-ms.sourcegitcommit: 0d36e8ff0892b7f034b765b15e041f375f88579a
+ms.openlocfilehash: b1589dc12ccb50754c2e950932a2d82bc4869f6b
+ms.sourcegitcommit: 2b787009fd5be5627f1189ee396e708cd130e07b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2018
-ms.locfileid: "44250967"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45489467"
 ---
 # <a name="defining-query---ef-designer"></a>定义查询的 EF 设计器
 本演练演示如何添加定义查询和相应的实体类型到使用 EF 设计器的模型。 定义查询通常用于提供类似于数据库视图，由提供的功能，但该视图定义在模型中，不是数据库。 定义查询，你可以执行 SQL 语句中指定**DefiningQuery** .edmx 文件的元素。 有关详细信息，请参阅**DefiningQuery**中[SSDL 规范](~/ef6/modeling/designer/advanced/edmx/ssdl-spec.md)。

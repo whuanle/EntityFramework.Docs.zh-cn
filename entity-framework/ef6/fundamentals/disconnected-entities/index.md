@@ -1,14 +1,14 @@
 ---
 title: 使用断开连接的实体 - EF6
 author: divega
-ms.date: 2016-10-23
+ms.date: 10/23/2016
 ms.assetid: 12138003-a373-4817-b1b7-724130202f5f
-ms.openlocfilehash: b496a9cba48946974844725c5df5e7df7351cf23
-ms.sourcegitcommit: dadee5905ada9ecdbae28363a682950383ce3e10
+ms.openlocfilehash: beb3847ce507a2112ac0d396a2023c7c4e2fca7d
+ms.sourcegitcommit: 2b787009fd5be5627f1189ee396e708cd130e07b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "42998221"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45489929"
 ---
 # <a name="working-with-disconnected-entities"></a>使用断开连接的实体
 在基于实体框架的应用程序中，上下文类负责检测应用于已跟踪实体的更改。 调用 SaveChanges 方法会将上下文跟踪的更改保存到数据库。 使用 n 层应用程序时，实体对象通常会在从上下文断开连接时发生变动，且必须决定如何跟踪更改并向上下文报告这些更改。 本主题讨论使用实体框架和断开连接的实体时不同的可用选项。   

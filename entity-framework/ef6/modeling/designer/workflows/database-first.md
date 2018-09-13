@@ -1,14 +1,14 @@
 ---
 title: 数据库优先的 EF6
 author: divega
-ms.date: 2016-10-23
+ms.date: 10/23/2016
 ms.assetid: cc6ffdb3-388d-4e79-a201-01ec2577c949
-ms.openlocfilehash: 93ae5729e487ed9be3972ac78d599dbea19ed458
-ms.sourcegitcommit: 0d36e8ff0892b7f034b765b15e041f375f88579a
+ms.openlocfilehash: b499dea02cbeaa64f6ef87bf89cc739110c8b560
+ms.sourcegitcommit: 2b787009fd5be5627f1189ee396e708cd130e07b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2018
-ms.locfileid: "44251084"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45490917"
 ---
 # <a name="database-first"></a>数据库优先
 此视频和分步演练会提供使用 Entity Framework 数据库优先开发的简介。 数据库第一次可以进行反向工程，从现有数据库的模型。 模型存储在 EDMX 文件 （扩展名为.edmx） 并可以查看和编辑实体框架设计器中。 从 EDMX 文件自动生成与交互应用程序中的类。

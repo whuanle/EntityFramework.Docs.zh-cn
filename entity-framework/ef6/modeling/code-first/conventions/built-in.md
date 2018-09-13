@@ -1,14 +1,14 @@
 ---
 title: 代码优先约定-EF6
 author: divega
-ms.date: 2016-10-23
+ms.date: 10/23/2016
 ms.assetid: bc644573-c2b2-4ed7-8745-3c37c41058ad
-ms.openlocfilehash: c5fa580879a4b53fed34d94b737988875f38c62c
-ms.sourcegitcommit: dadee5905ada9ecdbae28363a682950383ce3e10
+ms.openlocfilehash: 4d03a32db5d84eb37c22617a95005b272172a65d
+ms.sourcegitcommit: 2b787009fd5be5627f1189ee396e708cd130e07b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "42995521"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45490988"
 ---
 # <a name="code-first-conventions"></a>代码优先约定
 Code First 允许使用 C# 或 Visual Basic.NET 类的描述模型。 通过使用约定来检测到该模型的基本形状。 约定是用于自动配置基于类定义时使用 Code First 的概念模型的规则集。 约定 System.Data.Entity.ModelConfiguration.Conventions 命名空间中定义。  

@@ -3,12 +3,12 @@ title: Code First 迁移 - EF6
 author: divega
 ms.date: 10/23/2016
 ms.assetid: 36591d8f-36e1-4835-8a51-90f34f633d1e
-ms.openlocfilehash: 0e2f33d3402929c93a339ea26dcade875da52a61
-ms.sourcegitcommit: 2b787009fd5be5627f1189ee396e708cd130e07b
+ms.openlocfilehash: 389da6c54e063a5dc598f98f8ac92cfc0e686019
+ms.sourcegitcommit: 269c8a1a457a9ad27b4026c22c4b1a76991fb360
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45490273"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46283844"
 ---
 # <a name="code-first-migrations"></a>Code First 迁移
 如果正在使用 Code First 工作流，推荐使用 Code First 迁移改进应用程序的数据库架构。 迁移提供一组允许以下操作的工具：
@@ -96,7 +96,7 @@ ms.locfileid: "45490273"
     public string Url { get; set; }
 ```
 
-如果要再次运行应用程序，则会收到一个 InvalidOperationException，指出“创建数据库后，支持‘BlogContext’上下文的模型已发生变化。请考虑使用 Code First 迁移更新数据库 ([http://go.microsoft.com/fwlink/?LinkId=238269](http://go.microsoft.com/fwlink/?LinkId=238269))”*。
+如果要再次运行应用程序，则会收到一个 InvalidOperationException，指出“创建数据库后，支持‘BlogContext’上下文的模型已发生变化。请考虑使用 Code First 迁移更新数据库 ([http://go.microsoft.com/fwlink/?LinkId=238269](https://go.microsoft.com/fwlink/?LinkId=238269))”*。
 
 如异常情况所述，可开始使用 Code First 迁移。 第一步是启用上下文迁移。
 

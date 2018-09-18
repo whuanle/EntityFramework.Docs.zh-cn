@@ -3,12 +3,12 @@ title: 自跟踪实体 - EF6
 author: divega
 ms.date: 10/23/2016
 ms.assetid: 5e60f5be-7bbb-4bf8-835e-0ac808d6c84a
-ms.openlocfilehash: 3575977ceabe7d93ac48d5fac253eac1341e2353
-ms.sourcegitcommit: 2b787009fd5be5627f1189ee396e708cd130e07b
+ms.openlocfilehash: b098736ef47e79c916f4bf054716022d5032eee5
+ms.sourcegitcommit: 269c8a1a457a9ad27b4026c22c4b1a76991fb360
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45489695"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46283805"
 ---
 # <a name="self-tracking-entities"></a>自跟踪实体
 
@@ -39,12 +39,12 @@ ms.locfileid: "45489695"
 - 如果在将客户端上已修改的图发送到服务后想要在客户端上继续使用同一张图，则必须手动循环访问该图，并对每个对象调用 AcceptChanges 方法以重置更改跟踪器。  
 
     > 如果图中的对象包含具有数据库生成的值（例如，标识值或并发值）的属性，则在调用 SaveChanges 方法后，实体框架将把这些属性的值替换为数据库生成的值。 可实现服务操作以返回保存的对象或生成的属性值列表，从而将对象发送回客户端。 然后，客户端需要将对象实例或对象属性值替换为从服务操作返回的对象或属性值。  
-- 合并多个服务请求的关系图可能会在生成的关系图中引入具有重复键值的对象。 调用 ApplyChanges 方法时，实体框架不会删除具有重复键的对象，但会引发异常。 为了避免生成具有重复键值的图，请遵循以下博客中所述的模式之一：[自跟踪实体：ApplyChanges 和重复实体](http://go.microsoft.com/fwlink/?LinkID=205119&clcid=0x409)。  
+- 合并多个服务请求的关系图可能会在生成的关系图中引入具有重复键值的对象。 调用 ApplyChanges 方法时，实体框架不会删除具有重复键的对象，但会引发异常。 为了避免生成具有重复键值的图，请遵循以下博客中所述的模式之一：[自跟踪实体：ApplyChanges 和重复实体](https://go.microsoft.com/fwlink/?LinkID=205119&clcid=0x409)。  
 - 当您通过设置外键属性更改对象之间的关系时，引用导航属性设置为 Null，并且不同步到客户端上的相应主体实体。 将图附加到对象上下文之后（例如，调用 ApplyChanges 方法之后），会同步外键属性和导航属性。  
 
     > 如果您已对外键关系指定级联删除，则引用导航属性与相应主体对象不同步会是个问题。 如果您删除了主体，则这种删除将不会传播到依赖对象。 如果您已指定级联删除，则使用导航属性更改关系，而不是设置外键属性。  
 - 执行延迟加载时不启用自跟踪实体。  
-- 自跟踪实体不支持二进制序列化和针对 ASP.NET 状态管理对象的序列化。 但是，您可以自定义此模板来添加二进制序列化支持。 有关详细信息，请参阅[将二进制序列化和 ViewState 用于自跟踪实体](http://go.microsoft.com/fwlink/?LinkId=199208)。  
+- 自跟踪实体不支持二进制序列化和针对 ASP.NET 状态管理对象的序列化。 但是，您可以自定义此模板来添加二进制序列化支持。 有关详细信息，请参阅[将二进制序列化和 ViewState 用于自跟踪实体](https://go.microsoft.com/fwlink/?LinkId=199208)。  
 
 ## <a name="security-considerations"></a>安全注意事项  
 

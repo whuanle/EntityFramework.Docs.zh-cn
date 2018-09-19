@@ -3,12 +3,12 @@ title: 到新的数据库的 EF6 代码优先
 author: divega
 ms.date: 10/23/2016
 ms.assetid: 2df6cb0a-7d8b-4e28-9d05-e2b9a90125af
-ms.openlocfilehash: 6572574ad36094ac0960c429cfa8606b6aebb492
-ms.sourcegitcommit: 2b787009fd5be5627f1189ee396e708cd130e07b
+ms.openlocfilehash: a19db575b685cde98509fff4a0efaf26106b26bc
+ms.sourcegitcommit: 269c8a1a457a9ad27b4026c22c4b1a76991fb360
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45490737"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46284117"
 ---
 # <a name="code-first-to-a-new-database"></a>代码优先的新数据库
 此视频和分步演练会提供针对新数据库 Code First 开发的简介。 此方案包括目标不存在的数据库和 Code First 将创建，或一个空数据库，Code First 将添加到新表。 代码首先允许你定义使用 C 模型\#或 VB.Net 类。 （可选） 可以使用特性在类和属性，或使用 fluent API 执行其他配置。
@@ -18,13 +18,13 @@ ms.locfileid: "45490737"
 
 **主讲人**：[Rowan Miller](http://romiller.com/)
 
-**视频**: [WMV](http://download.microsoft.com/download/B/A/5/BA57BADE-D558-4693-8F82-29E64E4084AB/HDI-ITPro-MSDN-winvideo-CodeFirstNewDatabase.wmv) | [MP4](http://download.microsoft.com/download/B/A/5/BA57BADE-D558-4693-8F82-29E64E4084AB/HDI-ITPro-MSDN-mp4Video-CodeFirstNewDatabase.m4v) | [WMV (ZIP)](http://download.microsoft.com/download/B/A/5/BA57BADE-D558-4693-8F82-29E64E4084AB/HDI-ITPro-MSDN-winvideo-CodeFirstNewDatabase.zip)
+**视频**: [WMV](https://download.microsoft.com/download/B/A/5/BA57BADE-D558-4693-8F82-29E64E4084AB/HDI-ITPro-MSDN-winvideo-CodeFirstNewDatabase.wmv) | [MP4](https://download.microsoft.com/download/B/A/5/BA57BADE-D558-4693-8F82-29E64E4084AB/HDI-ITPro-MSDN-mp4Video-CodeFirstNewDatabase.m4v) | [WMV (ZIP)](https://download.microsoft.com/download/B/A/5/BA57BADE-D558-4693-8F82-29E64E4084AB/HDI-ITPro-MSDN-winvideo-CodeFirstNewDatabase.zip)
 
 ## <a name="pre-requisites"></a>系统必备组件
 
 将需要安装最低版本为 Visual Studio 2010 或 Visual Studio 2012 安装来完成本演练。
 
-如果使用 Visual Studio 2010，您还需要具有[NuGet](http://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c)安装。
+如果使用 Visual Studio 2010，您还需要具有[NuGet](https://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c)安装。
 
 ## <a name="1-create-the-application"></a>1.创建应用程序
 
@@ -71,7 +71,7 @@ public class Post
 我们现在已经开始使用实体框架中的类型，因此我们需要添加 EntityFramework NuGet 包。
 
 -   **项目 –&gt;管理 NuGet 包...**
-    注意： 如果你没有**管理 NuGet 包...** 应安装的选项[最新版本的 NuGet](http://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c)
+    注意： 如果你没有**管理 NuGet 包...** 应安装的选项[最新版本的 NuGet](https://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c)
 -   选择**Online**选项卡
 -   选择**EntityFramework**包
 -   单击**安装**

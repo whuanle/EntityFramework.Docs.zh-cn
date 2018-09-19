@@ -3,19 +3,19 @@ title: 预生成的映射视图-EF6
 author: divega
 ms.date: 10/23/2016
 ms.assetid: 917ba9c8-6ddf-4631-ab8c-c4fb378c2fcd
-ms.openlocfilehash: cb374d007252710b42c31061bf15d7d32af0db27
-ms.sourcegitcommit: 2b787009fd5be5627f1189ee396e708cd130e07b
+ms.openlocfilehash: da5d59ba5a899a0ee3a1eec3db0da1b4ece871d8
+ms.sourcegitcommit: 269c8a1a457a9ad27b4026c22c4b1a76991fb360
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45489240"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46284104"
 ---
 # <a name="pre-generated-mapping-views"></a>预生成的映射视图
 实体框架可以执行查询或将更改保存到数据源之前，它必须生成一组映射视图来访问数据库。 这些映射视图是一组以抽象方式表示的数据库的实体 SQL 语句，并且每个应用程序域缓存的元数据的一部分。 如果在同一应用程序域中创建相同的上下文的多个实例，这些实例将重用缓存元数据，而无需重新生成它们，从映射视图。 映射视图生成是执行第一个查询的总成本的重要组成部分，实体框架，可预生成映射视图并将其包含在已编译的项目中。 有关详细信息，请参阅[性能注意事项 （实体框架）](~/ef6/fundamentals/performance/perf-whitepaper.md)。
 
 ## <a name="generating-mapping-views-with-the-ef-power-tools"></a>生成映射与 EF Power Tools 的视图
 
-预生成视图的最简单方法是使用[EF Power Tools](http://visualstudiogallery.msdn.microsoft.com/72a60b14-1581-4b9b-89f2-846072eff19d)。 已安装 Power 工具将后，到生成的视图，如下所示的菜单选项。
+预生成视图的最简单方法是使用[EF Power Tools](https://visualstudiogallery.msdn.microsoft.com/72a60b14-1581-4b9b-89f2-846072eff19d)。 已安装 Power 工具将后，到生成的视图，如下所示的菜单选项。
 
 -   有关**Code First**模型右键单击包含您的 DbContext 类的代码文件。
 -   有关**EF 设计器**模型右键单击 EDMX 文件。

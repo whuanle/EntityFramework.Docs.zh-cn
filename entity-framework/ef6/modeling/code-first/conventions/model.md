@@ -3,12 +3,12 @@ title: 基于模型的约定的 EF6
 author: divega
 ms.date: 10/23/2016
 ms.assetid: 0fc4eef8-29b8-4192-9c77-08fd33d3db3a
-ms.openlocfilehash: fb79164f71cb3afff705a83f5078a13d043abca8
-ms.sourcegitcommit: 2b787009fd5be5627f1189ee396e708cd130e07b
+ms.openlocfilehash: 80b722730b4ca6c9d00a8611b6c9027e8bc9fe61
+ms.sourcegitcommit: 269c8a1a457a9ad27b4026c22c4b1a76991fb360
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45490930"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46283702"
 ---
 # <a name="model-based-conventions"></a>基于模型的约定
 > [!NOTE]
@@ -146,7 +146,7 @@ public class ForeignKeyNamingConvention : IStoreModelConvention<AssociationType>
 
 ## <a name="extending-existing-conventions"></a>扩展现有约定   
 
-如果您需要编写类似于实体框架已适用于您始终可以扩展这一惯例，以免从头开始重新编写的模型的约定的约定。  出现这种是替换现有的 Id 匹配与自定义的约定。   重写的键的约定的一个好处是，仅当已检测到或显式配置没有键，将会调用重写的方法。 一组约定由实体框架提供了： [ http://msdn.microsoft.com/library/system.data.entity.modelconfiguration.conventions.aspx ](http://msdn.microsoft.com/library/system.data.entity.modelconfiguration.conventions.aspx)。  
+如果您需要编写类似于实体框架已适用于您始终可以扩展这一惯例，以免从头开始重新编写的模型的约定的约定。  出现这种是替换现有的 Id 匹配与自定义的约定。   重写的键的约定的一个好处是，仅当已检测到或显式配置没有键，将会调用重写的方法。 一组约定由实体框架提供了： [ http://msdn.microsoft.com/library/system.data.entity.modelconfiguration.conventions.aspx ](https://msdn.microsoft.com/library/system.data.entity.modelconfiguration.conventions.aspx)。  
 
 ``` csharp
 using System.Data.Entity;
@@ -209,4 +209,4 @@ public class BlogContext : DbContext
 
 ## <a name="notes"></a>说明  
 
-此处的 MSDN 文档中提供了当前应用由实体框架的约定的列表： [ http://msdn.microsoft.com/library/system.data.entity.modelconfiguration.conventions.aspx ](http://msdn.microsoft.com/library/system.data.entity.modelconfiguration.conventions.aspx)。  直接从我们的源代码拉取此列表。  Entity Framework 6 的源代码位于[GitHub](https://github.com/aspnet/entityframework6/)和许多实体框架使用的约定是很好的自定义模型起点基于约定。  
+此处的 MSDN 文档中提供了当前应用由实体框架的约定的列表： [ http://msdn.microsoft.com/library/system.data.entity.modelconfiguration.conventions.aspx ](https://msdn.microsoft.com/library/system.data.entity.modelconfiguration.conventions.aspx)。  直接从我们的源代码拉取此列表。  Entity Framework 6 的源代码位于[GitHub](https://github.com/aspnet/entityframework6/)和许多实体框架使用的约定是很好的自定义模型起点基于约定。  

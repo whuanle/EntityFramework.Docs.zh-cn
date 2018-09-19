@@ -3,12 +3,12 @@ title: 自动 Code First 迁移的 EF6
 author: divega
 ms.date: 10/23/2016
 ms.assetid: 0eb86787-2161-4cb4-9cb8-67c5d6e95650
-ms.openlocfilehash: 21f77ef49db2485047292b3928b4f63d49dbb180
-ms.sourcegitcommit: 2b787009fd5be5627f1189ee396e708cd130e07b
+ms.openlocfilehash: 2713afaf09707b7696e90464aac9945c2d82d274
+ms.sourcegitcommit: 269c8a1a457a9ad27b4026c22c4b1a76991fb360
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45489981"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46283909"
 ---
 # <a name="automatic-code-first-migrations"></a>自动 Code First 迁移
 自动迁移，可使用 Code First 迁移，而无需每个所做的更改在项目中的代码文件。 并非所有更改都将自动都应用-例如列重命名要求使用基于代码的迁移。
@@ -97,7 +97,7 @@ ms.locfileid: "45489981"
     public string Url { get; set; }
 ```
 
-如果要再次运行应用程序，则会收到一个 InvalidOperationException，指出“创建数据库后，支持‘BlogContext’上下文的模型已发生变化。请考虑使用 Code First 迁移更新数据库 ([http://go.microsoft.com/fwlink/?LinkId=238269](http://go.microsoft.com/fwlink/?LinkId=238269))”*。
+如果要再次运行应用程序，则会收到一个 InvalidOperationException，指出“创建数据库后，支持‘BlogContext’上下文的模型已发生变化。请考虑使用 Code First 迁移更新数据库 ([http://go.microsoft.com/fwlink/?LinkId=238269](https://go.microsoft.com/fwlink/?LinkId=238269))”*。
 
 如异常情况所述，可开始使用 Code First 迁移。 因为我们想要使用自动迁移，我们要指定 **– EnableAutomaticMigrations**切换。
 

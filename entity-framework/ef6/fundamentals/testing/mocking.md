@@ -3,12 +3,12 @@ title: 使用模拟框架的 EF6 进行测试
 author: divega
 ms.date: 10/23/2016
 ms.assetid: bd66a638-d245-44d4-8e71-b9c6cb335cc7
-ms.openlocfilehash: b50d0afb52ae1c496f2734ecc015cdaaa060aff7
-ms.sourcegitcommit: 2b787009fd5be5627f1189ee396e708cd130e07b
+ms.openlocfilehash: 20799b55b2dffe27637c4fb84df06cee174e6dd9
+ms.sourcegitcommit: 269c8a1a457a9ad27b4026c22c4b1a76991fb360
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45489968"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46284091"
 ---
 # <a name="testing-with-a-mocking-framework"></a>使用模拟框架进行测试
 > [!NOTE]
@@ -235,7 +235,7 @@ Entity Framework 6 引入了一组可用于以异步方式执行查询的扩展�
 
 因为实体框架查询使使用 LINQ，扩展方法定义 IQueryable 和 IEnumerable。 但是，因为它们仅旨在与实体框架一起使用可能会收到以下错误，如果你尝试将其用于不是实体框架查询的 LINQ 查询：
 
-> 源 IQueryable 没有实现 IDbAsyncEnumerable{0}。 实现 IDbAsyncEnumerable 的源可以用于实体框架的异步操作。 有关更多详细信息，请参阅[ http://go.microsoft.com/fwlink/?LinkId=287068 ](http://go.microsoft.com/fwlink/?LinkId=287068)。  
+> 源 IQueryable 没有实现 IDbAsyncEnumerable{0}。 实现 IDbAsyncEnumerable 的源可以用于实体框架的异步操作。 有关更多详细信息，请参阅[ http://go.microsoft.com/fwlink/?LinkId=287068 ](https://go.microsoft.com/fwlink/?LinkId=287068)。  
 
 同时对 EF 查询运行时，才支持异步方法，可能想要针对内存中运行测试的 DbSet 的双时，在单元测试中使用它们。  
 

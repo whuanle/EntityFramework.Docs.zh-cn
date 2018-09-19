@@ -3,12 +3,12 @@ title: 数据库优先的 EF6
 author: divega
 ms.date: 10/23/2016
 ms.assetid: cc6ffdb3-388d-4e79-a201-01ec2577c949
-ms.openlocfilehash: b499dea02cbeaa64f6ef87bf89cc739110c8b560
-ms.sourcegitcommit: 2b787009fd5be5627f1189ee396e708cd130e07b
+ms.openlocfilehash: c81025fe7c3ad6398f003f7be2a3f9f072eec327
+ms.sourcegitcommit: 269c8a1a457a9ad27b4026c22c4b1a76991fb360
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45490917"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46284078"
 ---
 # <a name="database-first"></a>数据库优先
 此视频和分步演练会提供使用 Entity Framework 数据库优先开发的简介。 数据库第一次可以进行反向工程，从现有数据库的模型。 模型存储在 EDMX 文件 （扩展名为.edmx） 并可以查看和编辑实体框架设计器中。 从 EDMX 文件自动生成与交互应用程序中的类。
@@ -18,13 +18,13 @@ ms.locfileid: "45490917"
 
 **主讲人**：[Rowan Miller](http://romiller.com/)
 
-**视频**: [WMV](http://download.microsoft.com/download/8/F/0/8F0B5F63-4939-4DC8-A726-FF139B37F8D8/HDI-ITPro-MSDN-winvideo-databasefirst.wmv) | [MP4](http://download.microsoft.com/download/8/F/0/8F0B5F63-4939-4DC8-A726-FF139B37F8D8/HDI-ITPro-MSDN-mp4video-databasefirst.m4v) | [WMV (ZIP)](http://download.microsoft.com/download/8/F/0/8F0B5F63-4939-4DC8-A726-FF139B37F8D8/HDI-ITPro-MSDN-winvideo-databasefirst.zip)
+**视频**: [WMV](https://download.microsoft.com/download/8/F/0/8F0B5F63-4939-4DC8-A726-FF139B37F8D8/HDI-ITPro-MSDN-winvideo-databasefirst.wmv) | [MP4](https://download.microsoft.com/download/8/F/0/8F0B5F63-4939-4DC8-A726-FF139B37F8D8/HDI-ITPro-MSDN-mp4video-databasefirst.m4v) | [WMV (ZIP)](https://download.microsoft.com/download/8/F/0/8F0B5F63-4939-4DC8-A726-FF139B37F8D8/HDI-ITPro-MSDN-winvideo-databasefirst.zip)
 
 ## <a name="pre-requisites"></a>系统必备组件
 
 将需要安装最低版本为 Visual Studio 2010 或 Visual Studio 2012 安装来完成本演练。
 
-如果使用 Visual Studio 2010，您还需要具有[NuGet](http://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c)安装。
+如果使用 Visual Studio 2010，您还需要具有[NuGet](https://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c)安装。
 
  
 
@@ -124,7 +124,7 @@ CREATE TABLE [dbo].[Posts] (
 首先，我们需要从 NuGet 获取实体框架的最新版本。
 
 -   **项目 –&gt;管理 NuGet 包...** 
-    *如果你没有**管理 NuGet 包...** 选项应该安装[最新版本的 NuGet](http://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c)*
+    *如果你没有**管理 NuGet 包...** 选项应该安装[最新版本的 NuGet](https://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c)*
 -   选择**Online**选项卡
 -   选择**EntityFramework**包
 -   单击**安装**

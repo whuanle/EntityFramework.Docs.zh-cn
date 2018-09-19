@@ -3,12 +3,12 @@ title: 以前的版本的 Entity Framework 的 EF6
 author: divega
 ms.date: 10/23/2016
 ms.assetid: 1060bb99-765f-4f32-aaeb-d6635d3dbd3e
-ms.openlocfilehash: 4c711bb48938e5c0432881c61766b0bff66498f2
-ms.sourcegitcommit: 2b787009fd5be5627f1189ee396e708cd130e07b
+ms.openlocfilehash: 4fa27f8259ecc011d9d30080aee3c44353ef533d
+ms.sourcegitcommit: 269c8a1a457a9ad27b4026c22c4b1a76991fb360
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45490137"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46283987"
 ---
 # <a name="past-releases-of-entity-framework"></a>实体框架的旧版本
 
@@ -127,7 +127,7 @@ Visual Studio 2012 中的实体框架设计器还引入了支持每个模型，�
 
 下面是我们整理了专用于 EF 5 发布内容的列表。
 
--   [EF 5 发布文章](http://blogs.msdn.com/b/adonet/archive/2012/08/15/ef5-released.aspx)
+-   [EF 5 发布文章](https://blogs.msdn.com/b/adonet/archive/2012/08/15/ef5-released.aspx)
 -   EF5 中的新增功能
     -   [枚举支持中的代码首先](~/ef6/modeling/code-first/data-types/enums.md)
     -   [在 EF 设计器中的枚举支持](~/ef6/modeling/designer/data-types/enums.md)
@@ -194,16 +194,16 @@ EF 4.3.1 运行时在不久之后 EF 4.3.0 2012 年 2 月发布到 NuGet。
 
 下面是我们整理了专门的 EF 4.3.1 版本的内容的列表，大部分为 EF 4.1 提供的内容仍也适用于 EF 4.3。
 
--   [EF 4.3.1 发布博客文章](http://blogs.msdn.com/b/adonet/archive/2012/02/29/ef4-3-1-and-ef5-beta-1-available-on-nuget.aspx)
+-   [EF 4.3.1 发布博客文章](https://blogs.msdn.com/b/adonet/archive/2012/02/29/ef4-3-1-and-ef5-beta-1-available-on-nuget.aspx)
 
 ## <a name="ef-43"></a>EF 4.3
 EF 4.3.0 运行时已于 2012 年 2 月发布到 NuGet。
 此版本中提供了新的 Code First 迁移功能，允许由 Code First 来以增量方式更改，因为 Code First 模型发展后创建的数据库。
 
 下面是我们整理了专用于 EF 4.3 版本的内容的列表，大部分的 EF 4.1 提供的内容仍适用于 EF 4.3 以及：
--   [EF 4.3 发布文章](http://blogs.msdn.com/b/adonet/archive/2012/02/09/ef-4-3-released.aspx)
--   [EF 4.3 基于代码的迁移演练](http://blogs.msdn.com/b/adonet/archive/2012/02/09/ef-4-3-code-based-migrations-walkthrough.aspx)
--   [EF 4.3 自动迁移演练](http://blogs.msdn.com/b/adonet/archive/2012/02/09/ef-4-3-automatic-migrations-walkthrough.aspx)
+-   [EF 4.3 发布文章](https://blogs.msdn.com/b/adonet/archive/2012/02/09/ef-4-3-released.aspx)
+-   [EF 4.3 基于代码的迁移演练](https://blogs.msdn.com/b/adonet/archive/2012/02/09/ef-4-3-code-based-migrations-walkthrough.aspx)
+-   [EF 4.3 自动迁移演练](https://blogs.msdn.com/b/adonet/archive/2012/02/09/ef-4-3-automatic-migrations-walkthrough.aspx)
 
 ## <a name="ef-42"></a>EF 4.2
 EF 4.2.0 运行时已于 2011 年 11 月发布到 NuGet。
@@ -212,9 +212,9 @@ EF 4.2.0 运行时已于 2011 年 11 月发布到 NuGet。
 
 下面是我们整理了专用于 EF 4.2 版本的内容的列表，EF 4.1 提供的内容仍也适用于 EF 4.2。
 
--   [EF 4.2 发布文章](http://blogs.msdn.com/b/adonet/archive/2011/11/01/ef-4-2-released.aspx)
--   [代码优先演练](http://blogs.msdn.com/b/adonet/archive/2011/09/28/ef-4-2-code-first-walkthrough.aspx)
--   [模型和数据库的第一个演练](http://blogs.msdn.com/b/adonet/archive/2011/09/28/ef-4-2-model-amp-database-first-walkthrough.aspx)
+-   [EF 4.2 发布文章](https://blogs.msdn.com/b/adonet/archive/2011/11/01/ef-4-2-released.aspx)
+-   [代码优先演练](https://blogs.msdn.com/b/adonet/archive/2011/09/28/ef-4-2-code-first-walkthrough.aspx)
+-   [模型和数据库的第一个演练](https://blogs.msdn.com/b/adonet/archive/2011/09/28/ef-4-2-model-amp-database-first-walkthrough.aspx)
 
 ## <a name="ef-411"></a>EF 4.1.1
 EF 4.1.10715 运行时已于 2011 年 7 月发布到 NuGet。
@@ -227,7 +227,7 @@ EF 4.1.10715 运行时已于 2011 年 7 月发布到 NuGet。
 
 下面是我们整理了有关 4.1.1 的内容的列表，版本：
 
--   [EF 4.1.1 发布帖子](http://blogs.msdn.com/b/adonet/archive/2011/07/25/ef-4-1-update-1-released.aspx)
+-   [EF 4.1.1 发布帖子](https://blogs.msdn.com/b/adonet/archive/2011/07/25/ef-4-1-update-1-released.aspx)
 
 ## <a name="ef-41"></a>EF 4.1
 EF 4.1.10331 运行时才能在 NuGet 上发布在 2011 年 4 月的第一个。
@@ -238,10 +238,10 @@ EF 4.1.10331 运行时才能在 NuGet 上发布在 2011 年 4 月的第一个。
 
 下面是内容的我们整理了 4.1 版本的列表。 大部分内容仍适用于更高版本的 Entity Framework:
 
--   [EF 4.1 发布文章](http://blogs.msdn.com/b/adonet/archive/2011/04/11/ef-4-1-released.aspx)
--   [代码优先演练](http://blogs.msdn.com/b/adonet/archive/2011/03/15/ef-4-1-code-first-walkthrough.aspx)
--   [模型和数据库的第一个演练](http://blogs.msdn.com/b/adonet/archive/2011/03/15/ef-4-1-model-amp-database-first-walkthrough.aspx)
--   [SQL Azure 联合和 Entity Framework](http://blogs.msdn.com/b/adonet/archive/2012/01/10/sql-azure-federations-and-the-entity-framework.aspx)
+-   [EF 4.1 发布文章](https://blogs.msdn.com/b/adonet/archive/2011/04/11/ef-4-1-released.aspx)
+-   [代码优先演练](https://blogs.msdn.com/b/adonet/archive/2011/03/15/ef-4-1-code-first-walkthrough.aspx)
+-   [模型和数据库的第一个演练](https://blogs.msdn.com/b/adonet/archive/2011/03/15/ef-4-1-model-amp-database-first-walkthrough.aspx)
+-   [SQL Azure 联合和 Entity Framework](https://blogs.msdn.com/b/adonet/archive/2012/01/10/sql-azure-federations-and-the-entity-framework.aspx)
 
 ## <a name="ef-40"></a>EF 4.0
 此版本包含在.NET Framework 4 和 Visual Studio 2010 中，在 2010 年 4 月。

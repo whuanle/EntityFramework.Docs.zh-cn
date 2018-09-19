@@ -3,12 +3,12 @@ title: 模型优先的 EF6
 author: divega
 ms.date: 10/23/2016
 ms.assetid: e1b9c319-bb8a-4417-ac94-7890f257e7f6
-ms.openlocfilehash: 8e010f95db40261073b4af80a3c0e3225a2cd1cf
-ms.sourcegitcommit: 2b787009fd5be5627f1189ee396e708cd130e07b
+ms.openlocfilehash: d429d5ea590b22c77f3f7f0bcfbd5dfc0a3e0049
+ms.sourcegitcommit: 269c8a1a457a9ad27b4026c22c4b1a76991fb360
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45490475"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46283870"
 ---
 # <a name="model-first"></a>模型优先
 此视频和分步演练会提供使用实体框架模型优先开发的简介。 模型首先允许你创建使用实体框架设计器的新模型，然后从模型生成数据库架构。 模型存储在 EDMX 文件 （扩展名为.edmx） 并可以查看和编辑实体框架设计器中。 从 EDMX 文件自动生成与交互应用程序中的类。
@@ -18,13 +18,13 @@ ms.locfileid: "45490475"
 
 **主讲人**：[Rowan Miller](http://romiller.com/)
 
-**视频**: [WMV](http://download.microsoft.com/download/5/B/1/5B1C338C-AFA7-4F68-B304-48BB008146EF/HDI-ITPro-MSDN-winvideo-modelfirst.wmv) | [MP4](http://download.microsoft.com/download/5/B/1/5B1C338C-AFA7-4F68-B304-48BB008146EF/HDI-ITPro-MSDN-mp4video-modelfirst.m4v) | [WMV (ZIP)](http://download.microsoft.com/download/5/B/1/5B1C338C-AFA7-4F68-B304-48BB008146EF/HDI-ITPro-MSDN-winvideo-modelfirst.zip)
+**视频**: [WMV](https://download.microsoft.com/download/5/B/1/5B1C338C-AFA7-4F68-B304-48BB008146EF/HDI-ITPro-MSDN-winvideo-modelfirst.wmv) | [MP4](https://download.microsoft.com/download/5/B/1/5B1C338C-AFA7-4F68-B304-48BB008146EF/HDI-ITPro-MSDN-mp4video-modelfirst.m4v) | [WMV (ZIP)](https://download.microsoft.com/download/5/B/1/5B1C338C-AFA7-4F68-B304-48BB008146EF/HDI-ITPro-MSDN-winvideo-modelfirst.zip)
 
 ## <a name="pre-requisites"></a>系统必备组件
 
 将需要安装 Visual Studio 2010 或 Visual Studio 2012 安装来完成本演练。
 
-如果使用 Visual Studio 2010，您还需要具有[NuGet](http://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c)安装。
+如果使用 Visual Studio 2010，您还需要具有[NuGet](https://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c)安装。
 
 ## <a name="1-create-the-application"></a>1.创建应用程序
 
@@ -84,7 +84,7 @@ ms.locfileid: "45490475"
 首先，我们需要从 NuGet 获取实体框架的最新版本。
 
 -   **项目 –&gt;管理 NuGet 包...** 
-    *如果你没有**管理 NuGet 包...** 选项应该安装[最新版本的 NuGet](http://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c)*
+    *如果你没有**管理 NuGet 包...** 选项应该安装[最新版本的 NuGet](https://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c)*
 -   选择**Online**选项卡
 -   选择**EntityFramework**包
 -   单击**安装**

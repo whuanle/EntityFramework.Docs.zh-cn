@@ -3,12 +3,12 @@ title: 可测试性和 Entity Framework 4.0
 author: divega
 ms.date: 10/23/2016
 ms.assetid: 9430e2ab-261c-4e8e-8545-2ebc52d7a247
-ms.openlocfilehash: 0ddf72ab46e2d67dc8a9cf75cbd40430352c5210
-ms.sourcegitcommit: 2b787009fd5be5627f1189ee396e708cd130e07b
+ms.openlocfilehash: aec177438004fd255bef85a5e5047cf6b5a6f782
+ms.sourcegitcommit: 269c8a1a457a9ad27b4026c22c4b1a76991fb360
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45490527"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46284039"
 ---
 # <a name="testability-and-entity-framework-40"></a>可测试性和 Entity Framework 4.0
 Scott Allen
@@ -198,7 +198,7 @@ Fowler 使用名称延迟加载来描述"一个对象不包含的所有数据，
 
 **图 1**
 
-注意： 如果你想要首先开发的 EDM 模型，就可以以干净的生成 POCO 代码从 EDM。 可以使用数据可编程性团队提供的 Visual Studio 2010 扩展来执行此操作。 若要下载该扩展，启动 Visual Studio 中的工具菜单中的扩展管理器，并搜索"POCO"（请参阅图 2） 的模板的联机库。 有几个 POCO 模板可用于 EF。 有关使用模板的详细信息，请参阅"[演练： POCO 实体框架的模板](http://blogs.msdn.com/adonet/pages/walkthrough-poco-template-for-the-entity-framework.aspx)"。
+注意： 如果你想要首先开发的 EDM 模型，就可以以干净的生成 POCO 代码从 EDM。 可以使用数据可编程性团队提供的 Visual Studio 2010 扩展来执行此操作。 若要下载该扩展，启动 Visual Studio 中的工具菜单中的扩展管理器，并搜索"POCO"（请参阅图 2） 的模板的联机库。 有几个 POCO 模板可用于 EF。 有关使用模板的详细信息，请参阅"[演练： POCO 实体框架的模板](https://blogs.msdn.com/adonet/pages/walkthrough-poco-template-for-the-entity-framework.aspx)"。
 
 ![ef test_02](~/ef6/media/eftest-02.png)
 
@@ -964,11 +964,11 @@ IEntity 无法被视为小型违规持久性无感知的因为我们实体都必
 -   Robert C.Martin"[单一责任原则](http://www.objectmentor.com/resources/articles/srp.pdf)"
 -   Martin Fowler[模式目录](http://www.martinfowler.com/eaaCatalog/index.html)从*的企业应用程序体系结构模式*
 -   Griffin Caprio"[依赖关系注入](https://msdn.microsoft.com/magazine/cc163739.aspx)"
--   数据可编程性博客"[演练： 测试驱动开发使用 Entity Framework 4.0](http://blogs.msdn.com/adonet/pages/walkthrough-test-driven-development-with-the-entity-framework-4-0.aspx)"。
--   数据可编程性博客"[结合使用 Entity Framework 4.0 使用存储库和工作单元模式](http://blogs.msdn.com/adonet/archive/2009/06/16/using-repository-and-unit-of-work-patterns-with-entity-framework-4-0.aspx)"
+-   数据可编程性博客"[演练： 测试驱动开发使用 Entity Framework 4.0](https://blogs.msdn.com/adonet/pages/walkthrough-test-driven-development-with-the-entity-framework-4-0.aspx)"。
+-   数据可编程性博客"[结合使用 Entity Framework 4.0 使用存储库和工作单元模式](https://blogs.msdn.com/adonet/archive/2009/06/16/using-repository-and-unit-of-work-patterns-with-entity-framework-4-0.aspx)"
 -   Dave Astels" [BDD 简介](http://blog.daveastels.com/files/BDD_Intro.pdf)"
 -   Aaron Jensen"[简介机规范](http://codebetter.com/blogs/aaron.jensen/archive/2008/05/08/introducing-machine-specifications-or-mspec-for-short.aspx)"
--   Eric Lee"[使用 MSTest BDD](http://blogs.msdn.com/elee/archive/2009/01/20/bdd-with-mstest.aspx)"
+-   Eric Lee"[使用 MSTest BDD](https://blogs.msdn.com/elee/archive/2009/01/20/bdd-with-mstest.aspx)"
 -   Eric Evans"[域驱动设计](http://books.google.com/books?id=7dlaMs0SECsC&printsec=frontcover&dq=evans%20domain%20driven%20design&hl=en&ei=cHztS6C8KIaglAfA_dS1CA&sa=X&oi=book_result&ct=result&resnum=1&ved=0CCoQ6AEwAA)"
 -   Martin Fowler" [Mock 不是存根](http://martinfowler.com/articles/mocksArentStubs.html)"
 -   Martin Fowler"[测试双](http://martinfowler.com/bliki/TestDouble.html)"

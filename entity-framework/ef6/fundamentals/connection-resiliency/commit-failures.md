@@ -3,18 +3,18 @@ title: 处理事务提交失败的 EF6
 author: divega
 ms.date: 10/23/2016
 ms.assetid: 5b1f7a7d-1b24-4645-95ec-5608a31ef577
-ms.openlocfilehash: 71d5649dd993bb95e24165a55d812c71a37f03f3
-ms.sourcegitcommit: 2b787009fd5be5627f1189ee396e708cd130e07b
+ms.openlocfilehash: 27e75e6a1919ee2300fe76cfcdf67cceaad887b3
+ms.sourcegitcommit: 269c8a1a457a9ad27b4026c22c4b1a76991fb360
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45489383"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46283649"
 ---
 # <a name="handling-transaction-commit-failures"></a>处理事务提交失败
 > [!NOTE]
 > **EF6.1 及更高版本仅**的功能，Api，Entity Framework 6.1 中引入了此页所述的等。 如果使用的是早期版本，则部分或全部信息不适用。  
 
-6.1 的一部分，我们引入新的连接复原功能 ef： 检测和暂时性连接故障影响的确认的事务提交时自动恢复的能力。 该方案的完整详细信息是最适合的博客文章中所述[SQL 数据库连接和幂等性问题](http://blogs.msdn.com/b/adonet/archive/2013/03/11/sql-database-connectivity-and-the-idempotency-issue.aspx)。  总之，该方案是在事务提交过程中引发异常时有两个可能的原因：  
+6.1 的一部分，我们引入新的连接复原功能 ef： 检测和暂时性连接故障影响的确认的事务提交时自动恢复的能力。 该方案的完整详细信息是最适合的博客文章中所述[SQL 数据库连接和幂等性问题](https://blogs.msdn.com/b/adonet/archive/2013/03/11/sql-database-connectivity-and-the-idempotency-issue.aspx)。  总之，该方案是在事务提交过程中引发异常时有两个可能的原因：  
 
 1. 在服务器上的事务提交失败
 2. 在服务器上的事务提交成功，但连接问题导致无法从到达客户端的成功通知  
@@ -69,4 +69,4 @@ public class MyConfiguration : DbConfiguration
      - 如果该行不存在，使用执行策略以重试当前操作。  
   4. 如果提交成功，删除对应的行，以避免对表的增长。  
 
-[这篇博客文章](http://blogs.msdn.com/b/adonet/archive/2013/03/11/sql-database-connectivity-and-the-idempotency-issue.aspx)包含在 SQL Azure 上实现此目的的示例代码。  
+[这篇博客文章](https://blogs.msdn.com/b/adonet/archive/2013/03/11/sql-database-connectivity-and-the-idempotency-issue.aspx)包含在 SQL Azure 上实现此目的的示例代码。  

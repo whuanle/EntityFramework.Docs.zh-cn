@@ -3,12 +3,12 @@ title: 原始 SQL 查询的 EF6
 author: divega
 ms.date: 10/23/2016
 ms.assetid: 9e1ee76e-2499-408c-81e8-9b6c5d1945a0
-ms.openlocfilehash: 6b00648939ccedffeed09b4e1d6e8d70fa262a36
-ms.sourcegitcommit: 2b787009fd5be5627f1189ee396e708cd130e07b
+ms.openlocfilehash: 168aee67186535bf2a50705e86bfc5a88147e369
+ms.sourcegitcommit: 269c8a1a457a9ad27b4026c22c4b1a76991fb360
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45490579"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46283779"
 ---
 # <a name="raw-sql-queries"></a>原生 SQL 查询
 实体框架，可与实体类使用 LINQ 进行查询。 但是，可能有时你想要使用原始 SQL 直接针对数据库运行查询。 这包括调用存储的过程的当前不支持映射到存储过程的 Code First 模型会很有用。 本主题所介绍的方法同样适用于查询使用 Code First 和 EF 设计器创建的模型。  
@@ -82,4 +82,4 @@ using (var context = new BloggingContext())
 
 ### <a name="output-parameters"></a>输出参数  
 
-如果使用输出参数，其值将不可用，直到已完全读取结果。 这是由于 DbDataReader 的基础行为，请参阅[使用 DataReader 检索数据](http://go.microsoft.com/fwlink/?LinkID=398589)的更多详细信息。  
+如果使用输出参数，其值将不可用，直到已完全读取结果。 这是由于 DbDataReader 的基础行为，请参阅[使用 DataReader 检索数据](https://go.microsoft.com/fwlink/?LinkID=398589)的更多详细信息。  

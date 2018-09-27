@@ -18,7 +18,7 @@ ms.locfileid: "42993661"
 > [!NOTE]
 > 自 EF Core 1.1 尚未更新这些文章和自那以后进行了重大更改[问题 681](https://github.com/aspnet/EntityFramework.Docs/issues/681)跟踪对此文档的更新。
 
-EF Core 代码库是开放源代码，并包含可用作参考的多个数据库提供程序。 您可以找到在源代码https://github.com/aspnet/EntityFrameworkCore。 它也可能非常有用，下面的代码对于常用第三方提供程序，如[Npgsql](https://github.com/npgsql/Npgsql.EntityFrameworkCore.PostgreSQL)， [Pomelo MySQL](https://github.com/PomeloFoundation/Pomelo.EntityFrameworkCore.MySql)，并[SQL Server Compact](https://github.com/ErikEJ/EntityFramework.SqlServerCompact)。 具体而言，这些项目已安装程序将从扩展并在 NuGet 上运行我们发布的功能测试。 强烈建议在这种类型的安装程序。
+EF Core 代码库是开放源代码，并包含可用作参考的多个数据库提供程序。 您可以找到在源代码 https://github.com/aspnet/EntityFrameworkCore 。 它也可能非常有用，下面的代码对于常用第三方提供程序，如[Npgsql](https://github.com/npgsql/Npgsql.EntityFrameworkCore.PostgreSQL)， [Pomelo MySQL](https://github.com/PomeloFoundation/Pomelo.EntityFrameworkCore.MySql)，并[SQL Server Compact](https://github.com/ErikEJ/EntityFramework.SqlServerCompact)。 具体而言，这些项目已安装程序将从扩展并在 NuGet 上运行我们发布的功能测试。 强烈建议在这种类型的安装程序。
 
 ## <a name="keeping-up-to-date-with-provider-changes"></a>随时获取最新提供程序更改
 

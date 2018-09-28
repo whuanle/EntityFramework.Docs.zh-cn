@@ -3,12 +3,12 @@ title: 配置文件设置的 EF6
 author: divega
 ms.date: 10/23/2016
 ms.assetid: 000044c6-1d32-4cf7-ae1f-ea21d86ebf8f
-ms.openlocfilehash: 949ad4f030205753c5fbf9b95f4d183d8c0d1fe7
-ms.sourcegitcommit: 2b787009fd5be5627f1189ee396e708cd130e07b
+ms.openlocfilehash: faba4e406b9f26f5bed6149f75c59da362d84692
+ms.sourcegitcommit: 15022dd06d919c29b1189c82611ea32f9fdc6617
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45490865"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47415778"
 ---
 # <a name="configuration-file-settings"></a>配置文件设置
 实体框架允许要从配置文件指定设置的数量。 一般情况下 EF 遵循惯例优先于配置原则： 此帖子中讨论的所有设置都具有默认行为，只需担心如何更改设置时默认值就不再满足您的要求。  
@@ -153,7 +153,7 @@ EF 设计器基于模型使用特殊 EF 连接字符串。 例如：
 
 安装 EF NuGet 包时默认连接工厂注册了指向 SQL Express 或 LocalDB，具体取决于哪一个已安装。  
 
-若要设置一个连接工厂，你指定的程序集限定的类型名称在**deafultConnectionFactory**元素。  
+若要设置一个连接工厂，你指定的程序集限定的类型名称在**defaultConnectionFactory**元素。  
 
 > [!NOTE]
 > 程序集限定的名是命名空间限定的名称后, 跟一个逗号，然后该类型所在的程序集。 您可以选择指定程序集版本、 区域性和公钥标记。  

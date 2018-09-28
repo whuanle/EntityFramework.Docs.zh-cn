@@ -3,12 +3,12 @@ title: 第一个数据注释-EF6 的代码
 author: divega
 ms.date: 10/23/2016
 ms.assetid: 80abefbd-23c9-4fce-9cd3-520e5df9856e
-ms.openlocfilehash: 38ae52543ed99e5a1c1da7d19a2e15d168e3a1bd
-ms.sourcegitcommit: 2b787009fd5be5627f1189ee396e708cd130e07b
+ms.openlocfilehash: 54e27f1b866da14d68db66ca5eca5a6dde819e26
+ms.sourcegitcommit: 15022dd06d919c29b1189c82611ea32f9fdc6617
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45490086"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47415804"
 ---
 # <a name="code-first-data-annotations"></a>Code First 数据注释
 > [!NOTE]
@@ -72,7 +72,7 @@ Entity Framework 依赖于具有一个密钥值，用于跟踪的实体的每个
 
 ![博客具有主键的表](~/ef6/media/jj591583-figure01.png)
 
-### <a name="composite-keys"></a>复合键
+### <a name="composite-keys"></a>组合键
 
 实体框架支持的复合键-主键由多个属性组成。 例如，你可以其主键为 PassportNumber 和 IssuingCountry 的组合的 Passport 类。
 
@@ -319,13 +319,13 @@ ConcurrencyCheck 批注可以标记一个或多个要在进行并发检查数据
 重要的数据库功能是能够具有计算属性。 如果您打算映射代码优先类到包含的表的计算列，您不希望实体框架可以尝试更新这些列。 但您希望 EF 从数据库中返回这些值后已插入或更新数据。 DatabaseGenerated 批注可用于计算枚举以及在类中标记这些属性。 其他枚举都是无和标识。
 
 ``` csharp
-    [DatabaseGenerated(DatabaseGenerationOption.Computed)]
+    [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
     public DateTime DateCreated { get; set; }
 ```
 
 可以使用代码首先生成数据库时生成字节或时间戳列上的数据库，否则您才应使用此时指向现有数据库，因为代码首先将无法确定的公式计算所得的列。
 
-默认情况下，读取上面是一个整数键属性将成为在数据库中的标识键。 这将是与将 DatabaseGenerated 设为 DatabaseGenerationOption.Identity 相同。 如果不希望其成为标识键，您可以将值设置为 DatabaseGenerationOption.None。
+默认情况下，读取上面是一个整数键属性将成为在数据库中的标识键。 这将是与将 DatabaseGenerated 设为 DatabaseGeneratedOption.Identity 相同。 如果不希望其成为标识键，您可以将值设置为 DatabaseGeneratedOption.None。
 
  
 

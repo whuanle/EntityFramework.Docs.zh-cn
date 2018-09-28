@@ -6,12 +6,12 @@ ms.date: 08/08/2018
 ms.assetid: 7CEF496E-A5B0-4F5F-B68E-529609B23EF9
 ms.technology: entity-framework-core
 uid: core/providers/provider-log
-ms.openlocfilehash: a637e5e2f75e16bc7b11b1a51abcbe16274a1c75
-ms.sourcegitcommit: 2b787009fd5be5627f1189ee396e708cd130e07b
+ms.openlocfilehash: fa1362c84cb1954360d337670fb5fef21e5cf165
+ms.sourcegitcommit: 15022dd06d919c29b1189c82611ea32f9fdc6617
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45490761"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47415739"
 ---
 # <a name="provider-impacting-changes"></a>提供程序影响的更改
 
@@ -56,3 +56,6 @@ ms.locfileid: "45490761"
   * 此拉取请求将添加这一概念`CanConnect`将由 ASP.NET Core 运行状况检查来确定数据库是否可用。 默认情况下，关系的实现只需调用`Exist`，但如有必要提供程序可以实现一些不同。 非关系提供程序将需要使运行状况检查能够实现新的 API。
 * https://github.com/aspnet/EntityFrameworkCore/pull/13306 -更新基 RelationalTypeMapping 不设置 DbParameter 大小
   * 停止默认情况下设置大小，因为它可能会导致截断。 提供程序可能需要添加其自己的逻辑，如果需要设置大小。
+* https://github.com/aspnet/EntityFrameworkCore/pull/13372 -RevEng： 始终指定列的 decimal 列类型
+  * 始终在基架的代码，而不是通过约定配置中配置 decimal 列的列的类型。
+  * 提供程序不应要求其端上的任何更改。

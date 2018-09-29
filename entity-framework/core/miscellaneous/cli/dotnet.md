@@ -1,202 +1,284 @@
 ---
-title: .NET Core CLI-EF Core
+title: EF Core 工具参考 (.NET CLI)-EF Core
 author: bricelam
 ms.author: bricelam
-ms.date: 11/06/2017
+ms.date: 09/20/2018
 uid: core/miscellaneous/cli/dotnet
-ms.openlocfilehash: 3534336f1caeed96079b35c739d694a536919020
-ms.sourcegitcommit: 2b787009fd5be5627f1189ee396e708cd130e07b
+ms.openlocfilehash: a280aad0344a89c41c30be27a249df3c28c44c70
+ms.sourcegitcommit: ad1bdea58ed35d0f19791044efe9f72f94189c18
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45489604"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47447165"
 ---
-<a name="ef-core-net-command-line-tools"></a><span data-ttu-id="a788d-102">EF Core.NET 命令行工具</span><span class="sxs-lookup"><span data-stu-id="a788d-102">EF Core .NET Command-line Tools</span></span>
-===============================
-<span data-ttu-id="a788d-103">实体框架核心.NET 命令行工具是一种扩展到跨平台**dotnet**命令，是一部分的[.NET Core SDK][2]。</span><span class="sxs-lookup"><span data-stu-id="a788d-103">The Entity Framework Core .NET Command-line Tools are an extension to the cross-platform **dotnet** command, which is part of the [.NET Core SDK][2].</span></span>
+# <a name="entity-framework-core-tools-reference---net-cli"></a><span data-ttu-id="50618-102">Entity Framework Core 工具引用的.NET CLI</span><span class="sxs-lookup"><span data-stu-id="50618-102">Entity Framework Core tools reference - .NET CLI</span></span>
 
-> [!TIP]
-> <span data-ttu-id="a788d-104">如果使用 Visual Studio，我们建议[PMC 工具][ 1]而是因为它们提供更完整的体验。</span><span class="sxs-lookup"><span data-stu-id="a788d-104">If you're using Visual Studio, we recommend [the PMC Tools][1] instead since they provide a more integrated experience.</span></span>
+<span data-ttu-id="50618-103">Entity Framework Core 的命令行接口 (CLI) 工具执行设计时开发任务。</span><span class="sxs-lookup"><span data-stu-id="50618-103">The command-line interface (CLI) tools for Entity Framework Core perform design-time development tasks.</span></span> <span data-ttu-id="50618-104">例如，创建方法[迁移](/aspnet/core/data/ef-mvc/migrations?view=aspnetcore-2.0#introduction-to-migrations)、 应用迁移，并为基于现有数据库的模型生成代码。</span><span class="sxs-lookup"><span data-stu-id="50618-104">For example, they create [migrations](/aspnet/core/data/ef-mvc/migrations?view=aspnetcore-2.0#introduction-to-migrations), apply migrations, and generate code for a model based on an existing database.</span></span> <span data-ttu-id="50618-105">这些命令是对跨平台扩展[dotnet](/dotnet/core/tools)命令，它是一部分的[.NET Core SDK](https://www.microsoft.com/net/core)。</span><span class="sxs-lookup"><span data-stu-id="50618-105">The commands are an extension to the cross-platform [dotnet](/dotnet/core/tools) command, which is part of the [.NET Core SDK](https://www.microsoft.com/net/core).</span></span> <span data-ttu-id="50618-106">这些工具适用于.NET Core 项目。</span><span class="sxs-lookup"><span data-stu-id="50618-106">These tools work with .NET Core projects.</span></span>
 
-<a name="installing-the-tools"></a><span data-ttu-id="a788d-105">安装工具</span><span class="sxs-lookup"><span data-stu-id="a788d-105">Installing the tools</span></span>
---------------------
-> [!NOTE]
-> <span data-ttu-id="a788d-106">.NET Core SDK 版本 2.1.300 和更高版本包括**dotnet ef**与 EF Core 2.0 和更高版本兼容的命令。</span><span class="sxs-lookup"><span data-stu-id="a788d-106">The .NET Core SDK version 2.1.300 and newer includes **dotnet ef** commands that are compatible with EF Core 2.0 and later versions.</span></span> <span data-ttu-id="a788d-107">因此如果你使用的最新版本的.NET Core SDK 和 EF Core 运行时，需要进行任何安装，你可以忽略本部分的其余部分。</span><span class="sxs-lookup"><span data-stu-id="a788d-107">Therefore if you are using recent versions of the .NET Core SDK and the EF Core runtime, no installation is required and you can ignore the rest of this section.</span></span>
->
-> <span data-ttu-id="a788d-108">另一方面， **dotnet ef**工具包含在.NET Core SDK 版本 2.1.300 和更高版本不兼容与 EF Core 版本 1.0 和 1.1。</span><span class="sxs-lookup"><span data-stu-id="a788d-108">On the other hand, the **dotnet ef** tool contained in .NET Core SDK version 2.1.300 and newer is not compatible with EF Core version 1.0 and 1.1.</span></span> <span data-ttu-id="a788d-109">你可以使用.NET Core sdk 2.1.300 的计算机使用 EF Core 这些早期版本的项目或更高版本安装之前，你还必须安装版本 2.1.200 或更低版本的 sdk 和配置应用程序通过修改使用该旧版本其 [global.json](https://docs.microsoft.com/en-us/dotnet/core/tools/global-json)文件。</span><span class="sxs-lookup"><span data-stu-id="a788d-109">Before you can work with a project that uses these earlier versions of EF Core on a computer that has .NET Core SDK 2.1.300 or newer installed, you must also install version 2.1.200 or older of the SDK and configure the application to use that older version by modifying its [global.json](https://docs.microsoft.com/en-us/dotnet/core/tools/global-json) file.</span></span> <span data-ttu-id="a788d-110">此文件通常包含在解决方案目录 （一个项目上方）。</span><span class="sxs-lookup"><span data-stu-id="a788d-110">This file is normally included in the solution directory (one above the project).</span></span> <span data-ttu-id="a788d-111">然后，您可以继续下面 installlation 指令。</span><span class="sxs-lookup"><span data-stu-id="a788d-111">Then you can proceed with the installlation instruction below.</span></span>
+<span data-ttu-id="50618-107">如果使用 Visual Studio，我们建议[程序包管理器控制台工具](powershell.md)改为：</span><span class="sxs-lookup"><span data-stu-id="50618-107">If you're using Visual Studio, we recommend the [Package Manager Console tools](powershell.md) instead:</span></span>
+* <span data-ttu-id="50618-108">它们可自动处理与当前项目中所选**程序包管理器控制台**而无需手动切换目录。</span><span class="sxs-lookup"><span data-stu-id="50618-108">They automatically work with the current project selected in the **Package Manager Console** without requiring that you manually switch directories.</span></span>
+* <span data-ttu-id="50618-109">它们会自动打开由命令在命令完成后生成的文件。</span><span class="sxs-lookup"><span data-stu-id="50618-109">They automatically open files generated by a command after the command is completed.</span></span>
 
-<span data-ttu-id="a788d-112">对于.NET Core sdk 的早期版本，你可以安装使用这些步骤的 EF Core.NET 命令行工具：</span><span class="sxs-lookup"><span data-stu-id="a788d-112">For previous versions of the .NET Core SDK, you can install the EF Core .NET Command-line Tools using these steps:</span></span>
+## <a name="installing-the-tools"></a><span data-ttu-id="50618-110">安装工具</span><span class="sxs-lookup"><span data-stu-id="50618-110">Installing the tools</span></span>
 
-1. <span data-ttu-id="a788d-113">编辑项目文件并添加 Microsoft.EntityFrameworkCore.Tools.DotNet 作为 DotNetCliToolReference 项 （见下文）</span><span class="sxs-lookup"><span data-stu-id="a788d-113">Edit the project file and add Microsoft.EntityFrameworkCore.Tools.DotNet as a DotNetCliToolReference item (See below)</span></span>
-2. <span data-ttu-id="a788d-114">运行以下命令：</span><span class="sxs-lookup"><span data-stu-id="a788d-114">Run the following commands:</span></span>
+<span data-ttu-id="50618-111">安装过程取决于项目类型和版本：</span><span class="sxs-lookup"><span data-stu-id="50618-111">The installation procedure depends on project type and version:</span></span>
 
-       dotnet add package Microsoft.EntityFrameworkCore.Design
-       dotnet restore
+* <span data-ttu-id="50618-112">ASP.NET Core 2.1 和更高版本</span><span class="sxs-lookup"><span data-stu-id="50618-112">ASP.NET Core version 2.1 and later</span></span>
+* <span data-ttu-id="50618-113">EF Core 2.x</span><span class="sxs-lookup"><span data-stu-id="50618-113">EF Core 2.x</span></span>
+* <span data-ttu-id="50618-114">EF Core 1.x</span><span class="sxs-lookup"><span data-stu-id="50618-114">EF Core 1.x</span></span>
 
-<span data-ttu-id="a788d-115">生成的项目应如下所示：</span><span class="sxs-lookup"><span data-stu-id="a788d-115">The resulting project should look something like this:</span></span>
+### <a name="aspnet-core-21"></a><span data-ttu-id="50618-115">ASP.NET Core 2.1 +</span><span class="sxs-lookup"><span data-stu-id="50618-115">ASP.NET Core 2.1+</span></span>
 
-``` xml
-<Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp2.0</TargetFramework>
-  </PropertyGroup>
-  <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design"
-                      Version="2.0.0"
-                      PrivateAssets="All" />
-  </ItemGroup>
-  <ItemGroup>
-    <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet"
-                            Version="2.0.0" />
-  </ItemGroup>
-</Project>
+* <span data-ttu-id="50618-116">安装最新[.NET Core SDK](https://www.microsoft.com/net/download/core)。</span><span class="sxs-lookup"><span data-stu-id="50618-116">Install the current [.NET Core SDK](https://www.microsoft.com/net/download/core).</span></span> <span data-ttu-id="50618-117">即使有 Visual Studio 2017 的最新版本，也必须安装 SDK。</span><span class="sxs-lookup"><span data-stu-id="50618-117">The SDK has to be installed even if you have the latest version of Visual Studio 2017.</span></span>
+
+  <span data-ttu-id="50618-118">这是因为适用于 ASP.NET Core 2.1 + 所需的所有`Microsoft.EntityFrameworkCore.Design`包包含在[Microsoft.AspNetCore.App 元包](/aspnet/core/fundamentals/metapackage-app)。</span><span class="sxs-lookup"><span data-stu-id="50618-118">This is all that is needed for ASP.NET Core 2.1+ because the `Microsoft.EntityFrameworkCore.Design` package is included in the [Microsoft.AspNetCore.App metapackage](/aspnet/core/fundamentals/metapackage-app).</span></span>
+
+### <a name="ef-core-2x-not-aspnet-core"></a><span data-ttu-id="50618-119">EF Core 2.x (而不是 ASP.NET Core)</span><span class="sxs-lookup"><span data-stu-id="50618-119">EF Core 2.x (not ASP.NET Core)</span></span>
+
+<span data-ttu-id="50618-120">`dotnet ef`命令包含在.NET Core SDK，但若要启用这些命令必须安装`Microsoft.EntityFrameworkCore.Design`包。</span><span class="sxs-lookup"><span data-stu-id="50618-120">The `dotnet ef` commands are included in the .NET Core SDK, but to enable the commands you have to install the `Microsoft.EntityFrameworkCore.Design` package.</span></span>
+
+* <span data-ttu-id="50618-121">安装最新[.NET Core SDK](https://www.microsoft.com/net/download/core)。</span><span class="sxs-lookup"><span data-stu-id="50618-121">Install the current [.NET Core SDK](https://www.microsoft.com/net/download/core).</span></span> <span data-ttu-id="50618-122">即使有 Visual Studio 2017 的最新版本，也必须安装 SDK。</span><span class="sxs-lookup"><span data-stu-id="50618-122">The SDK has to be installed even if you have the latest version of Visual Studio 2017.</span></span>
+
+* <span data-ttu-id="50618-123">安装最新稳定`Microsoft.EntityFrameworkCore.Design`包。</span><span class="sxs-lookup"><span data-stu-id="50618-123">Install the latest stable `Microsoft.EntityFrameworkCore.Design` package.</span></span> 
+
+  ``` Console   
+  dotnet add package Microsoft.EntityFrameworkCore.Design   
+  ```
+
+### <a name="ef-core-1x"></a><span data-ttu-id="50618-124">EF Core 1.x</span><span class="sxs-lookup"><span data-stu-id="50618-124">EF Core 1.x</span></span>
+
+* <span data-ttu-id="50618-125">安装.NET Core SDK 版本 2.1.200。</span><span class="sxs-lookup"><span data-stu-id="50618-125">Install the .NET Core SDK version 2.1.200.</span></span> <span data-ttu-id="50618-126">更高版本不兼容使用 EF Core 1.0 和 1.1 的 CLI 工具。</span><span class="sxs-lookup"><span data-stu-id="50618-126">Later versions are not compatible with CLI tools for EF Core 1.0 and 1.1.</span></span>
+
+* <span data-ttu-id="50618-127">通过修改配置为使用 2.1.200 SDK 版本的应用程序及其[global.json](/dotnet/core/tools/global-json)文件。</span><span class="sxs-lookup"><span data-stu-id="50618-127">Configure the application to use the 2.1.200 SDK version by modifying its [global.json](/dotnet/core/tools/global-json) file.</span></span> <span data-ttu-id="50618-128">此文件通常包含在解决方案目录 （一个项目上方）。</span><span class="sxs-lookup"><span data-stu-id="50618-128">This file is normally included in the solution directory (one above the project).</span></span> 
+
+* <span data-ttu-id="50618-129">编辑项目文件并添加`Microsoft.EntityFrameworkCore.Tools.DotNet`作为`DotNetCliToolReference`项。</span><span class="sxs-lookup"><span data-stu-id="50618-129">Edit the project file and add `Microsoft.EntityFrameworkCore.Tools.DotNet` as a `DotNetCliToolReference` item.</span></span> <span data-ttu-id="50618-130">指定的最新的 1.x 版本，例如： 1.1.6。</span><span class="sxs-lookup"><span data-stu-id="50618-130">Specify the latest 1.x version, for example: 1.1.6.</span></span> <span data-ttu-id="50618-131">请参阅本部分的结尾处的项目文件示例。</span><span class="sxs-lookup"><span data-stu-id="50618-131">See the project file example at the end of this section.</span></span>
+
+* <span data-ttu-id="50618-132">安装的最新的 1.x 版本`Microsoft.EntityFrameworkCore.Design`包，例如：</span><span class="sxs-lookup"><span data-stu-id="50618-132">Install the latest 1.x version of the `Microsoft.EntityFrameworkCore.Design` package, for example:</span></span>
+
+  ```console
+  dotnet add package Microsoft.EntityFrameworkCore.Design -v 1.1.6
+  ```
+
+  <span data-ttu-id="50618-133">与添加这两个包引用，项目文件如下所示：</span><span class="sxs-lookup"><span data-stu-id="50618-133">With both package references added, the project file looks something like this:</span></span>
+
+  ``` xml
+  <Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+      <OutputType>Exe</OutputType>
+      <TargetFramework>netcoreapp1.1</TargetFramework>
+    </PropertyGroup>
+    <ItemGroup>
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Design"
+                        Version="1.1.6"
+                         PrivateAssets="All" />
+    </ItemGroup>
+    <ItemGroup>
+       <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet"
+                              Version="1.1.6" />
+    </ItemGroup>
+  </Project>
+  ```
+
+  <span data-ttu-id="50618-134">使用的包引用`PrivateAssets="All"`不公开到引用此项目的项目。</span><span class="sxs-lookup"><span data-stu-id="50618-134">A package reference with `PrivateAssets="All"` isn't exposed to projects that reference this project.</span></span> <span data-ttu-id="50618-135">此限制是在开发过程中通常仅使用的包尤其有用。</span><span class="sxs-lookup"><span data-stu-id="50618-135">This restriction is especially useful for packages that are typically only used during development.</span></span>
+
+### <a name="verify-installation"></a><span data-ttu-id="50618-136">验证安装</span><span class="sxs-lookup"><span data-stu-id="50618-136">Verify installation</span></span>
+
+<span data-ttu-id="50618-137">运行以下命令以验证正确安装 EF Core CLI 工具：</span><span class="sxs-lookup"><span data-stu-id="50618-137">Run the following commands to verify that EF Core CLI tools are correctly installed:</span></span>
+
+  ``` Console
+  dotnet restore
+  dotnet ef
+  ```
+
+<span data-ttu-id="50618-138">该命令的输出标识的版本中使用的工具：</span><span class="sxs-lookup"><span data-stu-id="50618-138">The output from the command identifies the version of the tools in use:</span></span>
+
+```console
+
+                     _/\__
+               ---==/    \\
+         ___  ___   |.    \|\
+        | __|| __|  |  )   \\\
+        | _| | _|   \_/ |  //|\\
+        |___||_|       /   \\\/\\
+
+Entity Framework Core .NET Command-line Tools 2.1.3-rtm-32065
+
+<Usage documentation follows, not shown.>
 ```
 
-> [!NOTE]
-> <span data-ttu-id="a788d-116">使用的包引用`PrivateAssets="All"`意味着它不公开到引用此项目，特别适合用于在开发过程中通常仅使用的包的项目。</span><span class="sxs-lookup"><span data-stu-id="a788d-116">A package reference with `PrivateAssets="All"` means it isn't exposed to projects that reference this project, which is especially useful for packages that are typically only used during development.</span></span>
+## <a name="using-the-tools"></a><span data-ttu-id="50618-139">使用的工具</span><span class="sxs-lookup"><span data-stu-id="50618-139">Using the tools</span></span>
 
-<span data-ttu-id="a788d-117">如果您还没有完全正确，您应能够成功在命令提示符处运行以下命令。</span><span class="sxs-lookup"><span data-stu-id="a788d-117">If you did everything right, you should be able to successfully run the following command in a command prompt.</span></span>
+<span data-ttu-id="50618-140">工具使用之前，可能需要创建一个启动项目或将环境设置。</span><span class="sxs-lookup"><span data-stu-id="50618-140">Before using the tools, you might have to create a startup project or set the environment.</span></span>
 
-``` Console
-dotnet ef
+### <a name="target-project-and-startup-project"></a><span data-ttu-id="50618-141">目标项目和启动项目</span><span class="sxs-lookup"><span data-stu-id="50618-141">Target project and startup project</span></span>
+
+<span data-ttu-id="50618-142">命令是指*项目*和一个*启动项目*。</span><span class="sxs-lookup"><span data-stu-id="50618-142">The commands refer to a *project* and a *startup project*.</span></span>
+
+* <span data-ttu-id="50618-143">*项目*也称为*目标项目*因为它是命令添加或删除文件的位置。</span><span class="sxs-lookup"><span data-stu-id="50618-143">The *project* is also known as the *target project* because it's where the commands add or remove files.</span></span> <span data-ttu-id="50618-144">默认情况下，当前目录中的项目为目标项目。</span><span class="sxs-lookup"><span data-stu-id="50618-144">By default, the project in the current directory is the target project.</span></span> <span data-ttu-id="50618-145">可以通过使用作为目标项目中指定一个不同的项目<nobr> `--project` </nobr>选项。</span><span class="sxs-lookup"><span data-stu-id="50618-145">You can specify a different project as target project by using the <nobr>`--project`</nobr> option.</span></span>
+
+* <span data-ttu-id="50618-146">*启动项目*是指的工具生成和运行。</span><span class="sxs-lookup"><span data-stu-id="50618-146">The *startup project* is the one that the tools build and run.</span></span> <span data-ttu-id="50618-147">这些工具必须在设计时，获取有关该项目，如数据库连接字符串和模型的配置信息执行应用程序代码。</span><span class="sxs-lookup"><span data-stu-id="50618-147">The tools have to execute application code at design time to get information about the project, such as the database connection string and the configuration of the model.</span></span> <span data-ttu-id="50618-148">默认情况下，当前目录中的项目为启动项目。</span><span class="sxs-lookup"><span data-stu-id="50618-148">By default, the project in the current directory is the startup project.</span></span> <span data-ttu-id="50618-149">您可以通过使用不同的项目指定为启动项目<nobr> `--startup-project` </nobr>选项。</span><span class="sxs-lookup"><span data-stu-id="50618-149">You can specify a different project as startup project by using the <nobr>`--startup-project`</nobr> option.</span></span>
+
+<span data-ttu-id="50618-150">启动项目和目标项目通常是在同一个项目。</span><span class="sxs-lookup"><span data-stu-id="50618-150">The startup project and target project are often the same project.</span></span> <span data-ttu-id="50618-151">它们的单独的项目的典型情况是当：</span><span class="sxs-lookup"><span data-stu-id="50618-151">A typical scenario where they are separate projects is when:</span></span>
+
+* <span data-ttu-id="50618-152">EF Core 上下文和实体类是在.NET Core 类库中。</span><span class="sxs-lookup"><span data-stu-id="50618-152">The EF Core context and entity classes are in a .NET Core class library.</span></span>
+* <span data-ttu-id="50618-153">.NET Core 控制台应用程序或 web 应用程序引用的类库。</span><span class="sxs-lookup"><span data-stu-id="50618-153">A .NET Core console app or web app references the class library.</span></span>
+
+<span data-ttu-id="50618-154">此外，还可以向[迁移代码置于独立于 EF Core 上下文类库](xref:core/managing-schemas/migrations/projects)。</span><span class="sxs-lookup"><span data-stu-id="50618-154">It's also possible to [put migrations code in a class library separate from the EF Core context](xref:core/managing-schemas/migrations/projects).</span></span>
+
+### <a name="other-target-frameworks"></a><span data-ttu-id="50618-155">其他目标框架</span><span class="sxs-lookup"><span data-stu-id="50618-155">Other target frameworks</span></span>
+
+<span data-ttu-id="50618-156">CLI 工具适用于.NET Core 项目和.NET Framework 项目。</span><span class="sxs-lookup"><span data-stu-id="50618-156">The CLI tools work with .NET Core projects and .NET Framework projects.</span></span> <span data-ttu-id="50618-157">EF Core 模型具有.NET Standard 类库中的应用可能不具有.NET Core 或.NET Framework 项目。</span><span class="sxs-lookup"><span data-stu-id="50618-157">Apps that have the EF Core model in a .NET Standard class library might not have a .NET Core or .NET Framework project.</span></span> <span data-ttu-id="50618-158">例如，这是 Xamarin 和通用 Windows 平台应用，则返回 true。</span><span class="sxs-lookup"><span data-stu-id="50618-158">For example, this is true of Xamarin and Universal Windows Platform apps.</span></span> <span data-ttu-id="50618-159">在这种情况下，可以创建.NET Core 控制台应用项目，其唯一用途是作为启动项目的工具。</span><span class="sxs-lookup"><span data-stu-id="50618-159">In such cases, you can create a .NET Core console app project whose only purpose is to act as startup project for the tools.</span></span> <span data-ttu-id="50618-160">项目可以是虚拟项目不包含实际代码&mdash;只需为工具提供一个目标。</span><span class="sxs-lookup"><span data-stu-id="50618-160">The project can be a dummy project with no real code &mdash; it is only needed to provide a target for the tooling.</span></span>
+
+<span data-ttu-id="50618-161">为什么是虚拟的项目所需？</span><span class="sxs-lookup"><span data-stu-id="50618-161">Why is a dummy project required?</span></span> <span data-ttu-id="50618-162">如前文所述，这些工具必须在设计时执行应用程序代码。</span><span class="sxs-lookup"><span data-stu-id="50618-162">As mentioned earlier, the tools have to execute application code at design time.</span></span> <span data-ttu-id="50618-163">若要做到这一点，他们需要使用.NET Core 运行时。</span><span class="sxs-lookup"><span data-stu-id="50618-163">To do that, they need to use the .NET Core runtime.</span></span> <span data-ttu-id="50618-164">EF Core 模型在面向.NET Core 或.NET Framework 的项目时，EF Core 工具借用运行时从该项目。</span><span class="sxs-lookup"><span data-stu-id="50618-164">When the EF Core model is in a project that targets .NET Core or .NET Framework, the EF Core tools borrow the runtime from the project.</span></span> <span data-ttu-id="50618-165">如果在 EF Core 模型处于.NET Standard 类库，他们无法做到这一点。</span><span class="sxs-lookup"><span data-stu-id="50618-165">They can't do that if the EF Core model is in a .NET Standard class library.</span></span> <span data-ttu-id="50618-166">.NET Standard 并不实际的.NET 实现;它是一种规范的一组.NET 实现必须支持的 Api。</span><span class="sxs-lookup"><span data-stu-id="50618-166">The .NET Standard is not an actual .NET implementation; it's a specification of a set of APIs that .NET implementations must support.</span></span> <span data-ttu-id="50618-167">因此.NET Standard 是不够的 EF Core 工具来执行应用程序代码。</span><span class="sxs-lookup"><span data-stu-id="50618-167">Therefore .NET Standard is not sufficient for the EF Core tools to execute application code.</span></span> <span data-ttu-id="50618-168">创建要用作启动项目的虚拟项目提供了工具可以在其中加载.NET Standard 类库的具体目标平台。</span><span class="sxs-lookup"><span data-stu-id="50618-168">The dummy project you create to use as startup project provides a concrete target platform into which the tools can load the .NET Standard class library.</span></span> 
+
+### <a name="aspnet-core-environment"></a><span data-ttu-id="50618-169">ASP.NET Core 环境</span><span class="sxs-lookup"><span data-stu-id="50618-169">ASP.NET Core environment</span></span>
+
+<span data-ttu-id="50618-170">若要指定用于 ASP.NET Core 项目的环境，请设置**ASPNETCORE_ENVIRONMENT**之前运行命令的环境变量。</span><span class="sxs-lookup"><span data-stu-id="50618-170">To specify the environment for ASP.NET Core projects, set the **ASPNETCORE_ENVIRONMENT** environment variable before running commands.</span></span>
+
+## <a name="common-options"></a><span data-ttu-id="50618-171">常用选项</span><span class="sxs-lookup"><span data-stu-id="50618-171">Common options</span></span>
+
+|                   | <span data-ttu-id="50618-172">选项</span><span class="sxs-lookup"><span data-stu-id="50618-172">Option</span></span>                             | <span data-ttu-id="50618-173">描述</span><span class="sxs-lookup"><span data-stu-id="50618-173">Description</span></span>                                                                                                                                                                                                                                                   |
+|-------------------|------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|                   | `--json`                           | <span data-ttu-id="50618-174">显示 JSON 输出。</span><span class="sxs-lookup"><span data-stu-id="50618-174">Show JSON output.</span></span>                                                                                                                                                                                                                                             |
+| <nobr>`-c`</nobr> | `--context <DBCONTEXT>`            | <span data-ttu-id="50618-175">`DbContext`类使用。</span><span class="sxs-lookup"><span data-stu-id="50618-175">The `DbContext` class to use.</span></span> <span data-ttu-id="50618-176">唯一或完全限定的命名空间的类名称。</span><span class="sxs-lookup"><span data-stu-id="50618-176">Class name only or fully qualified with namespaces.</span></span>  <span data-ttu-id="50618-177">如果省略此选项，则 EF Core 会发现上下文类。</span><span class="sxs-lookup"><span data-stu-id="50618-177">If this option is omitted, EF Core will find the context class.</span></span> <span data-ttu-id="50618-178">如果有多个上下文类，则需要此选项。</span><span class="sxs-lookup"><span data-stu-id="50618-178">If there are multiple context classes, this option is required.</span></span>                                            |
+| `-p`              | `--project <PROJECT>`              | <span data-ttu-id="50618-179">目标项目的项目文件夹的相对路径。</span><span class="sxs-lookup"><span data-stu-id="50618-179">Relative path to the project folder of the target project.</span></span>  <span data-ttu-id="50618-180">默认值为当前文件夹。</span><span class="sxs-lookup"><span data-stu-id="50618-180">Default value is the current folder.</span></span>                                                                                                                                                              |
+| `-s`              | `--startup-project <PROJECT>`      | <span data-ttu-id="50618-181">为启动项目的项目文件夹的相对路径。</span><span class="sxs-lookup"><span data-stu-id="50618-181">Relative path to the project folder of the startup project.</span></span> <span data-ttu-id="50618-182">默认值为当前文件夹。</span><span class="sxs-lookup"><span data-stu-id="50618-182">Default value is the current folder.</span></span>                                                                                                                                                              |
+|                   | `--framework <FRAMEWORK>`          | <span data-ttu-id="50618-183">[目标框架名字对象](/dotnet/standard/frameworks#supported-target-framework-versions)有关[目标框架](/dotnet/standard/frameworks)。</span><span class="sxs-lookup"><span data-stu-id="50618-183">The [Target Framework Moniker](/dotnet/standard/frameworks#supported-target-framework-versions) for the [target framework](/dotnet/standard/frameworks).</span></span>  <span data-ttu-id="50618-184">使用项目文件指定多个目标框架，并且想要选择其中之一时。</span><span class="sxs-lookup"><span data-stu-id="50618-184">Use when the project file specifies multiple target frameworks, and you want to select one of them.</span></span> |
+|                   | `--configuration <CONFIGURATION>`  | <span data-ttu-id="50618-185">生成配置，例如：`Debug`或`Release`。</span><span class="sxs-lookup"><span data-stu-id="50618-185">The build configuration, for example: `Debug` or `Release`.</span></span>                                                                                                                                                                                                   |
+|                   | `--runtime <IDENTIFIER>`           | <span data-ttu-id="50618-186">若要还原的包的目标运行时标识符。</span><span class="sxs-lookup"><span data-stu-id="50618-186">The identifier of the target runtime to restore packages for.</span></span> <span data-ttu-id="50618-187">有关运行时标识符 (RID) 的列表，请参阅 [RID 目录](/dotnet/core/rid-catalog)。</span><span class="sxs-lookup"><span data-stu-id="50618-187">For a list of Runtime Identifiers (RIDs), see the [RID catalog](/dotnet/core/rid-catalog).</span></span>                                                                                                      |
+| `-h`              | `--help`                           | <span data-ttu-id="50618-188">显示帮助信息。</span><span class="sxs-lookup"><span data-stu-id="50618-188">Show help information.</span></span>                                                                                                                                                                                                                                        |
+| `-v`              | `--verbose`                        | <span data-ttu-id="50618-189">显示详细输出。</span><span class="sxs-lookup"><span data-stu-id="50618-189">Show verbose output.</span></span>                                                                                                                                                                                                                                          |
+|                   | `--no-color`                       | <span data-ttu-id="50618-190">不为着色输出。</span><span class="sxs-lookup"><span data-stu-id="50618-190">Don't colorize output.</span></span>                                                                                                                                                                                                                                        |
+|                   | `--prefix-output`                  | <span data-ttu-id="50618-191">输出级别使用的前缀。</span><span class="sxs-lookup"><span data-stu-id="50618-191">Prefix output with level.</span></span>                                                                                                                                                                                                                                     |
+
+## <a name="dotnet-ef-database-drop"></a><span data-ttu-id="50618-192">dotnet ef 数据库拖放</span><span class="sxs-lookup"><span data-stu-id="50618-192">dotnet ef database drop</span></span>
+
+<span data-ttu-id="50618-193">删除数据库。</span><span class="sxs-lookup"><span data-stu-id="50618-193">Drops the database.</span></span>
+
+<span data-ttu-id="50618-194">选项:</span><span class="sxs-lookup"><span data-stu-id="50618-194">Options:</span></span>
+
+|                   | <span data-ttu-id="50618-195">选项</span><span class="sxs-lookup"><span data-stu-id="50618-195">Option</span></span>                   | <span data-ttu-id="50618-196">描述</span><span class="sxs-lookup"><span data-stu-id="50618-196">Description</span></span>                                                |
+|-------------------|--------------------------|------------------------------------------------------------|
+| <nobr>`-f`</nobr> | <nobr>`--force`</nobr>   | <span data-ttu-id="50618-197">不确认。</span><span class="sxs-lookup"><span data-stu-id="50618-197">Don't confirm.</span></span>                                             |
+|                   | <nobr>`--dry-run`</nobr> | <span data-ttu-id="50618-198">显示哪个数据库会被丢弃，但没有删除它。</span><span class="sxs-lookup"><span data-stu-id="50618-198">Show which database would be dropped, but don't drop it.</span></span>   |
+
+## <a name="dotnet-ef-database-update"></a><span data-ttu-id="50618-199">dotnet ef 数据库更新</span><span class="sxs-lookup"><span data-stu-id="50618-199">dotnet ef database update</span></span>
+
+<span data-ttu-id="50618-200">更新数据库，到最后一个迁移或指定的迁移。</span><span class="sxs-lookup"><span data-stu-id="50618-200">Updates the database to the last migration or to a specified migration.</span></span>
+
+<span data-ttu-id="50618-201">参数：</span><span class="sxs-lookup"><span data-stu-id="50618-201">Arguments:</span></span>
+
+| <span data-ttu-id="50618-202">参数</span><span class="sxs-lookup"><span data-stu-id="50618-202">Argument</span></span>       | <span data-ttu-id="50618-203">描述</span><span class="sxs-lookup"><span data-stu-id="50618-203">Description</span></span>                                                                                                                                                                                                                                                     |
+|----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `<MIGRATION>`  | <span data-ttu-id="50618-204">目标迁移。</span><span class="sxs-lookup"><span data-stu-id="50618-204">The target migration.</span></span> <span data-ttu-id="50618-205">可能会被标识迁移，按名称或 id。</span><span class="sxs-lookup"><span data-stu-id="50618-205">Migrations may be identified by name or by ID.</span></span> <span data-ttu-id="50618-206">数字 0 是一种特殊情况，意味着*第一次迁移之前*并导致所有迁移操作，从而还原。</span><span class="sxs-lookup"><span data-stu-id="50618-206">The number 0 is a special case that means *before the first migration* and causes all migrations to be reverted.</span></span> <span data-ttu-id="50618-207">如果指定无需迁移，则此命令的最后一个默认迁移。</span><span class="sxs-lookup"><span data-stu-id="50618-207">If no migration is specified, the command defaults to the last migration.</span></span> |
+
+<span data-ttu-id="50618-208">下面的示例将数据库更新为指定的迁移。</span><span class="sxs-lookup"><span data-stu-id="50618-208">The following examples update the database to a specified migration.</span></span> <span data-ttu-id="50618-209">第一个示例使用迁移名称和另一个使用迁移 ID:</span><span class="sxs-lookup"><span data-stu-id="50618-209">The first uses the migration name and the second uses the migration ID:</span></span>
+
+```console
+dotnet ef database update InitialCreate
+dotnet ef database update 20180904195021_InitialCreate
 ```
 
-<a name="using-the-tools"></a><span data-ttu-id="a788d-118">使用的工具</span><span class="sxs-lookup"><span data-stu-id="a788d-118">Using the tools</span></span>
----------------
-<span data-ttu-id="a788d-119">每当调用命令时，有两个项目所涉及：</span><span class="sxs-lookup"><span data-stu-id="a788d-119">Whenever you invoke a command, there are two projects involved:</span></span>
+## <a name="dotnet-ef-dbcontext-info"></a><span data-ttu-id="50618-210">dotnet ef dbcontext 信息</span><span class="sxs-lookup"><span data-stu-id="50618-210">dotnet ef dbcontext info</span></span>
 
-<span data-ttu-id="a788d-120">目标项目是在其中添加任何文件（或在某些情况下删除文件）的项目。</span><span class="sxs-lookup"><span data-stu-id="a788d-120">The target project is where any files are added (or in some cases removed).</span></span> <span data-ttu-id="a788d-121">目标项目默认为当前目录中的项目，但可以使用更改<nobr> **`--project`** </nobr>选项。</span><span class="sxs-lookup"><span data-stu-id="a788d-121">The target project defaults to the project in the current directory, but can be changed using the <nobr>**`--project`**</nobr> option.</span></span>
+<span data-ttu-id="50618-211">获取有关的信息`DbContext`类型。</span><span class="sxs-lookup"><span data-stu-id="50618-211">Gets information about a `DbContext` type.</span></span>
 
-<span data-ttu-id="a788d-122">启动项目是执行项目代码时由工具模拟的项目。</span><span class="sxs-lookup"><span data-stu-id="a788d-122">The startup project is the one emulated by the tools when executing your project's code.</span></span> <span data-ttu-id="a788d-123">它还将默认为当前目录中的项目，但可以使用更改**`--startup-project`** 选项。</span><span class="sxs-lookup"><span data-stu-id="a788d-123">It also defaults to the project in the current directory, but can be changed using the **`--startup-project`** option.</span></span>
+## <a name="dotnet-ef-dbcontext-list"></a><span data-ttu-id="50618-212">dotnet ef dbcontext 列表</span><span class="sxs-lookup"><span data-stu-id="50618-212">dotnet ef dbcontext list</span></span>
 
-> [!NOTE]
-> <span data-ttu-id="a788d-124">例如，更新的 web 应用程序具有不同的项目中安装的 EF Core 数据库将如下所示： `dotnet ef database update --project {project-path}` （从您的 web 应用程序目录）</span><span class="sxs-lookup"><span data-stu-id="a788d-124">For instance, updating the database of your web application that has EF Core installed in a different project would look like this: `dotnet ef database update --project {project-path}` (from your web app directory)</span></span>
+<span data-ttu-id="50618-213">列出可用`DbContext`类型。</span><span class="sxs-lookup"><span data-stu-id="50618-213">Lists available `DbContext` types.</span></span>
 
-<span data-ttu-id="a788d-125">常用选项：</span><span class="sxs-lookup"><span data-stu-id="a788d-125">Common options:</span></span>
+## <a name="dotnet-ef-dbcontext-scaffold"></a><span data-ttu-id="50618-214">dotnet ef dbcontext 基架</span><span class="sxs-lookup"><span data-stu-id="50618-214">dotnet ef dbcontext scaffold</span></span>
 
-|    |                                  |                             |
-|:---|:---------------------------------|:----------------------------|
-|    | `--json`                           | <span data-ttu-id="a788d-126">显示 JSON 输出。</span><span class="sxs-lookup"><span data-stu-id="a788d-126">Show JSON output.</span></span>           |
-| <span data-ttu-id="a788d-127">-c</span><span class="sxs-lookup"><span data-stu-id="a788d-127">-c</span></span> | `--context <DBCONTEXT>`           | <span data-ttu-id="a788d-128">若要使用 DbContext。</span><span class="sxs-lookup"><span data-stu-id="a788d-128">The DbContext to use.</span></span>       |
-| <span data-ttu-id="a788d-129">-p</span><span class="sxs-lookup"><span data-stu-id="a788d-129">-p</span></span> | `--project <PROJECT>`             | <span data-ttu-id="a788d-130">要使用的项目。</span><span class="sxs-lookup"><span data-stu-id="a788d-130">The project to use.</span></span>         |
-| <span data-ttu-id="a788d-131">-s</span><span class="sxs-lookup"><span data-stu-id="a788d-131">-s</span></span> | `--startup-project <PROJECT>`     | <span data-ttu-id="a788d-132">若要使用的启动项目。</span><span class="sxs-lookup"><span data-stu-id="a788d-132">The startup project to use.</span></span> |
-|    | `--framework <FRAMEWORK>`         | <span data-ttu-id="a788d-133">目标框架。</span><span class="sxs-lookup"><span data-stu-id="a788d-133">The target framework.</span></span>       |
-|    | `--configuration <CONFIGURATION>` | <span data-ttu-id="a788d-134">要使用的配置。</span><span class="sxs-lookup"><span data-stu-id="a788d-134">The configuration to use.</span></span>   |
-|    | `--runtime <IDENTIFIER>`          | <span data-ttu-id="a788d-135">运行时使用。</span><span class="sxs-lookup"><span data-stu-id="a788d-135">The runtime to use.</span></span>         |
-| <span data-ttu-id="a788d-136">-h</span><span class="sxs-lookup"><span data-stu-id="a788d-136">-h</span></span> | `--help`                           | <span data-ttu-id="a788d-137">显示帮助信息。</span><span class="sxs-lookup"><span data-stu-id="a788d-137">Show help information.</span></span>      |
-| <span data-ttu-id="a788d-138">-v</span><span class="sxs-lookup"><span data-stu-id="a788d-138">-v</span></span> | `--verbose`                        | <span data-ttu-id="a788d-139">显示详细输出。</span><span class="sxs-lookup"><span data-stu-id="a788d-139">Show verbose output.</span></span>        |
-|    | `--no-color`                       | <span data-ttu-id="a788d-140">不为着色输出。</span><span class="sxs-lookup"><span data-stu-id="a788d-140">Don't colorize output.</span></span>      |
-|    | `--prefix-output`                  | <span data-ttu-id="a788d-141">输出级别使用的前缀。</span><span class="sxs-lookup"><span data-stu-id="a788d-141">Prefix output with level.</span></span>   |
+<span data-ttu-id="50618-215">为生成代码`DbContext`和数据库的实体类型。</span><span class="sxs-lookup"><span data-stu-id="50618-215">Generates code for a `DbContext` and entity types for a database.</span></span>
 
+<span data-ttu-id="50618-216">参数：</span><span class="sxs-lookup"><span data-stu-id="50618-216">Arguments:</span></span>
 
-> [!TIP]
-> <span data-ttu-id="a788d-142">若要指定 ASP.NET Core 环境，设置**ASPNETCORE_ENVIRONMENT**之前运行的环境变量。</span><span class="sxs-lookup"><span data-stu-id="a788d-142">To specify the ASP.NET Core environment, set the **ASPNETCORE_ENVIRONMENT** environment variable before running.</span></span>
+| <span data-ttu-id="50618-217">参数</span><span class="sxs-lookup"><span data-stu-id="50618-217">Argument</span></span>        | <span data-ttu-id="50618-218">描述</span><span class="sxs-lookup"><span data-stu-id="50618-218">Description</span></span>                                                                                                                                                                                                             |
+|-----------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `<CONNECTION>`  | <span data-ttu-id="50618-219">数据库的连接字符串。</span><span class="sxs-lookup"><span data-stu-id="50618-219">The connection string to the database.</span></span> <span data-ttu-id="50618-220">对于 ASP.NET Core 2.x 项目，值可以是*名称 =\<的连接字符串名称 >*。</span><span class="sxs-lookup"><span data-stu-id="50618-220">For ASP.NET Core 2.x projects, the value can be *name=\<name of connection string>*.</span></span> <span data-ttu-id="50618-221">在这种情况下名称来自于为项目设置的配置源。</span><span class="sxs-lookup"><span data-stu-id="50618-221">In that case the name comes from the configuration sources that are set up for the project.</span></span> |
+| `<PROVIDER>`    | <span data-ttu-id="50618-222">要使用的提供程序。</span><span class="sxs-lookup"><span data-stu-id="50618-222">The provider to use.</span></span> <span data-ttu-id="50618-223">通常这是 NuGet 包的名称为例： `Microsoft.EntityFrameworkCore.SqlServer`。</span><span class="sxs-lookup"><span data-stu-id="50618-223">Typically this is the name of the NuGet package, for example: `Microsoft.EntityFrameworkCore.SqlServer`.</span></span>                                                                                           |
 
-<a name="commands"></a><span data-ttu-id="a788d-143">命令</span><span class="sxs-lookup"><span data-stu-id="a788d-143">Commands</span></span>
---------
+<span data-ttu-id="50618-224">选项:</span><span class="sxs-lookup"><span data-stu-id="50618-224">Options:</span></span>
 
-### <a name="dotnet-ef-database-drop"></a><span data-ttu-id="a788d-144">dotnet ef 数据库拖放</span><span class="sxs-lookup"><span data-stu-id="a788d-144">dotnet ef database drop</span></span>
+|                   | <span data-ttu-id="50618-225">选项</span><span class="sxs-lookup"><span data-stu-id="50618-225">Option</span></span>                                    | <span data-ttu-id="50618-226">描述</span><span class="sxs-lookup"><span data-stu-id="50618-226">Description</span></span>                                                                                                                                                                    |
+|-------------------|-------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| <span data-ttu-id="50618-227"><nobr>-d</nobr></span><span class="sxs-lookup"><span data-stu-id="50618-227"><nobr>-d</nobr></span></span>   | `--data-annotations`                      | <span data-ttu-id="50618-228">特性用于将模型配置 （如果可能）。</span><span class="sxs-lookup"><span data-stu-id="50618-228">Use attributes to configure the model (where possible).</span></span> <span data-ttu-id="50618-229">如果省略此选项，则使用仅 fluent API。</span><span class="sxs-lookup"><span data-stu-id="50618-229">If this option is omitted, only the fluent API is used.</span></span>                                                                |
+| `-c`              | `--context <NAME>`                        | <span data-ttu-id="50618-230">名称`DbContext`类生成。</span><span class="sxs-lookup"><span data-stu-id="50618-230">The name of the `DbContext` class to generate.</span></span>                                                                                                                                 |
+|                   | `--context-dir <PATH>`                    | <span data-ttu-id="50618-231">要放置的目录`DbContext`中的类文件。</span><span class="sxs-lookup"><span data-stu-id="50618-231">The directory to put the `DbContext` class file in.</span></span> <span data-ttu-id="50618-232">路径是相对于项目目录。</span><span class="sxs-lookup"><span data-stu-id="50618-232">Paths are relative to the project directory.</span></span> <span data-ttu-id="50618-233">命名空间派生自文件夹名称。</span><span class="sxs-lookup"><span data-stu-id="50618-233">Namespaces are derived from the folder names.</span></span>                                 |
+| `-f`              | `--force`                                 | <span data-ttu-id="50618-234">覆盖现有文件。</span><span class="sxs-lookup"><span data-stu-id="50618-234">Overwrite existing files.</span></span>                                                                                                                                                      |
+| `-o`              | `--output-dir <PATH>`                     | <span data-ttu-id="50618-235">要将实体类文件放入的目录。</span><span class="sxs-lookup"><span data-stu-id="50618-235">The directory to put entity class files in.</span></span> <span data-ttu-id="50618-236">路径是相对于项目目录。</span><span class="sxs-lookup"><span data-stu-id="50618-236">Paths are relative to the project directory.</span></span>                                                                                       |
+|                   | <nobr>`--schema <SCHEMA_NAME>...`</nobr>  | <span data-ttu-id="50618-237">要生成的实体类型的表架构。</span><span class="sxs-lookup"><span data-stu-id="50618-237">The schemas of tables to generate entity types for.</span></span> <span data-ttu-id="50618-238">若要指定多个架构，请重复`--schema`为每个。</span><span class="sxs-lookup"><span data-stu-id="50618-238">To specify multiple schemas, repeat `--schema` for each one.</span></span> <span data-ttu-id="50618-239">如果省略此选项，则包括所有架构。</span><span class="sxs-lookup"><span data-stu-id="50618-239">If this option is omitted, all schemas are included.</span></span>          |
+| `-t`              | <span data-ttu-id="50618-240">`--table <TABLE_NAME>`...</span><span class="sxs-lookup"><span data-stu-id="50618-240">`--table <TABLE_NAME>`...</span></span>                 | <span data-ttu-id="50618-241">要生成的实体类型的表。</span><span class="sxs-lookup"><span data-stu-id="50618-241">The tables to generate entity types for.</span></span> <span data-ttu-id="50618-242">若要指定多个表，请重复`-t`或`--table`为每个。</span><span class="sxs-lookup"><span data-stu-id="50618-242">To specify multiple tables, repeat `-t` or `--table` for each one.</span></span> <span data-ttu-id="50618-243">如果省略此选项，则包括所有表。</span><span class="sxs-lookup"><span data-stu-id="50618-243">If this option is omitted, all tables are included.</span></span>                |
+|                   | `--use-database-names`                    | <span data-ttu-id="50618-244">在数据库中显示的完全相同，请使用表和列的名称。</span><span class="sxs-lookup"><span data-stu-id="50618-244">Use table and column names exactly as they appear in the database.</span></span> <span data-ttu-id="50618-245">如果省略此选项，则会更改数据库名称，使其更紧密地符合 C# 名称样式约定。</span><span class="sxs-lookup"><span data-stu-id="50618-245">If this option is omitted, database names are changed to more closely conform to C# name style conventions.</span></span> |
 
-<span data-ttu-id="a788d-145">删除数据库。</span><span class="sxs-lookup"><span data-stu-id="a788d-145">Drops the database.</span></span>
+<span data-ttu-id="50618-246">下面的示例搭建基架以所有架构和表，并将新文件放入*模型*文件夹。</span><span class="sxs-lookup"><span data-stu-id="50618-246">The following example scaffolds all schemas and tables and puts the new files in the *Models* folder.</span></span>
 
-<span data-ttu-id="a788d-146">选项:</span><span class="sxs-lookup"><span data-stu-id="a788d-146">Options:</span></span>
+```console
+dotnet ef dbcontext scaffold "Server=(localdb)\mssqllocaldb;Database=Blogging;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -o Models
+```
 
-|    |           |                                                          |
-|:---|:----------|:---------------------------------------------------------|
-| <span data-ttu-id="a788d-147">-f</span><span class="sxs-lookup"><span data-stu-id="a788d-147">-f</span></span> | `--force`   | <span data-ttu-id="a788d-148">不确认。</span><span class="sxs-lookup"><span data-stu-id="a788d-148">Don't confirm.</span></span>                                           |
-|    | `--dry-run` | <span data-ttu-id="a788d-149">显示哪个数据库会被丢弃，但没有删除它。</span><span class="sxs-lookup"><span data-stu-id="a788d-149">Show which database would be dropped, but don't drop it.</span></span> |
+<span data-ttu-id="50618-247">下面的示例搭建基架以选定的表，并具有指定名称的单独文件夹中创建的上下文：</span><span class="sxs-lookup"><span data-stu-id="50618-247">The following example scaffolds only selected tables and creates the context in a separate folder with a specified name:</span></span>
 
-### <a name="dotnet-ef-database-update"></a><span data-ttu-id="a788d-150">dotnet ef 数据库更新</span><span class="sxs-lookup"><span data-stu-id="a788d-150">dotnet ef database update</span></span>
+```console
+dotnet ef dbcontext scaffold "Server=(localdb)\mssqllocaldb;Database=Blogging;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -o Models -t Blog -t Post --context-dir Context -c BlogContext
+```
 
-<span data-ttu-id="a788d-151">指定迁移到更新数据库。</span><span class="sxs-lookup"><span data-stu-id="a788d-151">Updates the database to a specified migration.</span></span>
+## <a name="dotnet-ef-migrations-add"></a><span data-ttu-id="50618-248">添加 dotnet ef 迁移</span><span class="sxs-lookup"><span data-stu-id="50618-248">dotnet ef migrations add</span></span>
 
-<span data-ttu-id="a788d-152">参数：</span><span class="sxs-lookup"><span data-stu-id="a788d-152">Arguments:</span></span>
+<span data-ttu-id="50618-249">添加新的迁移。</span><span class="sxs-lookup"><span data-stu-id="50618-249">Adds a new migration.</span></span>
 
-|              |                                                                                              |
-|:-------------|:---------------------------------------------------------------------------------------------|
-| `<MIGRATION>` | <span data-ttu-id="a788d-153">目标迁移。</span><span class="sxs-lookup"><span data-stu-id="a788d-153">The target migration.</span></span> <span data-ttu-id="a788d-154">如果为 0，将还原所有迁移。</span><span class="sxs-lookup"><span data-stu-id="a788d-154">If 0, all migrations will be reverted.</span></span> <span data-ttu-id="a788d-155">默认的最后一个迁移。</span><span class="sxs-lookup"><span data-stu-id="a788d-155">Defaults to the last migration.</span></span> |
+<span data-ttu-id="50618-250">参数：</span><span class="sxs-lookup"><span data-stu-id="50618-250">Arguments:</span></span>
 
-### <a name="dotnet-ef-dbcontext-info"></a><span data-ttu-id="a788d-156">dotnet ef dbcontext 信息</span><span class="sxs-lookup"><span data-stu-id="a788d-156">dotnet ef dbcontext info</span></span>
+| <span data-ttu-id="50618-251">参数</span><span class="sxs-lookup"><span data-stu-id="50618-251">Argument</span></span>  | <span data-ttu-id="50618-252">描述</span><span class="sxs-lookup"><span data-stu-id="50618-252">Description</span></span>                  |
+|-----------|------------------------------|
+| `<NAME>`  | <span data-ttu-id="50618-253">迁移的名称。</span><span class="sxs-lookup"><span data-stu-id="50618-253">The name of the migration.</span></span>   |
 
-<span data-ttu-id="a788d-157">获取有关 DbContext 类型的信息。</span><span class="sxs-lookup"><span data-stu-id="a788d-157">Gets information about a DbContext type.</span></span>
+<span data-ttu-id="50618-254">选项:</span><span class="sxs-lookup"><span data-stu-id="50618-254">Options:</span></span>
 
-### <a name="dotnet-ef-dbcontext-list"></a><span data-ttu-id="a788d-158">dotnet ef dbcontext 列表</span><span class="sxs-lookup"><span data-stu-id="a788d-158">dotnet ef dbcontext list</span></span>
+|                   | <span data-ttu-id="50618-255">选项</span><span class="sxs-lookup"><span data-stu-id="50618-255">Option</span></span>                              | <span data-ttu-id="50618-256">描述</span><span class="sxs-lookup"><span data-stu-id="50618-256">Description</span></span>                                                                                                        |
+|-------------------|-------------------------------------|--------------------------------------------------------------------------------------------------------------------|
+| <nobr>`-o`</nobr> | <nobr>`--output-dir <PATH>`</nobr>  | <span data-ttu-id="50618-257">目录 （及其子命名空间） 来使用。</span><span class="sxs-lookup"><span data-stu-id="50618-257">The directory (and sub-namespace) to use.</span></span> <span data-ttu-id="50618-258">路径是相对于项目目录。</span><span class="sxs-lookup"><span data-stu-id="50618-258">Paths are relative to the project directory.</span></span> <span data-ttu-id="50618-259">默认值为"迁移"。</span><span class="sxs-lookup"><span data-stu-id="50618-259">Defaults to "Migrations".</span></span>   |
 
-<span data-ttu-id="a788d-159">列出了可用的 DbContext 类型。</span><span class="sxs-lookup"><span data-stu-id="a788d-159">Lists available DbContext types.</span></span>
+## <a name="dotnet-ef-migrations-list"></a><span data-ttu-id="50618-260">dotnet ef 迁移列表</span><span class="sxs-lookup"><span data-stu-id="50618-260">dotnet ef migrations list</span></span>
 
-### <a name="dotnet-ef-dbcontext-scaffold"></a><span data-ttu-id="a788d-160">dotnet ef dbcontext 基架</span><span class="sxs-lookup"><span data-stu-id="a788d-160">dotnet ef dbcontext scaffold</span></span>
+<span data-ttu-id="50618-261">列出了可用的迁移。</span><span class="sxs-lookup"><span data-stu-id="50618-261">Lists available migrations.</span></span>
 
-<span data-ttu-id="a788d-161">搭建基架以数据库的 DbContext 和实体类型。</span><span class="sxs-lookup"><span data-stu-id="a788d-161">Scaffolds a DbContext and entity types for a database.</span></span>
+## <a name="dotnet-ef-migrations-remove"></a><span data-ttu-id="50618-262">dotnet ef 迁移删除</span><span class="sxs-lookup"><span data-stu-id="50618-262">dotnet ef migrations remove</span></span>
 
-<span data-ttu-id="a788d-162">参数：</span><span class="sxs-lookup"><span data-stu-id="a788d-162">Arguments:</span></span>
+<span data-ttu-id="50618-263">删除 （请回滚迁移已完成的代码更改） 的最后一个迁移。</span><span class="sxs-lookup"><span data-stu-id="50618-263">Removes the last migration (rolls back the code changes that were done for the migration).</span></span> 
 
-|               |                                                                             |
-|:--------------|:----------------------------------------------------------------------------|
-| `<CONNECTION>` | <span data-ttu-id="a788d-163">数据库的连接字符串。</span><span class="sxs-lookup"><span data-stu-id="a788d-163">The connection string to the database.</span></span>                                      |
-| `<PROVIDER>`   | <span data-ttu-id="a788d-164">要使用的提供程序。</span><span class="sxs-lookup"><span data-stu-id="a788d-164">The provider to use.</span></span> <span data-ttu-id="a788d-165">（例如 Microsoft.EntityFrameworkCore.SqlServer）</span><span class="sxs-lookup"><span data-stu-id="a788d-165">(for example, Microsoft.EntityFrameworkCore.SqlServer)</span></span> |
+<span data-ttu-id="50618-264">选项:</span><span class="sxs-lookup"><span data-stu-id="50618-264">Options:</span></span>
 
-<span data-ttu-id="a788d-166">选项:</span><span class="sxs-lookup"><span data-stu-id="a788d-166">Options:</span></span>
+|                   | <span data-ttu-id="50618-265">选项</span><span class="sxs-lookup"><span data-stu-id="50618-265">Option</span></span>    | <span data-ttu-id="50618-266">描述</span><span class="sxs-lookup"><span data-stu-id="50618-266">Description</span></span>                                                                        |
+|-------------------|-----------|------------------------------------------------------------------------------------|
+| <nobr>`-f`</nobr> | `--force` | <span data-ttu-id="50618-267">还原迁移 （请回滚已应用到数据库的更改）。</span><span class="sxs-lookup"><span data-stu-id="50618-267">Revert the migration (roll back the changes that were applied to the database).</span></span>    |
 
-|                 |                                         |                                                                                                  |
-|:----------------|:----------------------------------------|:-------------------------------------------------------------------------------------------------|
-| <span data-ttu-id="a788d-167"><nobr>-d</nobr></span><span class="sxs-lookup"><span data-stu-id="a788d-167"><nobr>-d</nobr></span></span> | `--data-annotations`                      | <span data-ttu-id="a788d-168">特性用于将模型配置 （如果可能）。</span><span class="sxs-lookup"><span data-stu-id="a788d-168">Use attributes to configure the model (where possible).</span></span> <span data-ttu-id="a788d-169">如果省略，则使用仅 fluent API。</span><span class="sxs-lookup"><span data-stu-id="a788d-169">If omitted, only the fluent API is used.</span></span> |
-| <span data-ttu-id="a788d-170">-c</span><span class="sxs-lookup"><span data-stu-id="a788d-170">-c</span></span>              | `--context <NAME>`                       | <span data-ttu-id="a788d-171">DbContext 的名称。</span><span class="sxs-lookup"><span data-stu-id="a788d-171">The name of the DbContext.</span></span>                                                                       |
-|                 | `--context-dir <PATH>`                   | <span data-ttu-id="a788d-172">要将 DbContext 文件放入的目录。</span><span class="sxs-lookup"><span data-stu-id="a788d-172">The directory to put DbContext file in.</span></span> <span data-ttu-id="a788d-173">路径是相对于项目目录。</span><span class="sxs-lookup"><span data-stu-id="a788d-173">Paths are relative to the project directory.</span></span>             |
-| <span data-ttu-id="a788d-174">-f</span><span class="sxs-lookup"><span data-stu-id="a788d-174">-f</span></span>              | `--force`                                 | <span data-ttu-id="a788d-175">覆盖现有文件。</span><span class="sxs-lookup"><span data-stu-id="a788d-175">Overwrite existing files.</span></span>                                                                        |
-| <span data-ttu-id="a788d-176">-o</span><span class="sxs-lookup"><span data-stu-id="a788d-176">-o</span></span>              | `--output-dir <PATH>`                    | <span data-ttu-id="a788d-177">要将文件放入的目录。</span><span class="sxs-lookup"><span data-stu-id="a788d-177">The directory to put files in.</span></span> <span data-ttu-id="a788d-178">路径是相对于项目目录。</span><span class="sxs-lookup"><span data-stu-id="a788d-178">Paths are relative to the project directory.</span></span>                      |
-|                 | <nobr>`--schema <SCHEMA_NAME>...`</nobr> | <span data-ttu-id="a788d-179">要生成的实体类型的表架构。</span><span class="sxs-lookup"><span data-stu-id="a788d-179">The schemas of tables to generate entity types for.</span></span>                                              |
-| <span data-ttu-id="a788d-180">-t</span><span class="sxs-lookup"><span data-stu-id="a788d-180">-t</span></span>              | <span data-ttu-id="a788d-181">`--table <TABLE_NAME>`...</span><span class="sxs-lookup"><span data-stu-id="a788d-181">`--table <TABLE_NAME>`...</span></span>                | <span data-ttu-id="a788d-182">要生成的实体类型的表。</span><span class="sxs-lookup"><span data-stu-id="a788d-182">The tables to generate entity types for.</span></span>                                                         |
-|                 | `--use-database-names`                    | <span data-ttu-id="a788d-183">使用直接从数据库表和列名称。</span><span class="sxs-lookup"><span data-stu-id="a788d-183">Use table and column names directly from the database.</span></span>                                           |
+## <a name="dotnet-ef-migrations-script"></a><span data-ttu-id="50618-268">dotnet ef 迁移脚本</span><span class="sxs-lookup"><span data-stu-id="50618-268">dotnet ef migrations script</span></span>
 
-### <a name="dotnet-ef-migrations-add"></a><span data-ttu-id="a788d-184">添加 dotnet ef 迁移</span><span class="sxs-lookup"><span data-stu-id="a788d-184">dotnet ef migrations add</span></span>
+<span data-ttu-id="50618-269">从迁移中生成的 SQL 脚本。</span><span class="sxs-lookup"><span data-stu-id="50618-269">Generates a SQL script from migrations.</span></span>
 
-<span data-ttu-id="a788d-185">添加新的迁移。</span><span class="sxs-lookup"><span data-stu-id="a788d-185">Adds a new migration.</span></span>
+<span data-ttu-id="50618-270">参数：</span><span class="sxs-lookup"><span data-stu-id="50618-270">Arguments:</span></span>
 
-<span data-ttu-id="a788d-186">参数：</span><span class="sxs-lookup"><span data-stu-id="a788d-186">Arguments:</span></span>
+| <span data-ttu-id="50618-271">参数</span><span class="sxs-lookup"><span data-stu-id="50618-271">Argument</span></span>  | <span data-ttu-id="50618-272">描述</span><span class="sxs-lookup"><span data-stu-id="50618-272">Description</span></span>                                                                                                                                                   |
+|-----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `<FROM>`  | <span data-ttu-id="50618-273">开始迁移。</span><span class="sxs-lookup"><span data-stu-id="50618-273">The starting migration.</span></span> <span data-ttu-id="50618-274">可能会被标识迁移，按名称或 id。</span><span class="sxs-lookup"><span data-stu-id="50618-274">Migrations may be identified by name or by ID.</span></span> <span data-ttu-id="50618-275">数字 0 是一种特殊情况，意味着*第一次迁移之前*。</span><span class="sxs-lookup"><span data-stu-id="50618-275">The number 0 is a special case that means *before the first migration*.</span></span> <span data-ttu-id="50618-276">默认值为 0。</span><span class="sxs-lookup"><span data-stu-id="50618-276">Defaults to 0.</span></span> |
+| `<TO>`    | <span data-ttu-id="50618-277">结束的迁移。</span><span class="sxs-lookup"><span data-stu-id="50618-277">The ending migration.</span></span> <span data-ttu-id="50618-278">默认的最后一个迁移。</span><span class="sxs-lookup"><span data-stu-id="50618-278">Defaults to the last migration.</span></span>                                                                                                         |
 
-|         |                            |
-|:--------|:---------------------------|
-| `<NAME>` | <span data-ttu-id="a788d-187">迁移的名称。</span><span class="sxs-lookup"><span data-stu-id="a788d-187">The name of the migration.</span></span> |
+<span data-ttu-id="50618-279">选项:</span><span class="sxs-lookup"><span data-stu-id="50618-279">Options:</span></span>
 
-<span data-ttu-id="a788d-188">选项:</span><span class="sxs-lookup"><span data-stu-id="a788d-188">Options:</span></span>
+|                   | <span data-ttu-id="50618-280">选项</span><span class="sxs-lookup"><span data-stu-id="50618-280">Option</span></span>             | <span data-ttu-id="50618-281">描述</span><span class="sxs-lookup"><span data-stu-id="50618-281">Description</span></span>                                                          |
+|-------------------|--------------------|----------------------------------------------------------------------|
+| <nobr>`-o`</nobr> | `--output <FILE>`  | <span data-ttu-id="50618-282">要写入到脚本的文件。</span><span class="sxs-lookup"><span data-stu-id="50618-282">The file to write the script to.</span></span>                                     |
+| `-i`              | `--idempotent`     | <span data-ttu-id="50618-283">生成脚本，可以在任何迁移的数据库上使用。</span><span class="sxs-lookup"><span data-stu-id="50618-283">Generate a script that can be used on a database at any migration.</span></span>   |
 
-|                 |                                   |                                                                                                                  |
-|:----------------|:----------------------------------|:-----------------------------------------------------------------------------------------------------------------|
-| <span data-ttu-id="a788d-189"><nobr>-o</nobr></span><span class="sxs-lookup"><span data-stu-id="a788d-189"><nobr>-o</nobr></span></span> | <span data-ttu-id="a788d-190"><nobr> `--output-dir <PATH>` </nobr></span><span class="sxs-lookup"><span data-stu-id="a788d-190"><nobr> `--output-dir <PATH>` </nobr></span></span> | <span data-ttu-id="a788d-191">目录 （及其子命名空间） 来使用。</span><span class="sxs-lookup"><span data-stu-id="a788d-191">The directory (and sub-namespace) to use.</span></span> <span data-ttu-id="a788d-192">路径是相对于项目目录。</span><span class="sxs-lookup"><span data-stu-id="a788d-192">Paths are relative to the project directory.</span></span> <span data-ttu-id="a788d-193">默认值为"迁移"。</span><span class="sxs-lookup"><span data-stu-id="a788d-193">Defaults to "Migrations".</span></span> |
+<span data-ttu-id="50618-284">以下示例创建一个脚本，以便 InitialCreate 迁移：</span><span class="sxs-lookup"><span data-stu-id="50618-284">The following example creates a script for the InitialCreate migration:</span></span>
 
-### <a name="dotnet-ef-migrations-list"></a><span data-ttu-id="a788d-194">dotnet ef 迁移列表</span><span class="sxs-lookup"><span data-stu-id="a788d-194">dotnet ef migrations list</span></span>
+```console
+dotnet ef migrations script 0 InitialCreate
+```
 
-<span data-ttu-id="a788d-195">列出了可用的迁移。</span><span class="sxs-lookup"><span data-stu-id="a788d-195">Lists available migrations.</span></span>
+<span data-ttu-id="50618-285">下面的示例创建 InitialCreate 迁移后迁移的所有脚本。</span><span class="sxs-lookup"><span data-stu-id="50618-285">The following example creates a script for all migrations after the InitialCreate migration.</span></span>
 
-### <a name="dotnet-ef-migrations-remove"></a><span data-ttu-id="a788d-196">dotnet ef 迁移删除</span><span class="sxs-lookup"><span data-stu-id="a788d-196">dotnet ef migrations remove</span></span>
-
-<span data-ttu-id="a788d-197">删除最后一个迁移。</span><span class="sxs-lookup"><span data-stu-id="a788d-197">Removes the last migration.</span></span>
-
-<span data-ttu-id="a788d-198">选项:</span><span class="sxs-lookup"><span data-stu-id="a788d-198">Options:</span></span>
-
-|    |         |                                                                       |
-|:---|:--------|:----------------------------------------------------------------------|
-| <span data-ttu-id="a788d-199">-f</span><span class="sxs-lookup"><span data-stu-id="a788d-199">-f</span></span> | `--force` | <span data-ttu-id="a788d-200">如果它已应用到数据库，请还原迁移。</span><span class="sxs-lookup"><span data-stu-id="a788d-200">Revert the migration if it has been applied to the database.</span></span> |
-
-### <a name="dotnet-ef-migrations-script"></a><span data-ttu-id="a788d-201">dotnet ef 迁移脚本</span><span class="sxs-lookup"><span data-stu-id="a788d-201">dotnet ef migrations script</span></span>
-
-<span data-ttu-id="a788d-202">从迁移中生成的 SQL 脚本。</span><span class="sxs-lookup"><span data-stu-id="a788d-202">Generates a SQL script from migrations.</span></span>
-
-<span data-ttu-id="a788d-203">参数：</span><span class="sxs-lookup"><span data-stu-id="a788d-203">Arguments:</span></span>
-
-|         |                                                               |
-|:--------|:--------------------------------------------------------------|
-| `<FROM>` | <span data-ttu-id="a788d-204">开始迁移。</span><span class="sxs-lookup"><span data-stu-id="a788d-204">The starting migration.</span></span> <span data-ttu-id="a788d-205">默认值为 0 （初始数据库）。</span><span class="sxs-lookup"><span data-stu-id="a788d-205">Defaults to 0 (the initial database).</span></span> |
-| `<TO>`   | <span data-ttu-id="a788d-206">结束的迁移。</span><span class="sxs-lookup"><span data-stu-id="a788d-206">The ending migration.</span></span> <span data-ttu-id="a788d-207">默认的最后一个迁移。</span><span class="sxs-lookup"><span data-stu-id="a788d-207">Defaults to the last migration.</span></span>         |
-
-<span data-ttu-id="a788d-208">选项:</span><span class="sxs-lookup"><span data-stu-id="a788d-208">Options:</span></span>
-
-|    |                  |                                                                    |
-|:---|:-----------------|:-------------------------------------------------------------------|
-| <span data-ttu-id="a788d-209">-o</span><span class="sxs-lookup"><span data-stu-id="a788d-209">-o</span></span> | `--output <FILE>` | <span data-ttu-id="a788d-210">要将结果写入的文件。</span><span class="sxs-lookup"><span data-stu-id="a788d-210">The file to write the result to.</span></span>                                   |
-| <span data-ttu-id="a788d-211">-i</span><span class="sxs-lookup"><span data-stu-id="a788d-211">-i</span></span> | `--idempotent`     | <span data-ttu-id="a788d-212">生成脚本，可以在任何迁移的数据库上使用。</span><span class="sxs-lookup"><span data-stu-id="a788d-212">Generate a script that can be used on a database at any migration.</span></span> |
-
-
-  [1]: powershell.md
-  [2]: https://www.microsoft.com/net/core
+```console
+dotnet ef migrations script 20180904195021_InitialCreate
+```

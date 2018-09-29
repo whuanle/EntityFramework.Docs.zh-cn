@@ -13,7 +13,7 @@ ms.locfileid: "42996145"
 ---
 # <a name="including--excluding-types"></a>包括和排除类型
 
-模型表示 EF 有关具有元数据类型，将尝试读取和写入从/向数据库实例中包含一个类型。
+模型中包含一个类型意为EF有这个类型的元数据并将尝试从/往数据库实例进行读取/写入。
 
 ## <a name="conventions"></a>约定
 

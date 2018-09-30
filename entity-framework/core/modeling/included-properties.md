@@ -13,15 +13,15 @@ ms.locfileid: "42998250"
 ---
 # <a name="including--excluding-properties"></a>包括和排除属性
 
-模型中的属性包括意味着 EF 对有关该属性的元数据并将读取和写入从/向数据库的值。
+模型中包含一个属性意味着EF拥有该属性的元数据，并将尝试从数据库读取值或者向数据库写入值。
 
 ## <a name="conventions"></a>约定
 
-按照约定，将在模型中包含有 getter 和 setter 的公共属性。
+按照约定，模型所含的那些公共属性都拥有一个getter和一个setter。
 
 ## <a name="data-annotations"></a>数据注释
 
-可以使用数据注释来从模型中排除某个属性。
+您可以使用数据注释方式来从模型中排除某个属性。
 
 <!-- [!code-csharp[Main](samples/core/Modeling/DataAnnotations/Samples/IgnoreProperty.cs?highlight=6)] -->
 ``` csharp
@@ -37,7 +37,7 @@ public class Blog
 
 ## <a name="fluent-api"></a>Fluent API
 
-Fluent API 可用于从模型中排除某个属性。
+您也可以用Fluent API 从模型中排除某个属性。
 
 <!-- [!code-csharp[Main](samples/core/Modeling/FluentAPI/Samples/IgnoreProperty.cs?highlight=7,8)] -->
 ``` csharp

@@ -21,11 +21,11 @@ ms.locfileid: "42996145"
 
 **例如，以下代码列表中发现所有三种类型：**
 
-* `Blog` 因为在公开`DbSet`上下文属性
+* `Blog`，因为它是在上下文的 `DbSet` 属性中公开的
 
-* `Post` 因为发现通过`Blog.Posts`导航属性
+* `Post`，因为它是通过 `Blog.Posts` 导航属性发现的
 
-* `AuditEntry` 因为中提及 `OnModelCreating`
+* `AuditEntry`，因为它是在 `OnModelCreating` 中提及的
 
 <!-- [!code-csharp[Main](samples/core/Modeling/Conventions/Samples/IncludedTypes.cs?highlight=3,7,16)] -->
 ``` csharp

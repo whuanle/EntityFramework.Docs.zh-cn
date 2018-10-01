@@ -3,12 +3,12 @@ title: 使用 migrate.exe-EF6
 author: divega
 ms.date: 10/23/2016
 ms.assetid: 989ea862-e936-4c85-926a-8cfbef5df5b8
-ms.openlocfilehash: 6e9880523bbcf2fe55390a447241e59723a0967f
-ms.sourcegitcommit: 2b787009fd5be5627f1189ee396e708cd130e07b
+ms.openlocfilehash: cf6c3a0a256730b24addf1012d6ff53b17035cd4
+ms.sourcegitcommit: c568d33214fc25c76e02c8529a29da7a356b37b4
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45490195"
+ms.lasthandoff: 09/30/2018
+ms.locfileid: "47459534"
 ---
 # <a name="using-migrateexe"></a>使用 migrate.exe
 可以使用 code First 迁移更新数据库从内部 visual studio 中，但也可以通过命令行工具 migrate.exe 执行。 此页将提供有关如何使用 migrate.exe 执行针对数据库迁移的快速概述。
@@ -24,9 +24,9 @@ ms.locfileid: "45490195"
 
 如果应用程序面向.NET 4 中，并且不 4.5，然后你将需要复制**Redirect.config**到位置一样以及与将其重命名**migrate.exe.config**。这是以便 migrate.exe 获取正确的绑定重定向，以便能够找到实体框架程序集。
 
-| .NET 4.5                                   | .NET 4.0                                   |
-|:-------------------------------------------|:-------------------------------------------|
-| ![.NET 4.5 文件](~/ef6/media/net45files.png)  | ![.NET 4.0 文件](~/ef6/media/net40files.png)  |
+| .NET 4.5                                      | .NET 4.0                                      |
+|:----------------------------------------------|:----------------------------------------------|
+| ![.NET 4.5 文件](~/ef6/media/net45files.png) | ![.NET 4.0 文件](~/ef6/media/net40files.png) |
 
 > [!NOTE]
 > migrate.exe 不支持 x64 的程序集。

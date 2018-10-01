@@ -3,12 +3,12 @@ title: EF4、 EF5 和 EF6 的性能注意事项
 author: divega
 ms.date: 10/23/2016
 ms.assetid: d6d5a465-6434-45fa-855d-5eb48c61a2ea
-ms.openlocfilehash: a58461a6d18d9d53c002b5d45cecbff7b0cdf81e
-ms.sourcegitcommit: 2b787009fd5be5627f1189ee396e708cd130e07b
+ms.openlocfilehash: fb184fe8720b552a2050607bb17648f0413c31d1
+ms.sourcegitcommit: c568d33214fc25c76e02c8529a29da7a356b37b4
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45490254"
+ms.lasthandoff: 09/30/2018
+ms.locfileid: "47459586"
 ---
 # <a name="performance-considerations-for-ef-4-5-and-6"></a>有关 EF 4、 5 和 6 的性能注意事项
 由 David Obando、 Eric Dettinger 等
@@ -88,11 +88,11 @@ ms.locfileid: "45490254"
 
 ### <a name="23-using-pre-generated-views-to-decrease-model-load-time"></a>2.3 使用 Pre-Generated 视图以减少模型加载时间
 
-#### <a name="231-pre-generated-views-using-the-entity-framework-power-tools"></a>2.3.1 预生成视图使用 Entity Framework Power Tools
+有关如何使用 Entity Framework 6 的预生成的视图的详细信息，请访问[Pre-Generated 映射视图](~/ef6/fundamentals/performance/pre-generated-views.md)
 
-此外可以考虑使用 Entity Framework Power Tools 生成的 EDMX 和 Code First 模型的视图，通过右键单击模型类文件并使用实体框架菜单选择"生成视图"。 Entity Framework Power Tools 仅适用于 DbContext 派生上下文，可以在\< http://visualstudiogallery.msdn.microsoft.com/72a60b14-1581-4b9b-89f2-846072eff19d>。
+#### <a name="231-pre-generated-views-using-the-entity-framework-power-tools-community-edition"></a>2.3.1 预生成视图使用 Entity Framework Power Tools 社区版
 
-有关如何使用 Entity Framework 6 的预生成的视图的详细信息，请访问[Pre-Generated 映射视图](~/ef6/fundamentals/performance/pre-generated-views.md)。
+可以使用[Entity Framework 6 Power 工具 Community Edition](https://marketplace.visualstudio.com/items?itemName=ErikEJ.EntityFramework6PowerToolsCommunityEdition)通过右键单击模型类文件并使用实体框架菜单选择"生成视图"中生成的 EDMX 和 Code First 模型视图。 Entity Framework Power Tools Community 版本仅适用于 DbContext 派生上下文。
 
 #### <a name="232-how-to-use-pre-generated-views-with-a-model-created-by-edmgen"></a>2.3.2 如何 EDMGen 所创建的模型使用预生成的视图
 
@@ -100,26 +100,20 @@ EDMGen 是一个实用工具，附带了.NET 和工作原理与 Entity Framework
 
 如果您手动对模型的架构文件进行编辑，将需要重新生成视图文件。 您可以执行此操作通过运行使用 EDMGen **/mode:ViewGeneration**标志。
 
-获取更多参考，请参阅[如何： 提高查询性能的 Pre-Generate 视图](https://msdn.microsoft.com/library/bb896240.aspx)。
-
 #### <a name="233-how-to-use-pre-generated-views-with-an-edmx-file"></a>2.3.3 如何 Pre-Generated 视图使用 EDMX 文件
 
 此外可以使用 EDMGen 生成的 EDMX 文件视图-上面引用的 MSDN 主题介绍如何添加预生成事件，若要这样做的但这是复杂，有某些情况下，根本不可能。 它是使用 T4 模板在 edmx 文件中您的模型时生成视图通常更为方便。
 
-ADO.NET 团队博客中发布了一文章，介绍如何为视图生成使用 T4 模板 ( \< http://blogs.msdn.com/b/adonet/archive/2008/06/20/how-to-use-a-t4-template-for-view-generation.aspx>)。 此文章包括可以下载并添加到项目的模板。 模板已编写实体框架的第一个版本，因此它们不保证适用于实体框架的最新版本。 但是，您可以下载一组较新的视图生成模板的 Entity Framework 4 和 5from Visual Studio 库：
+ADO.NET 团队博客中发布了一文章，介绍如何为视图生成使用 T4 模板 ( \<http://blogs.msdn.com/b/adonet/archive/2008/06/20/how-to-use-a-t4-template-for-view-generation.aspx>)。 此文章包括可以下载并添加到项目的模板。 模板已编写实体框架的第一个版本，因此它们不保证适用于实体框架的最新版本。 但是，您可以下载一组较新的视图生成模板的 Entity Framework 4 和 5from Visual Studio 库：
 
 -   VB.NET: \<http://visualstudiogallery.msdn.microsoft.com/118b44f2-1b91-4de2-a584-7a680418941d>
 -   C\#: \<http://visualstudiogallery.msdn.microsoft.com/ae7730ce-ddab-470f-8456-1b313cd2c44d>
 
-如果您使用的 Entity Framework 6，可以获取视图生成 T4 模板从 Visual Studio 库\< http://visualstudiogallery.msdn.microsoft.com/18a7db90-6705-4d19-9dd1-0a6c23d0751f>。
-
-#### <a name="234-how-to-use-pre-generated-views-with-a-code-first-model"></a>2.3.4 如何使用 Code First 模型使用 Pre-Generated 视图
-
-还有可能与第一个代码项目中使用预生成的视图。 Entity Framework Power Tools 已生成第一个代码项目的视图文件的功能。 可以在 Visual Studio 库中找到 Entity Framework Power Tools \< http://visualstudiogallery.msdn.microsoft.com/72a60b14-1581-4b9b-89f2-846072eff19d/>。
+如果您使用的 Entity Framework 6，可以获取视图生成 T4 模板从 Visual Studio 库\<http://visualstudiogallery.msdn.microsoft.com/18a7db90-6705-4d19-9dd1-0a6c23d0751f>。
 
 ### <a name="24-reducing-the-cost-of-view-generation"></a>2.4 降低的成本视图生成
 
-使用预生成的视图的视图生成成本将从移动 （运行时间） 的模型加载到了编译时。 尽管这改进了在运行时的启动性能，你将在开发时仍然遇到视图生成的痛苦。 有几个其他技巧可帮助降低成本的同时在编译时和运行的时的视图生成。
+使用预生成的视图移到设计时的视图生成从加载的模型 （运行时间） 的成本。 尽管这改进了在运行时的启动性能，你将在开发时仍然遇到视图生成的痛苦。 有几个其他技巧可帮助降低成本的同时在编译时和运行的时的视图生成。
 
 #### <a name="241-using-foreign-key-associations-to-reduce-view-generation-cost"></a>2.4.1 使用外键关联以减少视图生成成本
 
@@ -139,12 +133,12 @@ ADO.NET 团队博客中发布了一文章，介绍如何为视图生成使用 T4
 
 默认情况下，在 Visual Studio 中使用 EDMGen 或在实体设计器，获取 Fk，它只需单个复选框或命令行标志的 Fk 和 IAs 之间进行切换。
 
-如果您有一个大型的 Code First 模型，使用独立关联必须视图生成相同的作用。 虽然一些开发人员会认为它污染它们的对象模型，通过包括你依赖的对象的类上的外键属性，可以避免这种影响。 您可以找到这一主题的详细信息\< http://blog.oneunicorn.com/2011/12/11/whats-the-deal-with-mapping-foreign-keys-using-the-entity-framework/>。
+如果您有一个大型的 Code First 模型，使用独立关联必须视图生成相同的作用。 虽然一些开发人员会认为它污染它们的对象模型，通过包括你依赖的对象的类上的外键属性，可以避免这种影响。 您可以找到这一主题的详细信息\<http://blog.oneunicorn.com/2011/12/11/whats-the-deal-with-mapping-foreign-keys-using-the-entity-framework/>。
 
 | 使用时      | 操作步骤                                                                                                                                                                                                                                                                                                                              |
 |:----------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 实体设计器 | 添加后两个实体之间的关联，请确保具有引用约束。 引用约束告诉实体框架使用而不是独立关联的外键。 有关更多详细信息，请访问\< http://blogs.msdn.com/b/efdesign/archive/2009/03/16/foreign-keys-in-the-entity-framework.aspx>。 |
-| EDMGen          | 当使用 EDMGen 从数据库生成你的文件，将考虑外键，并将其添加到这种情况下的模型中。 有关由 EDMGen 公开的不同选项的详细信息，请访问[ http://msdn.microsoft.com/library/bb387165.aspx ](https://msdn.microsoft.com/library/bb387165.aspx)。                           |
+| 实体设计器 | 添加后两个实体之间的关联，请确保具有引用约束。 引用约束告诉实体框架使用而不是独立关联的外键。 有关更多详细信息，请访问\<http://blogs.msdn.com/b/efdesign/archive/2009/03/16/foreign-keys-in-the-entity-framework.aspx>。 |
+| EDMGen          | 当使用 EDMGen 从数据库生成你的文件，将考虑外键，并将其添加到这种情况下的模型中。 有关由 EDMGen 公开的不同选项的详细信息，请访问[http://msdn.microsoft.com/library/bb387165.aspx](https://msdn.microsoft.com/library/bb387165.aspx)。                           |
 | Code First      | 请参阅的"关系约定"部分[Code First 约定](~/ef6/modeling/code-first/conventions/built-in.md)主题，了解如何使用 Code First 时包括依赖对象上的外键属性的信息。                                                                                              |
 
 #### <a name="242-moving-your-model-to-a-separate-assembly"></a>2.4.2 将您的模型移动到单独的程序集
@@ -404,7 +398,7 @@ WHERE ((0 = (CASE WHEN (@p__linq__1 IS NOT NULL) THEN cast(1 as bit) WHEN (@p__l
 4.  ItemCollection 定期检查的使用。 如果确定，未被最近访问工作区，它会将标记为在下一步的缓存扫描的清理。
 5.  只创建一个 EntityConnection 将导致要创建 （尽管直到打开连接时，将不会初始化在其中的项集合） 的元数据缓存。 此工作区将保留内存中，直到缓存算法确定它不是"使用中"。
 
-客户顾问团队编写了描述保存到 ItemCollection 的引用以使用大型模型时避免"弃用"的博客文章： \< http://blogs.msdn.com/b/appfabriccat/archive/2010/10/22/metadataworkspace-reference-in-wcf-services.aspx>。
+客户顾问团队编写了描述保存到 ItemCollection 的引用以使用大型模型时避免"弃用"的博客文章： \<http://blogs.msdn.com/b/appfabriccat/archive/2010/10/22/metadataworkspace-reference-in-wcf-services.aspx>。
 
 #### <a name="342-the-relationship-between-metadata-caching-and-query-plan-caching"></a>3.4.2 元数据缓存和缓存查询计划之间的关系
 
@@ -419,7 +413,7 @@ WHERE ((0 = (CASE WHEN (@p__linq__1 IS NOT NULL) THEN cast(1 as bit) WHEN (@p__l
 #### <a name="351-additional-references-for-results-caching-with-the-wrapping-provider"></a>3.5.1 使用包装提供程序缓存的结果的其他参考
 
 -   Julie Lerman 撰写了包括如何更新示例包装提供程序以使用 Windows Server AppFabric caching"第二级缓存在实体框架和 Windows Azure"MSDN 文章： [https://msdn.microsoft.com/magazine/hh394143.aspx](https://msdn.microsoft.com/magazine/hh394143.aspx)
--   如果您正在使用 Entity Framework 5，团队博客中发布了一文章，介绍如何使用 Entity Framework 5 的缓存提供程序运行的工作： \< http://blogs.msdn.com/b/adonet/archive/2010/09/13/ef-caching-with-jarek-kowalski-s-provider.aspx>。 它还包括帮助自动执行添加到你的项目第二级缓存的 T4 模板。
+-   如果您正在使用 Entity Framework 5，团队博客中发布了一文章，介绍如何使用 Entity Framework 5 的缓存提供程序运行的工作： \<http://blogs.msdn.com/b/adonet/archive/2010/09/13/ef-caching-with-jarek-kowalski-s-provider.aspx>。 它还包括帮助自动执行添加到你的项目第二级缓存的 T4 模板。
 
 ## <a name="4-autocompiled-queries"></a>4 个 Autocompiled 查询
 
@@ -879,15 +873,15 @@ Microbenchmarks 都对代码中的微小变化非常敏感。 在这种情况下
 
 如果您的模型使用 TPT 继承，生成的查询将比使用其他继承策略，这可能导致存储区上的执行时间较长上生成更复杂。  它通常需要花费更长，以通过 TPT 模型生成查询并具体化的对象。
 
-请参阅"性能注意事项时在实体框架中使用 （每种类型的表） TPT 继承"MSDN 博客文章： \< http://blogs.msdn.com/b/adonet/archive/2010/08/17/performance-considerations-when-using-tpt-table-per-type-inheritance-in-the-entity-framework.aspx>。
+请参阅"性能注意事项时在实体框架中使用 （每种类型的表） TPT 继承"MSDN 博客文章： \<http://blogs.msdn.com/b/adonet/archive/2010/08/17/performance-considerations-when-using-tpt-table-per-type-inheritance-in-the-entity-framework.aspx>。
 
 #### <a name="711-------avoiding-tpt-in-model-first-or-code-first-applications"></a>7.1.1 Model First 或 Code First 应用程序中避免 TPT
 
 通过具有 TPT 架构的现有数据库创建模型，你没有在很多选项。 但在创建时使用 Model First 或 Code First 的应用程序，应避免性能问题的 TPT 继承。
 
-当在实体设计器向导中使用模型优先时，会获得 TPT 任何继承模型中。 如果你想要切换到使用模型优先的 TPH 继承策略，可以使用"Entity Designer Database Generation Power Pack"可从 Visual Studio 库 ( \< http://visualstudiogallery.msdn.microsoft.com/df3541c3-d833-4b65-b942-989e7ec74c87/>)。
+当在实体设计器向导中使用模型优先时，会获得 TPT 任何继承模型中。 如果你想要切换到使用模型优先的 TPH 继承策略，可以使用"Entity Designer Database Generation Power Pack"可从 Visual Studio 库 ( \<http://visualstudiogallery.msdn.microsoft.com/df3541c3-d833-4b65-b942-989e7ec74c87/>)。
 
-在使用 Code First 配置继承模型的映射，EF 将使用 TPH 默认情况下，因此继承层次结构中的所有实体将都映射到同一个表。 请参阅 MSDN 杂志 》 中的"代码第一个中实体 Framework4.1"项目的"映射的 Fluent API"一节 ( [ http://msdn.microsoft.com/magazine/hh126815.aspx ](https://msdn.microsoft.com/magazine/hh126815.aspx)) 的更多详细信息。
+在使用 Code First 配置继承模型的映射，EF 将使用 TPH 默认情况下，因此继承层次结构中的所有实体将都映射到同一个表。 请参阅 MSDN 杂志 》 中的"代码第一个中实体 Framework4.1"项目的"映射的 Fluent API"一节 ( [http://msdn.microsoft.com/magazine/hh126815.aspx](https://msdn.microsoft.com/magazine/hh126815.aspx)) 的更多详细信息。
 
 ### <a name="72-------upgrading-from-ef4-to-improve-model-generation-time"></a>7.2 升级从 EF4 以提高模型生成时间
 
@@ -907,7 +901,7 @@ Microbenchmarks 都对代码中的微小变化非常敏感。 在这种情况下
 
 ### <a name="73-------splitting-large-models-with-database-first-and-model-first"></a>7.3 首先拆分与数据库的大型模型和模型优先
 
-随着模型大小的增加，设计器图面变得混乱且难以使用。 我们通常认为具有 300 多个实体太大而无法有效地使用设计器的模型。 下面的博客文章介绍了有关拆分大型模型的多个选项： \< http://blogs.msdn.com/b/adonet/archive/2008/11/25/working-with-large-models-in-entity-framework-part-2.aspx>。
+随着模型大小的增加，设计器图面变得混乱且难以使用。 我们通常认为具有 300 多个实体太大而无法有效地使用设计器的模型。 下面的博客文章介绍了有关拆分大型模型的多个选项： \<http://blogs.msdn.com/b/adonet/archive/2008/11/25/working-with-large-models-in-entity-framework-part-2.aspx>。
 
 开机自检编写实体框架的第一个版本，但步骤仍然适用。
 
@@ -923,7 +917,7 @@ Microbenchmarks 都对代码中的微小变化非常敏感。 在这种情况下
 
 实体框架，可自定义数据类与数据模型一起使用而无需对数据类本身进行任何修改。 这意味着可以将“纯旧式”CLR 对象 (POCO)（例如，现有的域对象）与数据模型一起使用。 这些 POCO 数据类 （也称为持久性未知对象），其映射到实体数据模型中定义的支持的大多数相同的查询、 插入、 更新，和删除实体类型由 Entity Data Model 工具生成的行为。
 
-实体框架还可以创建派生自 POCO 类型，在你想要启用功能，例如延迟加载和自动更改跟踪 POCO 实体时使用的代理类。 POCO 类必须满足某些要求允许实体框架才能使用代理，如下所述： [ http://msdn.microsoft.com/library/dd468057.aspx ](https://msdn.microsoft.com/library/dd468057.aspx)。
+实体框架还可以创建派生自 POCO 类型，在你想要启用功能，例如延迟加载和自动更改跟踪 POCO 实体时使用的代理类。 POCO 类必须满足某些要求允许实体框架才能使用代理，如下所述： [http://msdn.microsoft.com/library/dd468057.aspx](https://msdn.microsoft.com/library/dd468057.aspx)。
 
 机会跟踪代理的任何实体的属性使实体框架知道你的实体的实际状态的时间已发生更改时，其值每次将通知对象状态管理器。 这是通过将通知事件添加到您的属性的 setter 方法的正文，并让对象状态管理器处理此类事件。 请注意，创建代理实体将通常要比创建非代理 POCO 实体由于添加了一组事件 Entity Framework 创建的昂贵得多。
 
@@ -1149,7 +1143,7 @@ using (NorthwindEntities context = new NorthwindEntities())
 
 实体框架当前不支持延迟加载的标量或复杂属性。 但是，在必须包含一个大型对象，如 BLOB 的表的情况下，您可以使用表拆分将大型属性分成单独的实体。 例如，假设有一个包括 varbinary photo 列的产品表。 如果不经常需要访问此属性在查询中的，可以使用表拆分，以使在仅部分通常需要的实体。 在明确需要时，将仅加载表示产品照片的实体。
 
-演示如何启用表拆分的良好资源是方便 Gil Fink 的 《 表拆分中 Entity Framework 》 博客文章： \< http://blogs.microsoft.co.il/blogs/gilf/archive/2009/10/13/table-splitting-in-entity-framework.aspx>。
+演示如何启用表拆分的良好资源是方便 Gil Fink 的 《 表拆分中 Entity Framework 》 博客文章： \<http://blogs.microsoft.co.il/blogs/gilf/archive/2009/10/13/table-splitting-in-entity-framework.aspx>。
 
 ## <a name="9-other-considerations"></a>9 其他注意事项
 
@@ -1187,7 +1181,7 @@ finally
 }
 ```
 
-在关闭 AutoDetectChanges 之前, 是最好的了解，这可能会导致实体框架可以在其无法跟踪的更改的实体上所发生的某些信息。 如果处理不正确，这可能导致你的应用程序上的数据不一致。 关闭 AutoDetectChanges 的详细信息，请阅读\< http://blog.oneunicorn.com/2012/03/12/secrets-of-detectchanges-part-3-switching-off-automatic-detectchanges/>。
+在关闭 AutoDetectChanges 之前, 是最好的了解，这可能会导致实体框架可以在其无法跟踪的更改的实体上所发生的某些信息。 如果处理不正确，这可能导致你的应用程序上的数据不一致。 关闭 AutoDetectChanges 的详细信息，请阅读\<\ http://blog.oneunicorn.com/2012/03/12/secrets-of-detectchanges-part-3-switching-off-automatic-detectchanges/>。
 
 ### <a name="93------context-per-request"></a>9.3 每个请求上下文
 
@@ -1234,7 +1228,7 @@ finally
 
 异步操作时运行在.NET 4.5 或更高版本的 entity Framework 6 引入了支持。 大多数情况下，具有 IO 的应用程序相关的争用将受益于最多使用异步查询和保存操作。 如果你的应用程序不会受到 IO 争用，使用 async 将在最佳情况下，以同步方式运行和返回结果，在相同的时间量为同步调用，或在最坏情况下，只需推迟到一个异步任务的执行并添加额外 tim完成你的方案的 e。
 
-有关如何异步编程工作，可帮助您决定是否异步会提高应用程序的性能所访问的信息[ http://msdn.microsoft.com/library/hh191443.aspx ](https://msdn.microsoft.com/library/hh191443.aspx)。 有关使用实体框架的异步操作的详细信息，请参阅[异步查询和保存](~/ef6/fundamentals/async.md
+有关如何异步编程工作，可帮助您决定是否异步会提高应用程序的性能所访问的信息[http://msdn.microsoft.com/library/hh191443.aspx](https://msdn.microsoft.com/library/hh191443.aspx)。 有关使用实体框架的异步操作的详细信息，请参阅[异步查询和保存](~/ef6/fundamentals/async.md
 )。
 
 ### <a name="96------ngen"></a>9.6 NGEN
@@ -1255,17 +1249,17 @@ Entity Framework 6 不能在默认安装.NET framework 中。 在这种情况下
 
 ### <a name="101-using-the-visual-studio-profiler"></a>10.1 使用 Visual Studio Profiler
 
-如果在使用实体框架的性能问题，可以使用类似于内置到 Visual Studio 探查器以查看你的应用程序上花费其时间。 这是我们用于生成饼图"探讨 ADO.NET 实体框架的第 1 部分的性能"博客文章中的工具 ( \< http://blogs.msdn.com/b/adonet/archive/2008/02/04/exploring-the-performance-of-the-ado-net-entity-framework-part-1.aspx>) ，可显示实体框架何处消耗在冷和热查询过程及其时间。
+如果在使用实体框架的性能问题，可以使用类似于内置到 Visual Studio 探查器以查看你的应用程序上花费其时间。 这是我们用于生成饼图"探讨 ADO.NET 实体框架的第 1 部分的性能"博客文章中的工具 ( \<http://blogs.msdn.com/b/adonet/archive/2008/02/04/exploring-the-performance-of-the-ado-net-entity-framework-part-1.aspx>) ，可显示实体框架何处消耗在冷和热查询过程及其时间。
 
-由数据和建模客户顾问团队编写的 《 使用 Visual Studio 2010 Profiler 分析 Entity Framework 》 博客文章显示了如何在使用探查器来调查性能问题的一个实际示例。  \<http://blogs.msdn.com/b/dmcat/archive/2010/04/30/profiling-entity-framework-using-the-visual-studio-2010-profiler.aspx>. 此文章针对 windows 应用程序的编写。 如果你需要分析 web 应用程序的 Windows 性能记录器 (WPR) 和 Windows Performance Analyzer (WPA) 工具可能效果更佳从 Visual Studio 的工作。 WPR 和 WPA 是 Windows 性能工具包附带 Windows 评估和部署工具包的一部分 ( [ http://www.microsoft.com/en-US/download/details.aspx?id=39982 ](https://www.microsoft.com/en-US/download/details.aspx?id=39982))。
+由数据和建模客户顾问团队编写的 《 使用 Visual Studio 2010 Profiler 分析 Entity Framework 》 博客文章显示了如何在使用探查器来调查性能问题的一个实际示例。  \<http://blogs.msdn.com/b/dmcat/archive/2010/04/30/profiling-entity-framework-using-the-visual-studio-2010-profiler.aspx>. 此文章针对 windows 应用程序的编写。 如果你需要分析 web 应用程序的 Windows 性能记录器 (WPR) 和 Windows Performance Analyzer (WPA) 工具可能效果更佳从 Visual Studio 的工作。 WPR 和 WPA 是 Windows 性能工具包附带 Windows 评估和部署工具包的一部分 ( [http://www.microsoft.com/en-US/download/details.aspx?id=39982](https://www.microsoft.com/en-US/download/details.aspx?id=39982))。
 
 ### <a name="102-applicationdatabase-profiling"></a>10.2 应用程序/数据库分析
 
 内置到 Visual Studio 探查器等工具告诉你的应用程序上花费时间。  另一种类型的探查器是可用的执行动态分析运行的应用程序，在生产或根据需要，预生产中，并查找常见缺陷和反模式的数据库访问权限。
 
-两个地区销售的探查器是实体框架 Profiler ( \< http://efprof.com>) ORMProfiler 和 ( \< http://ormprofiler.com>)。
+两个地区销售的探查器是实体框架 Profiler ( \<http://efprof.com>) ORMProfiler 和 ( \<http://ormprofiler.com>)。
 
-如果应用程序是使用 Code First 的 MVC 应用程序，可以使用 StackExchange 的 MiniProfiler。 Scott Hanselman 在他的博客中介绍了此工具： \< http://www.hanselman.com/blog/NuGetPackageOfTheWeek9ASPNETMiniProfilerFromStackExchangeRocksYourWorld.aspx>。
+如果应用程序是使用 Code First 的 MVC 应用程序，可以使用 StackExchange 的 MiniProfiler。 Scott Hanselman 在他的博客中介绍了此工具： \<http://www.hanselman.com/blog/NuGetPackageOfTheWeek9ASPNETMiniProfilerFromStackExchangeRocksYourWorld.aspx>。
 
 有关详细信息分析应用程序的数据库活动，请参阅标题为 Julie Lerman 的 MSDN 杂志 》 文章[分析实体框架中的数据库活动](https://msdn.microsoft.com/magazine/gg490349.aspx)。
 
@@ -1296,7 +1290,7 @@ Entity Framework 6 不能在默认安装.NET framework 中。 在这种情况下
   </interceptors>
 ```
 
-有关如何添加日志记录，无需重新编译转到详细信息\< http://blog.oneunicorn.com/2014/02/09/ef-6-1-turning-on-logging-without-recompiling/>。
+有关如何添加日志记录，无需重新编译转到详细信息\<http://blog.oneunicorn.com/2014/02/09/ef-6-1-turning-on-logging-without-recompiling/>。
 
 ## <a name="11-appendix"></a>11 附录
 

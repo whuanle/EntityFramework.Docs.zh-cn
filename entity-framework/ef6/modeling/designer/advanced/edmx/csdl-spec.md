@@ -3,12 +3,12 @@ title: CSDL 规范的 EF6
 author: divega
 ms.date: 10/23/2016
 ms.assetid: c54255f4-253f-49eb-bec8-ad7927ac2fa3
-ms.openlocfilehash: f5bf0dc75a8195e9af979c9e044f36171f46c9b7
-ms.sourcegitcommit: 2b787009fd5be5627f1189ee396e708cd130e07b
+ms.openlocfilehash: 438af83b8a1ad51ee8414341181412e950d0e117
+ms.sourcegitcommit: 29f928a6116771fe78f306846e6f2d45cbe8d1f4
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45490514"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47460145"
 ---
 # <a name="csdl-specification"></a>CSDL 规范
 概念架构定义语言 (CSDL) 是一种基于 XML 的语言，它描述构成数据驱动应用程序的概念模型的实体、关系和函数。 实体框架或 WCF 数据服务可以使用此概念模型。 实体框架使用通过 CSDL 描述的元数据实体和关系数据源的概念模型中定义的映射。 有关详细信息，请参阅[SSDL 规范](~/ef6/modeling/designer/advanced/edmx/ssdl-spec.md)并[MSL 规范](~/ef6/modeling/designer/advanced/edmx/msl-spec.md)。
@@ -1138,7 +1138,7 @@ CSDL 的版本按 XML 命名空间进行区分。
    Year(CurrentDateTime()) - Year(cast(Instructor.HireDate as DateTime))
    </DefiningExpression>
  </Function>
-``` 
+```
 
  
 

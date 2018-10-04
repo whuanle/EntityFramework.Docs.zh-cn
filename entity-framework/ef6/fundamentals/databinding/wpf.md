@@ -3,12 +3,12 @@ title: 与 WPF-EF6 的数据绑定
 author: divega
 ms.date: 10/23/2016
 ms.assetid: e90d48e6-bea5-47ef-b756-7b89cce4daf0
-ms.openlocfilehash: 5bd4a9b98a12de41e4ec37c2cc7dbdc537210893
-ms.sourcegitcommit: 2b787009fd5be5627f1189ee396e708cd130e07b
+ms.openlocfilehash: 1933988277d3be8fecc02fced3293f2b7f80c901
+ms.sourcegitcommit: ae399f9f3d1bae2c446b552247bd3af3ca5a2cf9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45490217"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48575660"
 ---
 # <a name="databinding-with-wpf"></a>使用 WPF 数据绑定
 此分步演练说明如何将 POCO 类型绑定到"母版-详细信息"窗体中的 WPF 控件。 应用程序使用 Entity Framework Api 填充数据库中的数据对象、 跟踪更改，然后将数据保存到数据库。
@@ -31,7 +31,7 @@ ms.locfileid: "45490217"
 
 需要具有 Visual Studio 2013，Visual Studio 2012 或 Visual Studio 2010 安装来完成本演练。
 
-如果使用 Visual Studio 2010，您还必须安装 NuGet。 有关详细信息，请参阅[安装 NuGet](http://docs.nuget.org/docs/start-here/installing-nuget)。  
+如果使用 Visual Studio 2010，您还必须安装 NuGet。 有关详细信息，请参阅[安装 NuGet](https://docs.microsoft.com/nuget/install-nuget-client-tools)。  
 
 ## <a name="create-the-application"></a>创建应用程序
 
@@ -252,12 +252,12 @@ EF 提供了一个选项的相关的实体从数据库中加载自动首次访�
 
     ![Data Sources](~/ef6/media/datasources.png)
 
--   选择 * * 类别 * * 数据源，并将其拖动窗体上。
+-   选择**类别**数据源，并将其拖动窗体上。
 
 我们拖动到此源时，将发生以下的情况：
 
--   **CategoryViewSource**资源和 * * categoryDataGrid * * 控件添加到 XAML。 有关 DataViewSources 详细信息，请参阅 http://bea.stollnitz.com/blog/?p=387。
--   父网格元素的 DataContext 属性设置为"{StaticResource **categoryViewSource** }"。  **CategoryViewSource**资源用作绑定源的外部\\父网格元素。 内部的网格元素然后从父网格 （categoryDataGrid 的 ItemsSource 属性设置为"{Binding}"） 继承的 DataContext 值。 
+-   **CategoryViewSource**资源并**categoryDataGrid**控件添加到 XAML 
+-   父网格元素的 DataContext 属性设置为"{StaticResource **categoryViewSource** }"。 **CategoryViewSource**资源用作绑定源的外部\\父网格元素。 内部的网格元素然后从父网格 （categoryDataGrid 的 ItemsSource 属性设置为"{Binding}"） 继承的 DataContext 值
 
 ``` xml
     <Window.Resources>
@@ -282,7 +282,7 @@ EF 提供了一个选项的相关的实体从数据库中加载自动首次访�
 
 现在，我们已有一个网格，可以让我们来显示类别添加详细信息网格以显示相关联的产品。
 
--   选择 * * 产品 * * 从下的属性 * * 类别 * * 数据源，并将其拖动窗体上。
+-   选择**产品**属性从下的**类别**数据源，并将其拖动窗体上。
     -   **CategoryProductsViewSource**资源并**productDataGrid**网格添加到 XAML
     -   此资源的绑定路径设置为产品
     -   WPF 数据绑定框架可确保，与所选类别相关的唯一产品显示在**productDataGrid**
@@ -305,7 +305,7 @@ EF 提供了一个选项的相关的实体从数据库中加载自动首次访�
 
 转到代码隐藏窗体中，我们现在将编辑代码以使用 ProductContext 执行数据访问。 更新代码的主窗口，如下所示。
 
-该代码声明了的长时间运行的实例**ProductContext**。 **ProductContext**对象用于查询并将数据保存到数据库。 **Dispose**上的 （) **ProductContext**实例然后称为从重写**OnClosing**方法。 代码注释提供了有关代码的作用的详细信息。
+该代码声明了的长时间运行的实例**ProductContext**。 **ProductContext**对象用于查询并将数据保存到数据库。 **Dispose （)** 上**ProductContext**实例然后称为从重写**OnClosing**方法。 代码注释提供了有关代码的作用的详细信息。
 
 ``` csharp
     using System.Data.Entity;
@@ -389,6 +389,10 @@ EF 提供了一个选项的相关的实体从数据库中加载自动首次访�
 
 -   按**保存**按钮以将数据保存到数据库
 
-调用的 DbContext 的后面**SaveChanges**（），Id 将填入数据库生成值。 因为我们调用**刷新**（) 后的**SaveChanges**（) **DataGrid**控件更新使用新值。
+调用的 DbContext 的后面**savechanges （)**，Id 将填入数据库生成值。 因为我们调用**Refresh()** 后**savechanges （)** **DataGrid**控件更新使用新值。
 
 ![使用 Id 填充主窗口](~/ef6/media/screen2.png)
+
+## <a name="additional-resources"></a>其他资源
+
+若要了解有关数据绑定到集合使用 WPF 的详细信息，请参阅[本主题](https://docs.microsoft.com/dotnet/framework/wpf/data/data-binding-overview#binding-to-collections)WPF 文档中。  

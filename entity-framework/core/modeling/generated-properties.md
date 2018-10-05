@@ -16,43 +16,43 @@ ms.locfileid: "44250694"
 ## <a name="value-generation-patterns"></a>值生成模式
 
 有三种可用于属性的值生成模式：
-* 值，未生成
+* 无值生成
 * 在生成的值添加
-* 生成的值上添加或更新
+* 在添加或更新时生成值
 
-### <a name="no-value-generation"></a>值，未生成
+### <a name="no-value-generation"></a>无值生成
 
-没有值生成意味着，将始终提供有效的值保存到数据库。 它们被添加到上下文之前，必须将此有效的值分配到新的实体。
+没有值生成意味着，您将始终提供有效的值以被保存到数据库。 必须先将有效的值赋到新的实体，再将这些新的实体添加到上下文中。
 
-### <a name="value-generated-on-add"></a>在生成的值添加
+### <a name="value-generated-on-add"></a>在添加时生成值
 
-在生成的值将添加方法，为新实体生成的值。
+在添加时生成值，意思是为新实体生成值。
 
-根据正在使用的数据库提供程序，值可能会生成客户端通过 EF 或数据库中。 如果由数据库生成的值，然后 EF 时，会分配临时值将实体添加到上下文。 然后通过在过程的数据库生成值替换为此临时值`SaveChanges()`。
+根据正在使用的数据库提供程序不同，值可能会通过 EF在客户端生成或者由数据库生成。 如果由数据库生成值，那么当你将实体添加到上下文时，EF可能会赋一个临时值。 而后，在数据库的`SaveChanges()`过程中所生成的值会替换掉这个临时值。
 
-如果将实体添加到分配给属性的值的上下文，然后 EF 将尝试插入该值，而不是无需生成一个新。 属性将被视为已分配未分配的 CLR 默认值的值 (`null`有关`string`，`0`有关`int`，`Guid.Empty`为`Guid`，等等。)。 有关详细信息，请参阅[生成属性的显式值](../saving/explicit-values-generated-properties.md)。
+如果您将一个实体添加到已经给属性赋了一个值的上下文，这时 EF 将尝试插入该值而不是生成一个新值。 属性被认为是已赋值的，如果属性未被赋 CLR的默认值 (`string`默认值为`null`，`int`默认值为`0`，`Guid.Empty`默认值为`Guid`，等)。 有关详细信息，请参阅[设置已生成属性的显式值](../saving/explicit-values-generated-properties.md)。
 
 > [!WARNING]  
-> 如何为添加的实体生成的值取决于正在使用的数据库提供程序。 数据库提供程序可能会在安装程序自动值生成对于某些属性类型，但其他人可能要求你手动设置生成的值如何。
+> 如何为添加的实体生成的值取决于正在使用的数据库提供程序。 数据库提供程序可能会为某些属性类型自行设置值的生成，但其他的可能要求您手动设置如何生成值。
 >
-> 例如，使用 SQL Server 时，值将自动生成的`GUID`属性 （使用 SQL Server 的连续 GUID 算法）。 但是，如果你指定`DateTime`生成属性添加，则必须安装程序生成的值的方法。 一种方法来执行此操作，是配置了默认值`GETDATE()`，请参阅[默认值](relational/default-values.md)。
+> 例如，使用 SQL Server 时，将自动生成的`GUID`属性的值（使用 SQL Server 的连续 GUID 算法）。 但是，如果您指定在添加时生成`DateTime`属性，则您必须设置生成值的方法。 此处例举一种方法，是配置`GETDATE()`的默认值，请参阅[默认值](relational/default-values.md)。
 
-### <a name="value-generated-on-add-or-update"></a>生成的值上添加或更新
+### <a name="value-generated-on-add-or-update"></a>在添加或更新时生成值
 
-生成的值上添加或更新意味着每次保存该记录时 （插入或更新），生成新值。
+在添加或更新时生成值，意味着在每次保存该记录时 （插入或更新），生成新值。
 
-如`value generated on add`，如果新添加的值将会插入而不是所生成的值的实体实例上指定属性的值。 还有可能更新时将显式值。 有关详细信息，请参阅[生成属性的显式值](../saving/explicit-values-generated-properties.md)。
+就像`value generated on add`，如果您为一个实体的新增实例上的属性指定了一个值，这时 EF 将尝试插入该值而不是生成一个新值。 还可以在更新时设置显式值。 有关详细信息，请参阅[设置已生成属性的显式值](../saving/explicit-values-generated-properties.md)。
 
 > [!WARNING]
-> 如何添加和已更新的实体生成的值取决于正在使用的数据库提供程序。 数据库提供程序可能会在安装程序自动值生成对于某些属性类型，而其他人将需要你手动设置生成的值如何。
+> 如何在添加和更新实体时生成值取决于正在使用的数据库提供程序。 数据库提供程序可能会为某些属性类型自行设置值的生成，但其他的可能要求您手动设置如何生成值。
 > 
-> 例如，在使用 SQL Server`byte[]`生成上设置的属性添加或更新并标记为并发标记，将使用设置`rowversion`数据类型的以便将在数据库中生成值。 但是，如果你指定`DateTime`生成属性上添加或更新，则必须安装程序生成的值的方法。 一种方法来执行此操作，是配置了默认值`GETDATE()`(请参阅[默认值](relational/default-values.md)) 以生成新行的值。 然后可以使用数据库触发器在更新 （如下面的示例触发器） 过程中生成值。
+> 例如，在使用 SQL Server时，`byte[]`属性设置为在添加和更新时生成值并标注为并发标记，将被设置`rowversion`数据类型，以便在数据库中生成值。 但是，如果你指定在添加或更新时生成`DateTime`属性，则您必须设置生成值的方法。 此处例举一种方法，是配置`GETDATE()`的默认值(请参阅[默认值](relational/default-values.md)) 以生成新行的值。 然后您可以使用数据库触发器在更新（如下面的示例触发器）过程中生成值。
 > 
 > [!code-sql[Main](../../../samples/core/Modeling/FluentAPI/Samples/ValueGeneratedOnAddOrUpdate.sql)]
 
 ## <a name="conventions"></a>约定
 
-按照约定，非复合主键类型 short、 int、 long、 或 Guid 就是安装程序已添加对生成的值。 所有其他属性值，未生成与将安装程序。
+按照约定，非复合主键类型 short、 int、 long、 或 Guid 将会被设置在添加时生成值。 所有其他属性值，将被设置为无值生成。
 
 ## <a name="data-annotations"></a>数据注释
 
@@ -60,19 +60,19 @@ ms.locfileid: "44250694"
 
 [!code-csharp[Main](../../../samples/core/Modeling/DataAnnotations/Samples/ValueGeneratedNever.cs#Sample)]
 
-### <a name="value-generated-on-add-data-annotations"></a>在生成的值添加 （数据批注）
+### <a name="value-generated-on-add-data-annotations"></a>在添加时生成值 （数据批注）
 
 [!code-csharp[Main](../../../samples/core/Modeling/DataAnnotations/Samples/ValueGeneratedOnAdd.cs#Sample)]
 
 > [!WARNING]  
-> 这只是让 EF 知道为添加的实体生成值，它不保证，EF 将在安装程序的实际机制来生成值。 请参阅[上生成的值添加](#value-generated-on-add)部分，了解更多详细信息。
+> 这只是让 EF 知道将为已添加的实体生成值，它不保证EF 将设置实际机制来生成值。 请参阅[在添加时生成值](#value-generated-on-add)部分，了解更多详细信息。
 
-### <a name="value-generated-on-add-or-update-data-annotations"></a>在生成的值将添加或更新 （数据批注）
+### <a name="value-generated-on-add-or-update-data-annotations"></a>在添加或更新生成值 （数据批注）
 
 [!code-csharp[Main](../../../samples/core/Modeling/DataAnnotations/Samples/ValueGeneratedOnAddOrUpdate.cs#Sample)]
 
 > [!WARNING]  
-> 这只是让 EF 知道值生成的添加或更新实体，它不保证，EF 将在安装程序的实际机制来生成值。 请参阅[上生成的值将添加或更新](#value-generated-on-add-or-update)部分，了解更多详细信息。
+> 这只是让 EF 知道将为添加或更新的实体生成值，它不保证，EF 将设置实际机制来生成值。 请参阅[在添加或更新时生成值](#value-generated-on-add-or-update)部分，了解更多详细信息。
 
 ## <a name="fluent-api"></a>Fluent API
 
@@ -82,16 +82,16 @@ Fluent API 可用于更改某一给定属性的值生成模式。
 
 [!code-csharp[Main](../../../samples/core/Modeling/FluentAPI/Samples/ValueGeneratedNever.cs#Sample)]
 
-### <a name="value-generated-on-add-fluent-api"></a>在生成的值添加 (Fluent API)
+### <a name="value-generated-on-add-fluent-api"></a>在添加时生成值 (Fluent API)
 
 [!code-csharp[Main](../../../samples/core/Modeling/FluentAPI/Samples/ValueGeneratedOnAdd.cs#Sample)]
 
 > [!WARNING]  
-> `ValueGeneratedOnAdd()` 只是让 EF 知道为添加的实体生成值，它不保证，EF 将在安装程序的实际机制来生成值。  请参阅[上生成的值添加](#value-generated-on-add)部分，了解更多详细信息。
+> `ValueGeneratedOnAdd()` 只是让 EF 知道为添加的实体生成值，它不保证，EF 将设置实际机制来生成值。  请参阅[在添加时生成值](#value-generated-on-add)部分，了解更多详细信息。
 
-### <a name="value-generated-on-add-or-update-fluent-api"></a>在生成的值将添加或更新 (Fluent API)
+### <a name="value-generated-on-add-or-update-fluent-api"></a>在添加或更新时生成值 (Fluent API)
 
 [!code-csharp[Main](../../../samples/core/Modeling/FluentAPI/Samples/ValueGeneratedOnAddOrUpdate.cs#Sample)]
 
 > [!WARNING]  
-> 这只是让 EF 知道值生成的添加或更新实体，它不保证，EF 将在安装程序的实际机制来生成值。 请参阅[上生成的值将添加或更新](#value-generated-on-add-or-update)部分，了解更多详细信息。
+> 这只是让 EF 知道将为添加或更新的实体生成值，它不保证，EF 将设置实际机制来生成值。 请参阅[在添加和更新时生成值](#value-generated-on-add-or-update)部分，了解更多详细信息。

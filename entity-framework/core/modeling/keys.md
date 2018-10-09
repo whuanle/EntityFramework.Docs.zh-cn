@@ -13,11 +13,11 @@ ms.locfileid: "42994016"
 ---
 # <a name="keys-primary"></a>键 （主要）
 
-关键字可作为每个实体实例的主唯一标识符。 使用关系数据库时此值映射到的概念*主键*。 你还可以配置不是主键的唯一标识符 (请参阅[备用键](alternate-keys.md)有关详细信息)。
+键可作为每个实体实例的主唯一标识符。使用关系数据库时，此值映射到主键**的概念。还可以配置一个不是主键的唯一标识符（有关详细信息，请参阅[备用键](alternate-keys.md)）。
 
 ## <a name="conventions"></a>约定
 
-按照约定，属性名为`Id`或`<type name>Id`将配置为实体的键。
+按照约定，会将名为 `Id` 或 `<type name>Id` 的属性配置为一个实体的键。
 
 <!-- [!code-csharp[Main](samples/core/Modeling/Conventions/Samples/KeyId.cs?highlight=3)] -->
 ``` csharp
@@ -43,7 +43,7 @@ class Car
 
 ## <a name="data-annotations"></a>数据注释
 
-可以使用数据注释来配置要作为键的实体的单个属性。
+可以使用数据注释将单个属性配置为实体的键。
 
 <!-- [!code-csharp[Main](samples/core/Modeling/DataAnnotations/Samples/KeySingle.cs?highlight=3,4)] -->
 ``` csharp
@@ -59,7 +59,7 @@ class Car
 
 ## <a name="fluent-api"></a>Fluent API
 
-Fluent API 可用于配置要作为键的实体的单个属性。
+可以使用 Fluent API 将单个属性配置为实体的键。
 
 <!-- [!code-csharp[Main](samples/core/Modeling/FluentAPI/Samples/KeySingle.cs?highlight=7,8)] -->
 ``` csharp
@@ -83,7 +83,7 @@ class Car
 }
 ```
 
-Fluent API 还可用于配置多个属性，以作为键的实体 （称为复合键）。 仅可以使用 Fluent API 配置的复合键-约定将永远不会在安装程序的复合键和不可以使用数据注释来配置一个。
+Fluent API 还可用于将多个属性配置为实体的键（称为复合键）。只能使用 Fluent API 配置复合键 - 不能使用约定来设置复合键，也不能使用数据注释来配置复合键。
 
 <!-- [!code-csharp[Main](samples/core/Modeling/FluentAPI/Samples/KeyComposite.cs?highlight=7,8)] -->
 ``` csharp

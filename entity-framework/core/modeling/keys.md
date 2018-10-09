@@ -13,7 +13,7 @@ ms.locfileid: "42994016"
 ---
 # <a name="keys-primary"></a>键 （主要）
 
-键可作为每个实体实例的主唯一标识符。使用关系数据库时，此值映射到主键**的概念。还可以配置一个不是主键的唯一标识符（有关详细信息，请参阅[备用键](alternate-keys.md)）。
+关键字可作为每个实体实例的主唯一标识符。 使用关系数据库时此值映射到的概念*主键*。 你还可以配置不是主键的唯一标识符 (请参阅[备用键](alternate-keys.md)有关详细信息)。
 
 ## <a name="conventions"></a>约定
 
@@ -83,7 +83,7 @@ class Car
 }
 ```
 
-Fluent API 还可用于将多个属性配置为实体的键（称为复合键）。只能使用 Fluent API 配置复合键 - 不能使用约定来设置复合键，也不能使用数据注释来配置复合键。
+Fluent API 还可用于将多个属性配置为实体的键（称为复合键）。 只能使用 Fluent API 配置复合键 - 不能使用约定来设置复合键，也不能使用数据注释来配置复合键。
 
 <!-- [!code-csharp[Main](samples/core/Modeling/FluentAPI/Samples/KeyComposite.cs?highlight=7,8)] -->
 ``` csharp

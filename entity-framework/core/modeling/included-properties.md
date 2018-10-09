@@ -11,17 +11,17 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 08/27/2018
 ms.locfileid: "42998250"
 ---
-# <a name="including--excluding-properties"></a><span data-ttu-id="a1217-102">包括和排除属性</span><span class="sxs-lookup"><span data-stu-id="a1217-102">Including & Excluding Properties</span></span>
+# <a name="including--excluding-properties"></a><span data-ttu-id="b767a-102">包括和排除属性</span><span class="sxs-lookup"><span data-stu-id="b767a-102">Including & Excluding Properties</span></span>
 
-<span data-ttu-id="a1217-103">模型中的属性包括意味着 EF 对有关该属性的元数据并将读取和写入从/向数据库的值。</span><span class="sxs-lookup"><span data-stu-id="a1217-103">Including a property in the model means that EF has metadata about that property and will attempt to read and write values from/to the database.</span></span>
+<span data-ttu-id="b767a-103">模型中包含一个属性意味着 EF 拥有该属性的元数据，并会尝试从数据库读取值或者向数据库写入值。</span><span class="sxs-lookup"><span data-stu-id="b767a-103">Including a property in the model means that EF has metadata about that property and will attempt to read and write values from/to the database.</span></span>
 
-## <a name="conventions"></a><span data-ttu-id="a1217-104">约定</span><span class="sxs-lookup"><span data-stu-id="a1217-104">Conventions</span></span>
+## <a name="conventions"></a><span data-ttu-id="b767a-104">约定</span><span class="sxs-lookup"><span data-stu-id="b767a-104">Conventions</span></span>
 
-<span data-ttu-id="a1217-105">按照约定，将在模型中包含有 getter 和 setter 的公共属性。</span><span class="sxs-lookup"><span data-stu-id="a1217-105">By convention, public properties with a getter and a setter will be included in the model.</span></span>
+<span data-ttu-id="b767a-105">按照约定，模型所含的那些公共属性都拥有一个 getter 和一个 setter。</span><span class="sxs-lookup"><span data-stu-id="b767a-105">By convention, public properties with a getter and a setter will be included in the model.</span></span>
 
-## <a name="data-annotations"></a><span data-ttu-id="a1217-106">数据注释</span><span class="sxs-lookup"><span data-stu-id="a1217-106">Data Annotations</span></span>
+## <a name="data-annotations"></a><span data-ttu-id="b767a-106">数据注释</span><span class="sxs-lookup"><span data-stu-id="b767a-106">Data Annotations</span></span>
 
-<span data-ttu-id="a1217-107">可以使用数据注释来从模型中排除某个属性。</span><span class="sxs-lookup"><span data-stu-id="a1217-107">You can use Data Annotations to exclude a property from the model.</span></span>
+<span data-ttu-id="b767a-107">可以使用数据注释来从模型中排除某个属性。</span><span class="sxs-lookup"><span data-stu-id="b767a-107">You can use Data Annotations to exclude a property from the model.</span></span>
 
 <!-- [!code-csharp[Main](samples/core/Modeling/DataAnnotations/Samples/IgnoreProperty.cs?highlight=6)] -->
 ``` csharp
@@ -35,9 +35,9 @@ public class Blog
 }
 ```
 
-## <a name="fluent-api"></a><span data-ttu-id="a1217-108">Fluent API</span><span class="sxs-lookup"><span data-stu-id="a1217-108">Fluent API</span></span>
+## <a name="fluent-api"></a><span data-ttu-id="b767a-108">Fluent API</span><span class="sxs-lookup"><span data-stu-id="b767a-108">Fluent API</span></span>
 
-<span data-ttu-id="a1217-109">Fluent API 可用于从模型中排除某个属性。</span><span class="sxs-lookup"><span data-stu-id="a1217-109">You can use the Fluent API to exclude a property from the model.</span></span>
+<span data-ttu-id="b767a-109">Fluent API 可用于从模型中排除某个属性。</span><span class="sxs-lookup"><span data-stu-id="b767a-109">You can use the Fluent API to exclude a property from the model.</span></span>
 
 <!-- [!code-csharp[Main](samples/core/Modeling/FluentAPI/Samples/IgnoreProperty.cs?highlight=7,8)] -->
 ``` csharp

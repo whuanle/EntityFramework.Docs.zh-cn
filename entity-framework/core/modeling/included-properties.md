@@ -13,11 +13,11 @@ ms.locfileid: "42998250"
 ---
 # <a name="including--excluding-properties"></a>包括和排除属性
 
-模型中包含一个属性意味着EF拥有该属性的元数据，并将尝试从数据库读取值或者向数据库写入值。
+模型中包含一个属性意味着 EF 拥有该属性的元数据，并会尝试从数据库读取值或者向数据库写入值。
 
 ## <a name="conventions"></a>约定
 
-按照约定，模型所含的那些公共属性都拥有一个getter和一个setter。
+按照约定，模型所含的那些公共属性都拥有一个 getter 和一个 setter。
 
 ## <a name="data-annotations"></a>数据注释
 

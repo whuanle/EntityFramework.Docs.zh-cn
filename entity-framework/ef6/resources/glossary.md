@@ -3,12 +3,12 @@ title: 实体框架术语表-EF6
 author: divega
 ms.date: 10/23/2016
 ms.assetid: 3f05ffdd-49bc-499c-9732-4a368bf5d2d7
-ms.openlocfilehash: 298913891fb372bf57d7504c5a54f1dc83ea1a80
-ms.sourcegitcommit: 2b787009fd5be5627f1189ee396e708cd130e07b
+ms.openlocfilehash: 9ed7a2d841c625de35de57edb4e57e69b89a3db9
+ms.sourcegitcommit: 5d74ac575f813110db6d870720f50dd7606446bc
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45490655"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48881262"
 ---
 # <a name="entity-framework-glossary"></a>实体框架术语表
 ## <a name="code-first"></a>Code First
@@ -60,7 +60,7 @@ ms.locfileid: "45490655"
 实体引用另一个实体的属性。 例如，产品包含的类别导航属性和类别包含产品导航属性。
 
 ## <a name="poco"></a>POCO
-纯旧式 CLR 对象的首字母缩写。 一个简单的用户类，并不依赖的任何框架。 EF 上下文中从 entityobject 继承，不是派生的实体类实现任何接口，或包含 EF 中定义的任何特性。 此类从持久性框架分离的实体类也被称为是"持久性未知"。  
+纯旧式 CLR 对象的首字母缩写。 一个简单的用户类，并不依赖的任何框架。 在 EF 中，不是派生从 entityobject 继承、 实现任何接口或执行在 EF 中定义的任何特性的实体类的上下文。 此类从持久性框架分离的实体类也被称为是"持久性未知"。  
 
 ## <a name="relationship-inverse"></a>关系反转
 一种关系，例如，产品中相对的一端。类别和类别。产品。

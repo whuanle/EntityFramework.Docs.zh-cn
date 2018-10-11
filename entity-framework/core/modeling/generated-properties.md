@@ -30,7 +30,7 @@ ms.locfileid: "44250694"
 
 根据所用数据库提供程序的不同，值可能会通过 EF 在客户端生成或者由数据库生成。 如果由数据库生成值，则当你将实体添加到上下文时，EF 可能会赋予一个临时值。 而后，由数据库生成的值会在 `SaveChanges()` 过程中替换这个临时值。
 
-如果将实体添加到分配给属性的值的上下文，然后 EF 将尝试插入该值，而不是无需生成一个新。 属性将被视为已分配未分配的 CLR 默认值的值 (`null`有关`string`，`0`有关`int`，`Guid.Empty`为`Guid`，等等。)。 有关详细信息，请参阅[已生成属性的显式值](../saving/explicit-values-generated-properties.md)。
+如果将一个实体添加到已经为属性赋予值的上下文，则 EF 会尝试插入该值而不是生成新值。 属性被认为已赋值的前提是该属性未被赋予 CLR 默认值（`string` 的默认值为 `null`，`int` 的默认值为 `0`，`Guid.Empty` 的默认值为 `Guid`，等等)。 有关详细信息，请参阅[已生成属性的显式值](../saving/explicit-values-generated-properties.md)。
 
 > [!WARNING]  
 > 如何为添加的实体生成值取决于所用数据库提供程序。 数据库提供程序可能会为某些属性类型自动设置值的生成，但其他的属性类型可能要求你手动设置值的生成方式。
@@ -46,7 +46,7 @@ ms.locfileid: "44250694"
 > [!WARNING]
 > 如何在添加和更新实体时生成值取决于所用数据库提供程序。 数据库提供程序可能会为某些属性类型自动设置值的生成，但其他的属性类型会要求你手动设置值的生成方式。
 > 
-> 例如，在使用 SQL Server`byte[]`生成上设置的属性添加或更新并标记为并发标记，将使用设置`rowversion`数据类型的以便将在数据库中生成值。 但是，如果你指定`DateTime`生成属性上添加或更新，则必须安装程序生成的值的方法。 一种方法来执行此操作，是配置了默认值`GETDATE()`(请参阅[默认值](relational/default-values.md)) 以生成新行的值。 然后可以使用数据库触发器在更新 （如下面的示例触发器） 过程中生成值。
+> 例如，在使用 SQL Server 时，设置为在添加和更新时生成值并标注为并发标记的 `byte[]` 属性会被设置为 `rowversion` 数据类型，以便在数据库中生成值。 但是，如果指定在添加或更新时生成 `DateTime` 属性，则必须设置生成值的方法。 若要执行此操作，一种方法是配置 `GETDATE()` 的默认值（请参阅[默认值](relational/default-values.md)）以生成新行的值。 然后即可使用数据库触发器在更新过程中生成值（如下面的示例触发器所示）。
 > 
 > [!code-sql[Main](../../../samples/core/Modeling/FluentAPI/Samples/ValueGeneratedOnAddOrUpdate.sql)]
 
@@ -87,7 +87,7 @@ Fluent API 可用于更改某一给定属性的值生成模式。
 [!code-csharp[Main](../../../samples/core/Modeling/FluentAPI/Samples/ValueGeneratedOnAdd.cs#Sample)]
 
 > [!WARNING]  
-> `ValueGeneratedOnAdd()` 只是让 EF 知道为添加的实体生成值，它不保证，EF 将在安装程序的实际机制来生成值。  请参阅[在添加时生成值](#value-generated-on-add)部分，了解更多详细信息。
+> `ValueGeneratedOnAdd()` 只是让 EF 知道为添加的实体生成值，并不保证 EF 会设置实际机制来生成值。  请参阅[在添加时生成值](#value-generated-on-add)部分，了解更多详细信息。
 
 ### <a name="value-generated-on-add-or-update-fluent-api"></a>在添加或更新时生成值 (Fluent API)
 

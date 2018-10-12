@@ -29,7 +29,7 @@
 #### [ASP.NET Core](core/get-started/aspnetcore/index.md)
 ##### [ASP.NET Core - 新数据库](core/get-started/aspnetcore/new-db.md)
 ##### [ASP.NET Core - 现有数据库](core/get-started/aspnetcore/existing-db.md)
-##### [EF Core 和 Razor Pages](/aspnet/core/data/ef-rp/intro)
+##### [⤤ EF Core 和 Razor Pages](/aspnet/core/data/ef-rp/intro)
 #### [通用 Windows 平台 (UWP)](core/get-started/uwp/index.md)
 ##### [UWP - 新数据库](core/get-started/uwp/getting-started.md)
 

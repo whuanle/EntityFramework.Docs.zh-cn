@@ -3,15 +3,15 @@ title: Code First 迁移 - EF6
 author: divega
 ms.date: 10/23/2016
 ms.assetid: 36591d8f-36e1-4835-8a51-90f34f633d1e
-ms.openlocfilehash: 389da6c54e063a5dc598f98f8ac92cfc0e686019
-ms.sourcegitcommit: 269c8a1a457a9ad27b4026c22c4b1a76991fb360
+ms.openlocfilehash: f408ef861a2992783142fa1483d1433ca710399a
+ms.sourcegitcommit: 15022dd06d919c29b1189c82611ea32f9fdc6617
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46283844"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47415791"
 ---
 # <a name="code-first-migrations"></a>Code First 迁移
-如果正在使用 Code First 工作流，推荐使用 Code First 迁移改进应用程序的数据库架构。 迁移提供一组允许以下操作的工具：
+如果使用的是 Code First 工作流，推荐使用 Code First 迁移改进应用程序的数据库架构。 迁移提供一组允许以下操作的工具：
 
 1. 创建可用于 EF 模型的初始数据库
 2. 生成迁移以跟踪对 EF 模型所做的更改
@@ -96,7 +96,7 @@ ms.locfileid: "46283844"
     public string Url { get; set; }
 ```
 
-如果要再次运行应用程序，则会收到一个 InvalidOperationException，指出“创建数据库后，支持‘BlogContext’上下文的模型已发生变化。请考虑使用 Code First 迁移更新数据库 ([http://go.microsoft.com/fwlink/?LinkId=238269](https://go.microsoft.com/fwlink/?LinkId=238269))”*。
+如果要再次运行应用程序，则会收到一个 InvalidOperationException，指出“创建数据库后，支持‘BlogContext’上下文的模型已发生变化。请考虑使用 Code First 迁移更新数据库 ([http://go.microsoft.com/fwlink/?LinkId=238269](https://go.microsoft.com/fwlink/?LinkId=238269))”。
 
 如异常情况所述，可开始使用 Code First 迁移。 第一步是启用上下文迁移。
 
@@ -107,7 +107,7 @@ ms.locfileid: "46283844"
 -   **配置类。** 此类允许配置迁移对上下文的行为方式。 对于此演练，将只使用默认配置。
     由于项目中只有一个 Code First 上下文，因此 Enable-Migrations 已自动填充此配置适用的上下文类型。
 -   **InitialCreate 迁移**。 之所以生成此迁移，是因为在启用迁移之前，我们已使用 Code First 创建了数据库。 已构建的迁移中的代码表示已在数据库中创建的对象。 在本演练中，即为具有 BlogId 和“名称”列的 Blog 表。 文件名包含时间戳，这样有助于排序。
-    如果尚未创建数据库，则不会将此 InitialCreate 迁移添加到项目中。相反，第一次调用 Add-Migration 时，会将创建这些表的代码构建到新的迁移中*。
+    如果尚未创建数据库，则不会将此 InitialCreate 迁移添加到项目中。相反，第一次调用 Add-Migration 时，会将创建这些表的代码构建到新的迁移中。
 
 ### <a name="multiple-models-targeting-the-same-database"></a>针对同一数据库的多个模型
 
@@ -299,7 +299,7 @@ Code First 迁移出色的构建了这些更改，但我们可能还需要做出
 如果另一位开发人员希望在其计算机上进行这些更改，则只需在我们将更改签入源代码管理之后进行同步即可。 在获得我们的新迁移后，他们只需运行 Update-database 命令即可在本地应用更改。 但是，如果想将这些更改推送到测试服务器以及最终的产品，则可能需要一个可以传递给 DBA 的 SQL 脚本。
 
 -   运行 Update-Database 命令，但是这次需指定 –Script 标志，以便将更改写入脚本，而不是应用更改。 我们还将指定要为其生成脚本的源和目标迁移。 我们希望脚本从空数据库 ($InitialDatabase) 转为最新版本（迁移 AddPostAbstract）。
-    如果未指定目标迁移，迁移将使用最新的迁移作为目标。如果未指定源迁移，迁移将使用数据库的当前状态*。
+    如果未指定目标迁移，迁移将使用最新的迁移作为目标。如果未指定源迁移，迁移将使用数据库的当前状态。
 -   在包管理器控制台中运行 Update-Database -Script -SourceMigration: $InitialDatabase -TargetMigration: AddPostAbstract 命令
 
 Code First 迁移将运行迁移管道，但并非是应用更改，而是将更改写入到 .sql 文件。 生成脚本后，将在 Visual Studio 中打开，以供查看或保存。

@@ -4,12 +4,12 @@ author: rowanmiller
 ms.date: 10/27/2016
 ms.assetid: 88253ff3-174e-485c-b3f8-768243d01ee1
 uid: core/modeling/index
-ms.openlocfilehash: e4eed480178ce43cbc5ece8db8e584032da7b2b9
-ms.sourcegitcommit: 0d36e8ff0892b7f034b765b15e041f375f88579a
+ms.openlocfilehash: 67012d0f52cc77ce872fc428fccc20526f3fefad
+ms.sourcegitcommit: 2b787009fd5be5627f1189ee396e708cd130e07b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2018
-ms.locfileid: "44250343"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45489266"
 ---
 # <a name="creating-and-configuring-a-model"></a>创建并配置模型
 
@@ -42,7 +42,7 @@ Entity Framework 使用一组约定基于实体类的形状构建模型。 可�
 
 ## <a name="use-data-annotations-to-configure-a-model"></a>使用数据注释来配置模型
 
-也可将特性（称为数据注释）应用于类和属性。 数据注释会替代约定，但会被 Fluent API 配置覆盖。
+也可将特性（称为数据注释）应用于类和属性。 数据注释会替代约定，但会被 Fluent API 配置替代。
 
 <!-- [!code-csharp[Main](samples/core/Modeling/DataAnnotations/Samples/Required.cs?range=11-16&highlight=4)] -->
 ``` csharp

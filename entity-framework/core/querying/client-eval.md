@@ -4,12 +4,12 @@ author: rowanmiller
 ms.date: 10/27/2016
 ms.assetid: 8b6697cc-7067-4dc2-8007-85d80503d123
 uid: core/querying/client-eval
-ms.openlocfilehash: 78f8d9576748a725634665f915def80b5a13820c
-ms.sourcegitcommit: dadee5905ada9ecdbae28363a682950383ce3e10
+ms.openlocfilehash: 47e22be274d02b5221c638d07151d9607aa7e24f
+ms.sourcegitcommit: 0d36e8ff0892b7f034b765b15e041f375f88579a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "42997872"
+ms.lasthandoff: 09/09/2018
+ms.locfileid: "44250798"
 ---
 # <a name="client-vs-server-evaluation"></a>客户端与服务器评估
 
@@ -49,7 +49,7 @@ public static string StandardizeUrl(string url)
 }
 ```
 
-## <a name="disabling-client-evaluation"></a>禁用客户端评估
+## <a name="client-evaluation-performance-issues"></a>客户端评估性能问题
 
 虽然客户端评估非常有用，但在某些情况下可能会导致性能不佳。 请考虑以下查询，其中 Helper 方法现已在筛选器中使用。 由于无法在数据库中执行此操作，因此所有数据将被拉入内存中，然后会在客户端上应用筛选器。 根据数据量以及筛选出的数据量，这可能会导致性能不佳。
 
@@ -60,7 +60,13 @@ var blogs = context.Blogs
     .ToList();
 ```
 
-默认情况下，当执行客户端评估时，EF Core 将记录警告。 有关查看日志记录输出的详细信息，请参阅[日志记录](../miscellaneous/logging.md)。 当客户端评估引发异常或不执行任何操作时，可以更改行为。 这是在为上下文（如果使用的是 ASP.NET Core，则通常在 `DbContext.OnConfiguring` 或 `Startup.cs` 中）设置选项时完成的。
+## <a name="client-evaluation-logging"></a>客户端评估日志记录
+
+默认情况下，当执行客户端评估时，EF Core 将记录警告。 有关查看日志记录输出的详细信息，请参阅[日志记录](../miscellaneous/logging.md)。 
+
+## <a name="optional-behavior-throw-an-exception-for-client-evaluation"></a>可选行为：客户端评估引发异常
+
+当客户端评估引发异常或不执行任何操作时，可以更改行为。 这是在为上下文（如果使用的是 ASP.NET Core，则通常在 `DbContext.OnConfiguring` 或 `Startup.cs` 中）设置选项时完成的。
 
 <!-- [!code-csharp[Main](samples/core/Querying/Querying/ClientEval/ThrowOnClientEval/BloggingContext.cs?highlight=5)] -->
 ``` csharp

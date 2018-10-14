@@ -2,8 +2,6 @@
 
 ## [比较 EF Core 和 EF6](efcore-and-ef6/index.md)
 
-### [哪个版本适合你](efcore-and-ef6/choosing.md)
-### [功能比较](efcore-and-ef6/features.md)
 ### [同一应用程序中的 EF6 和 EF Core](efcore-and-ef6/side-by-side.md)
 ### [从 EF6 移植到 EF Core](efcore-and-ef6/porting/index.md)
 #### [验证要求](efcore-and-ef6/porting/ensure-requirements.md)

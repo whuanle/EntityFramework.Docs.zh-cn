@@ -3,12 +3,12 @@ title: 关系、 导航属性和外键的 EF6
 author: divega
 ms.date: 10/23/2016
 ms.assetid: 8a21ae73-6d9b-4b50-838a-ec1fddffcf37
-ms.openlocfilehash: a98c1bf798a8a6d2c748408d7363d5f884e7e6e9
-ms.sourcegitcommit: 2b787009fd5be5627f1189ee396e708cd130e07b
+ms.openlocfilehash: 46c2d11b5704ec7ae82a423ae042b87f5efe436f
+ms.sourcegitcommit: 8b42045cd21f80f425a92f5e4e9dd4972a31720b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45490540"
+ms.lasthandoff: 10/14/2018
+ms.locfileid: "49315654"
 ---
 # <a name="relationships-navigation-properties-and-foreign-keys"></a>关系、 导航属性和外键
 本主题概述了的实体框架如何管理实体之间的关系。 它还提供有关如何将映射和操作关系的一些指导。
@@ -153,7 +153,7 @@ public class Department
 > 在外键关联中，加载依赖对象的相关端时，将会基于当前位于内存中的依赖对象的外键值加载相关对象：
 
 ``` csharp
-    // Get the course where currently DepartmentID = 1.
+    // Get the course where currently DepartmentID = 2.
     Course course2 = context.Courses.First(c=>c.DepartmentID == 2);
 
     // Use DepartmentID foreign key property

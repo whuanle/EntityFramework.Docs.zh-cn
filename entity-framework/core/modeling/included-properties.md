@@ -21,7 +21,7 @@ ms.locfileid: "42998250"
 
 ## <a name="data-annotations"></a>数据注释
 
-可以使用数据注释来从模型中排除某个属性。
+您可以使用数据注释方式来从模型中排除某个属性。
 
 <!-- [!code-csharp[Main](samples/core/Modeling/DataAnnotations/Samples/IgnoreProperty.cs?highlight=6)] -->
 ``` csharp
@@ -37,7 +37,7 @@ public class Blog
 
 ## <a name="fluent-api"></a>Fluent API
 
-Fluent API 可用于从模型中排除某个属性。
+您也可以用Fluent API 从模型中排除某个属性。
 
 <!-- [!code-csharp[Main](samples/core/Modeling/FluentAPI/Samples/IgnoreProperty.cs?highlight=7,8)] -->
 ``` csharp

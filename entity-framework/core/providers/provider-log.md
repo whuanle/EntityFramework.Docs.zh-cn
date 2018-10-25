@@ -6,12 +6,12 @@ ms.date: 08/08/2018
 ms.assetid: 7CEF496E-A5B0-4F5F-B68E-529609B23EF9
 ms.technology: entity-framework-core
 uid: core/providers/provider-log
-ms.openlocfilehash: f5a16e13de7f3b892cfb9b7ecb76e4973c175812
-ms.sourcegitcommit: ae399f9f3d1bae2c446b552247bd3af3ca5a2cf9
+ms.openlocfilehash: a87eca72aa58487415eea11e4f83de1a19e73506
+ms.sourcegitcommit: 5e11125c9b838ce356d673ef5504aec477321724
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48575621"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50022332"
 ---
 # <a name="provider-impacting-changes"></a>提供程序影响的更改
 
@@ -60,3 +60,4 @@ ms.locfileid: "48575621"
   * 始终在基架的代码，而不是通过约定配置中配置 decimal 列的列的类型。
   * 提供程序不应要求其端上的任何更改。
 * https://github.com/aspnet/EntityFrameworkCore/pull/13469 -用于生成 SQL 用例表达式添加 CaseExpression
+* https://github.com/aspnet/EntityFrameworkCore/pull/13648 -添加了 SqlFunctionExpression 来提高存储类型推断的参数和结果上指定类型映射的功能。

@@ -4,12 +4,12 @@ author: rowanmiller
 ms.date: 11/15/2016
 ms.assetid: e079d4af-c455-4a14-8e15-a8471516d748
 uid: core/miscellaneous/connection-resiliency
-ms.openlocfilehash: d5101d0622ddc2c90ddded16b9ec6cc4eb814c36
-ms.sourcegitcommit: 269c8a1a457a9ad27b4026c22c4b1a76991fb360
+ms.openlocfilehash: 729cf9b8c038ea2adba8c79c68d9f6fb1676fefa
+ms.sourcegitcommit: 5e11125c9b838ce356d673ef5504aec477321724
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46283831"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50022179"
 ---
 # <a name="connection-resiliency"></a>连接弹性
 
@@ -46,6 +46,10 @@ protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 解决方案是需要执行的委托表示的所有内容，手动调用执行策略。 如果发生暂时性故障，执行策略会再次调用委托。
 
 [!code-csharp[Main](../../../samples/core/Miscellaneous/ConnectionResiliency/Program.cs#ManualTransaction)]
+
+这种方法还可用于环境事务。
+
+[!code-csharp[Main](../../../samples/core/Miscellaneous/ConnectionResiliency/Program.cs#AmbientTransaction)]
 
 ## <a name="transaction-commit-failure-and-the-idempotency-issue"></a>事务提交失败和幂等性问题
 

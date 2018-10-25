@@ -5,12 +5,12 @@ author: rowanmiller
 ms.date: 10/27/2016
 ms.assetid: a6b9cd22-6803-4c6c-a4d4-21147c0a81cb
 uid: efcore-and-ef6/index
-ms.openlocfilehash: 8568f0a3c6c4585c4fe05508fd610614107c8f66
-ms.sourcegitcommit: 8b42045cd21f80f425a92f5e4e9dd4972a31720b
+ms.openlocfilehash: 0f9f0d4708fa283855eddf2cfc231b37356e413e
+ms.sourcegitcommit: 5e11125c9b838ce356d673ef5504aec477321724
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2018
-ms.locfileid: "49315641"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50022345"
 ---
 # <a name="compare-ef-core--ef6"></a>比较 EF Core 和 EF6
 
@@ -73,7 +73,7 @@ EF Core 列指出了功能首次出现的产品版本。
 
 ### <a name="querying-data"></a>查询数据
 
-| **功能                                             | EF6  | **EF Core**                           |
+| **功能**                                           | EF6  | **EF Core**                           |
 |:------------------------------------------------------|:---------|:--------------------------------------|
 | LINQ 查询                                          | 是      | 1.0（进行中，针对复杂查询） |
 | 可读内容生成的 SQL                                | 差     | 1.0                                   |
@@ -147,7 +147,7 @@ EF Core 列指出了功能首次出现的产品版本。
 ## <a name="guidance-for-new-applications"></a>针对新应用程序的选择指南
 
 如果以下两个条件都成立，请考虑为新应用程序使用 EF Core：
-* 应用需要.NET Core 的功能。 有关详细信息，请参阅[在 .NET Core 和 .NET Framework 之间进行选择以用于服务器应用](https://docs.microsoft.com/en-us/dotnet/standard/choosing-core-framework-server)。
+* 应用需要.NET Core 的功能。 有关详细信息，请参阅[在 .NET Core 和 .NET Framework 之间进行选择以用于服务器应用](https://docs.microsoft.com/dotnet/standard/choosing-core-framework-server)。
 * EF Core 支持应用需要的所有功能。 如果缺少所需的功能，请检查 [EF Core 路线图](xref:core/what-is-new/roadmap)，了解是否有计划在将来为其提供支持。 
 
 如果以下两个条件都成立，请考虑使用 EF6：

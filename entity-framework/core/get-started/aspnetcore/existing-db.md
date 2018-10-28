@@ -4,12 +4,12 @@ author: rowanmiller
 ms.date: 08/02/2018
 ms.assetid: 2bc68bea-ff77-4860-bf0b-cf00db6712a0
 uid: core/get-started/aspnetcore/existing-db
-ms.openlocfilehash: 84e2e4bc1bdc774fa059fa893e0f8ac128931feb
-ms.sourcegitcommit: ad1bdea58ed35d0f19791044efe9f72f94189c18
+ms.openlocfilehash: bba2742c3f3b6da93dd4b4f170a3878fc0473bc8
+ms.sourcegitcommit: 5e11125c9b838ce356d673ef5504aec477321724
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47447178"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50022192"
 ---
 # <a name="getting-started-with-ef-core-on-aspnet-core-with-an-existing-database"></a>通过现有数据库在 ASP.NET Core 上开始使用 EF Core
 
@@ -59,7 +59,7 @@ ms.locfileid: "47447178"
 
 要安装 EF Core，请为要作为目标对象的 EF Core 数据库提供程序安装程序包。 有关可用提供程序的列表，请参阅[数据库提供程序](../../providers/index.md)。 
 
-对于本教程，无需安装提供程序包，因为本教程使用 SQL Server。 SQL Server 提供程序包包含在 [Microsoft.AspnetCore.App 元包](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/metapackage-app?view=aspnetcore-2.1)中。
+对于本教程，无需安装提供程序包，因为本教程使用 SQL Server。 SQL Server 提供程序包包含在 [Microsoft.AspnetCore.App 元包](https://docs.microsoft.com/aspnet/core/fundamentals/metapackage-app?view=aspnetcore-2.1)中。
 
 ## <a name="reverse-engineer-your-model"></a>对模型实施反向工程
 

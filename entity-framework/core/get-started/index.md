@@ -4,12 +4,12 @@ author: rowanmiller
 ms.date: 10/27/2016
 ms.assetid: 3c88427c-20c6-42ec-a736-22d3eccd5071
 uid: core/get-started/index
-ms.openlocfilehash: c8d53b47d215c0db673c9058e9d78a7e2e7b895f
-ms.sourcegitcommit: 0d36e8ff0892b7f034b765b15e041f375f88579a
+ms.openlocfilehash: 744ea587207775f3a5b9f7b14ba5959c55539c13
+ms.sourcegitcommit: 39080d38e1adea90db741257e60dc0e7ed08aa82
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2018
-ms.locfileid: "44250733"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50980010"
 ---
 # <a name="getting-started-with-entity-framework-core"></a>Entity Framework Core 入门
 
@@ -19,7 +19,7 @@ ms.locfileid: "44250733"
 
 ## <a name="step-by-step-tutorials"></a>分步入门教程
 
-无需具备 Entity Framework Core 或特定 IDE 背景知识即可学习这些入门教程。 这些教程会逐步演示如何创建简单的应用程序，以便查询和保存数据库中的数据。 我们已提供许多教程，指导你开始使用各种操作系统和应用程序类型。
+无需具备 Entity Framework Core 或任何特定 IDE 的原有知识，即可学习这些入门教程。 这些教程将逐步介绍如何创建用于查询和保存数据库中数据的简单应用程序。 我们已提供许多教程，指导你开始使用各种操作系统和应用程序类型。
 
 Entity Framework Core 可基于现有数据库创建模型，也可基于模型创建数据库。 提供的教程演示了这两种方法。
 

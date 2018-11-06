@@ -18,7 +18,7 @@ ms.locfileid: "48834741"
 
 迁移包括命令行工具和 API，可协助我们执行以下任务：
 
-* [创建迁移](#create-a-migration)。生成用于更新数据库的代码，使数据库与一系列模型更改同步。
+* [创建迁移](#create-a-migration)。 生成用于更新数据库的代码，使数据库与一系列模型更改同步。
 * [更新数据库](#update-the-database)。 应用挂起的迁移更新数据库架构。
 * [自定义迁移代码](#customize-migration-code)。 有时，需要修改或补充生成的代码。
 * [删除迁移](#remove-a-migration)。 删除生成的代码。
@@ -45,7 +45,7 @@ Add-Migration InitialCreate
 dotnet ef migrations add InitialCreate
 ```
 
-向“Migrations”目录下的项目添加以下三个文件：
+向“迁移”目录下的项目添加以下三个文件：
 
 * **00000000000000_InitialCreate.cs**--主迁移文件。 包含应用迁移所需的操作（在 `Up()` 中）和还原迁移所需的操作（在 `Down()` 中）。
 * **00000000000000_InitialCreate.Designer.cs**--迁移元数据文件。 包含 EF 所用的信息。
@@ -54,7 +54,7 @@ dotnet ef migrations add InitialCreate
 文件名中的时间戳有助于保证文件按时间顺序排列，以便你查看更改情况。
 
 > [!TIP]
-> 可以自由移动“Migrations”目录下的迁移文件并更改其命名空间。新建的迁移和上个迁移同级。
+> 可以自由移动“Migrations”目录下的迁移文件并更改其命名空间。 新建的迁移和上个迁移同级。
 
 <a name="update-the-database"></a>更新数据库
 -------------------
@@ -136,7 +136,7 @@ dotnet ef database update
 
 ### <a name="empty-migrations"></a>空迁移
 
-有时模型未变更，直接添加迁移也很有用处。在这种情况下，添加新迁移会创建一个带空类的代码文件。可以自定义此迁移，执行与 EF Core 模型不直接相关的操作。可能需要通过此方式管理的一些事项包括：
+有时模型未变更，直接添加迁移也很有用处。 在这种情况下，添加新迁移会创建一个带空类的代码文件。 可以自定义此迁移，执行与 EF Core 模型不直接相关的操作。 可能需要通过此方式管理的一些事项包括：
 
 * 全文搜索
 * 函数

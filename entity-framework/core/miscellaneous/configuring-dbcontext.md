@@ -4,12 +4,12 @@ author: rowanmiller
 ms.date: 10/27/2016
 ms.assetid: d7a22b5a-4c5b-4e3b-9897-4d7320fcd13f
 uid: core/miscellaneous/configuring-dbcontext
-ms.openlocfilehash: 393349c05ffaf42c6d2520e73abce23def6becc0
-ms.sourcegitcommit: dadee5905ada9ecdbae28363a682950383ce3e10
+ms.openlocfilehash: f5a9ae17471391442170d8c40264e4db6922cb08
+ms.sourcegitcommit: 39080d38e1adea90db741257e60dc0e7ed08aa82
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "42995933"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50979997"
 ---
 # <a name="configuring-a-dbcontext"></a>配置 DbContext
 
@@ -25,7 +25,7 @@ EF Core 设计时工具如[迁移](xref:core/managing-schemas/migrations/index)�
 
 `DbContext` 必须具有的实例`DbContextOptions`才能执行任何工作。 `DbContextOptions`实例执行的配置信息如：
 
-- 数据库提供程序，若要使用，通常情况下调用的方法，如选择`UseSqlServer`或 `UseSqlite`
+- 数据库提供程序，若要使用，通常选择通过调用的方法，如`UseSqlServer`或`UseSqlite`。 这些扩展方法需要相应的提供程序包，如`Microsoft.EntityFrameworkCore.SqlServer`或`Microsoft.EntityFrameworkCore.Sqlite`。 中定义的方法`Microsoft.EntityFrameworkCore`命名空间。
 - 任何必要的连接字符串或标识符的数据库实例中，通常作为参数传递到上述提供程序选择方法
 - 任何提供程序级别的可选行为选择器，通常还链接到提供程序选择方法调用中
 - 任何常规 EF Core 行为选择器，通常链接之后或之前提供程序选择器方法

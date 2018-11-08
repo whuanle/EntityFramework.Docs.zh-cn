@@ -13,7 +13,7 @@ ms.locfileid: "45489266"
 ---
 # <a name="creating-and-configuring-a-model"></a>创建并配置模型
 
-Entity Framework 使用一组约定基于实体类的形状构建模型。 可指定其他配置补充和/或替代由约定发现的内容。
+Entity Framework 使用一组约定基于实体类的形状构建模型。 你也可以指定其它配置来补充、替代由系统约定自动生成的内容。
 
 本文介绍可应用于面向任何数据存储的模型的配置，以及面向任意关系数据库时可应用的配置。 提供程序还可支持特定于具体数据存储的配置。 有关提供程序特定配置的文档，请参阅[数据库提供程序](../providers/index.md)部分。
 
@@ -22,7 +22,7 @@ Entity Framework 使用一组约定基于实体类的形状构建模型。 可�
 
 ## <a name="use-fluent-api-to-configure-a-model"></a>使用 fluent API 配置模型
 
-可在派生上下文中替代 `OnModelCreating` 方法，并使用 `ModelBuilder API` 来配置模型。 此配置方法最为有效，并可在不修改实体类的情况下指定配置。 Fluent API 配置具有最高优先级，并将替代约定和数据注释。
+可在派生上下文中替代 `OnModelCreating` 方法，并使用 `ModelBuilder API` 来配置模型。 这种配置方法最为有效，可在不修改实体类的情况下指定配置。 Fluent API 配置具有最高优先级，并将替代约定和数据注释。
 
 <!-- [!code-csharp[Main](samples/core/Modeling/FluentAPI/Samples/Required.cs?range=5-15&highlight=5-10)] -->
 
@@ -42,7 +42,7 @@ Entity Framework 使用一组约定基于实体类的形状构建模型。 可�
 
 ## <a name="use-data-annotations-to-configure-a-model"></a>使用数据注释来配置模型
 
-也可将特性（称为数据注释）应用于类和属性。 数据注释会替代约定，但会被 Fluent API 配置替代。
+也可将特性（也叫数据注释）应用于类和属性。 数据注释会替代约定，但也会被存在的 Fluent API 配置替代。
 
 <!-- [!code-csharp[Main](samples/core/Modeling/DataAnnotations/Samples/Required.cs?range=11-16&highlight=4)] -->
 ``` csharp

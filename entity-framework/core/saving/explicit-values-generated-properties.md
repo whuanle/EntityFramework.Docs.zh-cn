@@ -11,11 +11,11 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 08/27/2018
 ms.locfileid: "42997848"
 ---
-# <a name="setting-explicit-values-for-generated-properties"></a>设置已生成属性的显式值
+# <a name="setting-explicit-values-for-generated-properties"></a>设置生成属性显式值
 
-生成的属性是在添加或者更新实体时生成（由 EF 或数据库生成）其值的属性。 有关详细信息，请参阅[生成的属性](../modeling/generated-properties.md)。
+生成的属性是在添加或者更新实体时（由 EF 或数据库生成）生成其值的属性。 有关详细信息，请参阅[生成的属性](../modeling/generated-properties.md)。
 
-可能会有希望设置已生成属性的显式值，而不是生成显式值的情况。
+可能会出现希望为生成属性设置显式值而非使用其生成值的情况。
 
 > [!TIP]  
 > 可在 GitHub 上查看此文章的[示例](https://github.com/aspnet/EntityFramework.Docs/tree/master/samples/core/Saving/Saving/ExplicitValuesGenerateProperties/)。
@@ -70,7 +70,7 @@ ms.locfileid: "42997848"
 [!code-csharp[Main](../../../samples/core/Saving/Saving/ExplicitValuesGenerateProperties/EmployeeContext.cs#LastPayRaise)]
 
 > [!NOTE]  
-> 默认情况下，如果尝试保存配置为在更新期间生成的属性的显式值，EF Core 将引发异常。 若要避免此问题，必须下拉到较低级别的元数据 API 并设置 `AfterSaveBehavior`（如上所示）。
+> 默认情况下，在更新期间如果你为生成属性指定显式值，EF Core 将引发异常。 若要避免此问题，必须对`AfterSaveBehavior`设置为较低级别的 `metadata API` （如上所示）。
 
 > [!NOTE]  
 > **EF Core 2.0 中的更改：** 在以前版本中，通过 `IsReadOnlyAfterSave` 标志控制保存后行为。 此标志已过时，将替换为 `AfterSaveBehavior`。
@@ -79,9 +79,9 @@ ms.locfileid: "42997848"
 
 [!code-sql[Main](../../../samples/core/Saving/Saving/ExplicitValuesGenerateProperties/employee_UPDATE.sql)]
 
-以下代码是增加数据库中两个员工的薪资。
+以下代码用于增加数据库中两个员工的薪资。
 * 对于第一个员工，没有为 `Employee.LastPayRaise` 属性分配任何值，因此仍将设置为 null。
-* 对于第二个员工，设置显式值为一周前（在这个日期加薪开始生效）。
+* 对于第二个员工，设置显式值为一周前（使加薪在较早的日期开始生效）。
 
 [!code-csharp[Main](../../../samples/core/Saving/Saving/ExplicitValuesGenerateProperties/Sample.cs#LastPayRaise)]
 

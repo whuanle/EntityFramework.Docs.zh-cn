@@ -1,5 +1,5 @@
 ---
-title: 断开连接的实体 - EF Core
+title: 未连接的实体 - EF Core
 author: ajcvickers
 ms.author: avickers
 ms.date: 10/27/2016
@@ -12,7 +12,7 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 08/27/2018
 ms.locfileid: "42994394"
 ---
-# <a name="disconnected-entities"></a>断开连接的实体
+# <a name="disconnected-entities"></a>未连接的实体
 
 DbContext 实例将自动跟踪从数据库返回的实体。 调用 SaveChanges() 方法时，系统能够检测到对这些实体所做的更改并根据需要更新数据库。 有关详细信息，请参阅[基本保存](basic.md)和[相关数据](related-data.md)。
 

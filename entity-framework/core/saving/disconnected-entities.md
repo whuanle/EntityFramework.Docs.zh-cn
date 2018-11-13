@@ -1,5 +1,5 @@
 ---
-title: 断开连接的实体 - EF Core
+title: 未连接的实体 - EF Core
 author: ajcvickers
 ms.author: avickers
 ms.date: 10/27/2016
@@ -12,11 +12,11 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 08/27/2018
 ms.locfileid: "42994394"
 ---
-# <a name="disconnected-entities"></a>断开连接的实体
+# <a name="disconnected-entities"></a>未连接的实体
 
 DbContext 实例将自动跟踪从数据库返回的实体。 调用 SaveChanges 时，将检测到对这些实体所做的更改并根据需要更新数据库。 有关详细信息，请参阅[基本保存](basic.md)和[相关数据](related-data.md)。
 
-但是，有时会使用一个上下文实例查询实体，然后使用其他实例对其进行保存。 这通常在“断开连接”的情况下发生，如 Web 应用程序，其中实体被查询、发送到客户端、被修改、发送回请求中的服务器，然后进行保存。 在这种情况下，第二个上下文实例需要知道实体是新的（应插入）还是现有的（应更新）。
+但是，有时会使用一个上下文实例查询实体，然后使用其他实例对其进行保存。 这通常在“未连接”的情况下发生，如 Web 应用程序，其中实体被查询、发送到客户端、被修改、发送回请求中的服务器，然后进行保存。 在这种情况下，第二个上下文实例需要知道实体是新的（应插入）还是现有的（应更新）。
 
 > [!TIP]  
 > 可在 GitHub 上查看此文章的[示例](https://github.com/aspnet/EntityFramework.Docs/tree/master/samples/core/Saving/Saving/Disconnected/)。

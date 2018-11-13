@@ -1,5 +1,5 @@
 ---
-title: 设置已生成属性的显式值 - EF Core
+title: 设置生成属性的显式值 - EF Core
 author: rowanmiller
 ms.date: 10/27/2016
 ms.assetid: 3f1993c2-cdf5-425b-bac2-a2665a20322b
